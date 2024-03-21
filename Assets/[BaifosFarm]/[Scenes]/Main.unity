@@ -325,6 +325,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3123367286603581731, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 175
+      objectReference: {fileID: 0}
     - target: {fileID: 4657790607731129450, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -403,6 +407,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4657790607731129450, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4830867766016472560, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4830867766016472560, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4830867766016472560, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
+      propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7203363221026654370, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
@@ -653,9 +669,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plane
       objectReference: {fileID: 0}
+    - target: {fileID: 3678483527426291118, guid: 7381b3d12a922564f9af40435ef600fb, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3749204303058283668, guid: 7381b3d12a922564f9af40435ef600fb, type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3749204303058283668, guid: 7381b3d12a922564f9af40435ef600fb, type: 3}
       propertyPath: m_LocalScale.y
@@ -663,7 +683,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3749204303058283668, guid: 7381b3d12a922564f9af40435ef600fb, type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3749204303058283668, guid: 7381b3d12a922564f9af40435ef600fb, type: 3}
       propertyPath: m_LocalPosition.x
@@ -706,7 +726,31 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7361810086022755353, guid: 7381b3d12a922564f9af40435ef600fb, type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361810086022755353, guid: 7381b3d12a922564f9af40435ef600fb, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361810086022755353, guid: 7381b3d12a922564f9af40435ef600fb, type: 3}
       propertyPath: m_ReceiveShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361810086022755353, guid: 7381b3d12a922564f9af40435ef600fb, type: 3}
+      propertyPath: m_LightProbeUsage
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361810086022755353, guid: 7381b3d12a922564f9af40435ef600fb, type: 3}
+      propertyPath: m_ScaleInLightmap
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361810086022755353, guid: 7381b3d12a922564f9af40435ef600fb, type: 3}
+      propertyPath: m_StitchLightmapSeams
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7361810086022755353, guid: 7381b3d12a922564f9af40435ef600fb, type: 3}
+      propertyPath: m_ReflectionProbeUsage
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
