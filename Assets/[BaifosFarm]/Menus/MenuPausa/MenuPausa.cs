@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+//·······················································SCRIPT MENÚ PAUSA······················································
+//Este script ha de estar en CanvasPausa
+
 public class MenuPausa : MonoBehaviour
 {
-    public GameObject objetoMenuPausa;
-    public bool Pausa = false;
+    [SerializeField] private GameObject objetoMenuPausa;
+    [SerializeField] private bool Pausa = false;
 
 
     void Start()
@@ -21,14 +24,7 @@ public class MenuPausa : MonoBehaviour
         {
             if(Pausa == false)
             {
-                objetoMenuPausa.SetActive(true);
-                Pausa = true;
-
-                Time.timeScale = 0; //el juego se pausa
-
-                //para que se vea el cursor del ratón y poder clicar en los botones:
-                Cursor.visible = true;
-                Cursor.lockState = CursorLockMode.None;
+                Pausar();
             }
             else
             {
@@ -37,6 +33,18 @@ public class MenuPausa : MonoBehaviour
         }
     }
 
+    public void Pausar()
+    {
+        objetoMenuPausa.SetActive(true);
+        Pausa = true;
+
+        Time.timeScale = 0; //el juego se pausa
+
+        //para que se vea el cursor del ratón y poder clicar en los botones:
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+    
     public void Reanudar()
     {
         objetoMenuPausa.SetActive(false);

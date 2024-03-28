@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2979293648125989735}
   - component: {fileID: 1047491118501829522}
   - component: {fileID: 4217212535293840361}
-  - component: {fileID: 4734384309047757790}
+  - component: {fileID: 2816968371450568810}
   m_Layer: 5
   m_Name: CanvasPausa
   m_TagString: Untagged
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &4734384309047757790
+--- !u!114 &2816968371450568810
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4734384309047757790}
+      - m_Target: {fileID: 2816968371450568810}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
         m_MethodName: IrAlMenu
         m_Mode: 5
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4734384309047757790}
+      - m_Target: {fileID: 2816968371450568810}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
         m_MethodName: IrAlMenu
         m_Mode: 5
@@ -855,7 +855,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4734384309047757790}
+      - m_Target: {fileID: 2816968371450568810}
         m_TargetAssemblyTypeName: MenuPausa, Assembly-CSharp
         m_MethodName: Reanudar
         m_Mode: 1
