@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//·················································SCRIPT PARA RECOGER Y SOLTAR EL HENO·················································
+
 //Este script ha de estar en el objeto Mano dentro de Personaje
 
 public class RecogerHeno : MonoBehaviour
@@ -14,8 +16,6 @@ public class RecogerHeno : MonoBehaviour
     public GameObject prefabHeno;
 
     public GameObject heno;
-    
-    public BoxCollider colliderHeno;
 
    
     void Update()
@@ -26,27 +26,20 @@ public class RecogerHeno : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.gameObject.name == "MontonHeno")
+        if(other.gameObject.name == "MontonHeno") //cuando el personaje se acerca al montón de heno,
         {
-            if (Input.GetKey("e") && objetoEnMano == null)
+            if (Input.GetKey("e") && objetoEnMano == null) //se pulsa E y no tiene nada en la mano:
             {
-                heno = Instantiate(prefabHeno);
-            
-                //heno.transform.position = new Vector3(0, 0, 0);
+                heno = Instantiate(prefabHeno); //creamos un objeto heno 
+               
+                //y lo recoge el personaje
                 heno.GetComponent<Rigidbody>().useGravity = false;
                 heno.GetComponent<Rigidbody>().isKinematic = true;
                 heno.transform.position = puntoDeMano.transform.position;
                 heno.transform.SetParent(puntoDeMano.transform);
                 objetoEnMano = other.gameObject;
 
-                //crear objeto heno
-                /*
-                other.GetComponent<Rigidbody>().useGravity = false;
-                other.GetComponent <Rigidbody>().isKinematic = true;
-                other.transform.position = puntoDeMano.transform.position;
-                other.gameObject.transform.SetParent(puntoDeMano.transform);
-                objetoEnMano = other.gameObject;
-                */
+                
 
             }
         }
