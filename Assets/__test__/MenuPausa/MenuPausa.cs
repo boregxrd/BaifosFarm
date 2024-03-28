@@ -51,6 +51,6 @@ public class MenuPausa : MonoBehaviour
 
     public void IrAlMenu(string NombreMenu)
     {
-
+        SceneManager.LoadScene(NombreMenu);
     }
 }
