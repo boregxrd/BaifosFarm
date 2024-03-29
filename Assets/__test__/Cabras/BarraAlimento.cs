@@ -10,6 +10,7 @@ public class BarraAlimento : MonoBehaviour
     public float velocidadReduccion = 3f; // Velocidad a la que se reduce la barra de alimentación
 
     private Image barraAlimento;
+    public GameObject cabra;
 
     void Start()
     {
@@ -27,8 +28,11 @@ public class BarraAlimento : MonoBehaviour
         }
         else
         {
-            // Aquí puedes agregar lógica adicional si el valor de la alimentación llega a cero
-            Debug.Log("La cabra ha muerto de hambre");
+            // Destruir la cabra cuando la barra de alimentación llegue a cero
+            if (cabra != null)
+            {
+                Destroy(cabra);
+            }
         }
     }
 }
