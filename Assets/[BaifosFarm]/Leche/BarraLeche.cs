@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//·······················································SCRIPT BARRA LECHE······················································
+//Este script ha de estar en BarraLeche dentro de Cabra
 
 public class BarraLeche : MonoBehaviour
 {
@@ -33,5 +35,10 @@ public class BarraLeche : MonoBehaviour
             valorActual = valorMaximo;
             lechePreparada = true;
         }
+    }
+
+    public void resetearLeche()
+    {
+        valorActual = 0f;
     }
 }

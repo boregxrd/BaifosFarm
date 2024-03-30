@@ -1,17 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//···············································SCRIPT CONTROLADORA DE ACCIONES (MAQUINA DE ESTADOS FINITOS)······················································
+//Este script ha de estar en Mano dentro de Personaje
 
 public class ControladorAccionesPersonaje : MonoBehaviour
 {
     public GameObject puntoDeMano;
     public GameObject objetoEnMano = null;
 
+    //Diferentes acciones que realiza el personaje:
+
     [SerializeField] private RecogerAlimento recogerAlimento;
     [SerializeField] private Alimentar alimentar;
     [SerializeField] private Ordeniar ordeniar;
-    
-    [SerializeField] private bool ordenyoIniciado = false;
     
 
     private void Awake()
@@ -23,6 +25,11 @@ public class ControladorAccionesPersonaje : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+
+        //Dependiendo de lo que el personaje tenga cerca, lo que lleve en las manos y la tecla que pulse realizará una acción u otra:
+
+
+        //RECOGER ALIMENTO
         if (other.gameObject.name == "MontonHeno") //cuando el personaje se acerca al montón de heno,
         {
             if (Input.GetKey("e") && objetoEnMano == null) //se pulsa E y no tiene nada en la mano:
@@ -33,7 +40,8 @@ public class ControladorAccionesPersonaje : MonoBehaviour
             }
         }
 
-        if(other.gameObject.CompareTag("cabraBlanca") || other.gameObject.CompareTag("cabraNegra"))
+        //ALIMENTAR
+        if(other.gameObject.CompareTag("cabraBlanca") || other.gameObject.CompareTag("cabraNegra")) //si se acerca a cualquier cabra
         {
             if (Input.GetKey("e") && objetoEnMano == recogerAlimento.objetoQueCogeBaifo() && recogerAlimento.preparadoParaAlimentar == true)
             {
@@ -44,7 +52,8 @@ public class ControladorAccionesPersonaje : MonoBehaviour
             }
         }
 
-        if (other.gameObject.CompareTag("cabraBlanca"))
+        //ORDEÑAR
+        if (other.gameObject.CompareTag("cabraBlanca")) 
         {
             if (Input.GetKey(KeyCode.Space) && objetoEnMano == null && ordeniar.ordenioIniciado == false)
             {

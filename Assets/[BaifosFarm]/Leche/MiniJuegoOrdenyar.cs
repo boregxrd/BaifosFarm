@@ -1,8 +1,12 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+
+//·······················································SCRIPT MINI JUEGO DE ORDEÑAR······················································
+//Este script ha de estar en CanvasMiniJuegoOrdenyar
 
 public class MiniJuegoOrdenyar : MonoBehaviour
 {
@@ -24,6 +28,8 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     [SerializeField] private bool iniciarProceso = false;
     public bool miniJuegoReseteado = false;
 
+    [SerializeField] MenuPausa menuPausa;
+
     private void OnEnable()
     {
         objetoMiniJuegoOrdenyar.SetActive(true);
@@ -43,7 +49,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         {
             VaciarConElTiempo();
 
-            if(Input.GetKeyUp(KeyCode.Escape))
+            if(Input.GetKeyUp(KeyCode.Tab))
             {
                 objetoMiniJuegoOrdenyar.SetActive(false);
                 resetearMiniJuego();
@@ -57,6 +63,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
             if(valorActual >= valorMaximo)
             {
                 valorActual = valorMaximo;
+                porcentaje.text = valorActual.ToString();
                 objetoMiniJuegoOrdenyar.SetActive(false);
                 generarLeche();
             }
@@ -68,6 +75,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     {
         valorActual += incremento;
         barraOrdenyar.fillAmount = valorActual / valorMaximo;
+        mostrarPorcentaje();
     }
 
     private void VaciarConElTiempo()
@@ -75,12 +83,15 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         if (valorActual > 0)
         {
             valorActual -= velocidadVaciado * Time.deltaTime;
-            barraOrdenyar.fillAmount = valorActual / valorMaximo; // Actualiza la barra de alimentación visualmente
+            barraOrdenyar.fillAmount = valorActual / valorMaximo; 
+            mostrarPorcentaje();
         }
         else //si la barra llega a 0
         {
             valorActual = 0;
+            mostrarPorcentaje();
             objetoMiniJuegoOrdenyar.SetActive(false);
+            
         }
     }
 
@@ -110,6 +121,12 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         valorActual = 15f;
         enabled = false;
         miniJuegoReseteado = true;
+    }
+
+    private void mostrarPorcentaje()
+    {
+        int valorRedondeado = (int)Math.Round(valorActual);
+        porcentaje.text = $"{valorRedondeado}%";
     }
 
 }

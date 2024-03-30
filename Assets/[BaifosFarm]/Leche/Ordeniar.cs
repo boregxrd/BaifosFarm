@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//·······················································SCRIPT ACCIÓN ORDEÑAR······················································
+//Este script ha de estar en Mano dentro de Personaje
+
 public class Ordeniar : MonoBehaviour
 {
     [SerializeField] private BarraLeche barraLeche;
@@ -40,8 +43,7 @@ public class Ordeniar : MonoBehaviour
     {
         if (miniJuegoOrdenyar.miniJuegoReseteado == true)
         {
-            //barraLeche a 0
-            Debug.Log("Barra leche a 0");
+            barraLeche.resetearLeche();
             enabled = false;
             miniJuegoOrdenyar.miniJuegoReseteado = false;
         }
