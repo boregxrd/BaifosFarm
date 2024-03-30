@@ -9,19 +9,17 @@ using UnityEngine;
 public class RecogerHeno : MonoBehaviour
 {
 
-    public GameObject puntoDeMano;
+    [SerializeField] private GameObject puntoDeMano;
 
-    private GameObject objetoEnMano = null;
+    [SerializeField] private GameObject objetoEnMano = null;
 
-    public GameObject prefabHeno;
+    [SerializeField] private GameObject prefabHeno;
 
-    public GameObject heno;
+    [SerializeField] private GameObject heno;
 
-   
-    void Update()
-    {
-        
-    }
+    [SerializeField] private BarraAlimento barraAlimento;
+
+    [SerializeField] private float incremento = 25f;
 
 
     private void OnTriggerStay(Collider other)
@@ -39,8 +37,25 @@ public class RecogerHeno : MonoBehaviour
                 heno.transform.SetParent(puntoDeMano.transform);
                 objetoEnMano = other.gameObject;
 
-                
+            }
+        }
 
+        if (other.gameObject.CompareTag("cabra")) //cuando el personaje de acerca a cualquier cabra,
+        {
+            if(Input.GetKey("e") && objetoEnMano != null) 
+            {
+                var children = other.gameObject.GetComponentsInChildren<Transform>(); //dentro de la cabra busco el objeto barraAlimento y luego su script
+                foreach (var child in children)
+                {
+                    if (child.name == "BarraAlimentos")
+                    {
+                         barraAlimento = child.GetComponent<BarraAlimento>();
+                         barraAlimento.incrementarNivelAlimentacion(incremento);
+                    }
+                }       
+
+                Destroy(heno);
+                objetoEnMano = null;
             }
         }
     }
