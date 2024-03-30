@@ -46,7 +46,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
 
         if (other.gameObject.CompareTag("cabraBlanca"))
         {
-            if (Input.GetKey("e") && objetoEnMano == null && ordeniar.ordenioIniciado == false)
+            if (Input.GetKey(KeyCode.Space) && objetoEnMano == null && ordeniar.ordenioIniciado == false)
             {
                 ordeniar.enabled = true;
                 ordeniar.IniciarOrdenyado(other);
