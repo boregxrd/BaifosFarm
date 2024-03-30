@@ -39,8 +39,16 @@ public class RecogerHeno : MonoBehaviour
                 heno.transform.SetParent(puntoDeMano.transform);
                 objetoEnMano = other.gameObject;
 
-                
+            }
+        }
 
+        if (other.gameObject.CompareTag("cabra"))
+        {
+            if(Input.GetKey("e") && objetoEnMano != null)
+            {
+                Debug.Log("cerca de cabra");
+                Destroy(heno);
+                objetoEnMano = null;
             }
         }
     }
