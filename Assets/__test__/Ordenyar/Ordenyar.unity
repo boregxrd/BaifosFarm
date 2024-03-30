@@ -221,7 +221,7 @@ MonoBehaviour:
   leche: {fileID: 0}
   barraLeche: {fileID: 0}
   procesoIniciado: 0
-  miniJuegoOrdenyar: {fileID: 1120540756}
+  miniJuegoOrdenyar: {fileID: 789786173}
 --- !u!1001 &437128692
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -645,7 +645,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1120540752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -742,7 +742,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objetoMiniJuegoOrdenyar: {fileID: 789786173}
-  canvas: {fileID: 1120540751}
+  porcentaje: {fileID: 565931149}
 --- !u!1001 &1125328954
 PrefabInstance:
   m_ObjectHideFlags: 0
