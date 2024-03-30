@@ -244,7 +244,10 @@ GameObject:
   - component: {fileID: 7845364944249158664}
   - component: {fileID: 75114548096813488}
   - component: {fileID: 3024437114509304526}
-  - component: {fileID: 3601081111939653756}
+  - component: {fileID: 8499726824884199935}
+  - component: {fileID: 2353426376809728305}
+  - component: {fileID: 3712649515167418578}
+  - component: {fileID: 5245647238570162678}
   m_Layer: 0
   m_Name: Mano
   m_TagString: Untagged
@@ -316,7 +319,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3601081111939653756
+--- !u!114 &8499726824884199935
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -325,12 +328,61 @@ MonoBehaviour:
   m_GameObject: {fileID: 4206943660840412181}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1ea0226af4800884eae15c3b5f8b2135, type: 3}
+  m_Script: {fileID: 11500000, guid: 79e07668f9843f446b85aac628605588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puntoDeMano: {fileID: 4737345562445081389}
-  prefabHeno: {fileID: 2973774707385990602, guid: cad18f8f1fe995b4b8d5262aad37e01b, type: 3}
+  puntoDeMano: {fileID: 0}
+  objetoEnMano: {fileID: 0}
+  recogerAlimento: {fileID: 0}
+  alimentar: {fileID: 0}
+  ordeniar: {fileID: 0}
+  ordenyoIniciado: 0
+--- !u!114 &2353426376809728305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4206943660840412181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc5f8991c29081f4eb679e975c5b7b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabHeno: {fileID: 0}
   heno: {fileID: 0}
+  controladorAccionesPersonaje: {fileID: 0}
+  preparadoParaAlimentar: 0
+--- !u!114 &3712649515167418578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4206943660840412181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce9e396166878ce46ae9c5d520f64e02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controladorAccionesPersonaje: {fileID: 0}
+  barraAlimento: {fileID: 0}
+  incremento: 25
+--- !u!114 &5245647238570162678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4206943660840412181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0de4753501d1da47ad33be8c06ba83b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barraLeche: {fileID: 0}
+  miniJuegoOrdenyar: {fileID: 0}
+  ordenioIniciado: 0
 --- !u!1 &4737345562445081389
 GameObject:
   m_ObjectHideFlags: 0

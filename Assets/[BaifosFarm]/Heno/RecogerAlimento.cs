@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+//·······················································SCRIPT ACCIÓN RECOGER ALIMENTO······················································
+//Este script ha de estar en Mano dentro de Personaje
 
 public class RecogerAlimento : MonoBehaviour
 {

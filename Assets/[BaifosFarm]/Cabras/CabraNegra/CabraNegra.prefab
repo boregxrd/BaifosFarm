@@ -946,7 +946,7 @@ GameObject:
   - component: {fileID: 3216859230856147325}
   m_Layer: 0
   m_Name: CabraNegra
-  m_TagString: cabra
+  m_TagString: cabraNegra
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

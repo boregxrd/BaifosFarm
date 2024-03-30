@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 public class MenuPausa : MonoBehaviour
 {
     [SerializeField] private GameObject objetoMenuPausa;
-    [SerializeField] private bool Pausa = false;
+    public bool Pausa = false;
 
 
     void Start()
