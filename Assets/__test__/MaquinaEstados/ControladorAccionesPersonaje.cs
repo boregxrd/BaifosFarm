@@ -46,7 +46,6 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         {
             if (Input.GetKey("e") && objetoEnMano == null && !ordenyoIniciado)
             {
-                Debug.Log("He apretado E");
                 ordenyoIniciado = true;
                 ordeniar.enabled = true;
                 ordeniar.IniciarOrdenyado(other);

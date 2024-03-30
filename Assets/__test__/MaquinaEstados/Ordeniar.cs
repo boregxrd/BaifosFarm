@@ -15,7 +15,6 @@ public class Ordeniar : MonoBehaviour
 
     public void IniciarOrdenyado(Collider other)
     {
-        Debug.Log("Ordeniar");
         var children = other.gameObject.GetComponentsInChildren<Transform>(); //dentro de la cabra busco el objeto barraAlimento y luego su script
         foreach (var child in children)
         {
@@ -25,7 +24,6 @@ public class Ordeniar : MonoBehaviour
 
                 if (barraLeche.lechePreparada == true)
                 {
-                    Debug.Log("a ordeñar");
                     miniJuegoOrdenyar.SetActive(true);
                 }
             }
