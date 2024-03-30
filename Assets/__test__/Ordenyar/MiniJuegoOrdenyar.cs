@@ -21,34 +21,46 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     [SerializeField] private GameObject prefabLeche;
     [SerializeField] private GameObject leche;
 
+    [SerializeField] private bool iniciarProceso = false;
+    public bool miniJuegoReseteado = false;
 
-    void Start()
+    private void OnEnable()
     {
-        objetoMiniJuegoOrdenyar.SetActive(false);
+        objetoMiniJuegoOrdenyar.SetActive(true);
+        iniciarProceso = true;
         barraOrdenyar.fillAmount = valorActual / valorMaximo;
+    }
+
+    private void Awake()
+    {
+        enabled = false;
+        objetoMiniJuegoOrdenyar.SetActive(false);
     }
 
     private void Update()
     {
-
-        VaciarConElTiempo();
-
-        if(Input.GetKeyUp(KeyCode.Escape))
+        if (iniciarProceso)
         {
-            objetoMiniJuegoOrdenyar.SetActive(false);
-        }
+            VaciarConElTiempo();
 
-        if(Input.GetKeyDown(KeyCode.Space)) 
-        {
-            incrementar();
-        }
+            if(Input.GetKeyUp(KeyCode.Escape))
+            {
+                objetoMiniJuegoOrdenyar.SetActive(false);
+                resetearMiniJuego();
+            }
 
-        if(valorActual >= valorMaximo)
-        {
-            valorActual = valorMaximo;
-            objetoMiniJuegoOrdenyar.SetActive(false);
-            generarLeche();
-        }
+            if(Input.GetKeyDown(KeyCode.Space)) 
+            {
+                incrementar();
+            }
+
+            if(valorActual >= valorMaximo)
+            {
+                valorActual = valorMaximo;
+                objetoMiniJuegoOrdenyar.SetActive(false);
+                generarLeche();
+            }
+        } 
 
     }
 
@@ -82,5 +94,22 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         leche.transform.position = controladorAccionesPersonaje.puntoDeMano.transform.position;
         leche.transform.SetParent(controladorAccionesPersonaje.puntoDeMano.transform);
         controladorAccionesPersonaje.objetoEnMano = leche;
+
+        resetearMiniJuego();
     }
+
+   
+    public GameObject lecheQueCogeBaifo()
+    {
+        return leche;
+    }
+   
+
+    private void resetearMiniJuego()
+    {
+        valorActual = 15f;
+        enabled = false;
+        miniJuegoReseteado = true;
+    }
+
 }

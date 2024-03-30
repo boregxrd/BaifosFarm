@@ -28,6 +28,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
             if (Input.GetKey("e") && objetoEnMano == null) //se pulsa E y no tiene nada en la mano:
             {
                 alimentar.enabled = false;
+                ordeniar.enabled = false;
                 recogerAlimento.enabled = true;
             }
         }
@@ -36,21 +37,24 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         {
             if (Input.GetKey("e") && objetoEnMano == recogerAlimento.objetoQueCogeBaifo() && recogerAlimento.preparadoParaAlimentar == true)
             {
-                alimentar.enabled = true;
+                alimentar.enabled = true; 
                 alimentar.DarComida(other);
                 recogerAlimento.enabled = false;
+                ordeniar.enabled = false;
             }
         }
 
         if (other.gameObject.CompareTag("cabraBlanca"))
         {
-            if (Input.GetKey("e") && objetoEnMano == null && !ordenyoIniciado)
+            if (Input.GetKey("e") && objetoEnMano == null && ordeniar.ordenioIniciado == false)
             {
-                ordenyoIniciado = true;
                 ordeniar.enabled = true;
                 ordeniar.IniciarOrdenyado(other);
                 alimentar.enabled = false;
             }
         }
+
+        
+
     }
 }

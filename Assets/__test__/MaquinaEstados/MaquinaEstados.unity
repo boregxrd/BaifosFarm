@@ -1097,11 +1097,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: c3afd645e3030944fbace2cb7d778e53, type: 3}
+  m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
-  m_FillMethod: 4
+  m_FillMethod: 0
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
@@ -1243,10 +1243,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objetoMiniJuegoOrdenyar: {fileID: 211737699}
   porcentaje: {fileID: 435876466}
-  valorActual: 0
+  valorActual: 15
   velocidadVaciado: 5
-  lechePreparada: 0
+  incremento: 15
   barraOrdenyar: {fileID: 1825418686}
+  controladorAccionesPersonaje: {fileID: 211917547}
+  prefabLeche: {fileID: 1676810386094116703, guid: 6817a779a69d5ad4eb6c3ceb8a2fbae6, type: 3}
+  leche: {fileID: 0}
+  iniciarProceso: 0
 --- !u!114 &1979181394
 MonoBehaviour:
   m_ObjectHideFlags: 0

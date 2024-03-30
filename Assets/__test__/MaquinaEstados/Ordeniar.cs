@@ -6,7 +6,9 @@ public class Ordeniar : MonoBehaviour
 {
     [SerializeField] private BarraLeche barraLeche;
 
-    [SerializeField] private GameObject miniJuegoOrdenyar;
+    [SerializeField] private MiniJuegoOrdenyar miniJuegoOrdenyar;
+
+    public bool ordenioIniciado = false;
 
     private void Awake()
     {
@@ -15,6 +17,8 @@ public class Ordeniar : MonoBehaviour
 
     public void IniciarOrdenyado(Collider other)
     {
+        miniJuegoOrdenyar = GameObject.Find("CanvasMiniJuegoOrdenyar").GetComponent<MiniJuegoOrdenyar>();
+
         var children = other.gameObject.GetComponentsInChildren<Transform>(); //dentro de la cabra busco el objeto barraAlimento y luego su script
         foreach (var child in children)
         {
@@ -24,9 +28,28 @@ public class Ordeniar : MonoBehaviour
 
                 if (barraLeche.lechePreparada == true)
                 {
-                    miniJuegoOrdenyar.SetActive(true);
+                    miniJuegoOrdenyar.enabled = true;
+                    ordenioIniciado = true;
+                    
                 }
             }
         }
+    }
+
+    private void Update()
+    {
+        if (miniJuegoOrdenyar.miniJuegoReseteado == true)
+        {
+            //barraLeche a 0
+            Debug.Log("Barra leche a 0");
+            enabled = false;
+            miniJuegoOrdenyar.miniJuegoReseteado = false;
+        }
+                    
+    }
+
+    private void OnDisable()
+    {
+        ordenioIniciado = false;
     }
 }
