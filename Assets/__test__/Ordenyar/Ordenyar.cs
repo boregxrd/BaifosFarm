@@ -16,6 +16,8 @@ public class Ordenyar : MonoBehaviour
 
     [SerializeField] private bool procesoIniciado = false;
 
+    [SerializeField] private GameObject miniJuegoOrdenyar;
+
 
     private void OnTriggerStay(Collider other)
     {
@@ -34,51 +36,51 @@ public class Ordenyar : MonoBehaviour
                         if (barraLeche.lechePreparada == true)
                         {
                             Debug.Log("a ordeñar");
+                            miniJuegoOrdenyar.SetActive(true);
                         }
                     }
                 }
             }
         }
     }
+}
 
-    /*
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.name == "MontonHeno") //cuando el personaje se acerca al montón de heno,
-        {
-            if (Input.GetKey("e") && objetoEnMano == null) //se pulsa E y no tiene nada en la mano:
-            {
-                heno = Instantiate(prefabHeno); //creamos un objeto heno 
-
-                //y lo recoge el personaje
-                heno.GetComponent<Rigidbody>().useGravity = false;
-                heno.GetComponent<Rigidbody>().isKinematic = true;
-                heno.transform.position = puntoDeMano.transform.position;
-                heno.transform.SetParent(puntoDeMano.transform);
-                objetoEnMano = other.gameObject;
-
-            }
-        }
-
-        if (other.gameObject.CompareTag("cabra")) //cuando el personaje de acerca a cualquier cabra,
-        {
-            if (Input.GetKey("e") && objetoEnMano != null)
-            {
-                var children = other.gameObject.GetComponentsInChildren<Transform>(); //dentro de la cabra busco el objeto barraAlimento y luego su script
-                foreach (var child in children)
+/*
+                private void OnTriggerStay(Collider other)
                 {
-                    if (child.name == "BarraAlimentos")
+                    if (other.gameObject.name == "MontonHeno") //cuando el personaje se acerca al montón de heno,
                     {
-                        barraAlimento = child.GetComponent<BarraAlimento>();
-                        barraAlimento.incrementarNivelAlimentacion(incremento);
+                        if (Input.GetKey("e") && objetoEnMano == null) //se pulsa E y no tiene nada en la mano:
+                        {
+                            heno = Instantiate(prefabHeno); //creamos un objeto heno 
+
+                            //y lo recoge el personaje
+                            heno.GetComponent<Rigidbody>().useGravity = false;
+                            heno.GetComponent<Rigidbody>().isKinematic = true;
+                            heno.transform.position = puntoDeMano.transform.position;
+                            heno.transform.SetParent(puntoDeMano.transform);
+                            objetoEnMano = other.gameObject;
+
+                        }
+                    }
+
+                    if (other.gameObject.CompareTag("cabra")) //cuando el personaje de acerca a cualquier cabra,
+                    {
+                        if (Input.GetKey("e") && objetoEnMano != null)
+                        {
+                            var children = other.gameObject.GetComponentsInChildren<Transform>(); //dentro de la cabra busco el objeto barraAlimento y luego su script
+                            foreach (var child in children)
+                            {
+                                if (child.name == "BarraAlimentos")
+                                {
+                                    barraAlimento = child.GetComponent<BarraAlimento>();
+                                    barraAlimento.incrementarNivelAlimentacion(incremento);
+                                }
+                            }
+
+                            Destroy(heno);
+                            objetoEnMano = null;
+                        }
                     }
                 }
-
-                Destroy(heno);
-                objetoEnMano = null;
-            }
-        }
-    }
-    */
-
-}
+                */
