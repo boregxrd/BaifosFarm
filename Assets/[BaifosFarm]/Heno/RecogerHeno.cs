@@ -17,7 +17,10 @@ public class RecogerHeno : MonoBehaviour
 
     public GameObject heno;
 
-   
+    [SerializeField] private BarraAlimento barraAlimento;
+
+    [SerializeField] private float incremento = 25f;
+
     void Update()
     {
         
@@ -46,7 +49,15 @@ public class RecogerHeno : MonoBehaviour
         {
             if(Input.GetKey("e") && objetoEnMano != null)
             {
-                Debug.Log("cerca de cabra");
+                var children = other.gameObject.GetComponentsInChildren<Transform>();
+                foreach (var child in children)
+                {
+                    if (child.name == "BarraAlimentos")
+                    {
+                         barraAlimento = child.GetComponent<BarraAlimento>();
+                         barraAlimento.incrementarNivelAlimentacion(incremento);
+                    }
+                }       
                 Destroy(heno);
                 objetoEnMano = null;
             }

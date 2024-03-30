@@ -35,4 +35,12 @@ public class BarraAlimento : MonoBehaviour
             }
         }
     }
+
+    public void incrementarNivelAlimentacion(float incremento)
+    {
+        valorActual += incremento;
+    }
+
+
+
 }
