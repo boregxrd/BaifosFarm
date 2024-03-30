@@ -9,6 +9,7 @@ public class BarraLeche : MonoBehaviour
     private float valorMaximo = 100f;
     [SerializeField] private float valorActual = 0f;
     [SerializeField] private float velocidadAumento = 5f; // Velocidad a la que aumenta la barra de leche
+    public bool lechePreparada = false;
 
     private Image barraLeche;
     [SerializeField] private GameObject cabra;
@@ -30,6 +31,7 @@ public class BarraLeche : MonoBehaviour
         else
         {
             valorActual = valorMaximo;
+            lechePreparada = true;
         }
     }
 }
