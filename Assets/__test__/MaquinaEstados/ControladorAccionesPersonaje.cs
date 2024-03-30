@@ -10,6 +10,9 @@ public class ControladorAccionesPersonaje : MonoBehaviour
     [SerializeField] private RecogerAlimento recogerAlimento;
     [SerializeField] private Alimentar alimentar;
     [SerializeField] private Ordeniar ordeniar;
+    
+    [SerializeField] private bool ordenyoIniciado = false;
+    
 
     private void Awake()
     {
@@ -24,9 +27,30 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         {
             if (Input.GetKey("e") && objetoEnMano == null) //se pulsa E y no tiene nada en la mano:
             {
-                Debug.Log("He pulsado E");
+                alimentar.enabled = false;
                 recogerAlimento.enabled = true;
-                recogerAlimento.asignarObjetoEnMano(other.gameObject);
+            }
+        }
+
+        if(other.gameObject.CompareTag("cabraBlanca") || other.gameObject.CompareTag("cabraNegra"))
+        {
+            if (Input.GetKey("e") && objetoEnMano == recogerAlimento.objetoQueCogeBaifo() && recogerAlimento.preparadoParaAlimentar == true)
+            {
+                alimentar.enabled = true;
+                alimentar.DarComida(other);
+                recogerAlimento.enabled = false;
+            }
+        }
+
+        if (other.gameObject.CompareTag("cabraBlanca"))
+        {
+            if (Input.GetKey("e") && objetoEnMano == null && !ordenyoIniciado)
+            {
+                Debug.Log("He apretado E");
+                ordenyoIniciado = true;
+                ordeniar.enabled = true;
+                ordeniar.IniciarOrdenyado(other);
+                alimentar.enabled = false;
             }
         }
     }

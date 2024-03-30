@@ -4,15 +4,31 @@ using UnityEngine;
 
 public class Ordeniar : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private BarraLeche barraLeche;
+
+    [SerializeField] private GameObject miniJuegoOrdenyar;
+
+    private void Awake()
     {
-        
+        enabled = false;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void IniciarOrdenyado(Collider other)
     {
-        
+        Debug.Log("Ordeniar");
+        var children = other.gameObject.GetComponentsInChildren<Transform>(); //dentro de la cabra busco el objeto barraAlimento y luego su script
+        foreach (var child in children)
+        {
+            if (child.name == "BarraLeche")
+            {
+                barraLeche = child.GetComponent<BarraLeche>();
+
+                if (barraLeche.lechePreparada == true)
+                {
+                    Debug.Log("a ordeñar");
+                    miniJuegoOrdenyar.SetActive(true);
+                }
+            }
+        }
     }
 }

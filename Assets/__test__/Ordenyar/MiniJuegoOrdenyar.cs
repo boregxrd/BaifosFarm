@@ -12,7 +12,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
 
     void Start()
     {
-        objetoMiniJuegoOrdenyar.SetActive(true);
+        objetoMiniJuegoOrdenyar.SetActive(false);
     }
 
     private void Update()

@@ -11,15 +11,15 @@ public class RecogerAlimento : MonoBehaviour
 
     [SerializeField] ControladorAccionesPersonaje controladorAccionesPersonaje;
 
+    public bool preparadoParaAlimentar = false;
+
     private void Awake()
     {
         enabled = false;
     }
 
     private void OnEnable()
-    {
-        Debug.Log("OnEnable");
-
+    { 
         heno = Instantiate(prefabHeno); //creamos un objeto heno 
 
         //y lo recoge el personaje
@@ -28,12 +28,19 @@ public class RecogerAlimento : MonoBehaviour
 
         heno.transform.position = controladorAccionesPersonaje.puntoDeMano.transform.position;
         heno.transform.SetParent(controladorAccionesPersonaje.puntoDeMano.transform);
-        
+        controladorAccionesPersonaje.objetoEnMano = heno;
+        preparadoParaAlimentar = true;
     }
 
-    public void asignarObjetoEnMano(GameObject objeto)
+    private void OnDisable()
     {
-        controladorAccionesPersonaje.objetoEnMano = objeto;
+        Destroy(heno);
+        controladorAccionesPersonaje.objetoEnMano = null;
+        preparadoParaAlimentar = false; 
     }
-    
+
+    public GameObject objetoQueCogeBaifo()
+    {
+        return heno;
+    }
 }
