@@ -7,10 +7,10 @@ public class BarraAlimento : MonoBehaviour
 {
     private float valorMaximo = 100f;
     [SerializeField] private float valorActual = 100f;
-    public float velocidadReduccion = 3f; // Velocidad a la que se reduce la barra de alimentación
+    [SerializeField] private float velocidadReduccion = 3f; // Velocidad a la que se reduce la barra de alimentación
 
     private Image barraAlimento;
-    public GameObject cabra;
+    [SerializeField] private GameObject cabra;
 
     void Start()
     {
