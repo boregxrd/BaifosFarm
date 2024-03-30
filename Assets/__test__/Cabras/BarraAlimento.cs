@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BarraAlimento : MonoBehaviour
 {
     private float valorMaximo = 100f;
-    public float valorActual = 100f;
+    [SerializeField] private float valorActual = 100f;
     public float velocidadReduccion = 3f; // Velocidad a la que se reduce la barra de alimentación
 
     private Image barraAlimento;
@@ -38,7 +38,18 @@ public class BarraAlimento : MonoBehaviour
 
     public void incrementarNivelAlimentacion(float incremento)
     {
-        valorActual += incremento;
+        float valorActualProvisional = valorActual;
+
+
+        if((valorActualProvisional += incremento) > valorMaximo)
+        {
+            incremento = (valorMaximo - valorActual); //El nivel nunca pasará del valor máximo
+            valorActual += incremento;
+        }
+        else
+        {
+            valorActual += incremento;
+        }
     }
 
 

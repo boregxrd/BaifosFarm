@@ -49,7 +49,7 @@ public class RecogerHeno : MonoBehaviour
         {
             if(Input.GetKey("e") && objetoEnMano != null)
             {
-                var children = other.gameObject.GetComponentsInChildren<Transform>();
+                var children = other.gameObject.GetComponentsInChildren<Transform>(); //dentro de la cabra busco el objeto barraAlimento y luego su script
                 foreach (var child in children)
                 {
                     if (child.name == "BarraAlimentos")
@@ -58,6 +58,7 @@ public class RecogerHeno : MonoBehaviour
                          barraAlimento.incrementarNivelAlimentacion(incremento);
                     }
                 }       
+
                 Destroy(heno);
                 objetoEnMano = null;
             }
