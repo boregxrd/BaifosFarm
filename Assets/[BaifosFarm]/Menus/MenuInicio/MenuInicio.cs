@@ -3,9 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class btJugar : MonoBehaviour
+public class MenuInicio : MonoBehaviour
 {
-    public void onClickHandler() {
+    public void Jugar() {
         SceneManager.LoadScene("Juego");
+    }
+
+    public void Ajustes() {}
+
+    public void Salir() {
+        Application.Quit();
     }
 }
