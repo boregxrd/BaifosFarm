@@ -1,0 +1,69 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+//···············································SCRIPT CONTROLADORA DE ACCIONES (MAQUINA DE ESTADOS FINITOS)······················································
+//Este script ha de estar en Mano dentro de Personaje
+
+public class ControladorAccionesPersonaje : MonoBehaviour
+{
+    public GameObject puntoDeMano;
+    public GameObject objetoEnMano = null;
+
+    //Diferentes acciones que realiza el personaje:
+
+    [SerializeField] private RecogerAlimento recogerAlimento;
+    [SerializeField] private Alimentar alimentar;
+    [SerializeField] private Ordeniar ordeniar;
+    
+
+    private void Awake()
+    {
+        recogerAlimento = GetComponent<RecogerAlimento>();
+        alimentar = GetComponent<Alimentar>();
+        ordeniar = GetComponent<Ordeniar>();
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+
+        //Dependiendo de lo que el personaje tenga cerca, lo que lleve en las manos y la tecla que pulse realizará una acción u otra:
+
+
+        //RECOGER ALIMENTO
+        if (other.gameObject.name == "MontonHeno") //cuando el personaje se acerca al montón de heno,
+        {
+            if (Input.GetKey("e") && objetoEnMano == null) //se pulsa E y no tiene nada en la mano:
+            {
+                alimentar.enabled = false;
+                ordeniar.enabled = false;
+                recogerAlimento.enabled = true;
+            }
+        }
+
+        //ALIMENTAR
+        if(other.gameObject.CompareTag("cabraBlanca") || other.gameObject.CompareTag("cabraNegra")) //si se acerca a cualquier cabra
+        {
+            if (Input.GetKey("e") && objetoEnMano == recogerAlimento.objetoQueCogeBaifo() && recogerAlimento.preparadoParaAlimentar == true)
+            {
+                alimentar.enabled = true; 
+                alimentar.DarComida(other);
+                recogerAlimento.enabled = false;
+                ordeniar.enabled = false;
+            }
+        }
+
+        //ORDEÑAR
+        if (other.gameObject.CompareTag("cabraBlanca")) 
+        {
+            if (Input.GetKey(KeyCode.Space) && objetoEnMano == null && ordeniar.ordenioIniciado == false)
+            {
+                ordeniar.enabled = true;
+                ordeniar.IniciarOrdenyado(other);
+                alimentar.enabled = false;
+            }
+        }
+
+        
+
+    }
+}
