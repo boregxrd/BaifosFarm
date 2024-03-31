@@ -105,6 +105,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         leche.transform.position = controladorAccionesPersonaje.puntoDeMano.transform.position;
         leche.transform.SetParent(controladorAccionesPersonaje.puntoDeMano.transform);
         controladorAccionesPersonaje.objetoEnMano = leche;
+        controladorAccionesPersonaje.ultimaLecheEnMano = leche;
 
         resetearMiniJuego();
     }
