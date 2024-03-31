@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 //···············································SCRIPT CONTROLADORA DE ACCIONES (MAQUINA DE ESTADOS FINITOS)······················································
 //Este script ha de estar en Mano dentro de Personaje
 
@@ -12,6 +13,9 @@ public class ControladorAccionesPersonaje : MonoBehaviour
 
     //Variable global para almacenar el clon del instance del prefab leche
     public GameObject ultimaLecheEnMano = null;
+    //Variable global para almacenar el numero de leches guardadas
+    public int lechesGuardadas = 0;
+    private bool cajaLecheInteractuada = false;
 
     //Diferentes acciones que realiza el personaje:
 
@@ -75,12 +79,24 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         //DEJAR LECHE EN CAJA
         if (other.gameObject.CompareTag("CajaLeche"))
         {
-            if (Input.GetKey(KeyCode.E) && objetoEnMano == ultimaLecheEnMano)
+            if (Input.GetKey(KeyCode.E) && objetoEnMano == ultimaLecheEnMano && !cajaLecheInteractuada)
             {
+                cajaLecheInteractuada = true;
+
                 dejarLecheEnCaja.enabled = true;
                 dejarLecheEnCaja.DejarLeche();
-                dejarLecheEnCaja.enabled = false;
+                lechesGuardadas++;
+                Debug.Log(lechesGuardadas);
+
+                StartCoroutine(ReactivarControladorDespuesDeDelay());
             }
+        }
+
+        IEnumerator ReactivarControladorDespuesDeDelay()
+        {
+            yield return new WaitForSeconds(0.5f); // Cambia este valor según sea necesario
+            cajaLecheInteractuada = false;
+            dejarLecheEnCaja.enabled = false;
         }
 
 
