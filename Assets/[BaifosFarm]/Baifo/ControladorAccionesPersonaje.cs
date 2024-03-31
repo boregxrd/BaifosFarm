@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 //···············································SCRIPT CONTROLADORA DE ACCIONES (MAQUINA DE ESTADOS FINITOS)······················································
 //Este script ha de estar en Mano dentro de Personaje
@@ -9,11 +10,17 @@ public class ControladorAccionesPersonaje : MonoBehaviour
     public GameObject puntoDeMano;
     public GameObject objetoEnMano = null;
 
+    //Variable global para almacenar el clon del instance del prefab leche
+    public GameObject ultimaLecheEnMano = null;
+
     //Diferentes acciones que realiza el personaje:
 
     [SerializeField] private RecogerAlimento recogerAlimento;
     [SerializeField] private Alimentar alimentar;
     [SerializeField] private Ordeniar ordeniar;
+    [SerializeField] private DejarLecheEnCaja dejarLecheEnCaja;
+
+    
     
 
     private void Awake()
@@ -21,6 +28,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         recogerAlimento = GetComponent<RecogerAlimento>();
         alimentar = GetComponent<Alimentar>();
         ordeniar = GetComponent<Ordeniar>();
+        dejarLecheEnCaja = GetComponent<DejarLecheEnCaja>();
     }
 
     private void OnTriggerStay(Collider other)
@@ -32,6 +40,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         //RECOGER ALIMENTO
         if (other.gameObject.name == "MontonHeno") //cuando el personaje se acerca al montón de heno,
         {
+
             if (Input.GetKey("e") && objetoEnMano == null) //se pulsa E y no tiene nada en la mano:
             {
                 alimentar.enabled = false;
@@ -63,7 +72,17 @@ public class ControladorAccionesPersonaje : MonoBehaviour
             }
         }
 
-        
+        //DEJAR LECHE EN CAJA
+        if (other.gameObject.CompareTag("CajaLeche"))
+        {
+            if (Input.GetKey(KeyCode.E) && objetoEnMano == ultimaLecheEnMano)
+            {
+                dejarLecheEnCaja.enabled = true;
+                dejarLecheEnCaja.DejarLeche();
+                dejarLecheEnCaja.enabled = false;
+            }
+        }
+
 
     }
 }
