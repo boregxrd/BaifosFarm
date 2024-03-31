@@ -7,7 +7,6 @@ TagManager:
   - cabraBlanca
   - cabraNegra
   - CajaLeche
-  - Leche
   layers:
   - Default
   - TransparentFX

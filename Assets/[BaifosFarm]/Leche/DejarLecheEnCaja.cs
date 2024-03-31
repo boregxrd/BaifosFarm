@@ -23,7 +23,7 @@ public class DejarLecheEnCaja : MonoBehaviour
 
     public bool TengoLecheEnMano()
     {
-        if(controladorAccionesPersonaje.objetoEnMano == miniJuegoOrdenyar.lecheQueCogeBaifo())
+        if(controladorAccionesPersonaje.objetoEnMano == controladorAccionesPersonaje.ultimaLecheEnMano)
         { 
             return true; 
         }
