@@ -33,6 +33,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         alimentar = GetComponent<Alimentar>();
         ordeniar = GetComponent<Ordeniar>();
         dejarLecheEnCaja = GetComponent<DejarLecheEnCaja>();
+        lechesGuardadas = 0;
     }
 
     private void OnTriggerStay(Collider other)

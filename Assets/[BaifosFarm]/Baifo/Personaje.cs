@@ -12,10 +12,12 @@ public class Character : MonoBehaviour
     [SerializeField] private float playerSpeed = 2.0f;
     //[SerializeField] private float jumpHeight = 1f;
     //[SerializeField] private float gravityValue = -9.81f;
+    public Vector3 posicionSpawn  = new Vector3(10f, 0f, 10f);
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
+        transform.position = posicionSpawn;
     }
 
     // Update is called once per frame

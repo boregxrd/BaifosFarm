@@ -11,7 +11,7 @@ public class ControladorCabras : MonoBehaviour
     public GameObject cabraBlanca;
     public GameObject cabraNegra;
     [SerializeField]
-    public float rangoSpawn = 18f;
+    public float rangoSpawn = 9f;
     public float tamCabra = 2f;
 
     void Start()

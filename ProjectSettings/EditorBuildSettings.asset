@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/[BaifosFarm]/[Scenes]/Juego.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/[BaifosFarm]/[Scenes]/Factura.unity
+    guid: 21246ff28e77fa04f9d62da215856c05
   m_configObjects: {}
