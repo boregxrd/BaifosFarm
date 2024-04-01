@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 168602642806602450}
   - component: {fileID: 6598865125094331485}
   - component: {fileID: 4642334363745319732}
-  - component: {fileID: 3706849583542886081}
   m_Layer: 5
   m_Name: btJugar
   m_TagString: Untagged
@@ -134,18 +133,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3706849583542886081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 538453269509405721}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 855a09aa9a23a574dbf055454f6484f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &2307740206590402441
 GameObject:
   m_ObjectHideFlags: 0
@@ -158,7 +145,6 @@ GameObject:
   - component: {fileID: 7160216527895015499}
   - component: {fileID: 4181241859714241559}
   - component: {fileID: 7681399488458401619}
-  - component: {fileID: 247244596011265456}
   m_Layer: 5
   m_Name: btAjustes
   m_TagString: Untagged
@@ -280,18 +266,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &247244596011265456
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2307740206590402441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b7d9ed79f306a5b4ca28c8afb41fc207, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3781176442212706543
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-//·······················································SCRIPT MENÚ PAUSA······················································
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SCRIPT MENï¿½ PAUSAï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //Este script ha de estar en CanvasPausa
 
 public class MenuPausa : MonoBehaviour
 {
     [SerializeField] private GameObject objetoMenuPausa;
-    [SerializeField] private bool Pausa = false;
+    public bool Pausa = false;
 
 
     void Start()
@@ -40,7 +40,7 @@ public class MenuPausa : MonoBehaviour
 
         Time.timeScale = 0; //el juego se pausa
 
-        //para que se vea el cursor del ratón y poder clicar en los botones:
+        //para que se vea el cursor del ratï¿½n y poder clicar en los botones:
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
@@ -52,13 +52,14 @@ public class MenuPausa : MonoBehaviour
 
         Time.timeScale = 1; //el juego se reanuda
 
-        //para que se vea el cursor del ratón y poder clicar en los botones:
+        //para que se vea el cursor del ratï¿½n y poder clicar en los botones:
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void IrAlMenu(string NombreMenu)
     {
+        Time.timeScale = 1; //el juego se vuelve a establecer 
         SceneManager.LoadScene(NombreMenu);
     }
 }
