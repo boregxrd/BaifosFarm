@@ -8,8 +8,7 @@ public class Factura : MonoBehaviour
     public Text txtFactura;
 
     private void Awake() {
-        ControladorAccionesPersonaje controladorAcciones = FindObjectOfType<ControladorAccionesPersonaje>();
-        int leches = controladorAcciones.lechesGuardadas;
+        int leches = PlayerPrefs.GetInt("LechesGuardadas", 0);
         txtFactura.text = txtFactura.text + leches.ToString();
     }
 }
