@@ -39,7 +39,7 @@ public class ControlTiempo : MonoBehaviour
         }
 
         // Cuando el tiempo llega a cero, detener el juego
-    // Time.timeScale = 0f;
+        Time.timeScale = 0f;
     //  Debug.Log("Tiempo terminado. Juego detenido.");
         // Aquí mostrar mensaje final juego o trigger de leche o factura
         SceneManager.LoadScene("Factura");
