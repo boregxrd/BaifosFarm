@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ControlTiempo : MonoBehaviour
@@ -38,9 +39,10 @@ public class ControlTiempo : MonoBehaviour
         }
 
         // Cuando el tiempo llega a cero, detener el juego
-        Time.timeScale = 0f;
-        Debug.Log("Tiempo terminado. Juego detenido.");
+    // Time.timeScale = 0f;
+    //  Debug.Log("Tiempo terminado. Juego detenido.");
         // Aquí mostrar mensaje final juego o trigger de leche o factura
+        SceneManager.LoadScene("Factura");
     }
     private string obtenerTemporizadorActual(){
         int minutos = Mathf.FloorToInt(tiempoRestante / 60f);
