@@ -30,7 +30,7 @@ public class ControladorCabras : MonoBehaviour
             if (randomChance <= 0.1f)
             {
                 Vector3 spawnPosition = posicionAleatoria();
-                Instantiate(cabraBlanca, spawnPosition, Quaternion.identity);
+                Instantiate(cabraNegra, spawnPosition, Quaternion.identity);
                 numCabrasNegras++;
                 cabrasNuevas--;
             }

@@ -13,6 +13,8 @@ public class ControlTiempo : MonoBehaviour
     // Awake se llama cuando se instancia el script antes de que Start sea llamado
     void Awake()
     {
+        Time.timeScale = 1f;
+        PlayerPrefs.SetInt("LechesGuardadas", 0);
         if (contadorText == null)
         {
             contadorText = GetComponent<Text>();
@@ -40,7 +42,7 @@ public class ControlTiempo : MonoBehaviour
 
         // Cuando el tiempo llega a cero, detener el juego
         Time.timeScale = 0f;
-    //  Debug.Log("Tiempo terminado. Juego detenido.");
+        Debug.Log("Tiempo terminado. Juego detenido.");
         // Aquí mostrar mensaje final juego o trigger de leche o factura
         SceneManager.LoadScene("Factura");
     }
