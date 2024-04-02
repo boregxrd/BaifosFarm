@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ControlTiempo : MonoBehaviour
@@ -12,6 +13,8 @@ public class ControlTiempo : MonoBehaviour
     // Awake se llama cuando se instancia el script antes de que Start sea llamado
     void Awake()
     {
+        Time.timeScale = 1f;
+        PlayerPrefs.SetInt("LechesGuardadas", 0);
         if (contadorText == null)
         {
             contadorText = GetComponent<Text>();
@@ -41,6 +44,7 @@ public class ControlTiempo : MonoBehaviour
         Time.timeScale = 0f;
         Debug.Log("Tiempo terminado. Juego detenido.");
         // Aquí mostrar mensaje final juego o trigger de leche o factura
+        SceneManager.LoadScene("Factura");
     }
     private string obtenerTemporizadorActual(){
         int minutos = Mathf.FloorToInt(tiempoRestante / 60f);

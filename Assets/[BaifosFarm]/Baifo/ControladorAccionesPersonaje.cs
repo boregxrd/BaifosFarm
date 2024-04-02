@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
-//···············································SCRIPT CONTROLADORA DE ACCIONES (MAQUINA DE ESTADOS FINITOS)······················································
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SCRIPT CONTROLADORA DE ACCIONES (MAQUINA DE ESTADOS FINITOS)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //Este script ha de estar en Mano dentro de Personaje
 
 public class ControladorAccionesPersonaje : MonoBehaviour
@@ -33,16 +33,17 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         alimentar = GetComponent<Alimentar>();
         ordeniar = GetComponent<Ordeniar>();
         dejarLecheEnCaja = GetComponent<DejarLecheEnCaja>();
+        lechesGuardadas = 0;
     }
 
     private void OnTriggerStay(Collider other)
     {
 
-        //Dependiendo de lo que el personaje tenga cerca, lo que lleve en las manos y la tecla que pulse realizará una acción u otra:
+        //Dependiendo de lo que el personaje tenga cerca, lo que lleve en las manos y la tecla que pulse realizarï¿½ una acciï¿½n u otra:
 
 
         //RECOGER ALIMENTO
-        if (other.gameObject.name == "MontonHeno") //cuando el personaje se acerca al montón de heno,
+        if (other.gameObject.name == "MontonHeno") //cuando el personaje se acerca al montï¿½n de heno,
         {
 
             if (Input.GetKey("e") && objetoEnMano == null) //se pulsa E y no tiene nada en la mano:
@@ -65,7 +66,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
             }
         }
 
-        //ORDEÑAR
+        //ORDEï¿½AR
         if (other.gameObject.CompareTag("cabraBlanca")) 
         {
             if (Input.GetKey(KeyCode.Space) && objetoEnMano == null && ordeniar.ordenioIniciado == false)
@@ -86,6 +87,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
                 dejarLecheEnCaja.enabled = true;
                 dejarLecheEnCaja.DejarLeche();
                 lechesGuardadas++;
+                PlayerPrefs.SetInt("LechesGuardadas", lechesGuardadas);
                 Debug.Log(lechesGuardadas);
 
                 StartCoroutine(ReactivarControladorDespuesDeDelay());
@@ -94,7 +96,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
 
         IEnumerator ReactivarControladorDespuesDeDelay()
         {
-            yield return new WaitForSeconds(0.5f); // Cambia este valor según sea necesario
+            yield return new WaitForSeconds(0.5f); // Cambia este valor segï¿½n sea necesario
             cajaLecheInteractuada = false;
             dejarLecheEnCaja.enabled = false;
         }

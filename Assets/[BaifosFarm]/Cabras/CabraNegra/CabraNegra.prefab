@@ -832,6 +832,7 @@ MonoBehaviour:
   valorActual: 100
   velocidadReduccion: 3
   cabra: {fileID: 7693945115360077490}
+  controladorCabras: {fileID: 2472818280487466229, guid: d264aad5e173afb4982adb30d2c9f3c5, type: 3}
 --- !u!1 &7169530531729945697
 GameObject:
   m_ObjectHideFlags: 0
