@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class ControladorCabras : MonoBehaviour
 {
-    [SerializeField]
-    public int numCabrasBlancas = 1;
-    [SerializeField]
-    public int numCabrasNegras;
     public GameObject cabraBlanca;
     public GameObject cabraNegra;
     [SerializeField]
@@ -22,9 +18,13 @@ public class ControladorCabras : MonoBehaviour
     void SpawnCabras()
     {
         // get num cabras blancas/negras
-
+        int numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
+        int numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
         // si hay cabra negra spawn
-
+        if(numCabrasNegras > 0) {
+            Vector3 spawnPosition = posicionAleatoria();
+            Instantiate(cabraNegra, spawnPosition, Quaternion.identity);
+        }
         // spawn cabras blancas
         for (int i = 0; i < numCabrasBlancas; i++)
         {
@@ -54,15 +54,16 @@ public class ControladorCabras : MonoBehaviour
     public void disminuirNumCabrasBlancas()
     {
         // get num cabras y restar uno al PlayerRefs
-        // int currentValue = PlayerPrefs.GetInt("YourKey", 0);
-        // currentValue++;
-        // PlayerPrefs.SetInt("YourKey", currentValue);
+        int numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
         numCabrasBlancas--;
+        PlayerPrefs.SetInt("cabrasBlancas", numCabrasBlancas);
     }
 
     public void disminuirNumCabrasNegras()
     {
         // lo mismo que con blancas
+        int numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
         numCabrasNegras--;
+        PlayerPrefs.SetInt("cabrasNegras", numCabrasNegras);
     }
 }
