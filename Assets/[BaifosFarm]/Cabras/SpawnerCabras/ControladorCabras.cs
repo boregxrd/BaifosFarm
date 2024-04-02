@@ -22,24 +22,22 @@ public class ControladorCabras : MonoBehaviour
         int numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
         int numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
         Debug.Log("GET DONE: " + numCabrasBlancas + ", " + numCabrasNegras);
-        // si hay cabra negra spawn
-        if (numCabrasNegras != 0)
+
+        // spawn cabras blancas
+        for (int i = 0; i < numCabrasBlancas; i++)
+        {
+            Vector3 spawnPosition = posicionAleatoria();
+            Instantiate(cabraBlanca, spawnPosition, Quaternion.identity);
+            Debug.Log("CABRA BLANCA " + i);
+        }
+
+        // spawn cabras negras
+        if (numCabrasNegras == 1)
         {
             Vector3 spawnPosition = posicionAleatoria();
             Instantiate(cabraNegra, spawnPosition, Quaternion.identity);
             Debug.Log("CABRA NEGRA");
         }
-        else if (numCabrasBlancas != 0)
-        {
-            // spawn cabras blancas
-            for (int i = 0; i < numCabrasBlancas; i++)
-            {
-                Vector3 spawnPosition = posicionAleatoria();
-                Instantiate(cabraBlanca, spawnPosition, Quaternion.identity);
-                Debug.Log("CABRA BLANCA " + i);
-            }
-        }
-
     }
 
     Vector3 posicionAleatoria()

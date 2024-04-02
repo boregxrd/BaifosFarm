@@ -22,20 +22,13 @@ public class Factura : MonoBehaviour
         int numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
         Debug.Log("GET DONE: " + numCabrasBlancas + ", " + numCabrasNegras);
 
-        // comprobar si hay cabra negra
-        if (numCabrasNegras == 0)
+        // comprobar si hay cabra negra y 10% de que salga 
+        if (numCabrasNegras == 0 && Random.value <= 0.1f)
         {
-            Debug.Log("no hay negra");
-            // si no hay, 1/10 de que salga 
-            float random = Random.value;
-            if (random <= 0.1f)
-            {
-                Debug.Log("salio negra");
-                // si sale añadir cabra negra 
-                numCabrasNegras++;
-            }
-            Debug.Log("no salio negra");
-        } 
+            Debug.Log("salio negra");
+            // si sale añadir cabra negra 
+            numCabrasNegras++;
+        }
         // si no sale o si ya hay negra anyadir blanca
         else
         {
