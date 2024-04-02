@@ -7,7 +7,7 @@ public class MenuInicio : MonoBehaviour
 {
     public void Jugar() {
         // Reset valores de cabras para nueva partida
-        PlayerPrefs.SetInt("cabrasBlancas", 0);
+        PlayerPrefs.SetInt("cabrasBlancas", 2);
         PlayerPrefs.SetInt("cabrasNegras", 0);
         SceneManager.LoadScene("Juego");
     }

@@ -44,9 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 652b2489b99d18a46923f6d2c493def9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numCabrasBlancas: 0
-  numCabrasNegras: 1
-  cabraBlanca: {fileID: 0}
-  cabraNegra: {fileID: 0}
-  rangoSpawn: 18
+  cabraBlanca: {fileID: 6535343484078306890, guid: 86080e05a9e56614facc59e7977abdb6, type: 3}
+  cabraNegra: {fileID: 7693945115360077490, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+  rangoSpawn: 9
   tamCabra: 2
