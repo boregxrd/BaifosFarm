@@ -16,15 +16,31 @@ public class Factura : MonoBehaviour
 
     public void comprarCabra()
     {
-        // Get the current value from PlayerPrefs and add 1 to it
-        // int currentValue = PlayerPrefs.GetInt("YourKey", 0);
-        // currentValue++;
-        // PlayerPrefs.SetInt("YourKey", currentValue);
+        // Get valores de PlayerPrefs 
+        int numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
+        int numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
+
         // comprobar si hay cabra negra
-        // si no hay 1/10 de que salga 
-        // si sale añadir cabra negra 
+        if (numCabrasNegras == 0)
+        {
+            // si no hay, 1/10 de que salga 
+            float random = Random.value;
+            if (random <= 0.1f)
+            {
+
+                // si sale añadir cabra negra 
+                numCabrasNegras++;
+            }
+        } 
         // si no sale o si ya hay negra anyadir blanca
-        // añadir cabra nueva
+        else
+        {
+            numCabrasBlancas++;
+        }
+        // añadir cabras nuevas a sus PlayerPrefs
+        PlayerPrefs.SetInt("cabrasBlancas", numCabrasBlancas);
+        PlayerPrefs.SetInt("cabrasNegras", numCabrasNegras);
+
         cabrasNuevas++; // variable para factura
         ActualizarTexto();
     }
