@@ -21,23 +21,11 @@ public class ControladorCabras : MonoBehaviour
 
     void SpawnCabras()
     {
-        int cabrasNuevas = PlayerPrefs.GetInt("cabrasNuevas", 0);
+        // get num cabras blancas/negras
 
-        // Cabra negra? probabilidad 1/10
-        if (cabrasNuevas != 0 && numCabrasNegras == 0)
-        {
-            float randomChance = Random.Range(0f, 1f);
-            if (randomChance <= 0.1f)
-            {
-                Vector3 spawnPosition = posicionAleatoria();
-                Instantiate(cabraNegra, spawnPosition, Quaternion.identity);
-                numCabrasNegras++;
-                cabrasNuevas--;
-            }
-        }
+        // si hay cabra negra spawn
 
-        // Spawnear el resto como blancas
-        numCabrasBlancas += cabrasNuevas;
+        // spawn cabras blancas
         for (int i = 0; i < numCabrasBlancas; i++)
         {
             Vector3 spawnPosition = posicionAleatoria();
@@ -63,11 +51,18 @@ public class ControladorCabras : MonoBehaviour
         return spawnPosition;
     }
 
-    public void disminuirNumCabrasBlancas() {
+    public void disminuirNumCabrasBlancas()
+    {
+        // get num cabras y restar uno al PlayerRefs
+        // int currentValue = PlayerPrefs.GetInt("YourKey", 0);
+        // currentValue++;
+        // PlayerPrefs.SetInt("YourKey", currentValue);
         numCabrasBlancas--;
     }
 
-    public void disminuirNumCabrasNegras() {
+    public void disminuirNumCabrasNegras()
+    {
+        // lo mismo que con blancas
         numCabrasNegras--;
     }
 }
