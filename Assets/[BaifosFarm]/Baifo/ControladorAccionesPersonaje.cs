@@ -80,7 +80,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         //DEJAR LECHE EN CAJA
         if (other.gameObject.CompareTag("CajaLeche"))
         {
-            if (Input.GetKey(KeyCode.E) && objetoEnMano == ultimaLecheEnMano && !cajaLecheInteractuada)
+            if (Input.GetKey(KeyCode.E) && objetoEnMano == ultimaLecheEnMano && objetoEnMano != null && !cajaLecheInteractuada)
             {
                 cajaLecheInteractuada = true;
 
