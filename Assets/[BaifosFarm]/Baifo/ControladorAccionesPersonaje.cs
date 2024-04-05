@@ -23,6 +23,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
     [SerializeField] private Alimentar alimentar;
     [SerializeField] private Ordeniar ordeniar;
     [SerializeField] private DejarLecheEnCaja dejarLecheEnCaja;
+    [SerializeField] private Character movimientoPersonaje;
 
     
     
@@ -66,7 +67,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
             }
         }
 
-        //ORDE�AR
+        //ORDENYAR
         if (other.gameObject.CompareTag("cabraBlanca")) 
         {
             if (Input.GetKey(KeyCode.Space) && objetoEnMano == null && ordeniar.ordenioIniciado == false)
@@ -99,6 +100,15 @@ public class ControladorAccionesPersonaje : MonoBehaviour
             yield return new WaitForSeconds(0.5f); // Cambia este valor seg�n sea necesario
             cajaLecheInteractuada = false;
             dejarLecheEnCaja.enabled = false;
+        }
+
+        if(ordeniar.ordenioIniciado == true)
+        {
+            movimientoPersonaje.enabled = false;
+        }
+        else
+        {
+            movimientoPersonaje.enabled = true;
         }
 
 
