@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class BarraAlimento : MonoBehaviour
 {
     private float valorMaximo = 100f;
-    [SerializeField] private float valorActual = 100f;
-    [SerializeField] private float velocidadReduccion = 3f; // Velocidad a la que se reduce la barra de alimentacion
+    public float valorActual = 100f;
+    [SerializeField] private float velocidadReduccion = 2f; // Velocidad a la que se reduce la barra de alimentacion
 
     private Image barraAlimento;
     [SerializeField] private GameObject cabra;
@@ -15,10 +15,26 @@ public class BarraAlimento : MonoBehaviour
     // ref al otro script
     public ControladorCabras controladorCabras;
 
+    [SerializeField] private GameObject personaje;
+    [SerializeField] private ControladorAccionesPersonaje controladorAccionesPersonaje;
+
+
     void Start()
     {
         barraAlimento = GetComponent<Image>();
         barraAlimento.fillAmount = valorActual / valorMaximo; // Asegarate de que la barra se inicialice correctamente
+
+        //Para encontrar el script ControladorAccionesPersonaje en Personaje:
+        personaje = GameObject.Find("Personaje");
+
+        var children = personaje.GetComponentsInChildren<Transform>();
+        foreach (var child in children)
+        {
+            if (child.name == "Mano")
+            {
+                controladorAccionesPersonaje = child.GetComponent<ControladorAccionesPersonaje>();
+            }
+        }
     }
 
     void Update()
@@ -31,9 +47,11 @@ public class BarraAlimento : MonoBehaviour
         }
         else
         {
+
             // Destruir la cabra cuando la barra de alimentacion llegue a cero
             if (cabra != null)
             {
+                controladorAccionesPersonaje.cabraMuerta = true;
                 Destroy(cabra);
 
                 // bajar numCabras del color
@@ -54,7 +72,7 @@ public class BarraAlimento : MonoBehaviour
         float valorActualProvisional = valorActual;
 
 
-        if((valorActualProvisional += incremento) > valorMaximo)
+        if ((valorActualProvisional += incremento) > valorMaximo)
         {
             incremento = (valorMaximo - valorActual); //El nivel nunca pasara del valor maximo
             valorActual += incremento;
@@ -64,7 +82,4 @@ public class BarraAlimento : MonoBehaviour
             valorActual += incremento;
         }
     }
-
-
-
 }

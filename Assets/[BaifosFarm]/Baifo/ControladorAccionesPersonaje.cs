@@ -25,8 +25,11 @@ public class ControladorAccionesPersonaje : MonoBehaviour
     [SerializeField] private DejarLecheEnCaja dejarLecheEnCaja;
     [SerializeField] private Character movimientoPersonaje;
 
-    
-    
+    public bool cabraMuerta = false;
+
+
+
+
 
     private void Awake()
     {
@@ -39,6 +42,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        
 
         //Dependiendo de lo que el personaje tenga cerca, lo que lleve en las manos y la tecla que pulse realizar� una acci�n u otra:
 
@@ -102,7 +106,20 @@ public class ControladorAccionesPersonaje : MonoBehaviour
             dejarLecheEnCaja.enabled = false;
         }
 
-        if(ordeniar.ordenioIniciado == true)
+    }
+
+    private void Update()
+    {
+        //si la cabra muere mientras estamos ordeñando se detiene el proceso de ordeñar y se pierde la leche:
+        if (cabraMuerta == true)
+        {
+            ordeniar.ordenioIniciado = false;
+            ordeniar.enabled = false;
+            cabraMuerta = false;
+        }
+
+        //mientras se ordeña el personaje no se puede mover:
+        if (ordeniar.ordenioIniciado == true)
         {
             movimientoPersonaje.enabled = false;
         }
@@ -110,7 +127,5 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         {
             movimientoPersonaje.enabled = true;
         }
-
-
     }
 }
