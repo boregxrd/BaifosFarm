@@ -10,11 +10,11 @@ public class BarraLeche : MonoBehaviour
 
     private float valorMaximo = 100f;
     [SerializeField] private float valorActual = 0f;
-    [SerializeField] private float velocidadAumento = 5f; // Velocidad a la que aumenta la barra de leche
+    [SerializeField] private float velocidadAumento = 15f; // Velocidad a la que aumenta la barra de leche
     public bool lechePreparada = false;
 
     private Image barraLeche;
-    [SerializeField] private GameObject cabra;
+    
 
     void Start()
     {
@@ -29,6 +29,7 @@ public class BarraLeche : MonoBehaviour
         {
             valorActual += velocidadAumento * Time.deltaTime; // Aumenta el valor de la leche con el tiempo
             barraLeche.fillAmount = valorActual / valorMaximo; // Actualiza la barra de alimentación visualmente
+            lechePreparada = false;
         }
         else
         {
@@ -40,5 +41,6 @@ public class BarraLeche : MonoBehaviour
     public void resetearLeche()
     {
         valorActual = 0f;
+        lechePreparada = false;
     }
 }

@@ -51,7 +51,6 @@ public class MiniJuegoOrdenyar : MonoBehaviour
 
             if(Input.GetKeyUp(KeyCode.Tab))
             {
-                objetoMiniJuegoOrdenyar.SetActive(false);
                 resetearMiniJuego();
             }
 
@@ -64,7 +63,6 @@ public class MiniJuegoOrdenyar : MonoBehaviour
             {
                 valorActual = valorMaximo;
                 porcentaje.text = valorActual.ToString();
-                objetoMiniJuegoOrdenyar.SetActive(false);
                 generarLeche();
             }
         } 
@@ -90,7 +88,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         {
             valorActual = 0;
             mostrarPorcentaje();
-            objetoMiniJuegoOrdenyar.SetActive(false);
+            resetearMiniJuego();
             
         }
     }
@@ -122,6 +120,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         valorActual = 15f;
         enabled = false;
         miniJuegoReseteado = true;
+        objetoMiniJuegoOrdenyar.SetActive(false);
     }
 
     private void mostrarPorcentaje()
