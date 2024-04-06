@@ -53,5 +53,6 @@ public class Ordeniar : MonoBehaviour
     private void OnDisable()
     {
         ordenioIniciado = false;
+        miniJuegoOrdenyar.enabled = false;
     }
 }

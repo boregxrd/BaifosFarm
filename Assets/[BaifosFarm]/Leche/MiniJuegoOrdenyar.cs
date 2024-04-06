@@ -115,7 +115,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     }
    
 
-    private void resetearMiniJuego()
+    public void resetearMiniJuego()
     {
         valorActual = 15f;
         enabled = false;
@@ -127,6 +127,11 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     {
         int valorRedondeado = (int)Math.Round(valorActual);
         porcentaje.text = $"{valorRedondeado}%";
+    }
+
+    private void OnDisable()
+    {
+        resetearMiniJuego();
     }
 
 }

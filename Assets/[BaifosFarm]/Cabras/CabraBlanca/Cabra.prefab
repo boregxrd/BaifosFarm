@@ -611,9 +611,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valorActual: 100
-  velocidadReduccion: 3
+  velocidadReduccion: 2
   cabra: {fileID: 6535343484078306890}
   controladorCabras: {fileID: 2472818280487466229, guid: d264aad5e173afb4982adb30d2c9f3c5, type: 3}
+  personaje: {fileID: 0}
+  controladorAccionesPersonaje: {fileID: 0}
 --- !u!1 &6525652491046210004
 GameObject:
   m_ObjectHideFlags: 0
@@ -868,7 +870,6 @@ MonoBehaviour:
   valorActual: 0
   velocidadAumento: 15
   lechePreparada: 0
-  cabra: {fileID: 6535343484078306890}
 --- !u!1 &7697747798022271851
 GameObject:
   m_ObjectHideFlags: 0
