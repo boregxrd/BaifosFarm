@@ -8,7 +8,12 @@ public class ControlTiempo : MonoBehaviour
 {
     public Text contadorText; // Referencia al objeto Text donde se mostrará el contador
     [SerializeField]
-    private float tiempoRestante = 120f; // 2 minutos en segundos
+    public float tiempoRestante = 120f; // 2 minutos en segundos
+
+    public SistemaMonetario sistemaMonetario; // Referencia al C# Script de sistema de dinero
+    public Text textoDinero; // Referencia al objeto de texto que mostrará el dinero total
+
+
 
     // Awake se llama cuando se instancia el script antes de que Start sea llamado
     void Awake()
@@ -22,7 +27,16 @@ public class ControlTiempo : MonoBehaviour
         contadorText.text = "Tiempo restante: " + obtenerTemporizadorActual();
         // Comenzar la cuenta regresiva
         StartCoroutine(CuentaRegresiva());
+
+        // Obtener referencia al SistemaMonetario
+        sistemaMonetario = FindObjectOfType<SistemaMonetario>();
+
+        // Mostrar el dinero total al empezar el día
+        Debug.Log("Dinero total al empezar el día: $" + sistemaMonetario.ObtenerTotalDinero());
+        // Actualizar el texto del dinero total
+        textoDinero.text = "Dinero: $" + sistemaMonetario.ObtenerTotalDinero().ToString();
     }
+
 
     IEnumerator CuentaRegresiva()
     {
@@ -45,6 +59,13 @@ public class ControlTiempo : MonoBehaviour
         Debug.Log("Tiempo terminado. Juego detenido.");
         // Aquí mostrar mensaje final juego o trigger de leche o factura
         SceneManager.LoadScene("Factura");
+        // Llamada para sumar el dinero
+        ControladorTextoCaja controladorTextoCaja = FindObjectOfType<ControladorTextoCaja>();
+        if (controladorTextoCaja != null)
+        {
+            controladorTextoCaja.SumarDineroPorBotella();
+        }
+        PlayerPrefs.SetInt("DineroTotal", sistemaMonetario.ObtenerTotalDinero());//guarda el dinero entre escenas
     }
     private string obtenerTemporizadorActual(){
         int minutos = Mathf.FloorToInt(tiempoRestante / 60f);
