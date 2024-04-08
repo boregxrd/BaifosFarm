@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,8 +26,12 @@ public class BarraLeche : MonoBehaviour
 
     void Update()
     {
+        if(barraAlimento == null)
+        {
+            return;
+        }
         // Verificar si la producción de leche debe detenerse
-        if (barraAlimento != null && barraAlimento.valorActual < 30f)
+        if (barraAlimento.valorActual < 30f)
         {
             produccionDetenida = true;
         }
@@ -35,57 +40,28 @@ public class BarraLeche : MonoBehaviour
             produccionDetenida = false;
         }
 
-        // Si la producción de leche está detenida, salir de la función sin aumentar la barra de leche
-        if (produccionDetenida)
-        {
-            return;
-        }
-
-        // Reanudar la producción de leche tan pronto como la comida vuelva a estar por encima de 30f
-        if (barraAlimento.valorActual >= 30f)
-        {
-            produccionDetenida = false;
-        }
-
         // Aumentar la barra de leche con el tiempo solo si la producción no está detenida
         if (!produccionDetenida && valorActual < valorMaximo)
         {
             valorActual += velocidadAumento * Time.deltaTime; // Aumenta el valor de la leche con el tiempo
-            barraLeche.fillAmount = valorActual / valorMaximo; // Actualiza visualmente la barra de leche
+             // Actualiza visualmente la barra de leche
             lechePreparada = false;
         }
-        else
+        else if(!produccionDetenida && valorActual >=valorMaximo)
         {
-            valorActual = Mathf.Clamp(valorActual, 0f, valorMaximo); // Asegurar que el valor actual esté en el rango válido
+            valorActual = valorMaximo;//Mathf.Clamp(valorActual, 0f, valorMaximo); // Asegurar que el valor actual esté en el rango válido
+            produccionDetenida = true;
             lechePreparada = true; // Indicar que la leche está lista si se ha alcanzado el valor máximo
         }
+        barraLeche.fillAmount = valorActual / valorMaximo;
     }
-
-
 
     public void resetearLeche()
     {
         valorActual = 0f;
+        produccionDetenida = false;
+        Debug.Log(valorActual + " Valor Actual");
         lechePreparada = false;
-    }
-
-    public void OrdeñarCabra()
-    {
-        if (produccionDetenida)
-        {
-            // Si la producción de leche está detenida, solo reiniciar la barra de leche y salir de la función
-            valorActual = 0f;
-            barraLeche.fillAmount = valorActual / valorMaximo;
-            lechePreparada = false;
-            return;
-        }
-
-        if (valorActual >= valorMaximo)
-        {
-            valorActual = 0f; // Reiniciar la barra de leche después de ordeñar
-            barraLeche.fillAmount = valorActual / valorMaximo; // Actualizar la barra de leche visualmente
-            lechePreparada = false;
-        }
     }
 
 }
