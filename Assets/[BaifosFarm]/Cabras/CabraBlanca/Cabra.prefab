@@ -870,6 +870,7 @@ MonoBehaviour:
   valorActual: 0
   velocidadAumento: 15
   lechePreparada: 0
+  barraAlimento: {fileID: 9126235875197737451}
 --- !u!1 &7697747798022271851
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,16 +12,13 @@ public class BarraLeche : MonoBehaviour
     public bool lechePreparada = false;
 
     private Image barraLeche;
-    private BarraAlimento barraAlimento; // Referencia al script BarraAlimento
+    [SerializeField] private BarraAlimento barraAlimento; // Referencia al script BarraAlimento
     private bool produccionDetenida = false; // Variable para controlar si la producción de leche está detenida
 
     void Start()
     {
         barraLeche = GetComponent<Image>();
         barraLeche.fillAmount = valorActual / valorMaximo; // Asegúrate de que la barra se inicialice correctamente
-
-        // Obtener la referencia al script BarraAlimento
-        barraAlimento = FindObjectOfType<BarraAlimento>();
     }
 
     void Update()
