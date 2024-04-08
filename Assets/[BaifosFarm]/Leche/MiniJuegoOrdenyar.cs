@@ -16,7 +16,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
 
     private float valorMaximo = 100f;
     [SerializeField] private float valorActual = 15f;
-    [SerializeField] private float velocidadVaciado = 10f;
+    [SerializeField] private float velocidadVaciado = 5f;
     [SerializeField] private float incremento = 15f;
 
     [SerializeField] private Image barraOrdenyar;

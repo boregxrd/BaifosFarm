@@ -36,6 +36,9 @@ public class ControlTiempo : MonoBehaviour
         Debug.Log("Dinero total al empezar el día: $" + dineroTotal);
         // Actualizar el texto del dinero total
         textoDinero.text = "Dinero: $" + dineroTotal.ToString();
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 
@@ -65,6 +68,10 @@ public class ControlTiempo : MonoBehaviour
             controladorTextoCaja.SumarDineroPorBotella();
         }
         // Aquí mostrar mensaje final juego o trigger de leche o factura
+        
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        
         SceneManager.LoadScene("Factura");
     }
     private string obtenerTemporizadorActual()
