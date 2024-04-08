@@ -67,7 +67,8 @@ public class ControlTiempo : MonoBehaviour
         // Aquí mostrar mensaje final juego o trigger de leche o factura
         SceneManager.LoadScene("Factura");
     }
-    private string obtenerTemporizadorActual(){
+    private string obtenerTemporizadorActual()
+    {
         int minutos = Mathf.FloorToInt(tiempoRestante / 60f);
         int segundos = Mathf.FloorToInt(tiempoRestante % 60f);
         return minutos.ToString("00") + ":" + segundos.ToString("00");

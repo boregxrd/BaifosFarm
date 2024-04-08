@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,11 +19,10 @@ public class BarraAlimento : MonoBehaviour
     [SerializeField] private GameObject personaje;
     [SerializeField] private ControladorAccionesPersonaje controladorAccionesPersonaje;
 
-
     void Start()
     {
         barraAlimento = GetComponent<Image>();
-        barraAlimento.fillAmount = valorActual / valorMaximo; // Asegarate de que la barra se inicialice correctamente
+        barraAlimento.fillAmount = valorActual / valorMaximo; // Asegúrate de que la barra se inicialice correctamente
 
         //Para encontrar el script ControladorAccionesPersonaje en Personaje:
         personaje = GameObject.Find("Personaje");
@@ -47,7 +47,6 @@ public class BarraAlimento : MonoBehaviour
         }
         else
         {
-
             // Destruir la cabra cuando la barra de alimentacion llegue a cero
             if (cabra != null)
             {
@@ -70,7 +69,6 @@ public class BarraAlimento : MonoBehaviour
     public void incrementarNivelAlimentacion(float incremento)
     {
         float valorActualProvisional = valorActual;
-
 
         if ((valorActualProvisional += incremento) > valorMaximo)
         {
