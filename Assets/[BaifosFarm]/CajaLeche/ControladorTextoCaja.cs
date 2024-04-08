@@ -11,8 +11,7 @@ public class ControladorTextoCaja : MonoBehaviour
     [SerializeField] private SistemaMonetario sistemaMonetario; // Agrega referencia al SistemaMonetario
     public Text textoDinero; // Referencia al objeto de texto que mostrar� el dinero total
 
-    private void Awake()
-    {
+    private void Awake() {
         textoDinero.text = "Dinero: $" + PlayerPrefs.GetInt("DineroTotal", 0);
     }
     void Update()
