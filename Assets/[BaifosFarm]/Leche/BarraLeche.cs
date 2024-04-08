@@ -13,12 +13,12 @@ public class BarraLeche : MonoBehaviour
 
     private Image barraLeche;
     [SerializeField] private BarraAlimento barraAlimento; // Referencia al script BarraAlimento
-    private bool produccionDetenida = false; // Variable para controlar si la producción de leche está detenida
+    private bool produccionDetenida = false; // Variable para controlar si la producciï¿½n de leche estï¿½ detenida
 
     void Start()
     {
         barraLeche = GetComponent<Image>();
-        barraLeche.fillAmount = valorActual / valorMaximo; // Asegúrate de que la barra se inicialice correctamente
+        barraLeche.fillAmount = valorActual / valorMaximo; // Asegï¿½rate de que la barra se inicialice correctamente
     }
 
     void Update()
@@ -27,7 +27,7 @@ public class BarraLeche : MonoBehaviour
         {
             return;
         }
-        // Verificar si la producción de leche debe detenerse
+        // Verificar si la producciï¿½n de leche debe detenerse
         if (barraAlimento.valorActual < 30f)
         {
             produccionDetenida = true;
@@ -37,7 +37,7 @@ public class BarraLeche : MonoBehaviour
             produccionDetenida = false;
         }
 
-        // Aumentar la barra de leche con el tiempo solo si la producción no está detenida
+        // Aumentar la barra de leche con el tiempo solo si la producciï¿½n no estï¿½ detenida
         if (!produccionDetenida && valorActual < valorMaximo)
         {
             valorActual += velocidadAumento * Time.deltaTime; // Aumenta el valor de la leche con el tiempo
@@ -46,9 +46,9 @@ public class BarraLeche : MonoBehaviour
         }
         else if(!produccionDetenida && valorActual >=valorMaximo)
         {
-            valorActual = valorMaximo;//Mathf.Clamp(valorActual, 0f, valorMaximo); // Asegurar que el valor actual esté en el rango válido
+            valorActual = valorMaximo;//Mathf.Clamp(valorActual, 0f, valorMaximo); // Asegurar que el valor actual estï¿½ en el rango vï¿½lido
             produccionDetenida = true;
-            lechePreparada = true; // Indicar que la leche está lista si se ha alcanzado el valor máximo
+            lechePreparada = true; // Indicar que la leche estï¿½ lista si se ha alcanzado el valor mï¿½ximo
         }
         barraLeche.fillAmount = valorActual / valorMaximo;
     }

@@ -22,7 +22,7 @@ public class BarraAlimento : MonoBehaviour
     void Start()
     {
         barraAlimento = GetComponent<Image>();
-        barraAlimento.fillAmount = valorActual / valorMaximo; // Asegúrate de que la barra se inicialice correctamente
+        barraAlimento.fillAmount = valorActual / valorMaximo; // Asegï¿½rate de que la barra se inicialice correctamente
 
         //Para encontrar el script ControladorAccionesPersonaje en Personaje:
         personaje = GameObject.Find("Personaje");
