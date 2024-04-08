@@ -8,7 +8,7 @@ public class BarraLeche : MonoBehaviour
 {
     private float valorMaximo = 100f;
     [SerializeField] private float valorActual = 0f;
-    [SerializeField] private float velocidadAumento = 15f; // Velocidad a la que aumenta la barra de leche
+    [SerializeField] private float velocidadAumento = 10f; // Velocidad a la que aumenta la barra de leche
     public bool lechePreparada = false;
 
     private Image barraLeche;
