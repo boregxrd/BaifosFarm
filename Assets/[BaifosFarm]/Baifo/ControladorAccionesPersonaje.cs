@@ -74,7 +74,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         //ORDENYAR
         if (other.gameObject.CompareTag("cabraBlanca")) 
         {
-            if (Input.GetKey(KeyCode.Space) && objetoEnMano == null && ordeniar.ordenioIniciado == false)
+            if (Input.GetKey("e") && objetoEnMano == null && ordeniar.ordenioIniciado == false)
             {
                 ordeniar.enabled = true;
                 ordeniar.IniciarOrdenyado(other);
@@ -85,7 +85,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         //DEJAR LECHE EN CAJA
         if (other.gameObject.CompareTag("CajaLeche"))
         {
-            if (Input.GetKey(KeyCode.E) && objetoEnMano == ultimaLecheEnMano && objetoEnMano != null && !cajaLecheInteractuada)
+            if (Input.GetKey("e") && objetoEnMano == ultimaLecheEnMano && objetoEnMano != null && !cajaLecheInteractuada)
             {
                 cajaLecheInteractuada = true;
 
