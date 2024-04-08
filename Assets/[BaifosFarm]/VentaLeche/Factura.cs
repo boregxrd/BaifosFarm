@@ -9,15 +9,12 @@ public class Factura : MonoBehaviour
     public Text txtFactura;
     public int cabrasNuevas;
     public SistemaMonetario sistemaMonetario; // Referencia al Singleton del SistemaMonetario
-    int dineroTotal;
 
     private void Awake()
     {
         Debug.Log("INICIO FACTURA");
         cabrasNuevas = 0;
         // sistemaMonetario = SistemaMonetario.Instance; // Obtener la instancia del Singleton
-        dineroTotal = PlayerPrefs.GetInt("DineroTotal", 0);
-        Debug.Log(dineroTotal);
         ActualizarTexto();
     }
 
@@ -25,7 +22,7 @@ public class Factura : MonoBehaviour
     {
         int costoCabra = 20; // Definir el costo de la cabra aquí
         // Verificar si el jugador tiene suficiente dinero para comprar una cabra
-        if (dineroTotal >= costoCabra)
+        if (PlayerPrefs.GetInt("DineroTotal", 0) >= costoCabra)
         {
             // Restar el costo de la cabra del dinero total
             sistemaMonetario.RestarDinero(costoCabra);
@@ -37,7 +34,7 @@ public class Factura : MonoBehaviour
             int numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
             int numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
             Debug.Log("GET DONE: " + numCabrasBlancas + ", " + numCabrasNegras);
-            Debug.Log("Dinero total: $" + dineroTotal);
+            Debug.Log("Dinero total: $" + PlayerPrefs.GetInt("DineroTotal", 0));
 
             // comprobar si hay cabra negra y 10% de que salga 
             if (numCabrasNegras == 0 && Random.value <= 0.1f)
