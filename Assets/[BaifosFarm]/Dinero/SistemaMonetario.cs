@@ -15,7 +15,7 @@ public class SistemaMonetario : MonoBehaviour
     // Asegurar que solo haya una instancia del SistemaMonetario
     void Awake()
     {
-        if (instance == null)
+        /* if (instance == null)
         {
             // Mantener este objeto en todas las escenas
             DontDestroyOnLoad(gameObject);
@@ -37,26 +37,27 @@ public class SistemaMonetario : MonoBehaviour
             // Si no hay dinero guardado, usar un valor predeterminado
             totalDinero = 100; // Por ejemplo, 100$
             PlayerPrefs.SetInt("DineroTotal", totalDinero); // Guardar el valor predeterminado
-        }
+        } */
+        totalDinero = PlayerPrefs.GetInt("DineroTotal", 0);
+        Debug.Log(totalDinero);
     }
 
     public void AgregarDinero(int cantidad)
     {
+        totalDinero = PlayerPrefs.GetInt("DineroTotal", 0);
         totalDinero += cantidad;
+        PlayerPrefs.SetInt("DineroTotal", totalDinero);
     }
 
     public void RestarDinero(int cantidad)
     {
+        totalDinero = PlayerPrefs.GetInt("DineroTotal", 0);
         totalDinero -= cantidad;
         if (totalDinero < 0)
         {
+            Debug.Log("Dinero negativo alcanzado");
             totalDinero = 0;
         }
-        PlayerPrefs.SetInt("DineroTotal", ObtenerTotalDinero());
-    }
-
-    public int ObtenerTotalDinero()
-    {
-        return totalDinero;
+        PlayerPrefs.SetInt("DineroTotal", totalDinero);
     }
 }

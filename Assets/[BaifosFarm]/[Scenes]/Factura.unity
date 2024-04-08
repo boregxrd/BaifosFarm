@@ -376,6 +376,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtFactura: {fileID: 209063611}
   cabrasNuevas: 0
+  sistemaMonetario: {fileID: 2607430924471541632, guid: 1f5dd34bc155bff4a8735e8fcb6b6989, type: 3}
 --- !u!1 &209063609
 GameObject:
   m_ObjectHideFlags: 0
@@ -411,7 +412,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 200, y: 0}
-  m_SizeDelta: {x: 160, y: 40}
+  m_SizeDelta: {x: 160, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &209063611
 MonoBehaviour:
@@ -448,7 +449,9 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Leche vendida - 0
 
-    Cabras compradas - 0'
+    Cabras compradas - 0
+
+    Dinero total - 0'
 --- !u!222 &209063612
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -12,7 +12,7 @@ public class ControlTiempo : MonoBehaviour
 
     public SistemaMonetario sistemaMonetario; // Referencia al C# Script de sistema de dinero
     public Text textoDinero; // Referencia al objeto de texto que mostrará el dinero total
-
+    int dineroTotal;
 
 
     // Awake se llama cuando se instancia el script antes de que Start sea llamado
@@ -20,6 +20,7 @@ public class ControlTiempo : MonoBehaviour
     {
         Time.timeScale = 1f;
         PlayerPrefs.SetInt("LechesGuardadas", 0);
+        dineroTotal = PlayerPrefs.GetInt("DineroTotal", 0);
         if (contadorText == null)
         {
             contadorText = GetComponent<Text>();
@@ -32,9 +33,9 @@ public class ControlTiempo : MonoBehaviour
         sistemaMonetario = FindObjectOfType<SistemaMonetario>();
 
         // Mostrar el dinero total al empezar el día
-        Debug.Log("Dinero total al empezar el día: $" + sistemaMonetario.ObtenerTotalDinero());
+        Debug.Log("Dinero total al empezar el día: $" + dineroTotal);
         // Actualizar el texto del dinero total
-        textoDinero.text = "Dinero: $" + sistemaMonetario.ObtenerTotalDinero().ToString();
+        textoDinero.text = "Dinero: $" + dineroTotal.ToString();
     }
 
 
@@ -57,15 +58,14 @@ public class ControlTiempo : MonoBehaviour
         // Cuando el tiempo llega a cero, detener el juego
         Time.timeScale = 0f;
         Debug.Log("Tiempo terminado. Juego detenido.");
-        // Aquí mostrar mensaje final juego o trigger de leche o factura
-        SceneManager.LoadScene("Factura");
         // Llamada para sumar el dinero
         ControladorTextoCaja controladorTextoCaja = FindObjectOfType<ControladorTextoCaja>();
         if (controladorTextoCaja != null)
         {
             controladorTextoCaja.SumarDineroPorBotella();
         }
-        PlayerPrefs.SetInt("DineroTotal", sistemaMonetario.ObtenerTotalDinero());//guarda el dinero entre escenas
+        // Aquí mostrar mensaje final juego o trigger de leche o factura
+        SceneManager.LoadScene("Factura");
     }
     private string obtenerTemporizadorActual(){
         int minutos = Mathf.FloorToInt(tiempoRestante / 60f);
