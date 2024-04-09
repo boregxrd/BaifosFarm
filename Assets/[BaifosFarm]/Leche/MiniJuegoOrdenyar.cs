@@ -40,6 +40,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     private void Awake()
     {
         enabled = false;
+        objetoMiniJuegoOrdenyar.SetActive(false);
     }
 
     private void Update()
