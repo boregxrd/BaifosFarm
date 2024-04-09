@@ -23,6 +23,7 @@ public class BarraLeche : MonoBehaviour
 
     void Update()
     {
+
         if(barraAlimento == null)
         {
             return;

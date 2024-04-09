@@ -387,7 +387,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraLeche: {fileID: 0}
-  miniJuegoOrdenyar: {fileID: 0}
+  miniJuegoOrdenyar: {fileID: 3983467815505877483, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
   ordenioIniciado: 0
 --- !u!114 &6236029831295630805
 MonoBehaviour:
@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controladorAccionesPersonaje: {fileID: 8499726824884199935}
-  miniJuegoOrdenyar: {fileID: 0}
+  miniJuegoOrdenyar: {fileID: 3983467815505877483, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
   leche: {fileID: 1676810386094116703, guid: 6817a779a69d5ad4eb6c3ceb8a2fbae6, type: 3}
 --- !u!1 &4737345562445081389
 GameObject:

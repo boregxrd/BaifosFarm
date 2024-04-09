@@ -129,9 +129,6 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         porcentaje.text = $"{valorRedondeado}%";
     }
 
-    private void OnDisable()
-    {
-        resetearMiniJuego();
-    }
+    
 
 }

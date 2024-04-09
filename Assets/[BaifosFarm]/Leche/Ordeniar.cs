@@ -20,9 +20,7 @@ public class Ordeniar : MonoBehaviour
 
     public void IniciarOrdenyado(Collider other)
     {
-        miniJuegoOrdenyar = GameObject.Find("CanvasMiniJuegoOrdenyar").GetComponent<MiniJuegoOrdenyar>();
-
-        var children = other.gameObject.GetComponentsInChildren<Transform>(); //dentro de la cabra busco el objeto barraAlimento y luego su script
+        var children = other.gameObject.GetComponentsInChildren<Transform>(); //dentro de la cabra busco el objeto barraLeche y luego su script
         foreach (var child in children)
         {
             if (child.name == "BarraLeche")
