@@ -58,8 +58,14 @@ public class MenuPausa : MonoBehaviour
     }
 
     public void IrAlMenu(string NombreMenu)
-    {
-        Time.timeScale = 1; //el juego se vuelve a establecer 
-        SceneManager.LoadScene(NombreMenu);
+    { 
+        if(NombreMenu == "Ajustes")
+        {
+            Debug.Log("no se ha creado pantalla de ajustes aún");
+        }
+        else
+        {
+            SceneManager.LoadScene(NombreMenu);
+        }
     }
 }

@@ -6,10 +6,16 @@ using UnityEngine.SceneManagement;
 public class MenuInicio : MonoBehaviour
 {
     public void Jugar() {
+        // Reset valores de cabras para nueva partida
+        PlayerPrefs.SetInt("cabrasBlancas", 2);
+        PlayerPrefs.SetInt("cabrasNegras", 0);
+        PlayerPrefs.SetInt("DineroTotal", 100);
         SceneManager.LoadScene("Juego");
     }
 
-    public void Ajustes() {}
+    public void Ajustes() {
+        Debug.Log("Falta por hacer el menu ajustes");
+    }
 
     public void Salir() {
         Application.Quit();

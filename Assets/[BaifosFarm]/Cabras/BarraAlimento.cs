@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,32 +7,61 @@ using UnityEngine.UI;
 public class BarraAlimento : MonoBehaviour
 {
     private float valorMaximo = 100f;
-    [SerializeField] private float valorActual = 100f;
-    [SerializeField] private float velocidadReduccion = 3f; // Velocidad a la que se reduce la barra de alimentación
+    public float valorActual = 100f;
+    [SerializeField] private float velocidadReduccion = 3f; // Velocidad a la que se reduce la barra de alimentacion
 
     private Image barraAlimento;
     [SerializeField] private GameObject cabra;
 
+    // ref al otro script
+    public ControladorCabras controladorCabras;
+
+    [SerializeField] private GameObject personaje;
+    [SerializeField] private ControladorAccionesPersonaje controladorAccionesPersonaje;
+
     void Start()
     {
         barraAlimento = GetComponent<Image>();
-        barraAlimento.fillAmount = valorActual / valorMaximo; // Asegúrate de que la barra se inicialice correctamente
+        barraAlimento.fillAmount = valorActual / valorMaximo; // Asegï¿½rate de que la barra se inicialice correctamente
+
+        //Para encontrar el script ControladorAccionesPersonaje en Personaje:
+        personaje = GameObject.Find("Personaje");
+
+        var children = personaje.GetComponentsInChildren<Transform>();
+        foreach (var child in children)
+        {
+            if (child.name == "Mano")
+            {
+                controladorAccionesPersonaje = child.GetComponent<ControladorAccionesPersonaje>();
+            }
+        }
     }
 
     void Update()
     {
-        // Reducir la barra de alimentación con el tiempo
+        // Reducir la barra de alimentacion con el tiempo
         if (valorActual > 0)
         {
-            valorActual -= velocidadReduccion * Time.deltaTime; // Reduce el valor de la alimentación con el tiempo
-            barraAlimento.fillAmount = valorActual / valorMaximo; // Actualiza la barra de alimentación visualmente
+            valorActual -= velocidadReduccion * Time.deltaTime; // Reduce el valor de la alimentacion con el tiempo
+            barraAlimento.fillAmount = valorActual / valorMaximo; // Actualiza la barra de alimentacion visualmente
         }
         else
         {
-            // Destruir la cabra cuando la barra de alimentación llegue a cero
+            // Destruir la cabra cuando la barra de alimentacion llegue a cero
             if (cabra != null)
             {
+                controladorAccionesPersonaje.cabraMuerta = true;
                 Destroy(cabra);
+
+                // bajar numCabras del color
+                if (cabra.CompareTag("cabraBlanca"))
+                {
+                    controladorCabras.disminuirNumCabrasBlancas();
+                }
+                else if (cabra.CompareTag("cabraNegra"))
+                {
+                    controladorCabras.disminuirNumCabrasNegras();
+                }
             }
         }
     }
@@ -40,10 +70,9 @@ public class BarraAlimento : MonoBehaviour
     {
         float valorActualProvisional = valorActual;
 
-
-        if((valorActualProvisional += incremento) > valorMaximo)
+        if ((valorActualProvisional += incremento) > valorMaximo)
         {
-            incremento = (valorMaximo - valorActual); //El nivel nunca pasará del valor máximo
+            incremento = (valorMaximo - valorActual); //El nivel nunca pasara del valor maximo
             valorActual += incremento;
         }
         else
@@ -51,7 +80,4 @@ public class BarraAlimento : MonoBehaviour
             valorActual += incremento;
         }
     }
-
-
-
 }

@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 2
+  posicionSpawn: {x: 10, y: 0, z: 10}
 --- !u!1 &2823570188406990961
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,6 +249,7 @@ GameObject:
   - component: {fileID: 2353426376809728305}
   - component: {fileID: 3712649515167418578}
   - component: {fileID: 5245647238570162678}
+  - component: {fileID: 6236029831295630805}
   m_Layer: 0
   m_Name: Mano
   m_TagString: Untagged
@@ -331,12 +333,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79e07668f9843f446b85aac628605588, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puntoDeMano: {fileID: 0}
+  puntoDeMano: {fileID: 4737345562445081389}
   objetoEnMano: {fileID: 0}
+  ultimaLecheEnMano: {fileID: 0}
+  lechesGuardadas: 0
   recogerAlimento: {fileID: 0}
   alimentar: {fileID: 0}
   ordeniar: {fileID: 0}
-  ordenyoIniciado: 0
+  dejarLecheEnCaja: {fileID: 0}
+  movimientoPersonaje: {fileID: 2362205511153037576}
+  cabraMuerta: 0
 --- !u!114 &2353426376809728305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -349,9 +355,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5f8991c29081f4eb679e975c5b7b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabHeno: {fileID: 0}
+  prefabHeno: {fileID: 2973774707385990602, guid: cad18f8f1fe995b4b8d5262aad37e01b, type: 3}
   heno: {fileID: 0}
-  controladorAccionesPersonaje: {fileID: 0}
+  controladorAccionesPersonaje: {fileID: 8499726824884199935}
   preparadoParaAlimentar: 0
 --- !u!114 &3712649515167418578
 MonoBehaviour:
@@ -365,7 +371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce9e396166878ce46ae9c5d520f64e02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controladorAccionesPersonaje: {fileID: 0}
+  controladorAccionesPersonaje: {fileID: 8499726824884199935}
   barraAlimento: {fileID: 0}
   incremento: 25
 --- !u!114 &5245647238570162678
@@ -381,8 +387,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraLeche: {fileID: 0}
-  miniJuegoOrdenyar: {fileID: 0}
+  miniJuegoOrdenyar: {fileID: 3983467815505877483, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
   ordenioIniciado: 0
+--- !u!114 &6236029831295630805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4206943660840412181}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0732bc0683c451e44b26c2d7cb380d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controladorAccionesPersonaje: {fileID: 8499726824884199935}
+  miniJuegoOrdenyar: {fileID: 3983467815505877483, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
+  leche: {fileID: 1676810386094116703, guid: 6817a779a69d5ad4eb6c3ceb8a2fbae6, type: 3}
 --- !u!1 &4737345562445081389
 GameObject:
   m_ObjectHideFlags: 0

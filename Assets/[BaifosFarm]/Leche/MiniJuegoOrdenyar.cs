@@ -5,7 +5,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-//·······················································SCRIPT MINI JUEGO DE ORDEÑAR······················································
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SCRIPT MINI JUEGO DE ORDEï¿½ARï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //Este script ha de estar en CanvasMiniJuegoOrdenyar
 
 public class MiniJuegoOrdenyar : MonoBehaviour
@@ -51,7 +51,6 @@ public class MiniJuegoOrdenyar : MonoBehaviour
 
             if(Input.GetKeyUp(KeyCode.Tab))
             {
-                objetoMiniJuegoOrdenyar.SetActive(false);
                 resetearMiniJuego();
             }
 
@@ -64,7 +63,6 @@ public class MiniJuegoOrdenyar : MonoBehaviour
             {
                 valorActual = valorMaximo;
                 porcentaje.text = valorActual.ToString();
-                objetoMiniJuegoOrdenyar.SetActive(false);
                 generarLeche();
             }
         } 
@@ -90,7 +88,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         {
             valorActual = 0;
             mostrarPorcentaje();
-            objetoMiniJuegoOrdenyar.SetActive(false);
+            resetearMiniJuego();
             
         }
     }
@@ -105,6 +103,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         leche.transform.position = controladorAccionesPersonaje.puntoDeMano.transform.position;
         leche.transform.SetParent(controladorAccionesPersonaje.puntoDeMano.transform);
         controladorAccionesPersonaje.objetoEnMano = leche;
+        controladorAccionesPersonaje.ultimaLecheEnMano = leche;
 
         resetearMiniJuego();
     }
@@ -116,17 +115,23 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     }
    
 
-    private void resetearMiniJuego()
+    public void resetearMiniJuego()
     {
         valorActual = 15f;
         enabled = false;
         miniJuegoReseteado = true;
+        objetoMiniJuegoOrdenyar.SetActive(false);
     }
 
     private void mostrarPorcentaje()
     {
         int valorRedondeado = (int)Math.Round(valorActual);
         porcentaje.text = $"{valorRedondeado}%";
+    }
+
+    private void OnDisable()
+    {
+        objetoMiniJuegoOrdenyar.SetActive(false);
     }
 
 }
