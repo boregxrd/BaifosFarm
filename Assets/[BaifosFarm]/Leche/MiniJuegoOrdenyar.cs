@@ -40,7 +40,6 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     private void Awake()
     {
         enabled = false;
-        objetoMiniJuegoOrdenyar.SetActive(false);
     }
 
     private void Update()
@@ -129,6 +128,9 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         porcentaje.text = $"{valorRedondeado}%";
     }
 
-    
+    private void OnDisable()
+    {
+        objetoMiniJuegoOrdenyar.SetActive(false);
+    }
 
 }
