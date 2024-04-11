@@ -12,12 +12,15 @@ public class BarraAlimento : MonoBehaviour
 
     private Image barraAlimento;
     [SerializeField] private GameObject cabra;
+    [SerializeField] private GameObject canvasBarra;
 
     // ref al otro script
     public ControladorCabras controladorCabras;
 
     [SerializeField] private GameObject personaje;
     [SerializeField] private ControladorAccionesPersonaje controladorAccionesPersonaje;
+    [SerializeField] private CabraNegra cabraNegra;
+
 
     void Start()
     {
@@ -27,6 +30,7 @@ public class BarraAlimento : MonoBehaviour
         //Para encontrar el script ControladorAccionesPersonaje en Personaje:
         personaje = GameObject.Find("Personaje");
 
+        
         var children = personaje.GetComponentsInChildren<Transform>();
         foreach (var child in children)
         {
@@ -35,6 +39,7 @@ public class BarraAlimento : MonoBehaviour
                 controladorAccionesPersonaje = child.GetComponent<ControladorAccionesPersonaje>();
             }
         }
+        
     }
 
     void Update()
@@ -51,16 +56,18 @@ public class BarraAlimento : MonoBehaviour
             if (cabra != null)
             {
                 controladorAccionesPersonaje.cabraMuerta = true;
-                Destroy(cabra);
 
                 // bajar numCabras del color
                 if (cabra.CompareTag("cabraBlanca"))
                 {
                     controladorCabras.disminuirNumCabrasBlancas();
+                    Destroy(cabra);
                 }
                 else if (cabra.CompareTag("cabraNegra"))
                 {
                     controladorCabras.disminuirNumCabrasNegras();
+                    cabraNegra.MuerteDeCabraNegra();
+                    canvasBarra.SetActive(false);
                 }
             }
         }
