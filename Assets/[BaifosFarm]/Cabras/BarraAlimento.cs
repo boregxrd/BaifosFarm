@@ -30,7 +30,7 @@ public class BarraAlimento : MonoBehaviour
         //Para encontrar el script ControladorAccionesPersonaje en Personaje:
         personaje = GameObject.Find("Personaje");
 
-        /*
+        
         var children = personaje.GetComponentsInChildren<Transform>();
         foreach (var child in children)
         {
@@ -39,7 +39,7 @@ public class BarraAlimento : MonoBehaviour
                 controladorAccionesPersonaje = child.GetComponent<ControladorAccionesPersonaje>();
             }
         }
-        */
+        
     }
 
     void Update()
@@ -55,19 +55,17 @@ public class BarraAlimento : MonoBehaviour
             // Destruir la cabra cuando la barra de alimentacion llegue a cero
             if (cabra != null)
             {
-                //controladorAccionesPersonaje.cabraMuerta = true;
-                
+                controladorAccionesPersonaje.cabraMuerta = true;
 
                 // bajar numCabras del color
                 if (cabra.CompareTag("cabraBlanca"))
                 {
-                   // controladorCabras.disminuirNumCabrasBlancas();
+                    controladorCabras.disminuirNumCabrasBlancas();
                     Destroy(cabra);
                 }
                 else if (cabra.CompareTag("cabraNegra"))
                 {
-                    //controladorCabras.disminuirNumCabrasNegras();
-                    cabraNegra = cabra.GetComponent<CabraNegra>();
+                    controladorCabras.disminuirNumCabrasNegras();
                     cabraNegra.MuerteDeCabraNegra();
                     canvasBarra.SetActive(false);
                 }

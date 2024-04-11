@@ -13,6 +13,7 @@ public class ControlTiempo : MonoBehaviour
     public SistemaMonetario sistemaMonetario; // Referencia al C# Script de sistema de dinero
     public Text textoDinero; // Referencia al objeto de texto que mostrará el dinero total
     int dineroTotal;
+    
 
 
     // Awake se llama cuando se instancia el script antes de que Start sea llamado
@@ -46,6 +47,7 @@ public class ControlTiempo : MonoBehaviour
     {
         while (tiempoRestante > 0)
         {
+
             yield return new WaitForSeconds(1f); // Esperar un segundo
             tiempoRestante -= 1f; // Restar un segundo al tiempo restante
 
@@ -57,6 +59,7 @@ public class ControlTiempo : MonoBehaviour
                 contadorText.text = "Tiempo restante: " + obtenerTemporizadorActual();
             }
         }
+
 
         // Cuando el tiempo llega a cero, detener el juego
         Time.timeScale = 0f;
@@ -71,7 +74,19 @@ public class ControlTiempo : MonoBehaviour
         
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        
+
+
+        VerificarYCargarEscena();
+    }
+
+
+    void VerificarYCargarEscena()
+    {
+        CabraNegra[] cabrasNegras = FindObjectsOfType<CabraNegra>();
+        foreach (CabraNegra cabra in cabrasNegras)
+        {
+            cabra.DestruirCabrasNegrasMuertas();
+        }
         SceneManager.LoadScene("Factura");
     }
     private string obtenerTemporizadorActual()

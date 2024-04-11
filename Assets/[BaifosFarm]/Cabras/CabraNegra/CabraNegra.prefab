@@ -830,11 +830,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valorActual: 100
-  velocidadReduccion: 3
+  velocidadReduccion: 2
   cabra: {fileID: 7693945115360077490}
+  canvasBarra: {fileID: 7169530531729945697}
   controladorCabras: {fileID: 2472818280487466229, guid: d264aad5e173afb4982adb30d2c9f3c5, type: 3}
   personaje: {fileID: 0}
   controladorAccionesPersonaje: {fileID: 0}
+  cabraNegra: {fileID: 8575326236241112370}
 --- !u!1 &7169530531729945697
 GameObject:
   m_ObjectHideFlags: 0
