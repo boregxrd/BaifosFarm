@@ -30,8 +30,7 @@ public class CabraNegra : MonoBehaviour
     {
         if (Quaternion.Euler(0, 0, 90) != transform.rotation)
         {
-            Debug.Log("cabraNegraMuerta");
-        navMeshAgent.enabled = false; // Desactivar el NavMeshAgent
+            navMeshAgent.enabled = false; // Desactivar el NavMeshAgent
             transform.Rotate(0.0f, 0.0f, 90.0f, Space.Self);
         }
     }
@@ -44,5 +43,4 @@ public class CabraNegra : MonoBehaviour
                 Destroy(gameObject);
             }
     }
-
 }
