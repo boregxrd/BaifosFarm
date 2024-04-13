@@ -52,7 +52,6 @@ public class BarraAlimento : MonoBehaviour
         }
         else
         {
-            // Destruir la cabra cuando la barra de alimentacion llegue a cero
             if (cabra != null)
             {
                 controladorAccionesPersonaje.cabraMuerta = true;
@@ -80,11 +79,7 @@ public class BarraAlimento : MonoBehaviour
         if ((valorActualProvisional += incremento) > valorMaximo)
         {
             incremento = (valorMaximo - valorActual); //El nivel nunca pasara del valor maximo
-            valorActual += incremento;
         }
-        else
-        {
-            valorActual += incremento;
-        }
+        valorActual += incremento;
     }
 }
