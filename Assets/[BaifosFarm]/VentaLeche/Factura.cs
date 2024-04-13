@@ -11,7 +11,7 @@ public class Factura : MonoBehaviour
     public SistemaMonetario sistemaMonetario; // Referencia al Singleton del SistemaMonetario
 
     private const int COSTO_CABRA = 20;
-    private const int COSTO_HENO_ESPECIAL = 10;
+    private const int COSTO_HENO_ESPECIAL = 30;
     private void Awake()
     {
         cabrasNuevas = 0;
