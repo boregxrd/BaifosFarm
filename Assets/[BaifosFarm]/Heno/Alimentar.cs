@@ -10,20 +10,10 @@ public class Alimentar : MonoBehaviour
 
     [SerializeField] private BarraAlimento barraAlimento;
 
-    [SerializeField] private float incremento = 25f;
-
-    //JUAN 
-    public bool powerUpAlimento = true;//set this to false
+    public bool isHenoMejorado = false;
     private void Awake()
     {
         enabled = false;
-        if (powerUpAlimento)
-        {
-            incremento = 50f;
-        }
-        else{
-            incremento = 25f;
-        }
     }
 
     public void DarComida(Collider other)
@@ -34,6 +24,10 @@ public class Alimentar : MonoBehaviour
             if (child.name == "BarraAlimentos")
             {
                 barraAlimento = child.GetComponent<BarraAlimento>();
+                float incremento = 25f;
+                if(isHenoMejorado){
+                    incremento = 50f;
+                }
                 barraAlimento.incrementarNivelAlimentacion(incremento);
             }
         }
