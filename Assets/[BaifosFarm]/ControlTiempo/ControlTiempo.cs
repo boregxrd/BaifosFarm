@@ -14,9 +14,6 @@ public class ControlTiempo : MonoBehaviour
     public Text textoDinero; // Referencia al objeto de texto que mostrará el dinero total
     int dineroTotal;
     
-
-
-    // Awake se llama cuando se instancia el script antes de que Start sea llamado
     void Awake()
     {
         Time.timeScale = 1f;
@@ -30,11 +27,8 @@ public class ControlTiempo : MonoBehaviour
         // Comenzar la cuenta regresiva
         StartCoroutine(CuentaRegresiva());
 
-        // Obtener referencia al SistemaMonetario
         sistemaMonetario = FindObjectOfType<SistemaMonetario>();
 
-        // Mostrar el dinero total al empezar el día
-        Debug.Log("Dinero total al empezar el día: $" + dineroTotal);
         // Actualizar el texto del dinero total
         textoDinero.text = "Dinero: $" + dineroTotal.ToString();
 
@@ -60,10 +54,8 @@ public class ControlTiempo : MonoBehaviour
             }
         }
 
-
         // Cuando el tiempo llega a cero, detener el juego
         Time.timeScale = 0f;
-        Debug.Log("Tiempo terminado. Juego detenido.");
         // Llamada para sumar el dinero
         ControladorTextoCaja controladorTextoCaja = FindObjectOfType<ControladorTextoCaja>();
         if (controladorTextoCaja != null)
@@ -75,10 +67,8 @@ public class ControlTiempo : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
-
         VerificarYCargarEscena();
     }
-
 
     void VerificarYCargarEscena()
     {
