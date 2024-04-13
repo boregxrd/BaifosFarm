@@ -25,9 +25,7 @@ public class ControladorTextoCaja : MonoBehaviour
         int botellasObtenidas = controladorAccionesPersonaje.lechesGuardadas;
         int dineroGanado = botellasObtenidas * 10; // Cada botella vale $10
         sistemaMonetario.AgregarDinero(dineroGanado);
-        Debug.Log("Dinero ganado: " + dineroGanado);
-        Debug.Log("Dinero total: $" + PlayerPrefs.GetInt("DineroTotal", 0));
-        // Comprobar si textoDinero es nulo antes de intentar actualizarlo
+    
         if (textoDinero != null)
         {
             textoDinero.text = "Dinero: $" + PlayerPrefs.GetInt("DineroTotal", 0).ToString();

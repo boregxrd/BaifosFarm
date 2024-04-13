@@ -12,7 +12,6 @@ public class ControladorCabras : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("START");
         SpawnCabras();
     }
 
