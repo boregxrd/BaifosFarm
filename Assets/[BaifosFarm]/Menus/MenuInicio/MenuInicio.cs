@@ -10,6 +10,7 @@ public class MenuInicio : MonoBehaviour
         PlayerPrefs.SetInt("cabrasBlancas", 2);
         PlayerPrefs.SetInt("cabrasNegras", 0);
         PlayerPrefs.SetInt("DineroTotal", 100);
+        PlayerPrefs.SetInt("HenoMejorado", 0);
         SceneManager.LoadScene("Juego");
     }
 

@@ -14,8 +14,6 @@ public class Alimentar : MonoBehaviour
     [SerializeField] private Material materialHenoNormal;
     [SerializeField] private Material materialHenoMejorado;
 
-    public bool isHenoMejorado = true;
-
     private void Awake()
     {
         enabled = false;
@@ -30,7 +28,7 @@ public class Alimentar : MonoBehaviour
             {
                 barraAlimento = child.GetComponent<BarraAlimento>();
                 float incremento = 25f;
-                if(isHenoMejorado){
+                if(PlayerPrefs.GetInt("HenoMejorado", 0) == 1){
                     incremento = 50f;
                 }
                 barraAlimento.incrementarNivelAlimentacion(incremento);
@@ -40,8 +38,7 @@ public class Alimentar : MonoBehaviour
 
     public void GestionarAparienciaMontonHeno()
     {
-        Debug.Log("GestionarAparienciaHeno");
-        if(isHenoMejorado){
+        if(PlayerPrefs.GetInt("HenoMejorado", 0) == 1){
             GameObject.Find("MontonHeno").GetComponent<MeshRenderer>().material = materialHenoMejorado;
         }
         else{
@@ -50,13 +47,11 @@ public class Alimentar : MonoBehaviour
     }
     public void GestionarAparienciaHeno(GameObject heno)
     {
-        if(isHenoMejorado){
+        if(PlayerPrefs.GetInt("HenoMejorado", 0) == 1){
             heno.GetComponent<MeshRenderer>().material = materialHenoMejorado;
-            Debug.Log("hola" + heno.GetComponent<MeshRenderer>().material.name);
         }
         else{
             heno.GetComponent<MeshRenderer>().material = materialHenoNormal;
         }
-        Debug.Log(heno.GetComponent<MeshRenderer>().material.name);
     }
 }
