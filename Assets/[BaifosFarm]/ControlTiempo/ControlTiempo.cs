@@ -36,7 +36,7 @@ public class ControlTiempo : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         alimentar = GetComponent<Alimentar>();
-        alimentar.GestionarAparienciaHeno();
+        alimentar.GestionarAparienciaMontonHeno();
     }
 
 
