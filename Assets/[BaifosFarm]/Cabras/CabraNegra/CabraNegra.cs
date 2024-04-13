@@ -2,18 +2,30 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class CabraNegra : MonoBehaviour
 {
     [SerializeField] GameObject objetoControlTiempo;
     [SerializeField] ControlTiempo controlTiempo;
+    public Transform targetBaifo;
+    private NavMeshAgent navMeshAgent;
 
     private void Start()
     {
         objetoControlTiempo = GameObject.Find("CanvasTiempo");
         controlTiempo = objetoControlTiempo.GetComponentInChildren<ControlTiempo>();
+        targetBaifo = GameObject.Find("Personaje").transform;
+        navMeshAgent = GetComponent<NavMeshAgent>();
     }
 
+    private void Update()
+    {
+        if(!Quaternion.Euler(0, 0, 90).Equals(transform.rotation))
+        {
+            navMeshAgent.SetDestination(targetBaifo.position);
+        }
+    }
     public void MuerteDeCabraNegra()
     {
         if (Quaternion.Euler(0, 0, 90) != transform.rotation)
