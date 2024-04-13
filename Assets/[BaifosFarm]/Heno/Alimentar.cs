@@ -9,8 +9,13 @@ public class Alimentar : MonoBehaviour
     [SerializeField] ControladorAccionesPersonaje controladorAccionesPersonaje;
 
     [SerializeField] private BarraAlimento barraAlimento;
+    
+    //Materiales inyectados en el inspector
+    [SerializeField] private Material materialHenoNormal;
+    [SerializeField] private Material materialHenoMejorado;
 
-    public bool isHenoMejorado = false;
+    public bool isHenoMejorado = true;
+
     private void Awake()
     {
         enabled = false;
@@ -30,6 +35,17 @@ public class Alimentar : MonoBehaviour
                 }
                 barraAlimento.incrementarNivelAlimentacion(incremento);
             }
+        }
+    }
+
+    public void GestionarAparienciaHeno()
+    {
+        Debug.Log("GestionarAparienciaHeno");
+        if(isHenoMejorado){
+            GameObject.Find("MontonHeno").GetComponent<MeshRenderer>().material = materialHenoMejorado;
+        }
+        else{
+            GameObject.Find("MontonHeno").GetComponent<MeshRenderer>().material = materialHenoNormal;
         }
     }
 }

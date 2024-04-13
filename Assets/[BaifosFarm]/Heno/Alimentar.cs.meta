@@ -3,7 +3,11 @@ guid: ce9e396166878ce46ae9c5d520f64e02
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - controladorAccionesPersonaje: {instanceID: 0}
+  - barraAlimento: {instanceID: 0}
+  - materialHenoNormal: {fileID: 2100000, guid: 57adaa258c23e684c903b58d6f08c806, type: 2}
+  - materialHenoMejorado: {fileID: 2100000, guid: edca393f3d0143546be3037a999532d7, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

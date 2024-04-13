@@ -9,7 +9,7 @@ public class ControlTiempo : MonoBehaviour
     public Text contadorText; // Referencia al objeto Text donde se mostrará el contador
     [SerializeField]
     public float tiempoRestante = 120f; // 2 minutos en segundos
-
+    private Alimentar alimentar;
     public SistemaMonetario sistemaMonetario; // Referencia al C# Script de sistema de dinero
     public Text textoDinero; // Referencia al objeto de texto que mostrará el dinero total
     int dineroTotal;
@@ -34,6 +34,9 @@ public class ControlTiempo : MonoBehaviour
 
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        alimentar = GetComponent<Alimentar>();
+        alimentar.GestionarAparienciaHeno();
     }
 
 
