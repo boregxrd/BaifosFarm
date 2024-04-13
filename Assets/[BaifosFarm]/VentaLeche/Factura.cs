@@ -9,19 +9,23 @@ public class Factura : MonoBehaviour
     public Text txtFactura;
     public int cabrasNuevas;
     public SistemaMonetario sistemaMonetario; // Referencia al Singleton del SistemaMonetario
+
+    private const int COSTO_CABRA = 20;
+    private const int COSTO_HENO_ESPECIAL = 10;
     private void Awake()
     {
-        Debug.Log("INICIO FACTURA");
         cabrasNuevas = 0;
         ActualizarTexto();
+        PlayerPrefs.SetInt("HenoMejorado", 0);
     }
 
     public void comprarCabra()
     {
-        int costoCabra = 20;
-        if (PlayerPrefs.GetInt("DineroTotal", 0) >= costoCabra)
+        // Verificar si el jugador tiene suficiente dinero para comprar una cabra
+        if (PlayerPrefs.GetInt("DineroTotal", 0) >= COSTO_CABRA)
         {
-            sistemaMonetario.RestarDinero(costoCabra);
+            // Restar el costo de la cabra del dinero total
+            sistemaMonetario.RestarDinero(COSTO_CABRA);
 
             // Get valores de PlayerPrefs
             int numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
@@ -52,6 +56,22 @@ public class Factura : MonoBehaviour
     {
         SceneManager.LoadScene("Juego");
         sistemaMonetario.RestarDinero(sistemaMonetario.CalcularGastoHeno());
+    }
+
+    public void comprarHenoEspecial()
+    {
+        if (PlayerPrefs.GetInt("DineroTotal", 0) >= COSTO_HENO_ESPECIAL)
+        {
+            sistemaMonetario.RestarDinero(COSTO_HENO_ESPECIAL);
+            PlayerPrefs.SetInt("HenoMejorado", 1);
+            Debug.Log("¡Has comprado heno especial!");
+            ActualizarTexto();
+        }
+        else
+        {
+            Debug.Log("¡No tienes suficiente dinero para comprar heno especial!");
+            // Aquí puedes mostrar un mensaje al jugador indicando que no tiene suficiente dinero
+        }
     }
 
     private void ActualizarTexto()
