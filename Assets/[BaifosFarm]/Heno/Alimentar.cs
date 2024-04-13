@@ -38,7 +38,7 @@ public class Alimentar : MonoBehaviour
         }
     }
 
-    public void GestionarAparienciaHeno()
+    public void GestionarAparienciaMontonHeno()
     {
         Debug.Log("GestionarAparienciaHeno");
         if(isHenoMejorado){
@@ -47,5 +47,16 @@ public class Alimentar : MonoBehaviour
         else{
             GameObject.Find("MontonHeno").GetComponent<MeshRenderer>().material = materialHenoNormal;
         }
+    }
+    public void GestionarAparienciaHeno(GameObject heno)
+    {
+        if(isHenoMejorado){
+            heno.GetComponent<MeshRenderer>().material = materialHenoMejorado;
+            Debug.Log("hola" + heno.GetComponent<MeshRenderer>().material.name);
+        }
+        else{
+            heno.GetComponent<MeshRenderer>().material = materialHenoNormal;
+        }
+        Debug.Log(heno.GetComponent<MeshRenderer>().material.name);
     }
 }

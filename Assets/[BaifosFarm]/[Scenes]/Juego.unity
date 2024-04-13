@@ -730,6 +730,18 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3712649515167418578, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: isHenoMejorado
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3712649515167418578, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: materialHenoNormal
+      value: 
+      objectReference: {fileID: 2100000, guid: 57adaa258c23e684c903b58d6f08c806, type: 2}
+    - target: {fileID: 3712649515167418578, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: materialHenoMejorado
+      value: 
+      objectReference: {fileID: 2100000, guid: edca393f3d0143546be3037a999532d7, type: 2}
+    - target: {fileID: 3712649515167418578, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: controladorAccionesPersonaje
       value: 
       objectReference: {fileID: 1018782740}
