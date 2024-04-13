@@ -412,7 +412,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 200, y: 0}
-  m_SizeDelta: {x: 160, y: 60}
+  m_SizeDelta: {x: 223, y: 95.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &209063611
 MonoBehaviour:
@@ -447,11 +447,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Leche vendida - 0
-
-    Cabras compradas - 0
-
-    Dinero total - 0'
+  m_Text: "Leche vendida - 0\nCabras compradas - 0\nDinero total - 0\nGasto heno
+    siguiente d\xEDa - 0"
 --- !u!222 &209063612
 CanvasRenderer:
   m_ObjectHideFlags: 0
