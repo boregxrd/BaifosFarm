@@ -742,6 +742,10 @@ PrefabInstance:
       propertyPath: movimientoPersonaje
       value: 
       objectReference: {fileID: 484809034}
+    - target: {fileID: 8786474870746352915, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8819886921955647124, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
     m_RemovedGameObjects: []
@@ -827,7 +831,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 3a74db20eb3617c469ea477bcd036347, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 6296e00c2fcd8644f9b9edd3ab6c8a13, type: 2}
   m_BuildHeightMesh: 0
 --- !u!1001 &1468194221
 PrefabInstance:

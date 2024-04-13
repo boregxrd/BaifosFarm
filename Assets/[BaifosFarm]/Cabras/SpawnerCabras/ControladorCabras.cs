@@ -20,7 +20,7 @@ public class ControladorCabras : MonoBehaviour
         // get num cabras blancas/negras
         int numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
         int numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
-        Debug.Log("GET DONE: " + numCabrasBlancas + ", " + numCabrasNegras);
+        //Debug.Log("GET DONE: " + numCabrasBlancas + ", " + numCabrasNegras);
 
         // spawn cabras blancas
         for (int i = 0; i < numCabrasBlancas; i++)
