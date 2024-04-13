@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//·······················································SCRIPT ACCIÓN ALIMENTAR······················································
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SCRIPT ACCIï¿½N ALIMENTARï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //Este script ha de estar en Mano dentro de Personaje
 
 public class Alimentar : MonoBehaviour
@@ -12,9 +12,18 @@ public class Alimentar : MonoBehaviour
 
     [SerializeField] private float incremento = 25f;
 
+    //JUAN 
+    public bool powerUpAlimento = true;//set this to false
     private void Awake()
     {
         enabled = false;
+        if (powerUpAlimento)
+        {
+            incremento = 50f;
+        }
+        else{
+            incremento = 25f;
+        }
     }
 
     public void DarComida(Collider other)
