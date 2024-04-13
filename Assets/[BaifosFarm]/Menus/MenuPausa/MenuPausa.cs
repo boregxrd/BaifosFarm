@@ -17,7 +17,6 @@ public class MenuPausa : MonoBehaviour
         objetoMenuPausa.SetActive(false);
     }
 
-
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape))
@@ -40,7 +39,6 @@ public class MenuPausa : MonoBehaviour
 
         Time.timeScale = 0; //el juego se pausa
 
-        //para que se vea el cursor del rat�n y poder clicar en los botones:
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
@@ -52,7 +50,6 @@ public class MenuPausa : MonoBehaviour
 
         Time.timeScale = 1; //el juego se reanuda
 
-        //para que se vea el cursor del rat�n y poder clicar en los botones:
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
