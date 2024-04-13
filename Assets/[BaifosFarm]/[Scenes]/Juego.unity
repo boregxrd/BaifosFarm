@@ -517,7 +517,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5948450414786922847, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: tiempoRestante
-      value: 90
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 5948450414786922847, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: sistemaMonetario
