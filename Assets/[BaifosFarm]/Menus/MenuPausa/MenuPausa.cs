@@ -17,6 +17,17 @@ public class MenuPausa : MonoBehaviour
 
     void Update()
     {
+
+        // Verificar si el menú de ajustes está activo antes de procesar la entrada de la tecla ESC
+        if (GrupoMenuAjustes.activeSelf)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                CerrarMenuAjustes(); // Cerrar el menú de ajustes si se pulsa la tecla ESC
+            }
+            return; // Salir del método Update si el menú de ajustes está activo
+        }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (Pausa == false)
