@@ -174,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 122fc0b40b4c2574e9c7a5fd3d11cd34, type: 2}
   sliderVolumen: {fileID: 1836601481}
+  GrupoMenuAjustes: {fileID: 1276717781}
 --- !u!4 &232572231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 892908031600250289, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
