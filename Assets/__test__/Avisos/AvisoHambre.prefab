@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6236306880612967679}
   m_Layer: 5
   m_Name: AvisoHambre
-  m_TagString: Untagged
+  m_TagString: avisoHambre
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

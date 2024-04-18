@@ -17,6 +17,36 @@ public class ControlAvisos : MonoBehaviour
 
     public void GenerarOActualizarAviso(Cabra cabra, Vector3 posicionCabra, GameObject prefabAviso)
     {
+        if (avisosActivos.TryGetValue(cabra, out GameObject avisoActual))
+        {
+            // Verificar si el tipo de aviso actual difiere del nuevo tipo de aviso
+            if (avisoActual.tag != prefabAviso.tag)
+            {
+                Destroy(avisoActual);
+                avisoActual = Instantiate(prefabAviso, transform.GetChild(0).GetComponent<RectTransform>());
+                avisosActivos[cabra] = avisoActual;
+            }
+        }
+        else
+        {
+            // No hay aviso existente, crear uno nuevo
+            RectTransform targetParent = transform.GetChild(0).GetComponent<RectTransform>();
+            avisoActual = Instantiate(prefabAviso, targetParent);
+            avisosActivos[cabra] = avisoActual;
+        }
+
+        // Actualizar la posición y orientación del aviso
+        RectTransform rectTransform = avisoActual.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = Vector2.zero;
+        rectTransform.localScale = Vector3.one;
+        rectTransform.localRotation = Quaternion.identity;
+        ActualizarAviso(rectTransform, posicionCabra);
+    }
+
+
+    /*
+    public void GenerarOActualizarAviso(Cabra cabra, Vector3 posicionCabra, GameObject prefabAviso)
+    {
         if (!avisosActivos.TryGetValue(cabra, out GameObject aviso))
         {
             RectTransform targetParent = transform.GetChild(0).GetComponent<RectTransform>();
@@ -30,6 +60,7 @@ public class ControlAvisos : MonoBehaviour
         rectTransform.localRotation = Quaternion.identity;
         ActualizarAviso(rectTransform, posicionCabra);
     }
+    */
 
 
     private void ActualizarAviso(RectTransform avisoRectTransform, Vector3 posicionCabra)

@@ -63,27 +63,23 @@ public class CondicionesAvisos : MonoBehaviour
 
                 if (estaFueraDeCamara)
                 {
-                    
+
 
                     if (cabra.nivelDeAlimentacion() <= valorAlertaMuerte)
                     {
                         controlAvisos.GenerarOActualizarAviso(cabra, cabra.transform.position, prefabAvisoMuerte);
                         Debug.Log($"{cabra.name} va a morir");
                     }
-
-                    if(cabra.nivelDeAlimentacion() <= valorAlertaHambre && 
-                       cabra.nivelDeAlimentacion() > valorAlertaMuerte)
+                    else if (cabra.nivelDeAlimentacion() <= valorAlertaHambre)
                     {
-                       controlAvisos.GenerarOActualizarAviso(cabra, cabra.transform.position, prefabAvisoHambre);
+                        controlAvisos.GenerarOActualizarAviso(cabra, cabra.transform.position, prefabAvisoHambre);
                     }
-
-                    if (cabra.nivelDeLeche() == valorLecheCompleta)
+                    else if (cabra.nivelDeLeche() == valorLecheCompleta)
                     {
                         controlAvisos.GenerarOActualizarAviso(cabra, cabra.transform.position, prefabAvisoLeche);
-
                         Debug.Log($"{cabra.name} tiene LECHE");
                     }
-              
+
                 }
                 else
                 {
