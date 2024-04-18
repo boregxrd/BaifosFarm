@@ -6,7 +6,7 @@ public class ControlAvisos : MonoBehaviour
 {
     
     private Camera camara;
-    private float bordePantalla = 100f;
+    private float bordePantalla = 50f;
 
     private Dictionary<Cabra, GameObject> avisosActivos = new Dictionary<Cabra, GameObject>();
 
