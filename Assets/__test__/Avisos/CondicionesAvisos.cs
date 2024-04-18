@@ -71,18 +71,18 @@ public class CondicionesAvisos : MonoBehaviour
                     if (cabra.nivelDeLeche() == valorLecheCompleta)
                     {
                         Debug.Log($"{cabra.name} tiene LECHE");
-                        controlAvisos.MostrarAvisoHambre(cabra.transform.position);
+                        controlAvisos.GenerarOActualizarAviso(cabra, cabra.transform.position);
                     }
               
                 }
                 else
                 {
-                    controlAvisos.OcultarAvisoHambre();
+                    controlAvisos.DestruirAviso(cabra);
                 }
             }
             else
             {
-                cabrasEnEscena.Clear();
+                cabrasEnEscena.Remove(cabra);
             }
            
             

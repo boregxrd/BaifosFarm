@@ -4,39 +4,48 @@ using UnityEngine;
 
 public class ControlAvisos : MonoBehaviour
 {
-    [SerializeField] private RectTransform avisoHambreRectTransform;
+    [SerializeField] private GameObject prefabAvisoHambre;
     private Camera camara;
     private float bordePantalla = 100f;
 
+    private Dictionary<Cabra, GameObject> avisosActivos = new Dictionary<Cabra, GameObject>();
+
     private void Awake()
     {
-        avisoHambreRectTransform = transform.GetChild(0).Find("AvisoHambre").GetComponent<RectTransform>();
-        OcultarAvisoHambre();
         camara = Camera.main;
     }
 
-
-    public void MostrarAvisoHambre(Vector3 posicionCabra)
+    public void GenerarOActualizarAviso(Cabra cabra, Vector3 posicionCabra)
     {
-        avisoHambreRectTransform.gameObject.SetActive(true);
+        if (!avisosActivos.TryGetValue(cabra, out GameObject aviso))
+        {
+            RectTransform targetParent = transform.GetChild(0).GetComponent<RectTransform>();
+            aviso = Instantiate(prefabAvisoHambre, targetParent);
+            avisosActivos[cabra] = aviso;
+        }
 
+        RectTransform rectTransform = aviso.GetComponent<RectTransform>();
+        rectTransform.anchoredPosition = Vector2.zero;
+        rectTransform.localScale = Vector3.one;
+        rectTransform.localRotation = Quaternion.identity;
+        ActualizarAviso(rectTransform, posicionCabra);
+    }
+
+
+    private void ActualizarAviso(RectTransform avisoRectTransform, Vector3 posicionCabra)
+    {
         Vector3 posicionPantalla = camara.WorldToScreenPoint(posicionCabra);
         Vector3 desde = camara.WorldToScreenPoint(camara.transform.position);
         desde.z = 0;
 
         Vector3 direccion = (posicionPantalla - desde).normalized;
         float angulo = Mathf.Atan2(direccion.y, direccion.x) * Mathf.Rad2Deg;
-        avisoHambreRectTransform.localEulerAngles = new Vector3(0, 0, angulo);
+        avisoRectTransform.localEulerAngles = new Vector3(0, 0, angulo);
 
-        LimitarPosicionAviso(posicionCabra);
+        LimitarPosicionAviso(avisoRectTransform, posicionCabra);
     }
 
-    public void OcultarAvisoHambre()
-    {
-        avisoHambreRectTransform.gameObject.SetActive(false);
-    }
-
-    private void LimitarPosicionAviso(Vector3 posicionObjetivo)
+    private void LimitarPosicionAviso(RectTransform avisoRectTransform, Vector3 posicionObjetivo)
     {
         Vector3 posicionPantalla = camara.WorldToScreenPoint(posicionObjetivo);
 
@@ -45,6 +54,15 @@ public class ControlAvisos : MonoBehaviour
         if (posicionPantalla.y < bordePantalla) posicionPantalla.y = bordePantalla;
         if (posicionPantalla.y > Screen.height - bordePantalla) posicionPantalla.y = Screen.height - bordePantalla;
 
-        avisoHambreRectTransform.position = posicionPantalla;
+        avisoRectTransform.position = posicionPantalla;
+    }
+
+    public void DestruirAviso(Cabra cabra)
+    {
+        if (avisosActivos.TryGetValue(cabra, out GameObject aviso))
+        {
+            Destroy(aviso);
+            avisosActivos.Remove(cabra);
+        }
     }
 }
