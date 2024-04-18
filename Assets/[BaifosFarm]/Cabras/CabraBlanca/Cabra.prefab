@@ -734,6 +734,7 @@ GameObject:
   - component: {fileID: 5113766062345863600}
   - component: {fileID: 8113337333320701540}
   - component: {fileID: -3913760539117178546}
+  - component: {fileID: 5095309746702386214}
   m_Layer: 0
   m_Name: Cabra
   m_TagString: cabraBlanca
@@ -804,6 +805,18 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5095309746702386214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6535343484078306890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7c3e85d23315c4cb87b3b3176c6cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6650065937915407930
 GameObject:
   m_ObjectHideFlags: 0
