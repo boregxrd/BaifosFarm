@@ -6,6 +6,7 @@ public class ControlAvisos : MonoBehaviour
 {
     [SerializeField] private RectTransform avisoHambreRectTransform;
     private Camera camara;
+    private float bordePantalla = 100f;
 
     private void Awake()
     {
@@ -39,10 +40,10 @@ public class ControlAvisos : MonoBehaviour
     {
         Vector3 posicionPantalla = camara.WorldToScreenPoint(posicionObjetivo);
 
-        if (posicionPantalla.x < 0) posicionPantalla.x = 0;
-        if (posicionPantalla.x > Screen.width) posicionPantalla.x = Screen.width;
-        if (posicionPantalla.y < 0) posicionPantalla.y = 0;
-        if (posicionPantalla.y > Screen.height) posicionPantalla.y = Screen.height;
+        if (posicionPantalla.x < bordePantalla) posicionPantalla.x = bordePantalla;
+        if (posicionPantalla.x > Screen.width - bordePantalla) posicionPantalla.x = Screen.width - bordePantalla;
+        if (posicionPantalla.y < bordePantalla) posicionPantalla.y = bordePantalla;
+        if (posicionPantalla.y > Screen.height - bordePantalla) posicionPantalla.y = Screen.height - bordePantalla;
 
         avisoHambreRectTransform.position = posicionPantalla;
     }

@@ -5,6 +5,7 @@ using UnityEngine;
 public class LimitesCamara : MonoBehaviour
 {
     private Camera camara;
+    private float bordePantalla = 30f;
 
     private void Awake()
     {
@@ -15,10 +16,10 @@ public class LimitesCamara : MonoBehaviour
     {
         Vector2 posicionObjectoEnPantalla = camara.WorldToScreenPoint(posicionDeObjeto);
 
-        if(posicionObjectoEnPantalla.x < 0 ||
-            posicionObjectoEnPantalla.x > camara.pixelWidth ||
-            posicionObjectoEnPantalla.y < 0 ||
-            posicionObjectoEnPantalla.y > camara.pixelHeight)
+        if(posicionObjectoEnPantalla.x < bordePantalla ||
+            posicionObjectoEnPantalla.x > camara.pixelWidth - bordePantalla ||
+            posicionObjectoEnPantalla.y < bordePantalla ||
+            posicionObjectoEnPantalla.y > camara.pixelHeight - bordePantalla)
         {
             return true;
         }
