@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ControlAvisos : MonoBehaviour
 {
-    [SerializeField] private GameObject prefabAvisoHambre;
+    
     private Camera camara;
     private float bordePantalla = 100f;
 
@@ -15,12 +15,12 @@ public class ControlAvisos : MonoBehaviour
         camara = Camera.main;
     }
 
-    public void GenerarOActualizarAviso(Cabra cabra, Vector3 posicionCabra)
+    public void GenerarOActualizarAviso(Cabra cabra, Vector3 posicionCabra, GameObject prefabAviso)
     {
         if (!avisosActivos.TryGetValue(cabra, out GameObject aviso))
         {
             RectTransform targetParent = transform.GetChild(0).GetComponent<RectTransform>();
-            aviso = Instantiate(prefabAvisoHambre, targetParent);
+            aviso = Instantiate(prefabAviso, targetParent);
             avisosActivos[cabra] = aviso;
         }
 

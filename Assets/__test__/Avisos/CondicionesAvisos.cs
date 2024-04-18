@@ -9,6 +9,12 @@ public class CondicionesAvisos : MonoBehaviour
     private LimitesCamara limitesCamara;
     private ControlAvisos controlAvisos;
 
+    
+    [SerializeField] private GameObject prefabAvisoHambre;
+    [SerializeField] private GameObject prefabAvisoLeche;
+    [SerializeField] private GameObject prefabAvisoMuerte;
+    
+
     private float valorAlertaHambre = 30f;
     private float valorAlertaMuerte = 5f;
     private float valorLecheCompleta = 100f;
@@ -57,21 +63,25 @@ public class CondicionesAvisos : MonoBehaviour
 
                 if (estaFueraDeCamara)
                 {
-                    if(cabra.nivelDeAlimentacion() <= valorAlertaHambre && 
-                        cabra.nivelDeAlimentacion() > valorAlertaMuerte)
-                    {
-                        
-                    }
+                    
 
                     if (cabra.nivelDeAlimentacion() <= valorAlertaMuerte)
                     {
+                        controlAvisos.GenerarOActualizarAviso(cabra, cabra.transform.position, prefabAvisoMuerte);
                         Debug.Log($"{cabra.name} va a morir");
+                    }
+
+                    if(cabra.nivelDeAlimentacion() <= valorAlertaHambre && 
+                       cabra.nivelDeAlimentacion() > valorAlertaMuerte)
+                    {
+                       controlAvisos.GenerarOActualizarAviso(cabra, cabra.transform.position, prefabAvisoHambre);
                     }
 
                     if (cabra.nivelDeLeche() == valorLecheCompleta)
                     {
+                        controlAvisos.GenerarOActualizarAviso(cabra, cabra.transform.position, prefabAvisoLeche);
+
                         Debug.Log($"{cabra.name} tiene LECHE");
-                        controlAvisos.GenerarOActualizarAviso(cabra, cabra.transform.position);
                     }
               
                 }
