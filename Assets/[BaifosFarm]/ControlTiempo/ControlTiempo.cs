@@ -57,7 +57,10 @@ public class ControlTiempo : MonoBehaviour
             }
         }
 
-        // Cuando el tiempo llega a cero, detener el juego
+        // Cuando el tiempo llega a cero, llamar LlegadaCamion
+        GameObject camion = GameObject.Find("Camion");
+        LlegadaCamión llegadaCamión = camion.GetComponent<LlegadaCamión>();
+        llegadaCamión.empezarMovimientoCamion();
         Time.timeScale = 0f;
         // Llamada para sumar el dinero
         ControladorTextoCaja controladorTextoCaja = FindObjectOfType<ControladorTextoCaja>();
