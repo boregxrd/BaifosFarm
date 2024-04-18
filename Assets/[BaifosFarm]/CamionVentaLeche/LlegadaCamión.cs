@@ -10,12 +10,7 @@ public class LlegadaCamión : MonoBehaviour
     public GameObject personaje;
     [SerializeField] public float velocidadRotacionCamara = 5f;
 
-    private bool enMovimiento = false;
-
-    private void OnEnable()
-    {
-        empezarMovimientoCamion();
-    }
+    public bool enMovimiento = false;
 
     public void empezarMovimientoCamion()
     {

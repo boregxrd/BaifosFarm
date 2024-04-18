@@ -13,7 +13,7 @@ public class ControlTiempo : MonoBehaviour
     public SistemaMonetario sistemaMonetario; // Referencia al C# Script de sistema de dinero
     public Text textoDinero; // Referencia al objeto de texto que mostrará el dinero total
     int dineroTotal;
-    
+
     void Awake()
     {
         Time.timeScale = 1f;
@@ -61,6 +61,12 @@ public class ControlTiempo : MonoBehaviour
         GameObject camion = GameObject.Find("Camion");
         LlegadaCamión llegadaCamión = camion.GetComponent<LlegadaCamión>();
         llegadaCamión.empezarMovimientoCamion();
+        
+        while (llegadaCamión.enMovimiento)
+        {
+            yield return null;
+        }
+
         Time.timeScale = 0f;
         // Llamada para sumar el dinero
         ControladorTextoCaja controladorTextoCaja = FindObjectOfType<ControladorTextoCaja>();
@@ -69,7 +75,7 @@ public class ControlTiempo : MonoBehaviour
             controladorTextoCaja.SumarDineroPorBotella();
         }
         // Aquí mostrar mensaje final juego o trigger de leche o factura
-        
+
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
