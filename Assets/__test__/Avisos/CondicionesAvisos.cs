@@ -7,6 +7,7 @@ public class CondicionesAvisos : MonoBehaviour
 
     [SerializeField] private List<Cabra> cabrasEnEscena;
     private LimitesCamara limitesCamara;
+    private ControlAvisos controlAvisos;
 
     private float valorAlertaHambre = 30f;
     private float valorAlertaMuerte = 5f;
@@ -15,6 +16,7 @@ public class CondicionesAvisos : MonoBehaviour
     private void Awake()
     {
         limitesCamara = GetComponent<LimitesCamara>();
+        controlAvisos = FindObjectOfType<ControlAvisos>();
     }
 
     private void Update()
@@ -25,20 +27,17 @@ public class CondicionesAvisos : MonoBehaviour
         }
         else
         {
-            comprobarDondeEstanLasCabras();
+            comprobarDatosDeCabras();
         }
 
     }
 
     private List<Cabra> ObtenerCabrasDeEscena()
     {
-        // Inicializa una lista para almacenar las cabras
         List<Cabra> cabrasEnEscena = new List<Cabra>();
 
-        // Encuentra todos los objetos en la escena que tengan el script Cabra adjunto
         Cabra[] cabrasEncontradas = FindObjectsOfType<Cabra>();
 
-        // Agrega cada cabra encontrada a la lista
         foreach (Cabra cabra in cabrasEncontradas)
         {
             cabrasEnEscena.Add(cabra);
@@ -47,7 +46,7 @@ public class CondicionesAvisos : MonoBehaviour
         return cabrasEnEscena;
     }
 
-    private void comprobarDondeEstanLasCabras()
+    private void comprobarDatosDeCabras()
     {
         
         foreach (Cabra cabra in cabrasEnEscena)
@@ -62,6 +61,7 @@ public class CondicionesAvisos : MonoBehaviour
                         cabra.nivelDeAlimentacion() > valorAlertaMuerte)
                     {
                         Debug.Log($"{cabra.name} tiene hambre");
+                        controlAvisos.MostrarAvisoHambre(cabra.transform.position);
                     }
 
                     if (cabra.nivelDeAlimentacion() <= valorAlertaMuerte)
