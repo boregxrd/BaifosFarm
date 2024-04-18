@@ -43,26 +43,6 @@ public class ControlAvisos : MonoBehaviour
         ActualizarAviso(rectTransform, posicionCabra);
     }
 
-
-    /*
-    public void GenerarOActualizarAviso(Cabra cabra, Vector3 posicionCabra, GameObject prefabAviso)
-    {
-        if (!avisosActivos.TryGetValue(cabra, out GameObject aviso))
-        {
-            RectTransform targetParent = transform.GetChild(0).GetComponent<RectTransform>();
-            aviso = Instantiate(prefabAviso, targetParent);
-            avisosActivos[cabra] = aviso;
-        }
-
-        RectTransform rectTransform = aviso.GetComponent<RectTransform>();
-        rectTransform.anchoredPosition = Vector2.zero;
-        rectTransform.localScale = Vector3.one;
-        rectTransform.localRotation = Quaternion.identity;
-        ActualizarAviso(rectTransform, posicionCabra);
-    }
-    */
-
-
     private void ActualizarAviso(RectTransform avisoRectTransform, Vector3 posicionCabra)
     {
         Vector3 posicionPantalla = camara.WorldToScreenPoint(posicionCabra);

@@ -59,16 +59,21 @@ public class CondicionesAvisos : MonoBehaviour
         {
             if (cabra != null)
             {
+                // Verificar si la cabra ha muerto
+                if (cabra.nivelDeAlimentacion() <= 0)
+                {
+                    controlAvisos.DestruirAviso(cabra);
+                    continue; // Pasar a la siguiente cabra
+                }
+
                 bool estaFueraDeCamara = limitesCamara.ObjetoFueraDeCamara(cabra.transform.position);
 
                 if (estaFueraDeCamara)
                 {
-
-
                     if (cabra.nivelDeAlimentacion() <= valorAlertaMuerte)
                     {
                         controlAvisos.GenerarOActualizarAviso(cabra, cabra.transform.position, prefabAvisoMuerte);
-                        Debug.Log($"{cabra.name} va a morir");
+                        
                     }
                     else if (cabra.nivelDeAlimentacion() <= valorAlertaHambre)
                     {
