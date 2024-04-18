@@ -60,8 +60,7 @@ public class CondicionesAvisos : MonoBehaviour
                     if(cabra.nivelDeAlimentacion() <= valorAlertaHambre && 
                         cabra.nivelDeAlimentacion() > valorAlertaMuerte)
                     {
-                        Debug.Log($"{cabra.name} tiene hambre");
-                        controlAvisos.MostrarAvisoHambre(cabra.transform.position);
+                        
                     }
 
                     if (cabra.nivelDeAlimentacion() <= valorAlertaMuerte)
@@ -72,8 +71,13 @@ public class CondicionesAvisos : MonoBehaviour
                     if (cabra.nivelDeLeche() == valorLecheCompleta)
                     {
                         Debug.Log($"{cabra.name} tiene LECHE");
+                        controlAvisos.MostrarAvisoHambre(cabra.transform.position);
                     }
               
+                }
+                else
+                {
+                    controlAvisos.OcultarAvisoHambre();
                 }
             }
             else
