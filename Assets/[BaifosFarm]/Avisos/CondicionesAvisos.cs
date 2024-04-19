@@ -38,7 +38,7 @@ public class CondicionesAvisos : MonoBehaviour
 
     }
 
-    private List<Cabra> ObtenerCabrasDeEscena()
+    public List<Cabra> ObtenerCabrasDeEscena()
     {
         List<Cabra> cabrasEnEscena = new List<Cabra>();
 
@@ -82,7 +82,7 @@ public class CondicionesAvisos : MonoBehaviour
                     else if (cabra.nivelDeLeche() == valorLecheCompleta)
                     {
                         controlAvisos.GenerarOActualizarAviso(cabra, cabra.transform.position, prefabAvisoLeche);
-                        Debug.Log($"{cabra.name} tiene LECHE");
+                        
                     }
 
                 }
