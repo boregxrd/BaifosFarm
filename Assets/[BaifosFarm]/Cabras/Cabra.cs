@@ -13,7 +13,15 @@ public class Cabra : MonoBehaviour
     private void Awake()
     {
         barraAlimento = transform.GetChild(3).GetChild(0).GetChild(0).GetComponent<BarraAlimento>();
-        barraLeche = transform.GetChild(4).GetChild(0).GetChild(0).GetComponent<BarraLeche>();
+
+        Transform barraLecheTransform = transform.GetChild(4).GetChild(0).GetChild(0);
+        if (barraLecheTransform != null)
+        {
+            barraLeche = barraLecheTransform.GetComponent<BarraLeche>();
+        }
+
+
+
         posicionCabra = transform.position;
     }
 
@@ -24,7 +32,15 @@ public class Cabra : MonoBehaviour
 
     public float nivelDeLeche()
     {
-        return barraLeche.valorActual;
+        if(barraLeche != null)
+        {
+            return barraLeche.valorActual;
+        }
+        else
+        {
+            return 0f;
+        }
+        
     }
 
 

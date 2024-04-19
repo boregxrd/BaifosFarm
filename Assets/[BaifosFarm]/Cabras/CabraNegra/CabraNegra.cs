@@ -39,7 +39,6 @@ public class CabraNegra : MonoBehaviour
     {
         if(Quaternion.Euler(0, 0, 90) == transform.rotation && controlTiempo.tiempoRestante < 1f)
             {
-                Debug.Log("cabraNegraDestruida");
                 Destroy(gameObject);
             }
     }
