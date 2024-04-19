@@ -17,7 +17,7 @@ public class CabraNegra : MonoBehaviour
         controlTiempo = objetoControlTiempo.GetComponentInChildren<ControlTiempo>();
         targetBaifo = GameObject.Find("Personaje").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
-    }
+    }   
 
     private void Update()
     {
