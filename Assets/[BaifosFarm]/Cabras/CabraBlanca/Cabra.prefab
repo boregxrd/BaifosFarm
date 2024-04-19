@@ -735,6 +735,7 @@ GameObject:
   - component: {fileID: 8113337333320701540}
   - component: {fileID: -3913760539117178546}
   - component: {fileID: 5095309746702386214}
+  - component: {fileID: 8677559491504154385}
   m_Layer: 0
   m_Name: Cabra
   m_TagString: cabraBlanca
@@ -792,7 +793,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6535343484078306890}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.8
+  m_Radius: 1.5
   m_Speed: 2
   m_Acceleration: 2
   avoidancePriority: 50
@@ -804,7 +805,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 3
 --- !u!114 &5095309746702386214
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,6 +818,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7c3e85d23315c4cb87b3b3176c6cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8677559491504154385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6535343484078306890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f52c34bee75484594aec2a983f5e4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocidad: 4
+  delayMin: 4
+  delayMax: 10
+  enMovimiento: 0
 --- !u!1 &6650065937915407930
 GameObject:
   m_ObjectHideFlags: 0
@@ -906,6 +923,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valorActual: 0
+  valorAlerta: 30
   velocidadAumento: 15
   lechePreparada: 0
   barraAlimento: {fileID: 9126235875197737451}
