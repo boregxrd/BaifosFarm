@@ -11,6 +11,8 @@ public class CabraNegra : MonoBehaviour
     public Transform targetBaifo;
     private NavMeshAgent navMeshAgent;
 
+    public bool cabraNegraMuerta = false;
+
     private void Start()
     {
         objetoControlTiempo = GameObject.Find("CanvasTiempo");
@@ -32,6 +34,7 @@ public class CabraNegra : MonoBehaviour
         {
             navMeshAgent.enabled = false; // Desactivar el NavMeshAgent
             transform.Rotate(0.0f, 0.0f, 90.0f, Space.Self);
+            cabraNegraMuerta = true;
         }
     }
 
