@@ -7,7 +7,8 @@ using UnityEngine.UI;
 public class BarraLeche : MonoBehaviour
 {
     private float valorMaximo = 100f;
-    [SerializeField] private float valorActual = 0f;
+    public float valorActual = 0f;
+    public float valorAlerta = 30f;
     [SerializeField] private float velocidadAumento = 10f; // Velocidad a la que aumenta la barra de leche
     public bool lechePreparada = false;
 
@@ -29,7 +30,7 @@ public class BarraLeche : MonoBehaviour
             return;
         }
         // Verificar si la producci�n de leche debe detenerse
-        if (barraAlimento.valorActual < 30f)
+        if (barraAlimento.valorActual < valorAlerta)
         {
             produccionDetenida = true;
         }

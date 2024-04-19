@@ -7,6 +7,10 @@ TagManager:
   - cabraBlanca
   - cabraNegra
   - CajaLeche
+  - Leche
+  - avisoHambre
+  - avisoLeche
+  - avisoMuerte
   layers:
   - Default
   - TransparentFX
