@@ -27,18 +27,15 @@ public class CondicionesAvisos : MonoBehaviour
 
     private void Update()
     {
-        if(cabrasEnEscena.Count == 0) //para que solo ejecute este c�digo una vez
-        {
-            cabrasEnEscena = ObtenerCabrasDeEscena(); //las cabras se crean despu�s de start() por eso lo he puesto en update(), ser�a mejor cambiar esto en un futuro
-        }
-        else
+        cabrasEnEscena = ObtenerCabrasDeEscena();
+
+        if(cabrasEnEscena.Count > 0 )
         {
             comprobarDatosDeCabras();
         }
-
     }
 
-    private List<Cabra> ObtenerCabrasDeEscena()
+    public List<Cabra> ObtenerCabrasDeEscena()
     {
         List<Cabra> cabrasEnEscena = new List<Cabra>();
 
@@ -82,7 +79,7 @@ public class CondicionesAvisos : MonoBehaviour
                     else if (cabra.nivelDeLeche() == valorLecheCompleta)
                     {
                         controlAvisos.GenerarOActualizarAviso(cabra, cabra.transform.position, prefabAvisoLeche);
-                        // Debug.Log($"{cabra.name} tiene LECHE");
+                        
                     }
 
                 }

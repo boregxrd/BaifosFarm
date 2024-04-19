@@ -25,6 +25,9 @@ public class ControladorAccionesPersonaje : MonoBehaviour
     [SerializeField] private DejarLecheEnCaja dejarLecheEnCaja;
     [SerializeField] private Character movimientoPersonaje;
 
+
+    [SerializeField] private CabraNegra cabraNegra;
+
     public bool cabraMuerta = false;
 
 
@@ -38,6 +41,9 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         ordeniar = GetComponent<Ordeniar>();
         dejarLecheEnCaja = GetComponent<DejarLecheEnCaja>();
         lechesGuardadas = 0;
+
+
+        cabraNegra = FindObjectOfType<CabraNegra>();
     }
 
     private void OnTriggerStay(Collider other)
@@ -60,19 +66,32 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         }
 
         //ALIMENTAR
-        if(other.gameObject.CompareTag("cabraBlanca") || other.gameObject.CompareTag("cabraNegra")) //si se acerca a cualquier cabra
+        if(other.gameObject.CompareTag("cabraBlanca"))
         {
-            if (Input.GetKey("e") && objetoEnMano == recogerAlimento.objetoQueCogeBaifo() && recogerAlimento.preparadoParaAlimentar == true)
+            if (Input.GetKey("e") && objetoEnMano == recogerAlimento.objetoQueCogeBaifo() && recogerAlimento.preparadoParaAlimentar == true )
             {
                 alimentar.enabled = true; 
                 alimentar.DarComida(other);
                 recogerAlimento.enabled = false;
                 ordeniar.enabled = false;
             }
+
+           
         }
 
-        //ORDENYAR
-        if (other.gameObject.CompareTag("cabraBlanca")) 
+        if (other.gameObject.CompareTag("cabraNegra"))
+        {
+            if (Input.GetKey("e") && objetoEnMano == recogerAlimento.objetoQueCogeBaifo() && recogerAlimento.preparadoParaAlimentar == true && cabraNegra.cabraNegraMuerta == false)
+            {
+                alimentar.enabled = true;
+                alimentar.DarComida(other);
+                recogerAlimento.enabled = false;
+                ordeniar.enabled = false;
+            }
+        }
+
+            //ORDENYAR
+            if (other.gameObject.CompareTag("cabraBlanca")) 
         {
             if (Input.GetKey(KeyCode.Space) && objetoEnMano == null && ordeniar.ordenioIniciado == false)
             {
