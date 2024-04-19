@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class LlegadaCamión : MonoBehaviour
@@ -8,6 +9,8 @@ public class LlegadaCamión : MonoBehaviour
     [SerializeField] public float velocidadCamion = 5f;
     public Camera camara;
     public GameObject personaje;
+    public BarraAlimento comida;
+    public BarraLeche leche;
     [SerializeField] public float velocidadRotacionCamara = 5f;
 
     public bool enMovimiento = false;
@@ -18,7 +21,16 @@ public class LlegadaCamión : MonoBehaviour
 
         Character scriptMovimiento = personaje.GetComponent<Character>();
         if (scriptMovimiento != null) scriptMovimiento.enabled = false;
-        else Debug.LogWarning("scriptMovimiento null");
+        if(comida != null) comida.enabled = false;
+        if(leche != null) leche.enabled = false;
+    }
+
+    void verificarLlegada() {
+        Vector3 posActual = transform.position;
+
+        if(posActual == destinoCamion) {
+            enMovimiento = false;
+        }
     }
 
     // Update is called once per frame
@@ -31,10 +43,12 @@ public class LlegadaCamión : MonoBehaviour
 
             if (camara != null)
             {
-                Vector3 direccion = destinoCamion - camara.transform.position;
+                Vector3 direccion = transform.position - camara.transform.position;
                 Quaternion rotacion = Quaternion.LookRotation(direccion);
                 camara.transform.rotation = Quaternion.Slerp(camara.transform.rotation, rotacion, velocidadRotacionCamara * Time.deltaTime);
             }
+
+            verificarLlegada();
         }
     }
 }

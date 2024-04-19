@@ -61,11 +61,13 @@ public class ControlTiempo : MonoBehaviour
         GameObject camion = GameObject.Find("Camion");
         LlegadaCamión llegadaCamión = camion.GetComponent<LlegadaCamión>();
         llegadaCamión.empezarMovimientoCamion();
-        
+
         while (llegadaCamión.enMovimiento)
         {
             yield return null;
         }
+
+        yield return new WaitForSeconds(2.0f);
 
         Time.timeScale = 0f;
         // Llamada para sumar el dinero
