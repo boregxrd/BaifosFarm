@@ -32,7 +32,7 @@ public class Factura : MonoBehaviour
             int numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
 
             // comprobar si hay cabra negra y 10% de que salga 
-            if (numCabrasNegras == 0 && Random.value <= 0.1f)
+            if (numCabrasNegras == 0 && Random.value <= 0.3f)
             {
                 numCabrasNegras++;
             }
