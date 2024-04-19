@@ -27,15 +27,12 @@ public class CondicionesAvisos : MonoBehaviour
 
     private void Update()
     {
-        if(cabrasEnEscena.Count == 0) //para que solo ejecute este código una vez
-        {
-            cabrasEnEscena = ObtenerCabrasDeEscena(); //las cabras se crean después de start() por eso lo he puesto en update(), sería mejor cambiar esto en un futuro
-        }
-        else
+        cabrasEnEscena = ObtenerCabrasDeEscena();
+
+        if(cabrasEnEscena.Count > 0 )
         {
             comprobarDatosDeCabras();
         }
-
     }
 
     public List<Cabra> ObtenerCabrasDeEscena()
