@@ -61,7 +61,17 @@ public class ControlTiempo : MonoBehaviour
 
         // Cuando el tiempo llega a cero...
         
-        llegaCamion();
+        GameObject camion = GameObject.Find("Camion");
+        LlegadaCamión llegadaCamión = camion.GetComponent<LlegadaCamión>();
+        llegadaCamión.empezarMovimientoCamion();
+
+        while (llegadaCamión.enMovimiento)
+        {
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(2.0f);
+
         congelarBarrasCabras();
 
 
@@ -87,6 +97,7 @@ public class ControlTiempo : MonoBehaviour
 
         foreach (Cabra cabraBlanca in cabrasBlancas)
         {
+            Debug.Log(cabraBlanca);
             if (cabraBlanca != null)
             {
                 BarraAlimento barraAlimento = cabraBlanca.GetComponent<BarraAlimento>();
@@ -103,37 +114,23 @@ public class ControlTiempo : MonoBehaviour
             }
         }
 
-        foreach (CabraNegra cabraNegra in cabrasNegras)
-        {
-            if (cabraNegra != null)
-            {
-                BarraAlimento barraAlimento = cabraNegra.GetComponent<BarraAlimento>();
-                if (barraAlimento != null)
-                {
-                    barraAlimento.enabled = false;
-                }
+        // foreach (CabraNegra cabraNegra in cabrasNegras)
+        // {
+        //     if (cabraNegra != null)
+        //     {
+        //         BarraAlimento barraAlimento = cabraNegra.GetComponent<BarraAlimento>();
+        //         if (barraAlimento != null)
+        //         {
+        //             barraAlimento.enabled = false;
+        //         }
 
-                BarraLeche barraLeche = cabraNegra.GetComponent<BarraLeche>();
-                if (barraLeche != null)
-                {
-                    barraLeche.enabled = false;
-                }
-            }
-        }
-    }
-
-    private static IEnumerator llegaCamion()
-    {
-        GameObject camion = GameObject.Find("Camion");
-        LlegadaCamión llegadaCamión = camion.GetComponent<LlegadaCamión>();
-        llegadaCamión.empezarMovimientoCamion();
-
-        while (llegadaCamión.enMovimiento)
-        {
-            yield return null;
-        }
-
-        yield return new WaitForSeconds(2.0f);
+        //         BarraLeche barraLeche = cabraNegra.GetComponent<BarraLeche>();
+        //         if (barraLeche != null)
+        //         {
+        //             barraLeche.enabled = false;
+        //         }
+        //     }
+        // }
     }
 
     void VerificarYCargarEscena()

@@ -633,6 +633,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5948450414786922847, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
+      propertyPath: spawnerCabras
+      value: 
+      objectReference: {fileID: 1119793144}
+    - target: {fileID: 5948450414786922847, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: tiempoRestante
       value: 55
       objectReference: {fileID: 0}
@@ -896,6 +900,10 @@ PrefabInstance:
       propertyPath: miniJuegoOrdenyar
       value: 
       objectReference: {fileID: 1179347175}
+    - target: {fileID: 5245647238570162678, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: scriptMovimientoCabras
+      value: 
+      objectReference: {fileID: 8677559491504154385, guid: 86080e05a9e56614facc59e7977abdb6, type: 3}
     - target: {fileID: 8499726824884199935, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: puntoDeMano
       value: 
@@ -948,6 +956,11 @@ MonoBehaviour:
   controladorAccionesPersonaje: {fileID: 1018782740}
   miniJuegoOrdenyar: {fileID: 0}
   leche: {fileID: 1676810386094116703, guid: 6817a779a69d5ad4eb6c3ceb8a2fbae6, type: 3}
+--- !u!1 &1119793144 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1425342411727231530, guid: d264aad5e173afb4982adb30d2c9f3c5, type: 3}
+  m_PrefabInstance: {fileID: 265269829}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1179347175 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3983467815505877483, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
