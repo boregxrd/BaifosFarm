@@ -215,6 +215,34 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasInicio
       objectReference: {fileID: 0}
+    - target: {fileID: 7392935749810567596, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392935749810567596, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392935749810567596, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7850997803217300950, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+    - target: {fileID: 7392935749810567596, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392935749810567596, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392935749810567596, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuInicio, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7392935749810567596, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7850997803217300950, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: canvasMenuAjustes
       value: 
@@ -254,7 +282,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 0.98865515, g: 1, b: 0.8820755, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
