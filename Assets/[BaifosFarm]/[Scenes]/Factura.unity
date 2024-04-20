@@ -919,6 +919,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasDerrota
       objectReference: {fileID: 0}
+    - target: {fileID: 3606567290209059913, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_CullTransparentMesh
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782458983135712755, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782458983135712755, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 4782458983135712755, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782458983135712755, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782458983135712755, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782458983135712755, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782458983135712755, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782458983135712755, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_FillCenter
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782458983135712755, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_PixelsPerUnitMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7568204039922885647, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
       propertyPath: m_Pivot.x
       value: 0
