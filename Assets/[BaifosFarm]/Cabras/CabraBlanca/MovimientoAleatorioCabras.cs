@@ -22,7 +22,7 @@ public class MovimientoAleatorioCabras : MonoBehaviour
     {
         while (true)
         {
-            Debug.Log("Cabra en movimiento");
+            //Debug.Log("Cabra en movimiento");
             enMovimiento = true;
 
             // Generar nuevo destino aleatorio
@@ -49,7 +49,7 @@ public class MovimientoAleatorioCabras : MonoBehaviour
                 // Check if the goat has been trying to move for too long
                 if (elapsedTime >= 10)
                 {
-                    Debug.LogWarning("Cabra ha excedido el tiempo de movimiento máximo");
+                    //Debug.LogWarning("Cabra ha excedido el tiempo de movimiento máximo");
                     break;
                 }
 
@@ -65,12 +65,12 @@ public class MovimientoAleatorioCabras : MonoBehaviour
             {
                 // The goat timed out, stop trying to move
                 agente.isStopped = true;
-                Debug.LogWarning("Cabra detenida debido a tiempo de movimiento máximo excedido");
+                //Debug.LogWarning("Cabra detenida debido a tiempo de movimiento máximo excedido");
                 agente.SetDestination(RandomNavmeshLocation(7f));
             }
 
             agente.isStopped = false;
-            Debug.Log("Cabra se para");
+            //Debug.Log("Cabra se para");
             enMovimiento = false;
 
             // Esperar segundos aleatorios hasta el siguiente movimiento
@@ -80,7 +80,7 @@ public class MovimientoAleatorioCabras : MonoBehaviour
 
     void nuevaPosicionAleatoria()
     {
-        Debug.Log("Nueva pos aleatoria");
+        //Debug.Log("Nueva pos aleatoria");
 
         posicionMin = new Vector3(9, 0, 9);
         posicionMax = new Vector3(9, 0, 9);

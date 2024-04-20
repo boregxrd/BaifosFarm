@@ -635,7 +635,7 @@ PrefabInstance:
     - target: {fileID: 5948450414786922847, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: spawnerCabras
       value: 
-      objectReference: {fileID: 1119793144}
+      objectReference: {fileID: 1047527747}
     - target: {fileID: 5948450414786922847, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: tiempoRestante
       value: 55
@@ -956,7 +956,7 @@ MonoBehaviour:
   controladorAccionesPersonaje: {fileID: 1018782740}
   miniJuegoOrdenyar: {fileID: 0}
   leche: {fileID: 1676810386094116703, guid: 6817a779a69d5ad4eb6c3ceb8a2fbae6, type: 3}
---- !u!1 &1119793144 stripped
+--- !u!1 &1047527747 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1425342411727231530, guid: d264aad5e173afb4982adb30d2c9f3c5, type: 3}
   m_PrefabInstance: {fileID: 265269829}

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class ControlTiempo : MonoBehaviour
     public SistemaMonetario sistemaMonetario; // Referencia al C# Script de sistema de dinero
     public Text textoDinero; // Referencia al objeto de texto que mostrará el dinero total
     int dineroTotal;
+    public GameObject spawnerCabras;
 
     void Awake()
     {
@@ -57,7 +59,9 @@ public class ControlTiempo : MonoBehaviour
             }
         }
 
-        // Cuando el tiempo llega a cero, llamar LlegadaCamion
+        // Cuando el tiempo llega a cero...
+        congelarBarrasCabras();
+
         GameObject camion = GameObject.Find("Camion");
         LlegadaCamión llegadaCamión = camion.GetComponent<LlegadaCamión>();
         llegadaCamión.empezarMovimientoCamion();
@@ -68,6 +72,8 @@ public class ControlTiempo : MonoBehaviour
         }
 
         yield return new WaitForSeconds(2.0f);
+
+
 
         Time.timeScale = 0f;
         // Llamada para sumar el dinero
@@ -82,6 +88,43 @@ public class ControlTiempo : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
 
         VerificarYCargarEscena();
+    }
+
+    private void congelarBarrasCabras()
+    {
+        // Find all BarraAlimento and BarraLeche components in the scene
+        BarraAlimento[] barrasAlimento = FindObjectsOfType<BarraAlimento>();
+        BarraLeche[] barrasLeche = FindObjectsOfType<BarraLeche>();
+
+        // Disable all found BarraAlimento components
+        foreach (BarraAlimento barraAlimento in barrasAlimento)
+        {
+            barraAlimento.enabled = false;
+        }
+
+        // Disable all found BarraLeche components
+        foreach (BarraLeche barraLeche in barrasLeche)
+        {
+            barraLeche.enabled = false;
+        }
+
+        // foreach (CabraNegra cabraNegra in cabrasNegras)
+        // {
+        //     if (cabraNegra != null)
+        //     {
+        //         BarraAlimento barraAlimento = cabraNegra.GetComponent<BarraAlimento>();
+        //         if (barraAlimento != null)
+        //         {
+        //             barraAlimento.enabled = false;
+        //         }
+
+        //         BarraLeche barraLeche = cabraNegra.GetComponent<BarraLeche>();
+        //         if (barraLeche != null)
+        //         {
+        //             barraLeche.enabled = false;
+        //         }
+        //     }
+        // }
     }
 
     void VerificarYCargarEscena()
