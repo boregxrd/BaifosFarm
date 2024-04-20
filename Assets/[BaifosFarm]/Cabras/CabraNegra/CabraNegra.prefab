@@ -676,6 +676,7 @@ GameObject:
   - component: {fileID: 1174502507074711873}
   - component: {fileID: 1898735487678741503}
   - component: {fileID: 5504284788050436462}
+  - component: {fileID: 253169907061551420}
   m_Layer: 5
   m_Name: FondoBarra
   m_TagString: Untagged
@@ -741,6 +742,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &253169907061551420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6151858136178499398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9026df173a72444285bc423c8b6b9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageTransform: {fileID: 1174502507074711873}
 --- !u!1 &6455195624992159222
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,6 +965,7 @@ GameObject:
   - component: {fileID: 3216859230856147325}
   - component: {fileID: 8575326236241112370}
   - component: {fileID: -3703250217289309872}
+  - component: {fileID: 949272596959093630}
   m_Layer: 0
   m_Name: CabraNegra
   m_TagString: cabraNegra
@@ -1013,6 +1028,7 @@ MonoBehaviour:
   objetoControlTiempo: {fileID: 0}
   controlTiempo: {fileID: 0}
   targetBaifo: {fileID: 0}
+  cabraNegraMuerta: 0
 --- !u!195 &-3703250217289309872
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1035,3 +1051,15 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &949272596959093630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7693945115360077490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7c3e85d23315c4cb87b3b3176c6cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -192,6 +192,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpawnerCabras
       objectReference: {fileID: 0}
+    - target: {fileID: 2472818280487466229, guid: d264aad5e173afb4982adb30d2c9f3c5, type: 3}
+      propertyPath: tamCabra
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6722494831417976463, guid: d264aad5e173afb4982adb30d2c9f3c5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
