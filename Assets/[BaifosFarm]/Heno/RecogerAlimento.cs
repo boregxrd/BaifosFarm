@@ -17,6 +17,8 @@ public class RecogerAlimento : MonoBehaviour
 
     public bool preparadoParaAlimentar = false;
 
+    public bool henoRecogido = false;
+
     private void Awake()
     {
         enabled = false;
@@ -37,13 +39,15 @@ public class RecogerAlimento : MonoBehaviour
         heno.transform.SetParent(controladorAccionesPersonaje.puntoDeMano.transform);
         controladorAccionesPersonaje.objetoEnMano = heno;
         preparadoParaAlimentar = true;
+        henoRecogido = true;
     }
 
     private void OnDisable()
     {
         Destroy(heno);
         controladorAccionesPersonaje.objetoEnMano = null;
-        preparadoParaAlimentar = false; 
+        preparadoParaAlimentar = false;
+        
     }
 
     public GameObject objetoQueCogeBaifo()

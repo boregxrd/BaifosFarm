@@ -26,4 +26,11 @@ public class Character : MonoBehaviour
             transform.forward = move;
         }
     }
+
+    public bool HasMoved()
+    {
+        return transform.position != posicionSpawn;
+    }
+
+
 }

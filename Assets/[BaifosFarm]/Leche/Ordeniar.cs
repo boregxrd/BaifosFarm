@@ -13,6 +13,8 @@ public class Ordeniar : MonoBehaviour
 
     public bool ordenioIniciado = false;
 
+    public bool ordeñoIniciado = false; //Para verificar en el Tutorial
+
     private void Awake()
     {
         enabled = false;
@@ -31,7 +33,7 @@ public class Ordeniar : MonoBehaviour
                 {
                     miniJuegoOrdenyar.enabled = true;
                     ordenioIniciado = true;
-                    
+                    ordeñoIniciado = true; //Para verificar en el Tutorial
                 }
             }
         }
