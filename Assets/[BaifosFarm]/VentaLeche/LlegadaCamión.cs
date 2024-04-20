@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
+using TMPro.Examples;
 using UnityEngine;
 
 public class LlegadaCamión : MonoBehaviour
@@ -8,9 +9,6 @@ public class LlegadaCamión : MonoBehaviour
     public Vector3 destinoCamion = new Vector3(-6, 0, 17);
     [SerializeField] public float velocidadCamion = 5f;
     public Camera camara;
-    public GameObject personaje;
-    public BarraAlimento comida;
-    public BarraLeche leche;
     [SerializeField] public float velocidadRotacionCamara = 5f;
 
     public bool enMovimiento = false;
@@ -18,17 +16,14 @@ public class LlegadaCamión : MonoBehaviour
     public void empezarMovimientoCamion()
     {
         enMovimiento = true;
-
-        Character scriptMovimiento = personaje.GetComponent<Character>();
-        if (scriptMovimiento != null) scriptMovimiento.enabled = false;
-        if(comida != null) comida.enabled = false;
-        if(leche != null) leche.enabled = false;
     }
 
-    void verificarLlegada() {
+    void verificarLlegada()
+    {
         Vector3 posActual = transform.position;
 
-        if(posActual == destinoCamion) {
+        if (posActual == destinoCamion)
+        {
             enMovimiento = false;
         }
     }
