@@ -60,7 +60,8 @@ public class ControlTiempo : MonoBehaviour
         }
 
         // Cuando el tiempo llega a cero...
-        
+        congelarBarrasCabras();
+
         GameObject camion = GameObject.Find("Camion");
         LlegadaCamión llegadaCamión = camion.GetComponent<LlegadaCamión>();
         llegadaCamión.empezarMovimientoCamion();
@@ -72,7 +73,6 @@ public class ControlTiempo : MonoBehaviour
 
         yield return new WaitForSeconds(2.0f);
 
-        congelarBarrasCabras();
 
 
         Time.timeScale = 0f;
@@ -92,26 +92,20 @@ public class ControlTiempo : MonoBehaviour
 
     private void congelarBarrasCabras()
     {
-        Cabra[] cabrasBlancas = spawnerCabras.GetComponentsInChildren<Cabra>();
-        CabraNegra[] cabrasNegras = spawnerCabras.GetComponentsInChildren<CabraNegra>();
+        // Find all BarraAlimento and BarraLeche components in the scene
+        BarraAlimento[] barrasAlimento = FindObjectsOfType<BarraAlimento>();
+        BarraLeche[] barrasLeche = FindObjectsOfType<BarraLeche>();
 
-        foreach (Cabra cabraBlanca in cabrasBlancas)
+        // Disable all found BarraAlimento components
+        foreach (BarraAlimento barraAlimento in barrasAlimento)
         {
-            Debug.Log(cabraBlanca);
-            if (cabraBlanca != null)
-            {
-                BarraAlimento barraAlimento = cabraBlanca.GetComponent<BarraAlimento>();
-                if (barraAlimento != null)
-                {
-                    barraAlimento.enabled = false;
-                }
+            barraAlimento.enabled = false;
+        }
 
-                BarraLeche barraLeche = cabraBlanca.GetComponent<BarraLeche>();
-                if (barraLeche != null)
-                {
-                    barraLeche.enabled = false;
-                }
-            }
+        // Disable all found BarraLeche components
+        foreach (BarraLeche barraLeche in barrasLeche)
+        {
+            barraLeche.enabled = false;
         }
 
         // foreach (CabraNegra cabraNegra in cabrasNegras)
