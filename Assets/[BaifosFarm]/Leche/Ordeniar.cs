@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SCRIPT ACCIï¿½N ORDEï¿½ARï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//·······················································SCRIPT ACCIÓN ORDEÑAR······················································
 //Este script ha de estar en Mano dentro de Personaje
 
 public class Ordeniar : MonoBehaviour
@@ -12,8 +12,6 @@ public class Ordeniar : MonoBehaviour
     [SerializeField] private MiniJuegoOrdenyar miniJuegoOrdenyar;
 
     public bool ordenioIniciado = false;
-
-    public MovimientoAleatorioCabras scriptMovimientoCabras;
 
     private void Awake()
     {
@@ -54,6 +52,5 @@ public class Ordeniar : MonoBehaviour
     {
         ordenioIniciado = false;
         miniJuegoOrdenyar.enabled = false;
-        scriptMovimientoCabras.enInteraccion = false;
     }
 }
