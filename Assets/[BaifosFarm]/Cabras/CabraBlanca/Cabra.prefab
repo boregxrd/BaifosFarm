@@ -938,6 +938,7 @@ GameObject:
   - component: {fileID: 1346548355607977134}
   - component: {fileID: 2139114290339998941}
   - component: {fileID: 5517626953810163102}
+  - component: {fileID: 2448724306033096784}
   m_Layer: 5
   m_Name: FondoBarra
   m_TagString: Untagged
@@ -1003,6 +1004,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2448724306033096784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7697747798022271851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9026df173a72444285bc423c8b6b9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageTransform: {fileID: 1346548355607977134}
 --- !u!1 &8013813424950510663
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,6 +1130,7 @@ GameObject:
   - component: {fileID: 1898452816080905505}
   - component: {fileID: 8585673775728699981}
   - component: {fileID: 4103809419583519870}
+  - component: {fileID: 2044002132990856157}
   m_Layer: 5
   m_Name: FondoBarra
   m_TagString: Untagged
@@ -1181,6 +1196,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &2044002132990856157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8264955280513921062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9026df173a72444285bc423c8b6b9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageTransform: {fileID: 1898452816080905505}
 --- !u!1 &8806057802866740722
 GameObject:
   m_ObjectHideFlags: 0

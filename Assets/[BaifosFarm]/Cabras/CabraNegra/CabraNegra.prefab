@@ -676,6 +676,7 @@ GameObject:
   - component: {fileID: 1174502507074711873}
   - component: {fileID: 1898735487678741503}
   - component: {fileID: 5504284788050436462}
+  - component: {fileID: 253169907061551420}
   m_Layer: 5
   m_Name: FondoBarra
   m_TagString: Untagged
@@ -741,6 +742,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &253169907061551420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6151858136178499398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9026df173a72444285bc423c8b6b9e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imageTransform: {fileID: 1174502507074711873}
 --- !u!1 &6455195624992159222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,6 +1028,7 @@ MonoBehaviour:
   objetoControlTiempo: {fileID: 0}
   controlTiempo: {fileID: 0}
   targetBaifo: {fileID: 0}
+  cabraNegraMuerta: 0
 --- !u!195 &-3703250217289309872
 NavMeshAgent:
   m_ObjectHideFlags: 0
