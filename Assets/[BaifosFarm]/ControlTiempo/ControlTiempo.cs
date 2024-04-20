@@ -15,16 +15,13 @@ public class ControlTiempo : MonoBehaviour
     public Text textoDinero; // Referencia al objeto de texto que mostrará el dinero total
     int dineroTotal;
 
-    private CabraNegra[] cabrasNegras;
-    private CabraNegra[] cabrasNegrasAlFinal;
+    private DeteccionCabrasNegras deteccionCabrasNegras;
 
     //-------------------------------------------------------------
     //  Esto debe ir en otra clase en otro momento cuando
     //  reorganizemos el codigo entre todos
     public static Action OnThreeBlackGoatsVictory;
     //-------------------------------------------------------------
-
-    bool tresCabrasVivasAlFinal = false;
     
     void Awake()
     {
@@ -60,21 +57,10 @@ public class ControlTiempo : MonoBehaviour
         StartCoroutine(CuentaRegresiva());
     }
 
-    private void VerificarSiHayTresCabrasNegrasAlInicio()
-    {
-        cabrasNegras = FindObjectsOfType<CabraNegra>();
-
-        // Verifica si hay tres cabras negras al inicio
-        Debug.Log("cabras negras al inicio:" + cabrasNegras.Length);
-        if (cabrasNegras.Length >= 3)
-        {
-            int contadorCabrasNegras = cabrasNegras.Length;    
-        }
-    }
-
     IEnumerator CuentaRegresiva()
     {
-        VerificarSiHayTresCabrasNegrasAlInicio();
+        deteccionCabrasNegras = new DeteccionCabrasNegras();
+        deteccionCabrasNegras.VerificarSiHayTresCabrasNegrasAlInicio();
 
         while (tiempoRestante > 0)
         {
@@ -116,28 +102,14 @@ public class ControlTiempo : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
 
-        TresCabrasNegrasAlFinal();
-
         VerificarYCargarEscena();
     }
 
-    private void TresCabrasNegrasAlFinal()
-    {
-        cabrasNegrasAlFinal = FindObjectsOfType<CabraNegra>();
-        Debug.Log("cabras negras al final: " + cabrasNegrasAlFinal.Length);
-
-        if (cabrasNegrasAlFinal.Length <= 2) return;
-
-        if (cabrasNegrasAlFinal.Length == cabrasNegras.Length) 
-        {
-            tresCabrasVivasAlFinal = true;
-            Debug.Log("Tres cabras vivas al final true");
-        }
-    }
+    
 
     void VerificarYCargarEscena()
     {
-        if (tresCabrasVivasAlFinal)
+        if (deteccionCabrasNegras.CuidasteLasCabrasNegrasAlFinal())
         {
             Debug.Log("Intento invocar al evento");
             OnThreeBlackGoatsVictory?.Invoke();
@@ -145,14 +117,13 @@ public class ControlTiempo : MonoBehaviour
         }
         else
         {
-            foreach (CabraNegra cabra in cabrasNegras)
-            {
-                cabra.DestruirCabrasNegrasMuertas();
-            }
+            deteccionCabrasNegras.DestruirCabrasCadaUna();
 
             SceneManager.LoadScene("Factura");
         }
     }
+
+    
 
     private string obtenerTemporizadorActual()
     {

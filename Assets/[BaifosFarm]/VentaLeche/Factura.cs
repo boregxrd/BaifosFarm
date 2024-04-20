@@ -70,8 +70,8 @@ public class Factura : MonoBehaviour
                 numCabrasBlancas++;
             }
             PlayerPrefs.SetInt("cabrasBlancas", numCabrasBlancas);
-            //PlayerPrefs.SetInt("cabrasNegras", numCabrasNegras);
-            PlayerPrefs.SetInt("cabrasNegras", 3);
+            PlayerPrefs.SetInt("cabrasNegras", numCabrasNegras);
+            //PlayerPrefs.SetInt("cabrasNegras", 3);
             cabrasNuevas++;
             ActualizarTexto();
         }
