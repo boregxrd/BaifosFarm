@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,17 +9,24 @@ public class MenuDerrota : MonoBehaviour
     void Start()
     {
         objetoMenuDerrota.SetActive(false);
-        Factura.OnGameOver += MostrarMenuDerrota; // Suscribirse al evento de derrota
+        Factura.OnGameOver += MostrarMenuDerrota; 
     }
 
     private void OnDestroy()
     {
-        Factura.OnGameOver -= MostrarMenuDerrota; // Desuscribirse al destruir el objeto
+        Factura.OnGameOver -= MostrarMenuDerrota;
     }
 
     void MostrarMenuDerrota()
     {
-        objetoMenuDerrota.SetActive(true);
+        if(objetoMenuDerrota != null)
+        {
+            objetoMenuDerrota.SetActive(true);
+        }
+        else
+        {
+            Debug.LogWarning("objetoMenuDerrota es nulo.");
+        }
     }
 
     public void VolverAlMenu()

@@ -17,13 +17,16 @@ public class Factura : MonoBehaviour
     private int numCabrasBlancas;
     private int numCabrasNegras;
     private int dineroTotal;
-    public static Action OnGameOver; // Evento estático que se dispara cuando se alcanza la derrota
+    public static Action OnGameOver; // Eventos estático que se disparan al cumplirse una condicion
+    public static Action OnMoneyVictory;
+    public static Action OnBlackGoatsVictory;
 
     private void Awake()
     {
         cabrasNuevas = 0;
         ActualizarTexto();
         PlayerPrefs.SetInt("HenoMejorado", 0);
+        //PlayerPrefs.SetInt("cabrasNegras", 0);
         // Get valores de PlayerPrefs
         numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
         numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
@@ -32,13 +35,20 @@ public class Factura : MonoBehaviour
 
     private void Start()
     {
-
+        
         Debug.Log("cabras negras: " + numCabrasNegras);
         Debug.Log("cabras: " + (numCabrasBlancas + numCabrasNegras));
         Debug.Log("dinero: " + dineroTotal);
+
         if ((numCabrasBlancas + numCabrasNegras) == 0 && dineroTotal < COSTO_CABRA)
         {
-            OnGameOver?.Invoke(); // Disparar el evento si no hay cabras vivas
+            Debug.Log("Entra al if del invoke derrota");
+            OnGameOver?.Invoke(); 
+        }
+        else if (dineroTotal > 250)
+        {
+            Debug.Log("Entra al if del invoke victoria dinero");
+            OnMoneyVictory?.Invoke();
         }
     }
 
@@ -61,6 +71,7 @@ public class Factura : MonoBehaviour
             }
             PlayerPrefs.SetInt("cabrasBlancas", numCabrasBlancas);
             PlayerPrefs.SetInt("cabrasNegras", numCabrasNegras);
+            //PlayerPrefs.SetInt("cabrasNegras", 3);
             cabrasNuevas++;
             ActualizarTexto();
         }

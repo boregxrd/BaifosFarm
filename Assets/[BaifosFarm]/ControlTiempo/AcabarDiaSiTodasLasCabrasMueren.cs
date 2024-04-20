@@ -23,7 +23,7 @@ public class AcabarDiaSiTodasLasCabrasMueren : MonoBehaviour
         {
             if(controlTiempo.tiempoRestante > 5f)
             {
-                controlTiempo.tiempoRestante = 5f;
+                controlTiempo.tiempoRestante = 1f;
             }
             
         }
