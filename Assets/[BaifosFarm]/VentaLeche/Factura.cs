@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System;
 
 public class Factura : MonoBehaviour
 {
@@ -12,11 +13,33 @@ public class Factura : MonoBehaviour
 
     private const int COSTO_CABRA = 20;
     private const int COSTO_HENO_ESPECIAL = 30;
+
+    private int numCabrasBlancas;
+    private int numCabrasNegras;
+    private int dineroTotal;
+    public static Action OnGameOver; // Evento estático que se dispara cuando se alcanza la derrota
+
     private void Awake()
     {
         cabrasNuevas = 0;
         ActualizarTexto();
         PlayerPrefs.SetInt("HenoMejorado", 0);
+        // Get valores de PlayerPrefs
+        numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
+        numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
+        dineroTotal = PlayerPrefs.GetInt("DineroTotal", 0);
+    }
+
+    private void Start()
+    {
+
+        Debug.Log("cabras negras: " + numCabrasNegras);
+        Debug.Log("cabras: " + (numCabrasBlancas + numCabrasNegras));
+        Debug.Log("dinero: " + dineroTotal);
+        if ((numCabrasBlancas + numCabrasNegras) == 0 && dineroTotal < COSTO_CABRA)
+        {
+            OnGameOver?.Invoke(); // Disparar el evento si no hay cabras vivas
+        }
     }
 
     public void comprarCabra()
@@ -27,12 +50,8 @@ public class Factura : MonoBehaviour
             // Restar el costo de la cabra del dinero total
             sistemaMonetario.RestarDinero(COSTO_CABRA);
 
-            // Get valores de PlayerPrefs
-            int numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
-            int numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
-
             // comprobar si hay cabra negra y 10% de que salga 
-            if (numCabrasNegras < 3 && Random.value <= 0.3f)
+            if (numCabrasNegras < 3 && UnityEngine.Random.value <= 0.3f)
             {
                 numCabrasNegras++;
             }
