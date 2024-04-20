@@ -26,7 +26,7 @@ public class Factura : MonoBehaviour
         cabrasNuevas = 0;
         ActualizarTexto();
         PlayerPrefs.SetInt("HenoMejorado", 0);
-        PlayerPrefs.SetInt("cabrasNegras", 0);
+        //PlayerPrefs.SetInt("cabrasNegras", 0);
         // Get valores de PlayerPrefs
         numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
         numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
@@ -50,12 +50,6 @@ public class Factura : MonoBehaviour
             Debug.Log("Entra al if del invoke victoria dinero");
             OnMoneyVictory?.Invoke();
         }
-
-        //esto se hace en game
-/*        if(numCabrasNegras == 3)
-        {
-            OnBlackGoatsVictory?.Invoke();
-        }*/
     }
 
     public void comprarCabra()
@@ -77,6 +71,7 @@ public class Factura : MonoBehaviour
             }
             PlayerPrefs.SetInt("cabrasBlancas", numCabrasBlancas);
             PlayerPrefs.SetInt("cabrasNegras", numCabrasNegras);
+            //PlayerPrefs.SetInt("cabrasNegras", 3);
             cabrasNuevas++;
             ActualizarTexto();
         }
@@ -89,9 +84,17 @@ public class Factura : MonoBehaviour
 
     public void continuar()
     {
-        SceneManager.LoadScene("Juego");
-        sistemaMonetario.RestarDinero(sistemaMonetario.CalcularGastoHeno());
+        if (PlayerPrefs.GetInt("TutorialCompleto", 0) == 1)
+        {
+            SceneManager.LoadScene("Main"); // Si el tutorial está completo, volver al menú de inicio
+        }
+        else
+        {
+            SceneManager.LoadScene("Juego"); // Si el tutorial no está completo, ir al juego
+            sistemaMonetario.RestarDinero(sistemaMonetario.CalcularGastoHeno());
+        }
     }
+
 
     public void comprarHenoEspecial()
     {

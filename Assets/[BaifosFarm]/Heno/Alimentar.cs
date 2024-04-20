@@ -14,6 +14,8 @@ public class Alimentar : MonoBehaviour
     [SerializeField] private Material materialHenoNormal;
     [SerializeField] private Material materialHenoMejorado;
 
+    public bool alimentacionRealizada = false;
+
     private void Awake()
     {
         enabled = false;
@@ -32,6 +34,7 @@ public class Alimentar : MonoBehaviour
                     incremento = 50f;
                 }
                 barraAlimento.incrementarNivelAlimentacion(incremento);
+                alimentacionRealizada = true;
             }
         }
     }

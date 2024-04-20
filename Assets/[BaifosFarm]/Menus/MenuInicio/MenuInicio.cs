@@ -20,6 +20,7 @@ public class MenuInicio : MonoBehaviour
         PlayerPrefs.SetInt("cabrasNegras", 0);
         PlayerPrefs.SetInt("DineroTotal", 100);
         PlayerPrefs.SetInt("HenoMejorado", 0);
+        PlayerPrefs.SetInt("TutorialCompleto", 0); // Marcar el tutorial como no completado
         SceneManager.LoadScene("Juego");
     }
 
@@ -31,5 +32,16 @@ public class MenuInicio : MonoBehaviour
     public void Salir()
     {
         Application.Quit();
+    }
+
+    public void Tutorial()
+    {
+        // Reset valores de cabras para nueva partida
+        PlayerPrefs.SetInt("cabrasBlancas", 2);
+        PlayerPrefs.SetInt("cabrasNegras", 0);
+        PlayerPrefs.SetInt("DineroTotal", 100);
+        PlayerPrefs.SetInt("HenoMejorado", 0);
+        PlayerPrefs.SetInt("TutorialCompleto", 0); // Marcar el tutorial como no completado
+        SceneManager.LoadScene("Tutorial");
     }
 }
