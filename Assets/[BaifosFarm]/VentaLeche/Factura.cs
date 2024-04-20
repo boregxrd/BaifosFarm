@@ -50,12 +50,6 @@ public class Factura : MonoBehaviour
             Debug.Log("Entra al if del invoke victoria dinero");
             OnMoneyVictory?.Invoke();
         }
-
-        //esto se hace en game
-/*        if(numCabrasNegras == 3)
-        {
-            OnBlackGoatsVictory?.Invoke();
-        }*/
     }
 
     public void comprarCabra()
@@ -76,7 +70,8 @@ public class Factura : MonoBehaviour
                 numCabrasBlancas++;
             }
             PlayerPrefs.SetInt("cabrasBlancas", numCabrasBlancas);
-            PlayerPrefs.SetInt("cabrasNegras", numCabrasNegras);
+            //PlayerPrefs.SetInt("cabrasNegras", numCabrasNegras);
+            PlayerPrefs.SetInt("cabrasNegras", 3);
             cabrasNuevas++;
             ActualizarTexto();
         }

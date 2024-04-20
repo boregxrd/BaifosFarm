@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,11 +15,43 @@ public class ControlTiempo : MonoBehaviour
     public Text textoDinero; // Referencia al objeto de texto que mostrará el dinero total
     int dineroTotal;
 
+    private CabraNegra[] cabrasNegras;
+    private CabraNegra[] cabrasNegrasAlFinal;
+
+    //-------------------------------------------------------------
+    //  Esto debe ir en otra clase en otro momento cuando
+    //  reorganizemos el codigo entre todos
+    public static Action OnThreeBlackGoatsVictory;
+    //-------------------------------------------------------------
+
+    bool tresCabrasVivasAlFinal = false;
+
     void Awake()
     {
         Time.timeScale = 1f;
         PlayerPrefs.SetInt("LechesGuardadas", 0);
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        alimentar = GetComponent<Alimentar>();
+        alimentar.GestionarAparienciaMontonHeno();
+
+        RecogerDatosDinero();
+        ActivarCuentaRegresiva();
+        VerificarSiHayTresCabrasNegrasAlInicio();
+    }
+
+    private void RecogerDatosDinero()
+    {
         dineroTotal = PlayerPrefs.GetInt("DineroTotal", 0);
+        sistemaMonetario = FindObjectOfType<SistemaMonetario>();
+        // Actualizar el texto del dinero total
+        textoDinero.text = "Dinero: $" + dineroTotal.ToString();
+    }
+
+    private void ActivarCuentaRegresiva()
+    {
         if (contadorText == null)
         {
             contadorText = GetComponent<Text>();
@@ -26,19 +59,19 @@ public class ControlTiempo : MonoBehaviour
         contadorText.text = "Tiempo restante: " + obtenerTemporizadorActual();
         // Comenzar la cuenta regresiva
         StartCoroutine(CuentaRegresiva());
-
-        sistemaMonetario = FindObjectOfType<SistemaMonetario>();
-
-        // Actualizar el texto del dinero total
-        textoDinero.text = "Dinero: $" + dineroTotal.ToString();
-
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-
-        alimentar = GetComponent<Alimentar>();
-        alimentar.GestionarAparienciaMontonHeno();
     }
 
+    private void VerificarSiHayTresCabrasNegrasAlInicio()
+    {
+        cabrasNegras = FindObjectsOfType<CabraNegra>();
+
+        // Verifica si hay tres cabras negras al inicio
+        if (cabrasNegras.Length >= 3)
+        {
+            int contadorCabrasNegras = cabrasNegras.Length;
+            Debug.Log("cabras negras al inicio:" + contadorCabrasNegras);
+        }
+    }
 
     IEnumerator CuentaRegresiva()
     {
@@ -57,6 +90,15 @@ public class ControlTiempo : MonoBehaviour
             }
         }
 
+        FinalizacionDelDia();
+
+        TresCabrasNegrasAlFinal();
+
+        VerificarYCargarEscena();
+    }
+
+    private IEnumerator FinalizacionDelDia()
+    {
         // Cuando el tiempo llega a cero, llamar LlegadaCamion
         GameObject camion = GameObject.Find("Camion");
         LlegadaCamión llegadaCamión = camion.GetComponent<LlegadaCamión>();
@@ -80,19 +122,39 @@ public class ControlTiempo : MonoBehaviour
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+    }
 
-        VerificarYCargarEscena();
+    private void TresCabrasNegrasAlFinal()
+    {
+        cabrasNegrasAlFinal = FindObjectsOfType<CabraNegra>();
+        Debug.Log("cabras negras al final: " + cabrasNegrasAlFinal);
+
+        if (cabrasNegrasAlFinal.Length == cabrasNegras.Length)
+        {
+            tresCabrasVivasAlFinal = true;
+            Debug.Log("Tres cabras vivas al final true");
+        }
     }
 
     void VerificarYCargarEscena()
     {
-        CabraNegra[] cabrasNegras = FindObjectsOfType<CabraNegra>();
-        foreach (CabraNegra cabra in cabrasNegras)
+        if (tresCabrasVivasAlFinal)
         {
-            cabra.DestruirCabrasNegrasMuertas();
+            Debug.Log("Intento invocar al evento");
+            OnThreeBlackGoatsVictory?.Invoke();
+            return;
         }
-        SceneManager.LoadScene("Factura");
+        else
+        {
+            foreach (CabraNegra cabra in cabrasNegras)
+            {
+                cabra.DestruirCabrasNegrasMuertas();
+            }
+
+            SceneManager.LoadScene("Factura");
+        }
     }
+
     private string obtenerTemporizadorActual()
     {
         int minutos = Mathf.FloorToInt(tiempoRestante / 60f);

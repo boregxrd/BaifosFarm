@@ -11,15 +11,15 @@ public class MenuVictoriaTresCabras : MonoBehaviour
     void Start()
     {
         objetoMenuVictoriaTresCabras.SetActive(false);
-        //Factura.OnMoneyVictory += MostrarMenuVictoria;
+        ControlTiempo.OnThreeBlackGoatsVictory += MostrarMenuVictoriaTresCabras;
     }
 
     private void OnDestroy()
     {
-        //Factura.OnGameOver -= MostrarMenuVictoria;
+        ControlTiempo.OnThreeBlackGoatsVictory -= MostrarMenuVictoriaTresCabras;
     }
 
-    void MostrarMenuVictoria()
+    void MostrarMenuVictoriaTresCabras()
     {
         if (objetoMenuVictoriaTresCabras != null)
         {
