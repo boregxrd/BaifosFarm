@@ -12,6 +12,8 @@ public class MenuVictoriaTresCabras : MonoBehaviour
     {
         objetoMenuVictoriaTresCabras.SetActive(false);
         ControlTiempo.OnThreeBlackGoatsVictory += MostrarMenuVictoriaTresCabras;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     private void OnDestroy()

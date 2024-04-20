@@ -9,8 +9,8 @@ public class ControladorTextoCaja : MonoBehaviour
     [SerializeField] private ControladorAccionesPersonaje controladorAccionesPersonaje;
     [SerializeField] private TextMeshPro textoCaja;
     [SerializeField] private SistemaMonetario sistemaMonetario; // Agrega referencia al SistemaMonetario
-    public Text textoDinero; // Referencia al objeto de texto que mostrar� el dinero total
-    [SerializeField] int PRECIO_POR_BOTELLA = 10;
+    public Text textoDinero; // Referencia al objeto de texto que mostrar� el dinero 
+    [SerializeField] int PRECIO_POR_BOTELLA = 100;
 
     private void Awake() {
         textoDinero.text = "Dinero: $" + PlayerPrefs.GetInt("DineroTotal", 0);

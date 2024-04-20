@@ -25,7 +25,7 @@ public class ControlTiempo : MonoBehaviour
     //-------------------------------------------------------------
 
     bool tresCabrasVivasAlFinal = false;
-
+    
     void Awake()
     {
         Time.timeScale = 1f;
@@ -39,7 +39,6 @@ public class ControlTiempo : MonoBehaviour
 
         RecogerDatosDinero();
         ActivarCuentaRegresiva();
-        VerificarSiHayTresCabrasNegrasAlInicio();
     }
 
     private void RecogerDatosDinero()
@@ -66,15 +65,17 @@ public class ControlTiempo : MonoBehaviour
         cabrasNegras = FindObjectsOfType<CabraNegra>();
 
         // Verifica si hay tres cabras negras al inicio
+        Debug.Log("cabras negras al inicio:" + cabrasNegras.Length);
         if (cabrasNegras.Length >= 3)
         {
-            int contadorCabrasNegras = cabrasNegras.Length;
-            Debug.Log("cabras negras al inicio:" + contadorCabrasNegras);
+            int contadorCabrasNegras = cabrasNegras.Length;    
         }
     }
 
     IEnumerator CuentaRegresiva()
     {
+        VerificarSiHayTresCabrasNegrasAlInicio();
+
         while (tiempoRestante > 0)
         {
 
@@ -90,15 +91,6 @@ public class ControlTiempo : MonoBehaviour
             }
         }
 
-        FinalizacionDelDia();
-
-        TresCabrasNegrasAlFinal();
-
-        VerificarYCargarEscena();
-    }
-
-    private IEnumerator FinalizacionDelDia()
-    {
         // Cuando el tiempo llega a cero, llamar LlegadaCamion
         GameObject camion = GameObject.Find("Camion");
         LlegadaCamión llegadaCamión = camion.GetComponent<LlegadaCamión>();
@@ -114,22 +106,29 @@ public class ControlTiempo : MonoBehaviour
         Time.timeScale = 0f;
         // Llamada para sumar el dinero
         ControladorTextoCaja controladorTextoCaja = FindObjectOfType<ControladorTextoCaja>();
+
         if (controladorTextoCaja != null)
         {
             controladorTextoCaja.SumarDineroPorBotella();
+            Debug.Log("Sumo el dinero por botella");
         }
-        // Aquí mostrar mensaje final juego o trigger de leche o factura
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+
+        TresCabrasNegrasAlFinal();
+
+        VerificarYCargarEscena();
     }
 
     private void TresCabrasNegrasAlFinal()
     {
         cabrasNegrasAlFinal = FindObjectsOfType<CabraNegra>();
-        Debug.Log("cabras negras al final: " + cabrasNegrasAlFinal);
+        Debug.Log("cabras negras al final: " + cabrasNegrasAlFinal.Length);
 
-        if (cabrasNegrasAlFinal.Length == cabrasNegras.Length)
+        if (cabrasNegrasAlFinal.Length <= 2) return;
+
+        if (cabrasNegrasAlFinal.Length == cabrasNegras.Length) 
         {
             tresCabrasVivasAlFinal = true;
             Debug.Log("Tres cabras vivas al final true");

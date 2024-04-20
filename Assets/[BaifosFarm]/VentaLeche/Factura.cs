@@ -26,7 +26,7 @@ public class Factura : MonoBehaviour
         cabrasNuevas = 0;
         ActualizarTexto();
         PlayerPrefs.SetInt("HenoMejorado", 0);
-        PlayerPrefs.SetInt("cabrasNegras", 0);
+        //PlayerPrefs.SetInt("cabrasNegras", 0);
         // Get valores de PlayerPrefs
         numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
         numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
