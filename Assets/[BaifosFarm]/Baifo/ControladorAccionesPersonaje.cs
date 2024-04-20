@@ -24,14 +24,11 @@ public class ControladorAccionesPersonaje : MonoBehaviour
     [SerializeField] private Ordeniar ordeniar;
     [SerializeField] private DejarLecheEnCaja dejarLecheEnCaja;
     [SerializeField] private Character movimientoPersonaje;
-
-
     [SerializeField] private CabraNegra cabraNegra;
 
     public bool cabraMuerta = false;
 
-
-
+    public MovimientoAleatorioCabras scriptMovimientoCabras;
 
 
     private void Awake()
@@ -74,6 +71,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
                 alimentar.DarComida(other);
                 recogerAlimento.enabled = false;
                 ordeniar.enabled = false;
+                scriptMovimientoCabras.enInteraccion = true;
             }
 
            
@@ -98,6 +96,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
                 ordeniar.enabled = true;
                 ordeniar.IniciarOrdenyado(other);
                 alimentar.enabled = false;
+                scriptMovimientoCabras.enInteraccion = true;
             }
         }
 
@@ -125,6 +124,12 @@ public class ControladorAccionesPersonaje : MonoBehaviour
             dejarLecheEnCaja.enabled = false;
         }
 
+    }
+
+    private void OnTriggerExit(Collider other) {
+        if (other.gameObject.CompareTag("CabraBlanca")) {
+            scriptMovimientoCabras.enInteraccion = false;
+        }
     }
 
     private void Update()

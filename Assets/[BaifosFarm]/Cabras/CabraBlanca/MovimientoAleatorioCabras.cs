@@ -18,63 +18,62 @@ public class MovimientoAleatorioCabras : MonoBehaviour
 
     private NavMeshAgent agente;
 
+    public bool enInteraccion = false;
+
     IEnumerator Start()
     {
         while (true)
         {
-            Debug.Log("Cabra en movimiento");
-            enMovimiento = true;
-
-            // Generar nuevo destino aleatorio
-            // nuevaPosicionAleatoria();
-
-            // Se mueve la cabra 
-            agente = GetComponent<NavMeshAgent>();
-            // while (agente.velocity.x > 0 || agente.velocity.z > 0) 
-            // // tiene que ser diferente pq NavMesh para la cabra 
-            // // antes de su destino entonces el while no acaba nunca
-            // {
-            //     transform.position = Vector3.MoveTowards(transform.position, destino, velocidad * Time.deltaTime);
-            //     // transform.LookAt(transform.position + destino); tiene que especificar que gire el cuerpo
-            //     yield return null;
-            // }
-
-            agente.SetDestination(RandomNavmeshLocation(7f));
-            // yield return new WaitUntil(() => agente.remainingDistance < 0.1f );
-            float elapsedTime = 0f;
-            while (agente.pathPending || agente.remainingDistance > agente.stoppingDistance)
+            if (!enInteraccion) // si la cabra no esta siendo alimentada u ordeñada
             {
-                elapsedTime += Time.deltaTime;
+                Debug.Log("Cabra en movimiento");
 
-                // Check if the goat has been trying to move for too long
-                if (elapsedTime >= 10)
+                // Se mueve la cabra 
+                agente = GetComponent<NavMeshAgent>();
+                agente.SetDestination(RandomNavmeshLocation(7f));
+
+
+                float elapsedTime = 0f;
+                while (agente.pathPending || agente.remainingDistance > agente.stoppingDistance)
                 {
-                    Debug.LogWarning("Cabra ha excedido el tiempo de movimiento máximo");
-                    break;
+                    elapsedTime += Time.deltaTime;
+
+                    // Comprobar si lleva mas de 10 segundos en movimiento
+                    if (elapsedTime >= 10)
+                    {
+                        Debug.LogWarning("Cabra ha excedido el tiempo de movimiento máximo");
+                        break;
+                    }
+
+                    yield return null;
                 }
 
-                yield return null;
-            }
+                // Comprobar si la cabra llego a su destino o excedio el tiempo máximo
+                if (agente.remainingDistance <= agente.stoppingDistance)
+                {
+                    // Llego a su destino
+                    Debug.Log("Cabra llegó a su destino");
+                }
+                else
+                {
+                    // Excedio el tiempo
+                    agente.isStopped = true;
+                    Debug.LogWarning("Cabra detenida debido a tiempo de movimiento máximo excedido");
+                    agente.SetDestination(RandomNavmeshLocation(7f));
+                }
 
-            // Check if the goat reached its destination or timed out
-            if (agente.remainingDistance <= agente.stoppingDistance)
-            {
-                Debug.Log("Cabra llegó a su destino");
+                agente.isStopped = false;
+                Debug.Log("Cabra se para");
+
+                // Esperar segundos aleatorios hasta el siguiente movimiento
+                yield return new WaitForSeconds(Random.Range(delayMin, delayMax));
             }
             else
             {
-                // The goat timed out, stop trying to move
+                // parar movimiento y esperar que se acabe de ordeñar o alimentar
                 agente.isStopped = true;
-                Debug.LogWarning("Cabra detenida debido a tiempo de movimiento máximo excedido");
-                agente.SetDestination(RandomNavmeshLocation(7f));
+                yield return null;
             }
-
-            agente.isStopped = false;
-            Debug.Log("Cabra se para");
-            enMovimiento = false;
-
-            // Esperar segundos aleatorios hasta el siguiente movimiento
-            yield return new WaitForSeconds(Random.Range(delayMin, delayMax));
         }
     }
 
@@ -103,4 +102,6 @@ public class MovimientoAleatorioCabras : MonoBehaviour
         }
         return finalPosition;
     }
+
+
 }
