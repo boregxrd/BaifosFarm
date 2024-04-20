@@ -390,9 +390,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4945762243706268086}
-        m_TargetAssemblyTypeName: MenuVictoriaMetaDinero, Assembly-CSharp
-        m_MethodName: 
+      - m_Target: {fileID: 7385793737722797177}
+        m_TargetAssemblyTypeName: MenuVictoriaTresCabras, Assembly-CSharp
+        m_MethodName: VolverAlMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 5887462506693496685}
   - component: {fileID: 2424819118753622499}
   - component: {fileID: 6564965109930791445}
-  - component: {fileID: 608450120582740853}
+  - component: {fileID: 7385793737722797177}
   m_Layer: 5
   m_Name: CanvasVictoriaTresCabras
   m_TagString: Untagged
@@ -717,7 +717,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &608450120582740853
+--- !u!114 &7385793737722797177
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -726,7 +726,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4945762243706268086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32dc71254e2b29b44b68006813fb63be, type: 3}
+  m_Script: {fileID: 11500000, guid: 988af8dc012f1c2478951788a3cd0236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetoMenuVictoria: {fileID: 4945762243706268086}
+  objetoMenuVictoriaTresCabras: {fileID: 4945762243706268086}
