@@ -35,7 +35,7 @@ public class Factura : MonoBehaviour
 
     private void Start()
     {
-        
+
         Debug.Log("cabras negras: " + numCabrasNegras);
         Debug.Log("cabras: " + (numCabrasBlancas + numCabrasNegras));
         Debug.Log("dinero: " + dineroTotal);
@@ -43,9 +43,9 @@ public class Factura : MonoBehaviour
         if ((numCabrasBlancas + numCabrasNegras) == 0 && dineroTotal < COSTO_CABRA)
         {
             Debug.Log("Entra al if del invoke derrota");
-            OnGameOver?.Invoke(); 
+            OnGameOver?.Invoke();
         }
-        else if (dineroTotal > 250)
+        else if (dineroTotal > 1250)
         {
             Debug.Log("Entra al if del invoke victoria dinero");
             OnMoneyVictory?.Invoke();
@@ -53,41 +53,14 @@ public class Factura : MonoBehaviour
     }
 
     public void comprarCabra()
-{
-    // Obtener la cantidad actual de cabras
-    int numTotalCabras = numCabrasBlancas + numCabrasNegras;
-
-    // Calcular la cantidad máxima de cabras que se pueden comprar
-    int maxNewCabras = 20 - numTotalCabras;
-
-    // Si ya se tienen 20 o más cabras, no se puede comprar más
-    if (numTotalCabras >= 20)
     {
-        Debug.Log("¡Se ha alcanzado el máximo de cabras, no se pueden comprar más!");
-        return;
-    }
-
-    // Calcular la cantidad de cabras que se pueden comprar
-    int numCabrasToBuy = Mathf.Min(maxNewCabras, cabrasNuevas);
-
-    // Comprobar si hay suficiente dinero para comprar la cantidad especificada de cabras
-    int costoTotal = COSTO_CABRA * numCabrasToBuy;
-    if (PlayerPrefs.GetInt("DineroTotal", 0) >= costoTotal)
-    {
-        // Restar el costo de las cabras del dinero total
-        sistemaMonetario.RestarDinero(costoTotal);
-
-        // Comprar las cabras
-        for (int i = 0; i < numCabrasToBuy; i++)
+        // Verificar si el jugador tiene suficiente dinero para comprar una cabra y si tiene menos de 20 cabras (20 es el limite)
+        if (PlayerPrefs.GetInt("DineroTotal", 0) >= COSTO_CABRA && numCabrasBlancas+numCabrasNegras < 20)
         {
-            // Si la cantidad total de cabras alcanza 20, detener la compra
-            if (numTotalCabras + i >= 20)
-            {
-                Debug.Log("¡Se ha alcanzado el máximo de cabras, no se pueden comprar más!");
-                break;
-            }
+            // Restar el costo de la cabra del dinero total
+            sistemaMonetario.RestarDinero(COSTO_CABRA);
 
-            // Decidir aleatoriamente si se compra una cabra negra
+            // comprobar si hay cabra negra y 10% de que salga 
             if (numCabrasNegras < 3 && UnityEngine.Random.value <= 0.3f)
             {
                 numCabrasNegras++;
@@ -96,25 +69,18 @@ public class Factura : MonoBehaviour
             {
                 numCabrasBlancas++;
             }
+            PlayerPrefs.SetInt("cabrasBlancas", numCabrasBlancas);
+            PlayerPrefs.SetInt("cabrasNegras", numCabrasNegras);
+
+            cabrasNuevas++;
+            ActualizarTexto();
         }
-
-        // Actualizar la cantidad de cabras en PlayerPrefs
-        PlayerPrefs.SetInt("cabrasBlancas", numCabrasBlancas);
-        PlayerPrefs.SetInt("cabrasNegras", numCabrasNegras);
-
-        // Actualizar la cantidad de nuevas cabras compradas
-        cabrasNuevas -= numCabrasToBuy;
-
-        // Actualizar la interfaz de usuario
-        ActualizarTexto();
+        else
+        {
+            Debug.Log("¡No tienes suficiente dinero para comprar una cabra!");
+            // Aquí puedes mostrar un mensaje al jugador indicando que no tiene suficiente dinero
+        }
     }
-    else
-    {
-        Debug.Log("¡No tienes suficiente dinero para comprar la cantidad de cabras seleccionada!");
-        // Aquí puedes mostrar un mensaje indicando que no hay suficiente dinero para comprar la cantidad de cabras especificada
-    }
-}
-
 
     public void continuar()
     {
@@ -132,7 +98,9 @@ public class Factura : MonoBehaviour
 
     public void comprarHenoEspecial()
     {
-        if (PlayerPrefs.GetInt("DineroTotal", 0) >= COSTO_HENO_ESPECIAL)
+        int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado");
+        //Si tienes suficiente dinero, y no has comprado heno especial aun, puede comprarlo
+        if (PlayerPrefs.GetInt("DineroTotal", 0) >= COSTO_HENO_ESPECIAL && valorHenoMejorado == 0) 
         {
             sistemaMonetario.RestarDinero(COSTO_HENO_ESPECIAL);
             PlayerPrefs.SetInt("HenoMejorado", 1);
@@ -141,7 +109,7 @@ public class Factura : MonoBehaviour
         }
         else
         {
-            Debug.Log("¡No tienes suficiente dinero para comprar heno especial!");
+            Debug.Log("¡No tienes suficiente dinero para comprar heno especial, o ya lo has comprado!");
             // Aquí puedes mostrar un mensaje al jugador indicando que no tiene suficiente dinero
         }
     }
@@ -149,14 +117,26 @@ public class Factura : MonoBehaviour
     private void ActualizarTexto()
     {
         int leches = PlayerPrefs.GetInt("LechesGuardadas", 0);
+        int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado");
+
+        // Inicializar el texto con el valor de la leche vendida
         txtFactura.text = "Leche vendida - " + leches.ToString();
+
+        // Agregar cabras compradas si hay nuevas
         if (cabrasNuevas >= 1)
         {
-            txtFactura.text += "\nCabras nuevas - " + cabrasNuevas.ToString();
+            txtFactura.text += "\nCabras compradas - " + cabrasNuevas.ToString();
         }
 
-        // Actualizar el dinero total en el texto
+        // Agregar mensaje si se ha comprado heno especial
+        if (valorHenoMejorado == 1)
+        {
+            txtFactura.text += "\nHeno Especial Comprado!";
+        }
+
+        // Agregar el dinero total y el gasto de heno
         txtFactura.text += "\nDinero total - $" + PlayerPrefs.GetInt("DineroTotal", 0).ToString();
         txtFactura.text += "\nGasto heno siguiente día - $" + sistemaMonetario.CalcularGastoHeno().ToString();
     }
+
 }
