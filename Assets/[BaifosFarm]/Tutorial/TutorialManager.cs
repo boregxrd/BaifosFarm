@@ -102,12 +102,13 @@ public class TutorialManager : MonoBehaviour
                 {
                     CompleteStep();
                     Debug.Log("Guardar Leche completado");
+                    PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
                 }
                 break;
 
             case 5: // Guardar Leche
                 {
-                    Debug.Log("Completa el tutorial!");
+
                 }
                 break;
 

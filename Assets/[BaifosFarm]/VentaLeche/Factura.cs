@@ -21,6 +21,8 @@ public class Factura : MonoBehaviour
     public static Action OnMoneyVictory;
     public static Action OnBlackGoatsVictory;
 
+    public GameObject[] popUpsFactura; // Array para los popups en la escena de factura
+
     private void Awake()
     {
         cabrasNuevas = 0;
@@ -39,6 +41,9 @@ public class Factura : MonoBehaviour
         Debug.Log("cabras negras: " + numCabrasNegras);
         Debug.Log("cabras: " + (numCabrasBlancas + numCabrasNegras));
         Debug.Log("dinero: " + dineroTotal);
+        Debug.Log("Método Start iniciado");
+
+        Debug.Log("Valor de PlayerPrefs 'TutorialCompleto': " + PlayerPrefs.GetInt("TutorialCompleto"));
 
         if ((numCabrasBlancas + numCabrasNegras) == 0 && dineroTotal < COSTO_CABRA)
         {
@@ -50,7 +55,121 @@ public class Factura : MonoBehaviour
             Debug.Log("Entra al if del invoke victoria dinero");
             OnMoneyVictory?.Invoke();
         }
+        if (PlayerPrefs.GetInt("TutorialCompleto") == 1)
+        {
+            Debug.Log("Iniciando corrutina ShowPopUps");
+            StartCoroutine(ShowPopUps());
+        }
+        else
+        {
+            // Ocultar todos los pop-ups
+            foreach (var popup in popUpsFactura)
+            {
+                popup.SetActive(false);
+            }
+            Debug.Log("Tutorial no completado, pop-ups ocultos");
+        }
+
     }
+
+    private IEnumerator ShowPopUps()
+    {
+        Debug.Log("Iniciando corrutina ShowPopUps");
+
+        // Mostrar el primer popup
+        popUpsFactura[0].SetActive(true);
+        Debug.Log("Mostrando primer popup");
+
+        // Crear un botón "OK" dinámicamente en el primer popup
+        GameObject okButtonObject = new GameObject("OKButton");
+        okButtonObject.transform.SetParent(popUpsFactura[0].transform, false);
+
+        // Añadir componente Button
+        Button okButton = okButtonObject.AddComponent<Button>();
+
+        // Añadir RectTransform al botón
+        RectTransform rectTransform = okButtonObject.AddComponent<RectTransform>();
+        rectTransform.sizeDelta = new Vector2(160, 50);
+
+        // Añadir Text para mostrar "OK" en el botón
+        GameObject textObject = new GameObject("ButtonText");
+        textObject.transform.SetParent(okButtonObject.transform, false);
+
+        // Añadir componente Text y establecer propiedades
+        Text buttonText = textObject.AddComponent<Text>();
+        buttonText.text = ">OK<";
+        buttonText.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        buttonText.fontSize = 35; //tamaño letra
+        buttonText.alignment = TextAnchor.MiddleCenter; //en el centro de pantalla
+        buttonText.color = new Color(22f / 255f, 237f / 255f, 72f / 255f); // Color en formato RGB (#16ED48)
+        buttonText.fontStyle = FontStyle.Bold; // Establecer el texto en negrita
+
+        // Añadir listener al botón
+        okButton.onClick.AddListener(() => {
+            Destroy(okButtonObject); // Destruir el botón al hacer clic
+        });
+
+        // Esperar hasta que se destruya el botón "OK"
+        while (okButtonObject != null)
+        {
+            yield return null;
+        }
+
+        // Ocultar el primer popup y mostrar el segundo popup
+        popUpsFactura[0].SetActive(false);
+        Debug.Log("Ocultando primer popup");
+
+        popUpsFactura[1].SetActive(true);
+        Debug.Log("Mostrando segundo popup");
+
+        // Crear un botón "OK" dinámicamente en el segundo popup
+        GameObject okButtonObject2 = new GameObject("OKButton2");
+        okButtonObject2.transform.SetParent(popUpsFactura[1].transform, false);
+
+        // Añadir componente Button
+        Button okButton2 = okButtonObject2.AddComponent<Button>();
+
+        // Añadir RectTransform al botón
+        RectTransform rectTransform2 = okButtonObject2.AddComponent<RectTransform>();
+        rectTransform2.sizeDelta = new Vector2(160, 50);
+
+        // Añadir Text para mostrar "OK" en el botón
+        GameObject textObject2 = new GameObject("ButtonText2");
+        textObject2.transform.SetParent(okButtonObject2.transform, false);
+
+        // Añadir componente Text y establecer propiedades
+        Text buttonText2 = textObject2.AddComponent<Text>();
+        buttonText2.text = ">OK<";
+        buttonText2.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        buttonText2.fontSize = 35;
+        buttonText2.alignment = TextAnchor.MiddleCenter;
+        buttonText.color = new Color(22f / 255f, 237f / 255f, 72f / 255f); // Color en formato RGB (#16ED48)
+        buttonText2.fontStyle = FontStyle.Bold; // Establecer el texto en negrita
+
+        // Añadir listener al botón
+        okButton2.onClick.AddListener(() => {
+            Destroy(okButtonObject2); // Destruir el botón al hacer clic
+        });
+
+        // Esperar hasta que se destruya el botón "OK" del segundo popup
+        while (okButtonObject2 != null)
+        {
+            yield return null;
+        }
+
+        // Ocultar el segundo popup
+        popUpsFactura[1].SetActive(false);
+        Debug.Log("Ocultando segundo popup");
+
+        Debug.Log("Corrutina ShowPopUps finalizada");
+    }
+
+
+
+
+
+
+
 
     public void comprarCabra()
     {
