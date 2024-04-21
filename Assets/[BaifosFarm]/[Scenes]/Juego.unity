@@ -633,6 +633,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5948450414786922847, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
+      propertyPath: accionesBaifo
+      value: 
+      objectReference: {fileID: 1018782740}
+    - target: {fileID: 5948450414786922847, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: spawnerCabras
       value: 
       objectReference: {fileID: 1119793144}
@@ -956,6 +960,7 @@ MonoBehaviour:
   controladorAccionesPersonaje: {fileID: 1018782740}
   miniJuegoOrdenyar: {fileID: 0}
   leche: {fileID: 1676810386094116703, guid: 6817a779a69d5ad4eb6c3ceb8a2fbae6, type: 3}
+  lecheGuardada: 0
 --- !u!1 &1119793144 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1425342411727231530, guid: d264aad5e173afb4982adb30d2c9f3c5, type: 3}
@@ -1154,6 +1159,7 @@ MonoBehaviour:
   barraAlimento: {fileID: 0}
   materialHenoNormal: {fileID: 2100000, guid: 57adaa258c23e684c903b58d6f08c806, type: 2}
   materialHenoMejorado: {fileID: 2100000, guid: edca393f3d0143546be3037a999532d7, type: 2}
+  alimentacionRealizada: 0
 --- !u!1001 &1765342349
 PrefabInstance:
   m_ObjectHideFlags: 0

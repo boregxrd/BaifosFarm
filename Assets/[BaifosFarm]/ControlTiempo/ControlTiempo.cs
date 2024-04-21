@@ -14,7 +14,7 @@ public class ControlTiempo : MonoBehaviour
     public SistemaMonetario sistemaMonetario; // Referencia al C# Script de sistema de dinero
     public Text textoDinero; // Referencia al objeto de texto que mostrará el dinero total
     int dineroTotal;
-    public GameObject spawnerCabras;
+    [SerializeField] public ControladorAccionesPersonaje accionesBaifo; 
 
     private DeteccionCabrasNegras deteccionCabrasNegras;
 
@@ -80,6 +80,7 @@ public class ControlTiempo : MonoBehaviour
 
         // Cuando el tiempo llega a cero...
         congelarBarrasCabras();
+        desabilitarAccionesBaifo();
 
         GameObject camion = GameObject.Find("Camion");
         LlegadaCamión llegadaCamión = camion.GetComponent<LlegadaCamión>();
@@ -108,6 +109,13 @@ public class ControlTiempo : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
 
         VerificarYCargarEscena();
+    }
+
+    private void desabilitarAccionesBaifo()
+    {
+        if(accionesBaifo != null) {
+            accionesBaifo.gameObject.SetActive(false);
+        }
     }
 
     private void congelarBarrasCabras()

@@ -59,7 +59,7 @@ public class MovimientoAleatorioCabras : MonoBehaviour
             // Check if the goat reached its destination or timed out
             if (agente.remainingDistance <= agente.stoppingDistance)
             {
-                Debug.Log("Cabra llegó a su destino");
+                // Debug.Log("Cabra llegó a su destino");
             }
             else
             {
