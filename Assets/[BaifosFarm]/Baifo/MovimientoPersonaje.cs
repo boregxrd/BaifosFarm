@@ -18,11 +18,11 @@ public class Character : MonoBehaviour
 
     void Update()
     {
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
-        controller.Move(move * Time.deltaTime * playerSpeed);
-
+        Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
+        
         if (move != Vector3.zero)
         {
+            controller.Move(move.normalized * Time.deltaTime * playerSpeed);
             transform.forward = move;
         }
     }
