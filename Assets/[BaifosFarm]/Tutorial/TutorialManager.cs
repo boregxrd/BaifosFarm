@@ -20,18 +20,18 @@ public class TutorialManager : MonoBehaviour
 
     private void Update()
     {
-        // Aquí solo mantienes la lógica de verificación de pasos
+        // Aqui solo mantienes la logica de verificacion de pasos
         CheckCompletion();
     }
 
     private void ShowNextPopUp()
     {
-        // Ocultar todos los pop-ups y desactivar los efectos de partículas
+        // Ocultar todos los pop-ups al inicio
         foreach (var popUp in popUps)
         {
             popUp.SetActive(false);
         }
-
+        // Desactivar los efectos de particulas al inicio
         foreach (var effect in particleEffects)
         {
             effect.Stop();
@@ -39,7 +39,7 @@ public class TutorialManager : MonoBehaviour
 
         if (popUpIndex < popUps.Length)
         {
-            // Activar el efecto de partículas correspondiente
+            // Activar el efecto de particulas correspondiente
             particleEffects[popUpIndex].Play();
 
             // Mostrar el pop-up
@@ -55,6 +55,14 @@ public class TutorialManager : MonoBehaviour
 
     private void CheckCompletion()
     {
+        StartCoroutine(DelayBeforeCheck());
+    }
+
+    private IEnumerator DelayBeforeCheck()
+    {
+        // Esperar 2 segundos
+        yield return new WaitForSeconds(3f);
+
         switch (popUpIndex)
         {
             case 0: // Movimiento
@@ -97,10 +105,17 @@ public class TutorialManager : MonoBehaviour
                 }
                 break;
 
+            case 5: // Guardar Leche
+                {
+                    Debug.Log("Completa el tutorial!");
+                }
+                break;
+
             default:
                 break;
         }
     }
+
 
     private void CompleteStep()
     {
