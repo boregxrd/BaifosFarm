@@ -53,14 +53,41 @@ public class Factura : MonoBehaviour
     }
 
     public void comprarCabra()
-    {
-        // Verificar si el jugador tiene suficiente dinero para comprar una cabra
-        if (PlayerPrefs.GetInt("DineroTotal", 0) >= COSTO_CABRA)
-        {
-            // Restar el costo de la cabra del dinero total
-            sistemaMonetario.RestarDinero(COSTO_CABRA);
+{
+    // Obtener la cantidad actual de cabras
+    int numTotalCabras = numCabrasBlancas + numCabrasNegras;
 
-            // comprobar si hay cabra negra y 10% de que salga 
+    // Calcular la cantidad máxima de cabras que se pueden comprar
+    int maxNewCabras = 20 - numTotalCabras;
+
+    // Si ya se tienen 20 o más cabras, no se puede comprar más
+    if (numTotalCabras >= 20)
+    {
+        Debug.Log("¡Se ha alcanzado el máximo de cabras, no se pueden comprar más!");
+        return;
+    }
+
+    // Calcular la cantidad de cabras que se pueden comprar
+    int numCabrasToBuy = Mathf.Min(maxNewCabras, cabrasNuevas);
+
+    // Comprobar si hay suficiente dinero para comprar la cantidad especificada de cabras
+    int costoTotal = COSTO_CABRA * numCabrasToBuy;
+    if (PlayerPrefs.GetInt("DineroTotal", 0) >= costoTotal)
+    {
+        // Restar el costo de las cabras del dinero total
+        sistemaMonetario.RestarDinero(costoTotal);
+
+        // Comprar las cabras
+        for (int i = 0; i < numCabrasToBuy; i++)
+        {
+            // Si la cantidad total de cabras alcanza 20, detener la compra
+            if (numTotalCabras + i >= 20)
+            {
+                Debug.Log("¡Se ha alcanzado el máximo de cabras, no se pueden comprar más!");
+                break;
+            }
+
+            // Decidir aleatoriamente si se compra una cabra negra
             if (numCabrasNegras < 3 && UnityEngine.Random.value <= 0.3f)
             {
                 numCabrasNegras++;
@@ -69,18 +96,25 @@ public class Factura : MonoBehaviour
             {
                 numCabrasBlancas++;
             }
-            PlayerPrefs.SetInt("cabrasBlancas", numCabrasBlancas);
-            PlayerPrefs.SetInt("cabrasNegras", numCabrasNegras);
-            //PlayerPrefs.SetInt("cabrasNegras", 3);
-            cabrasNuevas++;
-            ActualizarTexto();
         }
-        else
-        {
-            Debug.Log("¡No tienes suficiente dinero para comprar una cabra!");
-            // Aquí puedes mostrar un mensaje al jugador indicando que no tiene suficiente dinero
-        }
+
+        // Actualizar la cantidad de cabras en PlayerPrefs
+        PlayerPrefs.SetInt("cabrasBlancas", numCabrasBlancas);
+        PlayerPrefs.SetInt("cabrasNegras", numCabrasNegras);
+
+        // Actualizar la cantidad de nuevas cabras compradas
+        cabrasNuevas -= numCabrasToBuy;
+
+        // Actualizar la interfaz de usuario
+        ActualizarTexto();
     }
+    else
+    {
+        Debug.Log("¡No tienes suficiente dinero para comprar la cantidad de cabras seleccionada!");
+        // Aquí puedes mostrar un mensaje indicando que no hay suficiente dinero para comprar la cantidad de cabras especificada
+    }
+}
+
 
     public void continuar()
     {
