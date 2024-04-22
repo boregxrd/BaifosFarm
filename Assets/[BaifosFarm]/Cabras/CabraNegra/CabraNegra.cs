@@ -28,14 +28,16 @@ public class CabraNegra : MonoBehaviour
             navMeshAgent.SetDestination(targetBaifo.position);
         }
     }
-    public void MuerteDeCabraNegra()
+    public bool MuerteDeCabraNegra()
     {
         if (Quaternion.Euler(0, 0, 90) != transform.rotation)
         {
             navMeshAgent.enabled = false; // Desactivar el NavMeshAgent
             transform.Rotate(0.0f, 0.0f, 90.0f, Space.Self);
             cabraNegraMuerta = true;
+            return true;
         }
+        return false;
     }
 
     public void DestruirCabrasNegrasMuertas()
