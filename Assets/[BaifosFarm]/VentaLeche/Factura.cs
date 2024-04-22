@@ -45,9 +45,13 @@ public class Factura : MonoBehaviour
 
         Debug.Log("Valor de PlayerPrefs 'TutorialCompleto': " + PlayerPrefs.GetInt("TutorialCompleto"));
 
-        if ((numCabrasBlancas + numCabrasNegras) == 0 && dineroTotal < COSTO_CABRA)
+        if (isGameOver())
         {
             Debug.Log("Entra al if del invoke derrota");
+            OnGameOver.Invoke();
+        }
+        else if(sistemaMonetario.CalcularGastoHeno() > dineroTotal)
+        {
             OnGameOver.Invoke();
         }
         else if (dineroTotal > 200)
@@ -72,6 +76,14 @@ public class Factura : MonoBehaviour
 
     }
 
+    private bool isGameOver()
+    {
+        if (((numCabrasBlancas + numCabrasNegras) == 0 && dineroTotal < COSTO_CABRA) || sistemaMonetario.CalcularGastoHeno() > dineroTotal)
+        {
+            return true;
+        }
+        return false;
+    }
     private IEnumerator ShowPopUps()
     {
         Debug.Log("Iniciando corrutina ShowPopUps");
@@ -166,8 +178,10 @@ public class Factura : MonoBehaviour
 
     public void comprarCabra()
     {
+        int dineroTotal = PlayerPrefs.GetInt("DineroTotal", 0);
         // Verificar si el jugador tiene suficiente dinero para comprar una cabra y si tiene menos de 20 cabras (20 es el limite)
-        if (PlayerPrefs.GetInt("DineroTotal", 0) >= COSTO_CABRA && numCabrasBlancas+numCabrasNegras < 20)
+        //tambien si tiene suficiente dinero para comprar heno para el siguiente dia
+        if (dineroTotal >= COSTO_CABRA && numCabrasBlancas+numCabrasNegras < 20 && dineroTotal - COSTO_CABRA >= sistemaMonetario.CalcularGastoHeno() + 10)
         {
             // Restar el costo de la cabra del dinero total
             sistemaMonetario.RestarDinero(COSTO_CABRA);
@@ -210,12 +224,12 @@ public class Factura : MonoBehaviour
     public void comprarHenoEspecial()
     {
         int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado");
+        int dineroTotal = PlayerPrefs.GetInt("DineroTotal", 0);
         //Si tienes suficiente dinero, y no has comprado heno especial aun, puede comprarlo
-        if (PlayerPrefs.GetInt("DineroTotal", 0) >= COSTO_HENO_ESPECIAL && valorHenoMejorado == 0) 
+        if (dineroTotal >= COSTO_HENO_ESPECIAL && valorHenoMejorado == 0 && dineroTotal - COSTO_HENO_ESPECIAL >= sistemaMonetario.CalcularGastoHeno()) 
         {
             sistemaMonetario.RestarDinero(COSTO_HENO_ESPECIAL);
             PlayerPrefs.SetInt("HenoMejorado", 1);
-            Debug.Log("¡Has comprado heno especial!");
             ActualizarTexto();
         }
         else
@@ -223,7 +237,7 @@ public class Factura : MonoBehaviour
             Debug.Log("¡No tienes suficiente dinero para comprar heno especial, o ya lo has comprado!");
             // Aquí puedes mostrar un mensaje al jugador indicando que no tiene suficiente dinero
         }
-    }
+    }   
 
     private void ActualizarTexto()
     {
