@@ -14,17 +14,21 @@ public class Cabra : MonoBehaviour
     {
         barraAlimento = transform.GetChild(3).GetChild(0).GetChild(0).GetComponent<BarraAlimento>();
 
-        Transform barraLecheTransform = transform.GetChild(4).GetChild(0).GetChild(0);
-        if (barraLecheTransform != null)
+        if (transform.childCount >= 5)
         {
-            barraLeche = barraLecheTransform.GetComponent<BarraLeche>();
+            Transform barraLecheTransform = transform.GetChild(4).GetChild(0).GetChild(0);
+            if (barraLecheTransform != null)
+            {
+                barraLeche = barraLecheTransform.GetComponent<BarraLeche>();
+            }
         }
-
-
+        else
+        {
+            Debug.Log("El GameObject no tiene suficientes hijos para inicializar correctamente.");
+        }
 
         posicionCabra = transform.position;
     }
-
     public float nivelDeAlimentacion()
     {
         return barraAlimento.valorActual;
