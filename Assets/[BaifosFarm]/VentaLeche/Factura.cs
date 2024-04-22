@@ -39,7 +39,7 @@ public class Factura : MonoBehaviour
     {
 
         Debug.Log("cabras negras: " + numCabrasNegras);
-        Debug.Log("cabras: " + (numCabrasBlancas + numCabrasNegras));
+        Debug.Log("cabras blancas: " + numCabrasBlancas);
         Debug.Log("dinero: " + dineroTotal);
         Debug.Log("Método Start iniciado");
 
@@ -48,9 +48,9 @@ public class Factura : MonoBehaviour
         if ((numCabrasBlancas + numCabrasNegras) == 0 && dineroTotal < COSTO_CABRA)
         {
             Debug.Log("Entra al if del invoke derrota");
-            OnGameOver?.Invoke();
+            OnGameOver.Invoke();
         }
-        else if (dineroTotal > 1250)
+        else if (dineroTotal > 200)
         {
             Debug.Log("Entra al if del invoke victoria dinero");
             OnMoneyVictory?.Invoke();
@@ -164,13 +164,6 @@ public class Factura : MonoBehaviour
         Debug.Log("Corrutina ShowPopUps finalizada");
     }
 
-
-
-
-
-
-
-
     public void comprarCabra()
     {
         // Verificar si el jugador tiene suficiente dinero para comprar una cabra y si tiene menos de 20 cabras (20 es el limite)
@@ -213,7 +206,6 @@ public class Factura : MonoBehaviour
             sistemaMonetario.RestarDinero(sistemaMonetario.CalcularGastoHeno());
         }
     }
-
 
     public void comprarHenoEspecial()
     {
