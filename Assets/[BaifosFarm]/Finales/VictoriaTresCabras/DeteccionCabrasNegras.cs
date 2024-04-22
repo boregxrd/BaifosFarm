@@ -23,17 +23,17 @@ public class DeteccionCabrasNegras : MonoBehaviour
     {
         if (cabrasNegras.Length <= 2) return false;
 
-        for(int i = 0; i< cabrasNegras.Length; i++)
+        for (int i = 0; i < cabrasNegras.Length; i++)
         {
-            if (!cabrasNegras[i].MuerteDeCabraNegra())
+            if (!cabrasNegras[i].cabraNegraMuerta)
             {
                 cabrasNegrasAlFinal++;
             }
         }
 
         Debug.Log("cabras negras al final: " + cabrasNegrasAlFinal);
-        
-        if (cabrasNegrasAlFinal == cabrasNegras.Length)
+
+        if (cabrasNegrasAlFinal >= 3) 
         {
             Debug.Log("Tres cabras vivas al final true");
             return true;
