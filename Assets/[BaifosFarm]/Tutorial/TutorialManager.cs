@@ -90,7 +90,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 3: // Recoger Leche
-                if (ordeniar.ordeñoIniciado)
+                if (ordeniar.ordeniarIniciado)
                 {
                     CompleteStep();
                     Debug.Log("Recoger Leche completado");
