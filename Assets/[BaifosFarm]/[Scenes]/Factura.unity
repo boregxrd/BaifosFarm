@@ -1292,6 +1292,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasDerrota
       objectReference: {fileID: 0}
+    - target: {fileID: 4782458983135712755, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782458983135712755, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_Color.b
+      value: 0.16981131
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782458983135712755, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_Color.g
+      value: 0.16981131
+      objectReference: {fileID: 0}
+    - target: {fileID: 4782458983135712755, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_Color.r
+      value: 0.16981131
+      objectReference: {fileID: 0}
     - target: {fileID: 7568204039922885647, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2029,6 +2045,22 @@ PrefabInstance:
     - target: {fileID: 4719820939345059568, guid: 3b19798bab88fae4886905867a7b0ce2, type: 3}
       propertyPath: m_Name
       value: CanvasVictoriaDinero
+      objectReference: {fileID: 0}
+    - target: {fileID: 6768646726963640761, guid: 3b19798bab88fae4886905867a7b0ce2, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6768646726963640761, guid: 3b19798bab88fae4886905867a7b0ce2, type: 3}
+      propertyPath: m_Color.b
+      value: 0.3723545
+      objectReference: {fileID: 0}
+    - target: {fileID: 6768646726963640761, guid: 3b19798bab88fae4886905867a7b0ce2, type: 3}
+      propertyPath: m_Color.g
+      value: 0.6528301
+      objectReference: {fileID: 0}
+    - target: {fileID: 6768646726963640761, guid: 3b19798bab88fae4886905867a7b0ce2, type: 3}
+      propertyPath: m_Color.r
+      value: 0.15643285
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3577436132518497313, guid: 3b19798bab88fae4886905867a7b0ce2, type: 3}
