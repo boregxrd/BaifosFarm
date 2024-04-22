@@ -23,7 +23,7 @@ public class CabraNegra : MonoBehaviour
 
     private void Update()
     {
-        if(!Quaternion.Euler(0, 0, 90).Equals(transform.rotation))
+        if(!Quaternion.Euler(0, 0, 90).Equals(transform.rotation) && !cabraNegraMuerta)
         {
             navMeshAgent.SetDestination(targetBaifo.position);
         }
