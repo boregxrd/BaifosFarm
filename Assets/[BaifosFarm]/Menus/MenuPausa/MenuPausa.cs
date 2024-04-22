@@ -21,14 +21,14 @@ public class MenuPausa : MonoBehaviour
         // Verificar si el menú de ajustes está activo antes de procesar la entrada de la tecla ESC
         if (GrupoMenuAjustes.activeSelf)
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
+            if (Input.GetKeyDown(KeyCode.P))
             {
                 CerrarMenuAjustes(); // Cerrar el menú de ajustes si se pulsa la tecla ESC
             }
             return; // Salir del método Update si el menú de ajustes está activo
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             if (Pausa == false)
             {
@@ -90,14 +90,6 @@ public class MenuPausa : MonoBehaviour
     }
     public void IrAlMenu(string NombreMenu)
     {
-
-        if (NombreMenu == "Ajustes")
-        {
-            Debug.Log("Nada aqui por ahora");
-        }
-        else
-        {
-            SceneManager.LoadScene(NombreMenu); // Cargar la escena del menú de inicio del juego
-        }
+        SceneManager.LoadScene(NombreMenu); // Cargar la escena del menú de inicio del juego
     }
 }
