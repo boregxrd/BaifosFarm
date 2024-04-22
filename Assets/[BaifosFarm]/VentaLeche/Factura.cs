@@ -143,7 +143,7 @@ public class Factura : MonoBehaviour
         buttonText2.font = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
         buttonText2.fontSize = 35;
         buttonText2.alignment = TextAnchor.MiddleCenter;
-        buttonText.color = new Color(22f / 255f, 237f / 255f, 72f / 255f); // Color en formato RGB (#16ED48)
+        buttonText2.color = new Color(22f / 255f, 237f / 255f, 72f / 255f); // Color en formato RGB (#16ED48)
         buttonText2.fontStyle = FontStyle.Bold; // Establecer el texto en negrita
 
         // Añadir listener al botón
