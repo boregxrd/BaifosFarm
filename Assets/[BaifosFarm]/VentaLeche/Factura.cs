@@ -49,11 +49,11 @@ public class Factura : MonoBehaviour
         if (isGameOver())
         {
             Debug.Log("Entra al if del invoke derrota");
-            OnGameOver.Invoke();
+            OnGameOver?.Invoke();
         }
         else if(sistemaMonetario.CalcularGastoHeno() > dineroTotal)
         {
-            OnGameOver.Invoke();
+            OnGameOver?.Invoke();
         }
         else if (dineroTotal > 200)
         {
@@ -79,7 +79,8 @@ public class Factura : MonoBehaviour
 
     private bool isGameOver()
     {
-        if (((numCabrasBlancas + numCabrasNegras) == 0 && dineroTotal < COSTO_CABRA + COSTO_ALIMENTAR_CABRA) || sistemaMonetario.CalcularGastoHeno() > dineroTotal)
+        //if ((numCabrasBlancas + numCabrasNegras) == 0 && dineroTotal < (COSTO_CABRA + COSTO_ALIMENTAR_CABRA) || sistemaMonetario.CalcularGastoHeno() > dineroTotal)
+        if ((numCabrasBlancas + numCabrasNegras) == 0 && dineroTotal < (COSTO_CABRA + COSTO_ALIMENTAR_CABRA))
         {
             return true;
         }
