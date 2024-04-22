@@ -1264,6 +1264,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 8287765122384630889, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
+      propertyPath: m_Text
+      value: Pulsa Q para salir
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
