@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography;
-using TMPro.Examples;
+using TMPro;
 using UnityEngine;
 
 public class LlegadaCamión : MonoBehaviour
