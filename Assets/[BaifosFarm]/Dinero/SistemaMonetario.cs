@@ -36,6 +36,15 @@ public class SistemaMonetario : MonoBehaviour
     {
         int numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
         int numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
-        return (numCabrasBlancas + numCabrasNegras) * PRECIO_HENO_POR_CABRA;
+
+        if (numCabrasBlancas + numCabrasNegras == 0)
+        {
+            return 0;
+        } else 
+        {
+            return (numCabrasBlancas + numCabrasNegras) * PRECIO_HENO_POR_CABRA;
+
+        }
+
     }
 }
