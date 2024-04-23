@@ -1070,9 +1070,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4742193931891945706, guid: 84b7d6f5c4c44f64aba435996294f964, type: 3}
+      propertyPath: m_Size.y
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 5082850826618386797, guid: 84b7d6f5c4c44f64aba435996294f964, type: 3}
+      propertyPath: m_Size.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5468072926618962109, guid: 84b7d6f5c4c44f64aba435996294f964, type: 3}
       propertyPath: m_Name
       value: Valla
+      objectReference: {fileID: 0}
+    - target: {fileID: 5521698273075129224, guid: 84b7d6f5c4c44f64aba435996294f964, type: 3}
+      propertyPath: m_Size.y
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6828092933168262273, guid: 84b7d6f5c4c44f64aba435996294f964, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1113,6 +1125,10 @@ PrefabInstance:
     - target: {fileID: 6828092933168262273, guid: 84b7d6f5c4c44f64aba435996294f964, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8268646015310367471, guid: 84b7d6f5c4c44f64aba435996294f964, type: 3}
+      propertyPath: m_Size.y
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
