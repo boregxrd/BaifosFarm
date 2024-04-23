@@ -29,9 +29,9 @@ public class Alimentar : MonoBehaviour
             if (child.name == "BarraAlimentos")
             {
                 barraAlimento = child.GetComponent<BarraAlimento>();
-                float incremento = 25f;
+                float incremento = 40f;
                 if(PlayerPrefs.GetInt("HenoMejorado", 0) == 1){
-                    incremento = 50f;
+                    incremento = 80f;
                 }
                 barraAlimento.incrementarNivelAlimentacion(incremento);
                 alimentacionRealizada = true;

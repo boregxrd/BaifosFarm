@@ -6,7 +6,7 @@ public class SistemaMonetario : MonoBehaviour
 {
     private static SistemaMonetario instance;
     public int totalDinero;
-    private const int PRECIO_HENO_POR_CABRA = 10;
+    private const int PRECIO_HENO_POR_CABRA = 5;
 
     void Awake()
     {

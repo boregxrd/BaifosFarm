@@ -135,24 +135,6 @@ public class ControlTiempo : MonoBehaviour
         {
             barraLeche.enabled = false;
         }
-
-        // foreach (CabraNegra cabraNegra in cabrasNegras)
-        // {
-        //     if (cabraNegra != null)
-        //     {
-        //         BarraAlimento barraAlimento = cabraNegra.GetComponent<BarraAlimento>();
-        //         if (barraAlimento != null)
-        //         {
-        //             barraAlimento.enabled = false;
-        //         }
-
-        //         BarraLeche barraLeche = cabraNegra.GetComponent<BarraLeche>();
-        //         if (barraLeche != null)
-        //         {
-        //             barraLeche.enabled = false;
-        //         }
-        //     }
-        // }
     }
 
     void VerificarYCargarEscena()
