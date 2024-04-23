@@ -49,7 +49,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         {
             VaciarConElTiempo();
 
-            if(Input.GetKeyUp(KeyCode.Tab))
+            if(Input.GetKeyUp(KeyCode.Q))
             {
                 resetearMiniJuego();
             }

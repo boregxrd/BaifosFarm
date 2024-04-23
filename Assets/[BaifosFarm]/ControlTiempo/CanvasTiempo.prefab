@@ -94,6 +94,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   contadorText: {fileID: 0}
   tiempoRestante: 100
+  sistemaMonetario: {fileID: 0}
+  textoDinero: {fileID: 0}
 --- !u!1 &7203363221026654370
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,6 +108,7 @@ GameObject:
   - component: {fileID: 7763340163046609970}
   - component: {fileID: 5676973204847528210}
   - component: {fileID: 5047635723822537221}
+  - component: {fileID: 6384196676889972840}
   m_Layer: 5
   m_Name: CanvasTiempo
   m_TagString: Untagged
@@ -196,3 +199,16 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &6384196676889972840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7203363221026654370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d68e483fbed20cc469bec5ec5566c906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  condicionesAvisos: {fileID: 0}

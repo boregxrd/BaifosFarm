@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-//·······················································SCRIPT ACCIÓN ALIMENTAR······················································
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SCRIPT ACCIï¿½N ALIMENTARï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //Este script ha de estar en Mano dentro de Personaje
 
 public class Alimentar : MonoBehaviour
@@ -9,8 +9,12 @@ public class Alimentar : MonoBehaviour
     [SerializeField] ControladorAccionesPersonaje controladorAccionesPersonaje;
 
     [SerializeField] private BarraAlimento barraAlimento;
+    
+    //Materiales inyectados en el inspector
+    [SerializeField] private Material materialHenoNormal;
+    [SerializeField] private Material materialHenoMejorado;
 
-    [SerializeField] private float incremento = 25f;
+    public bool alimentacionRealizada = false;
 
     private void Awake()
     {
@@ -25,8 +29,32 @@ public class Alimentar : MonoBehaviour
             if (child.name == "BarraAlimentos")
             {
                 barraAlimento = child.GetComponent<BarraAlimento>();
+                float incremento = 40f;
+                if(PlayerPrefs.GetInt("HenoMejorado", 0) == 1){
+                    incremento = 80f;
+                }
                 barraAlimento.incrementarNivelAlimentacion(incremento);
+                alimentacionRealizada = true;
             }
+        }
+    }
+
+    public void GestionarAparienciaMontonHeno()
+    {
+        if(PlayerPrefs.GetInt("HenoMejorado", 0) == 1){
+            GameObject.Find("MontonHeno").GetComponent<MeshRenderer>().material = materialHenoMejorado;
+        }
+        else{
+            GameObject.Find("MontonHeno").GetComponent<MeshRenderer>().material = materialHenoNormal;
+        }
+    }
+    public void GestionarAparienciaHeno(GameObject heno)
+    {
+        if(PlayerPrefs.GetInt("HenoMejorado", 0) == 1){
+            heno.GetComponent<MeshRenderer>().material = materialHenoMejorado;
+        }
+        else{
+            heno.GetComponent<MeshRenderer>().material = materialHenoNormal;
         }
     }
 }

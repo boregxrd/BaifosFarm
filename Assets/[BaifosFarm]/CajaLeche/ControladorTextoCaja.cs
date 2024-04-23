@@ -9,7 +9,8 @@ public class ControladorTextoCaja : MonoBehaviour
     [SerializeField] private ControladorAccionesPersonaje controladorAccionesPersonaje;
     [SerializeField] private TextMeshPro textoCaja;
     [SerializeField] private SistemaMonetario sistemaMonetario; // Agrega referencia al SistemaMonetario
-    public Text textoDinero; // Referencia al objeto de texto que mostrar� el dinero total
+    public Text textoDinero; // Referencia al objeto de texto que mostrar� el dinero 
+    [SerializeField] int PRECIO_POR_BOTELLA = 10;
 
     private void Awake() {
         textoDinero.text = "Dinero: $" + PlayerPrefs.GetInt("DineroTotal", 0);
@@ -23,11 +24,9 @@ public class ControladorTextoCaja : MonoBehaviour
     public void SumarDineroPorBotella()
     {
         int botellasObtenidas = controladorAccionesPersonaje.lechesGuardadas;
-        int dineroGanado = botellasObtenidas * 10; // Cada botella vale $10
+        int dineroGanado = botellasObtenidas * PRECIO_POR_BOTELLA; // Cada botella vale $10
         sistemaMonetario.AgregarDinero(dineroGanado);
-        Debug.Log("Dinero ganado: " + dineroGanado);
-        Debug.Log("Dinero total: $" + PlayerPrefs.GetInt("DineroTotal", 0));
-        // Comprobar si textoDinero es nulo antes de intentar actualizarlo
+    
         if (textoDinero != null)
         {
             textoDinero.text = "Dinero: $" + PlayerPrefs.GetInt("DineroTotal", 0).ToString();

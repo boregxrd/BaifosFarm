@@ -1,28 +1,36 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
-
-//�������������������������������������������������������SCRIPT MEN� PAUSA������������������������������������������������������
-//Este script ha de estar en CanvasPausa
+using UnityEngine.UI;
 
 public class MenuPausa : MonoBehaviour
 {
     [SerializeField] private GameObject objetoMenuPausa;
+    [SerializeField] private GameObject GrupoMenuAjustes; // Referencia al Canvas del menú de ajustes
     public bool Pausa = false;
-
 
     void Start()
     {
         objetoMenuPausa.SetActive(false);
+        GrupoMenuAjustes.SetActive(false); // Desactivar el Canvas del menú de ajustes al iniciar
     }
-
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+
+        // Verificar si el menú de ajustes está activo antes de procesar la entrada de la tecla ESC
+        if (GrupoMenuAjustes.activeSelf)
         {
-            if(Pausa == false)
+            if (Input.GetKeyDown(KeyCode.P))
+            {
+                CerrarMenuAjustes(); // Cerrar el menú de ajustes si se pulsa la tecla ESC
+            }
+            return; // Salir del método Update si el menú de ajustes está activo
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (Pausa == false)
             {
                 Pausar();
             }
@@ -40,11 +48,9 @@ public class MenuPausa : MonoBehaviour
 
         Time.timeScale = 0; //el juego se pausa
 
-        //para que se vea el cursor del rat�n y poder clicar en los botones:
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        MostrarCursor(); // Mostrar el cursor al pausar el juego
     }
-    
+
     public void Reanudar()
     {
         objetoMenuPausa.SetActive(false);
@@ -52,20 +58,38 @@ public class MenuPausa : MonoBehaviour
 
         Time.timeScale = 1; //el juego se reanuda
 
-        //para que se vea el cursor del rat�n y poder clicar en los botones:
+        OcultarCursor(); // Ocultar el cursor al reanudar el juego
+    }
+
+    public void AbrirMenuAjustes()
+    {
+        Debug.Log("AbrirMenuAjustes"); // Log de depuración
+        GrupoMenuAjustes.SetActive(true); // Activar el Canvas del menú de ajustes
+        
+    }
+
+
+    public void CerrarMenuAjustes()
+    {
+        GrupoMenuAjustes.SetActive(false); // Desactivar el Canvas del menú de ajustes
+        MostrarCursor(); // Mostrar el cursor al cerrar el menú de ajustes
+    }
+
+    // Método para mostrar el cursor
+    private void MostrarCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+
+    // Método para ocultar el cursor
+    private void OcultarCursor()
+    {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
     }
-
     public void IrAlMenu(string NombreMenu)
-    { 
-        if(NombreMenu == "Ajustes")
-        {
-            Debug.Log("no se ha creado pantalla de ajustes aún");
-        }
-        else
-        {
-            SceneManager.LoadScene(NombreMenu);
-        }
+    {
+        SceneManager.LoadScene(NombreMenu); // Cargar la escena del menú de inicio del juego
     }
 }

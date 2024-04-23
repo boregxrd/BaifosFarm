@@ -25,6 +25,8 @@ public class ControladorAccionesPersonaje : MonoBehaviour
     [SerializeField] private DejarLecheEnCaja dejarLecheEnCaja;
     [SerializeField] private Character movimientoPersonaje;
 
+
+
     public bool cabraMuerta = false;
 
 
@@ -60,19 +62,21 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         }
 
         //ALIMENTAR
-        if(other.gameObject.CompareTag("cabraBlanca") || other.gameObject.CompareTag("cabraNegra")) //si se acerca a cualquier cabra
+        if(other.gameObject.CompareTag("cabraBlanca") || other.gameObject.CompareTag("cabraNegra"))
         {
-            if (Input.GetKey("e") && objetoEnMano == recogerAlimento.objetoQueCogeBaifo() && recogerAlimento.preparadoParaAlimentar == true)
+            if (Input.GetKey("e") && objetoEnMano == recogerAlimento.objetoQueCogeBaifo() && recogerAlimento.preparadoParaAlimentar == true )
             {
                 alimentar.enabled = true; 
                 alimentar.DarComida(other);
                 recogerAlimento.enabled = false;
                 ordeniar.enabled = false;
             }
+
+           
         }
 
-        //ORDENYAR
-        if (other.gameObject.CompareTag("cabraBlanca")) 
+            //ORDENYAR
+            if (other.gameObject.CompareTag("cabraBlanca")) 
         {
             if (Input.GetKey(KeyCode.Space) && objetoEnMano == null && ordeniar.ordenioIniciado == false)
             {

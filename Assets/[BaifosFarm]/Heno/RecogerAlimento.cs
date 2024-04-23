@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-//·······················································SCRIPT ACCIÓN RECOGER ALIMENTO······················································
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SCRIPT ACCIï¿½N RECOGER ALIMENTOï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //Este script ha de estar en Mano dentro de Personaje
 
 public class RecogerAlimento : MonoBehaviour
@@ -11,9 +11,13 @@ public class RecogerAlimento : MonoBehaviour
 
     [SerializeField] private GameObject heno;
 
+    private Alimentar alimentar;
+    
     [SerializeField] ControladorAccionesPersonaje controladorAccionesPersonaje;
 
     public bool preparadoParaAlimentar = false;
+
+    public bool henoRecogido = false;
 
     private void Awake()
     {
@@ -22,7 +26,10 @@ public class RecogerAlimento : MonoBehaviour
 
     private void OnEnable()
     { 
+        alimentar = GetComponent<Alimentar>();
         heno = Instantiate(prefabHeno); //creamos un objeto heno 
+
+        alimentar.GestionarAparienciaHeno(heno);//Para apariencia si tiene powerup o no
 
         //y lo recoge el personaje
         heno.GetComponent<Rigidbody>().useGravity = false;
@@ -32,13 +39,15 @@ public class RecogerAlimento : MonoBehaviour
         heno.transform.SetParent(controladorAccionesPersonaje.puntoDeMano.transform);
         controladorAccionesPersonaje.objetoEnMano = heno;
         preparadoParaAlimentar = true;
+        henoRecogido = true;
     }
 
     private void OnDisable()
     {
         Destroy(heno);
         controladorAccionesPersonaje.objetoEnMano = null;
-        preparadoParaAlimentar = false; 
+        preparadoParaAlimentar = false;
+        
     }
 
     public GameObject objetoQueCogeBaifo()
