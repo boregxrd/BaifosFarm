@@ -48,16 +48,17 @@ public class Factura : MonoBehaviour
 
         if (isGameOver())
         {
-            Debug.Log("Entra al if del invoke derrota");
+            Debug.Log("pierdes por no tener dinero para comprar cabras y no tener cabras");
             OnGameOver?.Invoke();
         }
-        else if (sistemaMonetario.CalcularGastoHeno() > dineroTotal && (numCabrasBlancas + numCabrasNegras) == 0)
+        else if (sistemaMonetario.CalcularGastoHeno() > dineroTotal)
         {
+            Debug.Log("pierdes por no tener dinero suficiente para alimentar a las cabras");
             OnGameOver?.Invoke();
         }
         else if (dineroTotal >= 200)
         {
-            Debug.Log("Entra al if del invoke victoria dinero");
+            Debug.Log("Entra al if de victoria dinero");
             OnMoneyVictory?.Invoke();
         }
         if (PlayerPrefs.GetInt("TutorialCompleto") == 1)
@@ -79,8 +80,7 @@ public class Factura : MonoBehaviour
 
     private bool isGameOver()
     {
-        if ((numCabrasBlancas + numCabrasNegras) == 0 && dineroTotal < (COSTO_CABRA + COSTO_ALIMENTAR_CABRA) || sistemaMonetario.CalcularGastoHeno() > dineroTotal)
-        //if ((numCabrasBlancas + numCabrasNegras) == 0 && dineroTotal < (COSTO_CABRA + COSTO_ALIMENTAR_CABRA))
+        if ((numCabrasBlancas + numCabrasNegras) == 0 && dineroTotal < (COSTO_CABRA + COSTO_ALIMENTAR_CABRA))
         {
             return true;
         }
@@ -183,7 +183,7 @@ public class Factura : MonoBehaviour
         int dineroTotal = PlayerPrefs.GetInt("DineroTotal", 0);
         // Verificar si el jugador tiene suficiente dinero para comprar una cabra y si tiene menos de 20 cabras (20 es el limite)
         //tambien si tiene suficiente dinero para comprar heno para el siguiente dia
-        if (dineroTotal >= COSTO_CABRA && numCabrasBlancas+numCabrasNegras < 20 && dineroTotal - COSTO_CABRA >= sistemaMonetario.CalcularGastoHeno() + 10)
+        if (dineroTotal >= COSTO_CABRA && numCabrasBlancas+numCabrasNegras < 20 && dineroTotal - COSTO_CABRA >= sistemaMonetario.CalcularGastoHeno())
         {
             // Restar el costo de la cabra del dinero total
             sistemaMonetario.RestarDinero(COSTO_CABRA);

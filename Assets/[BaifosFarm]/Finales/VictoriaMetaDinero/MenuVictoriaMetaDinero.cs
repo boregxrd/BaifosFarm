@@ -23,10 +23,10 @@ public class MenuVictoriaMetaDinero : MonoBehaviour
         {
             objetoMenuVictoria.SetActive(true);
         }
-        else
+        /* else
         {
             Debug.LogWarning("objetoMenuVictoria es nulo.");
-        }
+        }*/
     }
 
     public void VolverAlMenu()
