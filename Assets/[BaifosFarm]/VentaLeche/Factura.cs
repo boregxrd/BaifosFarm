@@ -51,7 +51,7 @@ public class Factura : MonoBehaviour
             Debug.Log("Entra al if del invoke derrota");
             OnGameOver?.Invoke();
         }
-        else if(sistemaMonetario.CalcularGastoHeno() > dineroTotal)
+        else if (sistemaMonetario.CalcularGastoHeno() > dineroTotal && (numCabrasBlancas + numCabrasNegras) == 0)
         {
             OnGameOver?.Invoke();
         }
