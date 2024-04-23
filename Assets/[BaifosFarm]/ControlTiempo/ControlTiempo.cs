@@ -60,7 +60,7 @@ public class ControlTiempo : MonoBehaviour
 
     IEnumerator CuentaRegresiva()
     {
-        deteccionCabrasNegras = new DeteccionCabrasNegras();
+        deteccionCabrasNegras = gameObject.AddComponent<DeteccionCabrasNegras>();
         deteccionCabrasNegras.VerificarSiHayTresCabrasNegrasAlInicio();
 
         while (tiempoRestante > 0)
