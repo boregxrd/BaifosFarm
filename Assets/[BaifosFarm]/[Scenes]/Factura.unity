@@ -578,7 +578,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &607310279
 Transform:
   m_ObjectHideFlags: 0
@@ -1288,9 +1288,17 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 556310874197495760, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1279869618322325116, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
       propertyPath: m_Name
       value: CanvasDerrota
+      objectReference: {fileID: 0}
+    - target: {fileID: 1279869618322325116, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4782458983135712755, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
       propertyPath: m_Color.a
@@ -2045,6 +2053,10 @@ PrefabInstance:
     - target: {fileID: 4719820939345059568, guid: 3b19798bab88fae4886905867a7b0ce2, type: 3}
       propertyPath: m_Name
       value: CanvasVictoriaDinero
+      objectReference: {fileID: 0}
+    - target: {fileID: 4719820939345059568, guid: 3b19798bab88fae4886905867a7b0ce2, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6768646726963640761, guid: 3b19798bab88fae4886905867a7b0ce2, type: 3}
       propertyPath: m_Color.a
