@@ -44,7 +44,7 @@ public class ControlTiempo : MonoBehaviour
         dineroTotal = PlayerPrefs.GetInt("DineroTotal", 0);
         sistemaMonetario = FindObjectOfType<SistemaMonetario>();
         // Actualizar el texto del dinero total
-        textoDinero.text = "Dinero: $" + dineroTotal.ToString();
+        textoDinero.text = dineroTotal.ToString();
     }
 
     private void ActivarCuentaRegresiva()
