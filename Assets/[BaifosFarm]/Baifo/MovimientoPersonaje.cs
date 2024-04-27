@@ -25,7 +25,7 @@ public class Character : MonoBehaviour
         {
             // Rotación suave
             Quaternion targetRotation = Quaternion.LookRotation(move);
-            transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
 
             // Movimiento
             controller.Move(transform.forward * Time.deltaTime * playerSpeed);
