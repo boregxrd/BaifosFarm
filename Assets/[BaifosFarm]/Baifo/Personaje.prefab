@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 892908031600250289}
   - component: {fileID: 1236993952053815058}
   - component: {fileID: 2362205511153037576}
+  - component: {fileID: 2399999888216786225}
   - component: {fileID: 3198955829895273351}
   m_Layer: 0
   m_Name: Personaje
@@ -77,6 +78,22 @@ MonoBehaviour:
   playerSpeed: 2
   posicionSpawn: {x: 10, y: 0, z: 10}
   rotationSpeed: 10
+--- !u!208 &2399999888216786225
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393686520797697360}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 1, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 1, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!195 &3198955829895273351
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -86,7 +103,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1393686520797697360}
   m_Enabled: 1
   m_AgentTypeID: -1372625422
-  m_Radius: 2
+  m_Radius: 0.75
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
