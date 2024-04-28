@@ -625,6 +625,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5948450414786922847, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
+      propertyPath: camion
+      value: 
+      objectReference: {fileID: 2711920397536686053, guid: 51e72b2c122020d46a20b6f8534f46f0, type: 3}
+    - target: {fileID: 5948450414786922847, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: textoDinero
       value: 
       objectReference: {fileID: 2099062772}
@@ -990,8 +994,8 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 8819886921955647124, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
-    - {fileID: 3198955829895273351, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+    - {fileID: 0}
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -1083,7 +1087,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Granero
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 5100759721835188940, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
+      propertyPath: m_Center.y
+      value: -5.864107
+      objectReference: {fileID: 0}
+    - target: {fileID: 5723258879603840269, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
+      propertyPath: m_Center.y
+      value: -5.043449
+      objectReference: {fileID: 0}
+    - target: {fileID: 6509631005406959529, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
+      propertyPath: m_Size.y
+      value: 11.74923
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 5100759721835188940, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
+    - {fileID: 5723258879603840269, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

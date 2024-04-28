@@ -3,7 +3,12 @@ guid: 15276dfec9442364fb71315cd23e5172
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - contadorText: {instanceID: 0}
+  - sistemaMonetario: {instanceID: 0}
+  - textoDinero: {instanceID: 0}
+  - accionesBaifo: {instanceID: 0}
+  - camion: {fileID: 2711920397536686053, guid: 51e72b2c122020d46a20b6f8534f46f0, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

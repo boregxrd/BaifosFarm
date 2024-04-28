@@ -15,6 +15,7 @@ public class ControlTiempo : MonoBehaviour
     public Text textoDinero; // Referencia al objeto de texto que mostrará el dinero total
     int dineroTotal;
     [SerializeField] public ControladorAccionesPersonaje accionesBaifo; 
+    [SerializeField] GameObject camion;
 
     private DeteccionCabrasNegras deteccionCabrasNegras;
 
@@ -82,7 +83,6 @@ public class ControlTiempo : MonoBehaviour
         congelarBarrasCabras();
         desabilitarAccionesBaifo();
 
-        GameObject camion = GameObject.Find("Camion");
         LlegadaCamión llegadaCamión = camion.GetComponent<LlegadaCamión>();
         llegadaCamión.empezarMovimientoCamion();
 
