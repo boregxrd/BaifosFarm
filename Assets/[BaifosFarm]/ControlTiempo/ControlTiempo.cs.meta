@@ -8,7 +8,7 @@ MonoImporter:
   - sistemaMonetario: {instanceID: 0}
   - textoDinero: {instanceID: 0}
   - accionesBaifo: {instanceID: 0}
-  - camion: {fileID: 2711920397536686053, guid: 51e72b2c122020d46a20b6f8534f46f0, type: 3}
+  - llegadaCamion: {fileID: -8218686273930369799, guid: 51e72b2c122020d46a20b6f8534f46f0, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
