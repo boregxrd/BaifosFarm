@@ -1,5 +1,58 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1313098310212225808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6823828758299598728}
+  - component: {fileID: 7269495070495160619}
+  m_Layer: 0
+  m_Name: Barrera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6823828758299598728
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313098310212225808}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7194534949204686220}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &7269495070495160619
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313098310212225808}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 2.75, y: 1, z: 1.5}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &7209402400777005293
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,6 +62,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7194534949204686220}
+  - component: {fileID: 510191975078938635}
   m_Layer: 0
   m_Name: MontonHeno
   m_TagString: Untagged
@@ -30,8 +84,30 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 537603385926501130}
+  - {fileID: 6823828758299598728}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &510191975078938635
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209402400777005293}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.2, y: 3, z: 2.1}
+  m_Center: {x: 0, y: 1.5, z: 0}
 --- !u!1001 &71857565038748897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -104,6 +180,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monton Heno
       objectReference: {fileID: 0}
+    - target: {fileID: 3240562670800564272, guid: e89d292804af68b43bc64c16dadcbd03, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 3240562670800564272, guid: e89d292804af68b43bc64c16dadcbd03, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448142980450689974, guid: e89d292804af68b43bc64c16dadcbd03, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.336233
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448142980450689974, guid: e89d292804af68b43bc64c16dadcbd03, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.041103
+      objectReference: {fileID: 0}
+    - target: {fileID: 3448142980450689974, guid: e89d292804af68b43bc64c16dadcbd03, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.00000002794
+      objectReference: {fileID: 0}
     - target: {fileID: 4407187375235809858, guid: e89d292804af68b43bc64c16dadcbd03, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -112,6 +208,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 949d0091a4259f74d88371474502d1bf, type: 2}
+    - target: {fileID: 6721992597810065892, guid: e89d292804af68b43bc64c16dadcbd03, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 8.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721992597810065892, guid: e89d292804af68b43bc64c16dadcbd03, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 7742780737561719692, guid: e89d292804af68b43bc64c16dadcbd03, type: 3}
       propertyPath: m_Name
       value: Heno Grande
