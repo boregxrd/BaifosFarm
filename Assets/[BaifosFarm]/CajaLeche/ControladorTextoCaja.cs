@@ -14,7 +14,11 @@ public class ControladorTextoCaja : MonoBehaviour
     void Update()
     {
         int botellasObtenidas = controladorAccionesPersonaje.lechesGuardadas;
-        textoCaja.text = "Botellas: " + botellasObtenidas.ToString();
+        if(botellasObtenidas < 10){
+            textoCaja.text = "0" + botellasObtenidas.ToString();
+        } else {
+            textoCaja.text = botellasObtenidas.ToString();
+        }
     }
 
     public void SumarDineroPorBotella()
