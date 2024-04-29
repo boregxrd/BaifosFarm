@@ -1481,17 +1481,45 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 353295487528020412, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: sistemaMonetario
+      value: 
+      objectReference: {fileID: 1997526313015578739}
+    - target: {fileID: 353295487528020412, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: controladorAccionesPersonaje
+      value: 
+      objectReference: {fileID: 1018782740}
+    - target: {fileID: 561599688137733893, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_Size.z
+      value: 1.811491
+      objectReference: {fileID: 0}
+    - target: {fileID: 561599688137733893, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_Center.x
+      value: 0.000000022472033
+      objectReference: {fileID: 0}
+    - target: {fileID: 561599688137733893, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_Center.y
+      value: 0.00000013044524
+      objectReference: {fileID: 0}
+    - target: {fileID: 561599688137733893, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_Center.z
+      value: 0.9057457
+      objectReference: {fileID: 0}
+    - target: {fileID: 2900900432402851291, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 2906495541349597502, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 125.22
+      value: 4.72
       objectReference: {fileID: 0}
     - target: {fileID: 2906495541349597502, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1276371
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2906495541349597502, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 9.67
+      value: 10.55
       objectReference: {fileID: 0}
     - target: {fileID: 2906495541349597502, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1521,6 +1549,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2920370157838384239, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2920370157838384239, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2949518663174923328, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       propertyPath: m_Name
       value: CajaLeche
@@ -1529,13 +1565,77 @@ PrefabInstance:
       propertyPath: controladorAccionesPersonaje
       value: 
       objectReference: {fileID: 1018782740}
+    - target: {fileID: 3847072355661007833, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_text
+      value: 00
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847072355661007833, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_fontSize
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847072355661007833, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3847072355661007833, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847072355661007833, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847072355661007833, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3847072355661007833, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3847072355661007833, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_enableVertexGradient
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4935494787978274824, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_TagString
+      value: CajaLeche
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228698982489607855, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228698982489607855, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7228698982489607855, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205328846737312760, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_Size.x
+      value: 122.066475
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205328846737312760, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_Center.x
+      value: -60.283237
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205328846737312760, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_Center.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8205328846737312760, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_Center.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2949518663174923328, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1951563976}
+      addedObject: {fileID: 1951563980}
     - targetCorrespondingSourceObject: {fileID: 6545345139398252518, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -1545,33 +1645,27 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2949518663174923328, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
   m_PrefabInstance: {fileID: 1951563973}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1951563975 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3847072355661007833, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
-  m_PrefabInstance: {fileID: 1951563973}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1951563976
-MonoBehaviour:
+--- !u!65 &1951563980
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1951563974}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 068d0fdb37aa0f54cbda4f09b46e5ebb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controladorAccionesPersonaje: {fileID: 1018782740}
-  textoCaja: {fileID: 1951563975}
-  sistemaMonetario: {fileID: 1997526313015578739}
-  PRECIO_POR_BOTELLA: 10
+  serializedVersion: 3
+  m_Size: {x: 2, y: 3, z: 2}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &2044885920
 PrefabInstance:
   m_ObjectHideFlags: 0
