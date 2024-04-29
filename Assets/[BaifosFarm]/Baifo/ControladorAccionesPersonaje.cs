@@ -97,8 +97,6 @@ public class ControladorAccionesPersonaje : MonoBehaviour
                 dejarLecheEnCaja.DejarLeche();
                 lechesGuardadas++;
                 PlayerPrefs.SetInt("LechesGuardadas", lechesGuardadas);
-                Debug.Log(lechesGuardadas);
-
                 StartCoroutine(ReactivarControladorDespuesDeDelay());
             }
         }
