@@ -3919,6 +3919,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1018782741}
     - target: {fileID: -8218686273930369799, guid: 51e72b2c122020d46a20b6f8534f46f0, type: 3}
+      propertyPath: destinoCamion.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8218686273930369799, guid: 51e72b2c122020d46a20b6f8534f46f0, type: 3}
       propertyPath: velocidadCamion
       value: 7
       objectReference: {fileID: 0}
