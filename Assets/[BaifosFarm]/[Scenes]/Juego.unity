@@ -2638,6 +2638,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Valla
       objectReference: {fileID: 0}
+    - target: {fileID: 5468072926618962109, guid: 84b7d6f5c4c44f64aba435996294f964, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5521698273075129224, guid: 84b7d6f5c4c44f64aba435996294f964, type: 3}
       propertyPath: m_Size.y
       value: 10

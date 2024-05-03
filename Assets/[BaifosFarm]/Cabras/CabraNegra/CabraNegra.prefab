@@ -362,7 +362,8 @@ MonoBehaviour:
   objetoControlTiempo: {fileID: 0}
   controlTiempo: {fileID: 0}
   targetBaifo: {fileID: 0}
-  alturaDeseada: 1
+  cabraNormal: {fileID: 1648110388227936865}
+  cabraMuerta: {fileID: 8118679793982387589}
   cabraNegraMuerta: 0
 --- !u!195 &-3703250217289309872
 NavMeshAgent:
@@ -565,6 +566,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1064c161b8a9a1d438ec596ae52f706f, type: 3}
+--- !u!1 &1648110388227936865 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 1064c161b8a9a1d438ec596ae52f706f, type: 3}
+  m_PrefabInstance: {fileID: 1881988403750776624}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2131490178072922331 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1064c161b8a9a1d438ec596ae52f706f, type: 3}
@@ -771,6 +777,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a6d7cbf5d31b2c4987d66d17fb7fe6b, type: 3}
+--- !u!1 &8118679793982387589 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2a6d7cbf5d31b2c4987d66d17fb7fe6b, type: 3}
+  m_PrefabInstance: {fileID: 8965032519581501652}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8926285019778281279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2a6d7cbf5d31b2c4987d66d17fb7fe6b, type: 3}

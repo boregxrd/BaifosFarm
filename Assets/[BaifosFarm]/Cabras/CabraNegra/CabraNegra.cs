@@ -7,8 +7,8 @@ public class CabraNegra : MonoBehaviour
     [SerializeField] ControlTiempo controlTiempo;
     public Transform targetBaifo;
     private NavMeshAgent navMeshAgent;
-
-    [SerializeField] float alturaDeseada = 1f;
+    [SerializeField] GameObject cabraNormal;
+    [SerializeField] GameObject cabraMuerta;
     public bool cabraNegraMuerta = false;
 
     private void Start()
@@ -26,15 +26,16 @@ public class CabraNegra : MonoBehaviour
             navMeshAgent.SetDestination(targetBaifo.position);
         }
     }
+
     public void MuerteDeCabraNegra()
     {
-        if (Quaternion.Euler(0, 0, 180) != transform.rotation)
-        {
             navMeshAgent.enabled = false; // Desactivar el NavMeshAgent
-            transform.Rotate(0.0f, 0.0f, 180.0f, Space.Self);
-            transform.position += new Vector3(0, alturaDeseada, 0);
+            
+            // cambiar a modelo muerto
+            cabraNormal.SetActive(false);
+            cabraMuerta.SetActive(true);
+
             cabraNegraMuerta = true;
-        }
     }
 
     public void DestruirCabrasNegrasMuertas()
