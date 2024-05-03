@@ -183,7 +183,7 @@ public class Factura : MonoBehaviour
         int dineroTotal = PlayerPrefs.GetInt("DineroTotal", 0);
         // Verificar si el jugador tiene suficiente dinero para comprar una cabra y si tiene menos de 20 cabras (20 es el limite)
         //tambien si tiene suficiente dinero para comprar heno para el siguiente dia
-        if (dineroTotal >= COSTO_CABRA && numCabrasBlancas+numCabrasNegras < 20 && dineroTotal - COSTO_CABRA >= sistemaMonetario.CalcularGastoHeno())
+        if (dineroTotal >= COSTO_CABRA && numCabrasBlancas+numCabrasNegras < 20 && dineroTotal - COSTO_CABRA >= (sistemaMonetario.CalcularGastoHeno() + SistemaMonetario.PRECIO_HENO_POR_CABRA))
         {
             // Restar el costo de la cabra del dinero total
             sistemaMonetario.RestarDinero(COSTO_CABRA);
