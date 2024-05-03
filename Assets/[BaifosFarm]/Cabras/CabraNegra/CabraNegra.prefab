@@ -301,6 +301,7 @@ GameObject:
   - component: {fileID: 8575326236241112370}
   - component: {fileID: -3703250217289309872}
   - component: {fileID: 949272596959093630}
+  - component: {fileID: 8671757947354089879}
   m_Layer: 0
   m_Name: CabraNegra
   m_TagString: cabraNegra
@@ -399,6 +400,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7c3e85d23315c4cb87b3b3176c6cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &8671757947354089879
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7693945115360077490}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.375, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.5, z: 0.2}
+  m_TimeToStationary: 0.5
 --- !u!1001 &1881988403750776624
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -533,7 +550,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1064c161b8a9a1d438ec596ae52f706f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 991605049958453018, guid: 1064c161b8a9a1d438ec596ae52f706f, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -686,7 +703,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2a6d7cbf5d31b2c4987d66d17fb7fe6b, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 991605049958453018, guid: 2a6d7cbf5d31b2c4987d66d17fb7fe6b, type: 3}
       propertyPath: m_Materials.Array.data[0]
