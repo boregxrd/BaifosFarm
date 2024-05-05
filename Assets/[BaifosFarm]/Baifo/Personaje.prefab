@@ -266,7 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controladorAccionesPersonaje: {fileID: 8499726824884199935}
   miniJuegoOrdenyar: {fileID: 3983467815505877483, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
-  leche: {fileID: 1676810386094116703, guid: 6817a779a69d5ad4eb6c3ceb8a2fbae6, type: 3}
+  leche: {fileID: 6681178933891754221, guid: 3612ac1bd1d464b44a0b75938af0dfb6, type: 3}
   lecheGuardada: 0
 --- !u!1 &4737345562445081389
 GameObject:
