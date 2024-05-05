@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5f8991c29081f4eb679e975c5b7b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabHeno: {fileID: 2973774707385990602, guid: cad18f8f1fe995b4b8d5262aad37e01b, type: 3}
+  prefabHeno: {fileID: 1650743186127636252, guid: 55619198c744252429af9d5f90ca1629, type: 3}
   heno: {fileID: 0}
   controladorAccionesPersonaje: {fileID: 8499726824884199935}
   preparadoParaAlimentar: 0
