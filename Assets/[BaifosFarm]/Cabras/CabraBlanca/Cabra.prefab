@@ -820,6 +820,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraAlimento: {fileID: 9126235875197737451}
+  barraLeche: {fileID: 3876734389561628839}
 --- !u!114 &8677559491504154385
 MonoBehaviour:
   m_ObjectHideFlags: 0

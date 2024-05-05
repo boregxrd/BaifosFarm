@@ -6,6 +6,7 @@ public class Cabra : MonoBehaviour
 {
     [SerializeField]
     private BarraAlimento barraAlimento;
+    [SerializeField]
     private BarraLeche barraLeche;
     private Vector3 posicionCabra;
 
