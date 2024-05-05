@@ -27,8 +27,8 @@ public class Factura : MonoBehaviour
     private void Awake()
     {
         cabrasNuevas = 0;
-        ActualizarTexto();
         PlayerPrefs.SetInt("HenoMejorado", 0);
+        ActualizarTexto();
         //PlayerPrefs.SetInt("cabrasNegras", 0);
         // Get valores de PlayerPrefs
         numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
@@ -38,7 +38,6 @@ public class Factura : MonoBehaviour
 
     private void Start()
     {
-
         Debug.Log("cabras negras: " + numCabrasNegras);
         Debug.Log("cabras blancas: " + numCabrasBlancas);
         Debug.Log("dinero: " + dineroTotal);
@@ -75,7 +74,6 @@ public class Factura : MonoBehaviour
             }
             Debug.Log("Tutorial no completado, pop-ups ocultos");
         }
-
     }
 
     private bool isGameOver()
@@ -245,7 +243,6 @@ public class Factura : MonoBehaviour
     {
         int leches = PlayerPrefs.GetInt("LechesGuardadas", 0);
         int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado");
-
         // Inicializar el texto con el valor de la leche vendida
         txtFactura.text = "Leche vendida - " + leches.ToString();
 
@@ -258,7 +255,7 @@ public class Factura : MonoBehaviour
         // Agregar mensaje si se ha comprado heno especial
         if (valorHenoMejorado == 1)
         {
-            txtFactura.text += "\nHeno Especial Comprado!";
+            txtFactura.text += "\nHeno especial comprado";
         }
 
         // Agregar el dinero total y el gasto de heno
