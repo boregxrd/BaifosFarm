@@ -819,6 +819,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7c3e85d23315c4cb87b3b3176c6cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barraAlimento: {fileID: 9126235875197737451}
 --- !u!114 &8677559491504154385
 MonoBehaviour:
   m_ObjectHideFlags: 0

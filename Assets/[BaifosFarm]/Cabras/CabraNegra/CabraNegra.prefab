@@ -400,6 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b7c3e85d23315c4cb87b3b3176c6cb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barraAlimento: {fileID: 1249791375483036549}
 --- !u!208 &8671757947354089879
 NavMeshObstacle:
   m_ObjectHideFlags: 0

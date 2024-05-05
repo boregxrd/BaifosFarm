@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cabra : MonoBehaviour
 {
+    [SerializeField]
     private BarraAlimento barraAlimento;
     private BarraLeche barraLeche;
     private Vector3 posicionCabra;
@@ -12,23 +13,9 @@ public class Cabra : MonoBehaviour
 
     private void Awake()
     {
-        barraAlimento = transform.GetChild(3).GetChild(0).GetChild(0).GetComponent<BarraAlimento>();
-
-        if (transform.childCount >= 5)
-        {
-            Transform barraLecheTransform = transform.GetChild(4).GetChild(0).GetChild(0);
-            if (barraLecheTransform != null)
-            {
-                barraLeche = barraLecheTransform.GetComponent<BarraLeche>();
-            }
-        }
-        else
-        {
-            Debug.Log("El GameObject no tiene suficientes hijos para inicializar correctamente.");
-        }
-
         posicionCabra = transform.position;
     }
+    
     public float nivelDeAlimentacion()
     {
         return barraAlimento.valorActual;
