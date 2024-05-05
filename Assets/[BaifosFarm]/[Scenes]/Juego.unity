@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465791, g: 0.4964152, b: 0.5748162, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -904,13 +904,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40134862, y: 0.28389785, z: -0.13238372, w: 0.86069494}
-  m_LocalPosition: {x: -4.45, y: 13.18, z: -6.24}
+  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: 36.51, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!114 &705507996
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1733,6 +1733,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 7194534949204686220, guid: c804f1b73bfdf6247a810346820156d4, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7194534949204686220, guid: c804f1b73bfdf6247a810346820156d4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.81
       objectReference: {fileID: 0}
@@ -1775,6 +1779,10 @@ PrefabInstance:
     - target: {fileID: 7209402400777005293, guid: c804f1b73bfdf6247a810346820156d4, type: 3}
       propertyPath: m_Name
       value: MontonHeno
+      objectReference: {fileID: 0}
+    - target: {fileID: 8896141497257148767, guid: c804f1b73bfdf6247a810346820156d4, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2100,6 +2108,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1631811397182520099, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2872674156809558773, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3953073713246812684, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4909178397923062587, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4969725760335482691, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
       propertyPath: m_Name
       value: Granero
@@ -2108,9 +2132,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5072153315746761377, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5100759721835188940, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
       propertyPath: m_Center.y
       value: -5.864107
+      objectReference: {fileID: 0}
+    - target: {fileID: 5158528360790516007, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5604621935645543554, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5710877540399861395, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5723258879603840269, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
       propertyPath: m_Center.y
@@ -2119,6 +2159,10 @@ PrefabInstance:
     - target: {fileID: 6509631005406959529, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
       propertyPath: m_Size.y
       value: 11.74923
+      objectReference: {fileID: 0}
+    - target: {fileID: 7164052927004197045, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5100759721835188940, guid: b6b4137251e949e4cb40bb8368edafeb, type: 3}
