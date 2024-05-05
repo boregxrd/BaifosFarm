@@ -57,7 +57,6 @@ public class CondicionesAvisos : MonoBehaviour
         {
             if (cabra != null)
             {
-                Debug.Log(cabra.nivelDeAlimentacion());
                 // Verificar si la cabra ha muerto
                 if (cabra.nivelDeAlimentacion() <= 0)
                 {
