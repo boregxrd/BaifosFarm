@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CondicionesAvisos : MonoBehaviour
@@ -56,6 +57,7 @@ public class CondicionesAvisos : MonoBehaviour
         {
             if (cabra != null)
             {
+                Debug.Log(cabra.nivelDeAlimentacion());
                 // Verificar si la cabra ha muerto
                 if (cabra.nivelDeAlimentacion() <= 0)
                 {
@@ -70,7 +72,6 @@ public class CondicionesAvisos : MonoBehaviour
                     if (cabra.nivelDeAlimentacion() <= valorAlertaMuerte)
                     {
                         controlAvisos.GenerarOActualizarAviso(cabra, cabra.transform.position, prefabAvisoMuerte);
-                        
                     }
                     else if (cabra.nivelDeAlimentacion() <= valorAlertaHambre)
                     {
@@ -78,8 +79,7 @@ public class CondicionesAvisos : MonoBehaviour
                     }
                     else if (cabra.nivelDeLeche() == valorLecheCompleta)
                     {
-                        controlAvisos.GenerarOActualizarAviso(cabra, cabra.transform.position, prefabAvisoLeche);
-                        
+                        controlAvisos.GenerarOActualizarAviso(cabra, cabra.transform.position, prefabAvisoLeche);                        
                     }
 
                 }
