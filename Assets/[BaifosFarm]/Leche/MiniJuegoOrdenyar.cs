@@ -97,8 +97,8 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     {
         leche = Instantiate(prefabLeche);
 
-        leche.GetComponent<Rigidbody>().useGravity = false;
-        leche.GetComponent<Rigidbody>().isKinematic = true;
+        //leche.GetComponent<Rigidbody>().useGravity = false;
+        //leche.GetComponent<Rigidbody>().isKinematic = true;
 
         leche.transform.position = controladorAccionesPersonaje.puntoDeMano.transform.position;
         leche.transform.SetParent(controladorAccionesPersonaje.puntoDeMano.transform);

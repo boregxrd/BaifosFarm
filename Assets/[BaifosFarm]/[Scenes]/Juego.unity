@@ -1960,7 +1960,7 @@ PrefabInstance:
     - target: {fileID: 2353426376809728305, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: prefabHeno
       value: 
-      objectReference: {fileID: 2973774707385990602, guid: cad18f8f1fe995b4b8d5262aad37e01b, type: 3}
+      objectReference: {fileID: 1650743186127636252, guid: 55619198c744252429af9d5f90ca1629, type: 3}
     - target: {fileID: 2353426376809728305, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: controladorAccionesPersonaje
       value: 
@@ -2708,6 +2708,10 @@ PrefabInstance:
       propertyPath: menuPausa
       value: 
       objectReference: {fileID: 764297188}
+    - target: {fileID: 3983467815505877483, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
+      propertyPath: prefabLeche
+      value: 
+      objectReference: {fileID: 6681178933891754221, guid: 3612ac1bd1d464b44a0b75938af0dfb6, type: 3}
     - target: {fileID: 3983467815505877483, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
       propertyPath: controladorAccionesPersonaje
       value: 
