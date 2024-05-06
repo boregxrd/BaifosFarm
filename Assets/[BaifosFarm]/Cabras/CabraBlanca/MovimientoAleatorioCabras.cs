@@ -29,19 +29,22 @@ public class MovimientoAleatorioCabras : MonoBehaviour
             float elapsedTime = 0f;
             while (agente.pathPending || agente.remainingDistance > agente.stoppingDistance)
             {
-                elapsedTime += Time.deltaTime;
-
-                // Si la cabra lleva 10s moviendose
-                if (elapsedTime >= 10)
+                if (agente.enabled == true)
                 {
-                    break;
-                }
+                    elapsedTime += Time.deltaTime;
 
-                yield return null;
+                    // Si la cabra lleva 10s moviendose
+                    if (elapsedTime >= 10)
+                    {
+                        break;
+                    }
+
+                    yield return null;
+                }
             }
 
             // si despues de los 10s sigue sin llegar al destino
-            if (agente.remainingDistance > agente.stoppingDistance)
+            if (agente.remainingDistance > agente.stoppingDistance && agente.enabled == true)
             {
                 agente.isStopped = true;
                 //Debug.LogWarning("Cabra detenida debido a tiempo de movimiento máximo excedido");
@@ -81,4 +84,8 @@ public class MovimientoAleatorioCabras : MonoBehaviour
         }
         return finalPosition;
     }
+
+    // public void pararCabra() {
+    //     agente.isStopped = true;
+    // }
 }
