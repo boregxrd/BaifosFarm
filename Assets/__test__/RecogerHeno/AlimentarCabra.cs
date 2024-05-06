@@ -6,7 +6,7 @@ public class AlimentarCabra : MonoBehaviour, IInteractuable
 {
 
     [SerializeField] private BarraAlimento barraAlimento;
-    ManejarHeno manejadorHeno;
+    private ManejarHeno manejadorHeno;
 
 
     private float incremento = 40f;
