@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cabra : MonoBehaviour
 {
+    /*
     [SerializeField]
     private BarraAlimento barraAlimento;
     [SerializeField]
@@ -34,6 +35,7 @@ public class Cabra : MonoBehaviour
         }
         
     }
+    */
 
 
 
