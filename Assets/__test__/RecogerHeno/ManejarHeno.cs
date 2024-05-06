@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class ManejarHeno : MonoBehaviour
 {
-    Jugador jugador;
+    private Jugador jugador;
+    private GameObject heno;
 
     private void Start()
     {
@@ -16,7 +17,8 @@ public class ManejarHeno : MonoBehaviour
         if (!jugador.HenoRecogido)
         {
             jugador.HenoRecogido = true;
-            GameObject heno = Instantiate(prefabheno);
+
+            heno = Instantiate(prefabheno);
 
             heno.transform.position = mano.position;
             heno.transform.SetParent(mano);
@@ -28,5 +30,10 @@ public class ManejarHeno : MonoBehaviour
 
     }
 
+    public void DejarHeno()
+    {
+        Destroy(heno);
+        jugador.HenoRecogido = false;  
+    }
     //Implementar DejarHeno, que activará alimentar en cabras
 }

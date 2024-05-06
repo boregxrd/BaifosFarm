@@ -362,7 +362,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: CabraNegra
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3703250217289309872, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+    - {fileID: 8671757947354089879, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+    - {fileID: 8575326236241112370, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+    - {fileID: 949272596959093630, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -814,6 +818,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8677559491504154385, guid: 86080e05a9e56614facc59e7977abdb6, type: 3}
+    - {fileID: 5095309746702386214, guid: 86080e05a9e56614facc59e7977abdb6, type: 3}
+    - {fileID: -3913760539117178546, guid: 86080e05a9e56614facc59e7977abdb6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
