@@ -7,6 +7,13 @@ public class MontonHeno : MonoBehaviour, IInteractuable
 
     [SerializeField] private GameObject prefabHeno;
 
+    ManejarHeno manejadorHeno;
+
+    private void Start()
+    {
+        manejadorHeno = FindObjectOfType<ManejarHeno>();
+    }
+
     public void Interactuar(Jugador jugador)
     {
         GenerarHeno(jugador);
@@ -14,7 +21,7 @@ public class MontonHeno : MonoBehaviour, IInteractuable
 
     private void GenerarHeno(Jugador jugador)
     {
-        jugador.CogerHeno(prefabHeno);
+        manejadorHeno.CogerHeno(prefabHeno, jugador.Mano);
     }
 
 }
