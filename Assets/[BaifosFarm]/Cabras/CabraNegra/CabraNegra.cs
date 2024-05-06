@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 public class CabraNegra : MonoBehaviour
 {
+    
     [SerializeField] GameObject objetoControlTiempo;
     [SerializeField] ControlTiempo controlTiempo;
     public Transform targetBaifo;
@@ -55,4 +56,5 @@ public class CabraNegra : MonoBehaviour
             Destroy(gameObject);
         }
     }
+    
 }
