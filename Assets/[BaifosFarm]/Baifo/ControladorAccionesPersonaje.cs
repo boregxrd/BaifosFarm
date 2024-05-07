@@ -101,6 +101,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
 
                     while (ordeniar.enabled == true)
                     {
+                        
                         yield return null;
                     }
 
