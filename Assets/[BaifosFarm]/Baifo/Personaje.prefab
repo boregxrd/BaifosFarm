@@ -214,7 +214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc5f8991c29081f4eb679e975c5b7b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabHeno: {fileID: 2973774707385990602, guid: cad18f8f1fe995b4b8d5262aad37e01b, type: 3}
+  prefabHeno: {fileID: 1650743186127636252, guid: 55619198c744252429af9d5f90ca1629, type: 3}
   heno: {fileID: 0}
   controladorAccionesPersonaje: {fileID: 8499726824884199935}
   preparadoParaAlimentar: 0
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controladorAccionesPersonaje: {fileID: 8499726824884199935}
   miniJuegoOrdenyar: {fileID: 3983467815505877483, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
-  leche: {fileID: 1676810386094116703, guid: 6817a779a69d5ad4eb6c3ceb8a2fbae6, type: 3}
+  leche: {fileID: 6681178933891754221, guid: 3612ac1bd1d464b44a0b75938af0dfb6, type: 3}
   lecheGuardada: 0
 --- !u!1 &4737345562445081389
 GameObject:

@@ -32,8 +32,8 @@ public class RecogerAlimento : MonoBehaviour
         alimentar.GestionarAparienciaHeno(heno);//Para apariencia si tiene powerup o no
 
         //y lo recoge el personaje
-        heno.GetComponent<Rigidbody>().useGravity = false;
-        heno.GetComponent<Rigidbody>().isKinematic = true;
+        //heno.GetComponent<Rigidbody>().useGravity = false;
+        //heno.GetComponent<Rigidbody>().isKinematic = true;
 
         heno.transform.position = controladorAccionesPersonaje.puntoDeMano.transform.position;
         heno.transform.SetParent(controladorAccionesPersonaje.puntoDeMano.transform);
