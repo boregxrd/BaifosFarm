@@ -29,10 +29,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
 
 
     public bool cabraMuerta = false;
-
-
-
-
+    [SerializeField] MiniJuegoOrdenyar miniJuegoOrdenyar;
 
     private void Awake()
     {
@@ -79,12 +76,11 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         //ORDENYAR
         if (other.gameObject.CompareTag("cabraBlanca"))
         {
-
-            if (Input.GetKey(KeyCode.Space) && objetoEnMano == null && ordeniar.ordenioIniciado == false)
+            if (Input.GetKey(KeyCode.Space) && objetoEnMano == null && ordeniar.enabled == false)
             {
                 ordeniar.enabled = true;
                 ordeniar.IniciarOrdenyado(other);
-
+                Debug.Log(ordeniar.ordenioIniciado);
                 if (ordeniar.ordenioIniciado == true)
                 {
                     alimentar.enabled = false;
@@ -98,10 +94,9 @@ public class ControladorAccionesPersonaje : MonoBehaviour
                         agenteCabra.enabled = false;
                         Debug.Log("desactivado movimiento de cabra");
                     }
-
-                    while (ordeniar.enabled == true)
+                    
+                    while (miniJuegoOrdenyar.enabled != false)
                     {
-                        
                         yield return null;
                     }
 

@@ -31,9 +31,9 @@ public class Ordeniar : MonoBehaviour
 
                 if (barraLeche.lechePreparada == true)
                 {
-                    miniJuegoOrdenyar.enabled = true;
                     ordenioIniciado = true;
                     ordeniarIniciado = true; //Para verificar en el Tutorial
+                    miniJuegoOrdenyar.enabled = true;
                 }
             }
         }

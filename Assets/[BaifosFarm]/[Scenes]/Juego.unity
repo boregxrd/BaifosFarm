@@ -2006,6 +2006,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1891372462}
     - target: {fileID: 8499726824884199935, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: miniJuegoOrdenyar
+      value: 
+      objectReference: {fileID: 1179347175}
+    - target: {fileID: 8499726824884199935, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: movimientoPersonaje
       value: 
       objectReference: {fileID: 484809034}
