@@ -60,7 +60,7 @@ public class Factura : MonoBehaviour
             Debug.Log("Entra al if de victoria dinero");
             OnMoneyVictory?.Invoke();
         }
-        if (PlayerPrefs.GetInt("TutorialCompleto") == 1)
+        if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
         {
             Debug.Log("Iniciando corrutina ShowPopUps");
             StartCoroutine(ShowPopUps());
@@ -72,7 +72,7 @@ public class Factura : MonoBehaviour
             {
                 popup.SetActive(false);
             }
-            Debug.Log("Tutorial no completado, pop-ups ocultos");
+            Debug.Log("Tutorial completado, pop-ups ocultos");
         }
     }
 
