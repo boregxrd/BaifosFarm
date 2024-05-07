@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 //�������������������������������������������������������SCRIPT MINI JUEGO DE ORDE�AR������������������������������������������������������
 //Este script ha de estar en CanvasMiniJuegoOrdenyar
 
-public class MiniJuegoOrdenyar : MonoBehaviour
+public class MiniJuegoOrdenyar : Ordeniar
 {
     [SerializeField] private GameObject objetoMiniJuegoOrdenyar;
     [SerializeField] private Text porcentaje;
@@ -30,11 +31,23 @@ public class MiniJuegoOrdenyar : MonoBehaviour
 
     [SerializeField] MenuPausa menuPausa;
 
+    NavMeshAgent agente;
+    MovimientoAleatorioCabras mov;
+
     private void OnEnable()
     {
         objetoMiniJuegoOrdenyar.SetActive(true);
         iniciarProceso = true;
         barraOrdenyar.fillAmount = valorActual / valorMaximo;
+        agente = cabraActual.GetComponent<NavMeshAgent>();
+        mov = cabraActual.GetComponent<MovimientoAleatorioCabras>();
+        if(agente != null && mov != null) {
+            agente.enabled = false;
+            mov.enabled = false;
+            Debug.Log("movimiento de cabra desactivado");
+        } else {
+            Debug.LogWarning("NULL AAAAAAAAAAAAAAAAAaaa");
+        }
     }
 
     private void Awake()
@@ -117,6 +130,8 @@ public class MiniJuegoOrdenyar : MonoBehaviour
 
     public void resetearMiniJuego()
     {
+        mov.enabled = true;
+        agente.enabled = true;
         valorActual = 15f;
         enabled = false;
         miniJuegoReseteado = true;
