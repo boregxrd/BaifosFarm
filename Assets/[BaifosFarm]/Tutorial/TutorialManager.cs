@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -13,15 +14,57 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private DejarLecheEnCaja dejarLecheEnCaja;
     [SerializeField] private Character movimientoPersonaje;
 
+    private ControlTiempo controlTiempo;
+    public Button botonSkip;
+    public GameObject CanvasSkipTutorial;
+
+    private void Awake()
+    {
+        controlTiempo = FindObjectOfType<ControlTiempo>(); // Obtener referencia a ControlTiempo en la escena
+    }
+
     private void Start()
     {
-        ShowNextPopUp();
+
+        if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
+        {
+            Debug.Log("Iniciando ShowNextPopUp()");
+            ShowNextPopUp();
+            CanvasSkipTutorial.SetActive(true);
+            botonSkip.interactable = true;
+        }
+        else if (PlayerPrefs.GetInt("TutorialCompleto") == 1)
+        {
+            CanvasSkipTutorial.SetActive(false);
+            botonSkip.interactable = false;
+            // Ocultar todos los pop-ups
+            foreach (var popup in popUps)
+            {
+                popup.SetActive(false);
+            }
+            // Ocultar todos las particulas
+            foreach (var particles in particleEffects)
+            {
+                particles.Stop(); // Detiene la emisión de partículas
+            }
+            Debug.Log("Tutorial completado, pop-ups ocultos");
+        }
+
     }
 
     private void Update()
     {
-        // Aqui solo mantienes la logica de verificacion de pasos
-        CheckCompletion();
+        if (PlayerPrefs.GetInt("TutorialCompleto") == 0) 
+        {
+            // Aqui solo mantienes la logica de verificacion de pasos
+            CheckCompletion();
+        }
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            // Si la tecla ha sido presionada, activa el evento "OnClick" del botón
+            botonSkip.onClick.Invoke();
+        }
+
     }
 
     private void ShowNextPopUp()
@@ -102,7 +145,7 @@ public class TutorialManager : MonoBehaviour
                 {
                     CompleteStep();
                     Debug.Log("Guardar Leche completado");
-                    PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
+                    //PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
                 }
                 break;
 
@@ -138,4 +181,25 @@ public class TutorialManager : MonoBehaviour
         // Mostrar el siguiente pop-up
         ShowNextPopUp();
     }
+
+    public void SkipTutorial()
+    {
+        controlTiempo.tiempoRestante = 1f;
+        PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
+        Debug.Log("Tutorial completado");
+        CanvasSkipTutorial.SetActive(false);
+        botonSkip.interactable = false;
+        // Ocultar todos los pop-ups
+        foreach (var popup in popUps)
+        {
+            popup.SetActive(false);
+        }
+        // Ocultar todos las particulas
+        foreach (var particles in particleEffects)
+        {
+            particles.Stop(); // Detiene la emisión de partículas
+        }
+        Debug.Log("Tutorial completado, pop-ups ocultos");
+    }
+
 }
