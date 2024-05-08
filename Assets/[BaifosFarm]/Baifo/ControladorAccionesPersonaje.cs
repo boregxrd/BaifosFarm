@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UIElements;
 //�����������������������������������������������SCRIPT CONTROLADORA DE ACCIONES (MAQUINA DE ESTADOS FINITOS)������������������������������������������������������
 //Este script ha de estar en Mano dentro de Personaje
@@ -28,10 +29,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
 
 
     public bool cabraMuerta = false;
-
-
-
-
+    [SerializeField] MiniJuegoOrdenyar miniJuegoOrdenyar;
 
     private void Awake()
     {
@@ -42,9 +40,9 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         lechesGuardadas = 0;
     }
 
-    private void OnTriggerStay(Collider other)
+    private IEnumerator OnTriggerStay(Collider other)
     {
-        
+
 
         //Dependiendo de lo que el personaje tenga cerca, lo que lleve en las manos y la tecla que pulse realizar� una acci�n u otra:
 
@@ -62,26 +60,27 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         }
 
         //ALIMENTAR
-        if(other.gameObject.CompareTag("cabraBlanca") || other.gameObject.CompareTag("cabraNegra"))
+        if (other.gameObject.CompareTag("cabraBlanca") || other.gameObject.CompareTag("cabraNegra"))
         {
-            if (Input.GetKey("e") && objetoEnMano == recogerAlimento.objetoQueCogeBaifo() && recogerAlimento.preparadoParaAlimentar == true )
+            if (Input.GetKey("e") && objetoEnMano == recogerAlimento.objetoQueCogeBaifo() && recogerAlimento.preparadoParaAlimentar == true)
             {
-                alimentar.enabled = true; 
+                alimentar.enabled = true;
                 alimentar.DarComida(other);
                 recogerAlimento.enabled = false;
                 ordeniar.enabled = false;
             }
 
-           
+
         }
 
-            //ORDENYAR
-            if (other.gameObject.CompareTag("cabraBlanca")) 
+        //ORDENYAR
+        if (other.gameObject.CompareTag("cabraBlanca"))
         {
-            if (Input.GetKey(KeyCode.Space) && objetoEnMano == null && ordeniar.ordenioIniciado == false)
+            if (Input.GetKey(KeyCode.Space) && objetoEnMano == null && ordeniar.enabled == false)
             {
+                Cabra cabraActual = other.gameObject.GetComponent<Cabra>();
                 ordeniar.enabled = true;
-                ordeniar.IniciarOrdenyado(other);
+                ordeniar.IniciarOrdenyado(cabraActual);
                 alimentar.enabled = false;
             }
         }
