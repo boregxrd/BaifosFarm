@@ -40,7 +40,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         lechesGuardadas = 0;
     }
 
-    private IEnumerator OnTriggerStay(Collider other)
+    private void OnTriggerStay(Collider other)
     {
 
 
