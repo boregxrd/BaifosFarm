@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.UI;
 
 //�������������������������������������������������������SCRIPT MINI JUEGO DE ORDE�AR������������������������������������������������������
 //Este script ha de estar en CanvasMiniJuegoOrdenyar
 
-public class MiniJuegoOrdenyar : MonoBehaviour
+public class MiniJuegoOrdenyar : Ordeniar
 {
     [SerializeField] private GameObject objetoMiniJuegoOrdenyar;
     [SerializeField] private Text porcentaje;
