@@ -297,15 +297,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6177179932487929951, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_AnchoredPosition.y
-<<<<<<< HEAD
-<<<<<<< HEAD
       value: -181
-=======
-      value: -72
->>>>>>> 10da64fec4138f5730018d0bac9dd23e16cba208
-=======
-      value: -181
->>>>>>> 0d528ac40944a8f9431ff65fe228e9283194b607
       objectReference: {fileID: 0}
     - target: {fileID: 6598865125094331485, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_Type
@@ -333,15 +325,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7177634058534227157, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_AnchoredPosition.y
-<<<<<<< HEAD
-<<<<<<< HEAD
-      value: -41
-=======
-      value: 71
->>>>>>> 10da64fec4138f5730018d0bac9dd23e16cba208
-=======
-      value: -41
->>>>>>> 0d528ac40944a8f9431ff65fe228e9283194b607
+      value: -121
       objectReference: {fileID: 0}
     - target: {fileID: 7392935749810567596, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -393,15 +377,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8117120117019935762, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_AnchoredPosition.y
-<<<<<<< HEAD
-<<<<<<< HEAD
-      value: -110
-=======
-      value: 0
->>>>>>> 10da64fec4138f5730018d0bac9dd23e16cba208
-=======
-      value: -110
->>>>>>> 0d528ac40944a8f9431ff65fe228e9283194b607
+      value: -61
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3706849583542886081, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
