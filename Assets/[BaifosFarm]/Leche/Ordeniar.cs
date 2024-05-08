@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//·······················································SCRIPT ACCIÓN ORDEÑAR······················································
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SCRIPT ACCIï¿½N ORDEï¿½ARï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 //Este script ha de estar en Mano dentro de Personaje
 
 public class Ordeniar : MonoBehaviour
@@ -15,14 +15,17 @@ public class Ordeniar : MonoBehaviour
 
     public bool ordeniarIniciado = false; //Para verificar en el Tutorial
 
+    protected Cabra cabraActual;
+
     private void Awake()
     {
         enabled = false;
     }
 
-    public void IniciarOrdenyado(Collider other)
+    public void IniciarOrdenyado(Cabra cabra)
     {
-        var children = other.gameObject.GetComponentsInChildren<Transform>(); //dentro de la cabra busco el objeto barraLeche y luego su script
+        cabraActual = cabra;
+        var children = cabra.gameObject.GetComponentsInChildren<Transform>(); //dentro de la cabra busco el objeto barraLeche y luego su script
         foreach (var child in children)
         {
             if (child.name == "BarraLeche")
@@ -31,9 +34,11 @@ public class Ordeniar : MonoBehaviour
 
                 if (barraLeche.lechePreparada == true)
                 {
+                    cabraActual.pararCabra();
                     miniJuegoOrdenyar.enabled = true;
                     ordenioIniciado = true;
                     ordeniarIniciado = true; //Para verificar en el Tutorial
+                    miniJuegoOrdenyar.enabled = true;
                 }
             }
         }
@@ -44,10 +49,11 @@ public class Ordeniar : MonoBehaviour
         if (miniJuegoOrdenyar.miniJuegoReseteado == true)
         {
             barraLeche.resetearLeche();
+            cabraActual.continuarMov();
             enabled = false;
             miniJuegoOrdenyar.miniJuegoReseteado = false;
         }
-                    
+
     }
 
     private void OnDisable()

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Cabra : MonoBehaviour
 {
@@ -36,7 +37,23 @@ public class Cabra : MonoBehaviour
         
     }
     
+    public void pararCabra() {
+        MovimientoAleatorioCabras mov = transform.GetComponent<MovimientoAleatorioCabras>();
+        NavMeshAgent agente = transform.GetComponent<NavMeshAgent>();
 
+        agente.enabled = false;
+        mov.enabled = false;
 
+        Debug.Log("parado movimiento");
+    }
 
+    public void continuarMov() {
+        MovimientoAleatorioCabras mov = transform.GetComponent<MovimientoAleatorioCabras>();
+        NavMeshAgent agente = transform.GetComponent<NavMeshAgent>();
+
+        agente.enabled = true;
+        mov.enabled = true;
+
+        Debug.Log("movimiento continuado");
+    }
 }
