@@ -81,4 +81,8 @@ public class MovimientoAleatorioCabras : MonoBehaviour
         }
         return finalPosition;
     }
+
+    // public void pararCabra() {
+    //     agente.isStopped = true;
+    // }
 }

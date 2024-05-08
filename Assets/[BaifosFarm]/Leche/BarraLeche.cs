@@ -59,7 +59,6 @@ public class BarraLeche : MonoBehaviour
     {
         valorActual = 0f;
         produccionDetenida = false;
-        Debug.Log(valorActual + " Valor Actual");
         lechePreparada = false;
     }
 

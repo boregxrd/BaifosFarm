@@ -38,6 +38,7 @@ public class Ordeniar : MonoBehaviour
                     miniJuegoOrdenyar.enabled = true;
                     ordenioIniciado = true;
                     ordeniarIniciado = true; //Para verificar en el Tutorial
+                    miniJuegoOrdenyar.enabled = true;
                 }
             }
         }
