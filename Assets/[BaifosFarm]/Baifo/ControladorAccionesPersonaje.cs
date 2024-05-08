@@ -80,8 +80,9 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space) && objetoEnMano == null && ordeniar.ordenioIniciado == false)
             {
+                Cabra cabraActual = other.gameObject.GetComponent<Cabra>();
                 ordeniar.enabled = true;
-                ordeniar.IniciarOrdenyado(other);
+                ordeniar.IniciarOrdenyado(cabraActual);
                 alimentar.enabled = false;
             }
         }

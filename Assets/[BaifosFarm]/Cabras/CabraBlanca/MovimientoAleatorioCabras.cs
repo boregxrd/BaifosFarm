@@ -20,41 +20,41 @@ public class MovimientoAleatorioCabras : MonoBehaviour
 
     IEnumerator Start()
     {
+        agente = GetComponent<NavMeshAgent>();
         while (true)
         {
-            // Se mueve la cabra 
-            agente = GetComponent<NavMeshAgent>();
-            agente.SetDestination(RandomNavmeshLocation(7f));
-
-            float elapsedTime = 0f;
-            while (agente.pathPending || agente.remainingDistance > agente.stoppingDistance)
+            if (agente.isActiveAndEnabled) // Check if the agent is active and enabled
             {
-                elapsedTime += Time.deltaTime;
+                agente.SetDestination(RandomNavmeshLocation(7f));
 
-                // Si la cabra lleva 10s moviendose
-                if (elapsedTime >= 10)
+                float elapsedTime = 0f;
+                while (agente.isActiveAndEnabled && (agente.pathPending || agente.remainingDistance > agente.stoppingDistance))
                 {
-                    break;
+                    elapsedTime += Time.deltaTime;
+
+                    if (elapsedTime >= 10)
+                    {
+                        break;
+                    }
+
+                    yield return null;
                 }
 
+                if (agente.isActiveAndEnabled && agente.remainingDistance > agente.stoppingDistance)
+                {
+                    agente.isStopped = true;
+                    agente.SetDestination(RandomNavmeshLocation(7f));
+                }
+
+                yield return new WaitForSeconds(Random.Range(delayMin, delayMax));
+            }
+            else
+            {
                 yield return null;
             }
-
-            // si despues de los 10s sigue sin llegar al destino
-            if (agente.remainingDistance > agente.stoppingDistance)
-            {
-                agente.isStopped = true;
-                //Debug.LogWarning("Cabra detenida debido a tiempo de movimiento máximo excedido");
-                agente.SetDestination(RandomNavmeshLocation(7f));
-            }
-
-            agente.isStopped = false;
-            //Debug.Log("Cabra se para");
-
-            // Esperar segundos aleatorios hasta el siguiente movimiento
-            yield return new WaitForSeconds(Random.Range(delayMin, delayMax));
         }
     }
+
 
     void nuevaPosicionAleatoria()
     {

@@ -31,23 +31,11 @@ public class MiniJuegoOrdenyar : Ordeniar
 
     [SerializeField] MenuPausa menuPausa;
 
-    NavMeshAgent agente;
-    MovimientoAleatorioCabras mov;
-
     private void OnEnable()
     {
         objetoMiniJuegoOrdenyar.SetActive(true);
         iniciarProceso = true;
         barraOrdenyar.fillAmount = valorActual / valorMaximo;
-        agente = cabraActual.GetComponent<NavMeshAgent>();
-        mov = cabraActual.GetComponent<MovimientoAleatorioCabras>();
-        if(agente != null && mov != null) {
-            agente.enabled = false;
-            mov.enabled = false;
-            Debug.Log("movimiento de cabra desactivado");
-        } else {
-            Debug.LogWarning("NULL AAAAAAAAAAAAAAAAAaaa");
-        }
     }
 
     private void Awake()
@@ -130,8 +118,6 @@ public class MiniJuegoOrdenyar : Ordeniar
 
     public void resetearMiniJuego()
     {
-        mov.enabled = true;
-        agente.enabled = true;
         valorActual = 15f;
         enabled = false;
         miniJuegoReseteado = true;
