@@ -2579,9 +2579,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cabrasEnEscena: []
-  prefabAvisoHambre: {fileID: 2970850454523498216, guid: e3984f7ff7690704fb25b82791621388, type: 3}
-  prefabAvisoLeche: {fileID: 2970850454523498216, guid: ea54ec8b2324b794197d19ccf6dda584, type: 3}
-  prefabAvisoMuerte: {fileID: 2970850454523498216, guid: 6ee83a5b3c3bed9408311c0c6c42141c, type: 3}
+  prefabAvisoHambre: {fileID: 7915652712387392566, guid: a0e6e86435f7bf54a9211acd1fa5aced, type: 3}
+  prefabAvisoLeche: {fileID: 5755386804042903806, guid: fe3866928a378e144b88651b4179387b, type: 3}
+  prefabAvisoMuerte: {fileID: 6485825644856361981, guid: c3af2d6917baf674788046ea315660e6, type: 3}
 --- !u!114 &963194232
 MonoBehaviour:
   m_ObjectHideFlags: 0
