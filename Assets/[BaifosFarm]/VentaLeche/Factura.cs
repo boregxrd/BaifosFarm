@@ -8,6 +8,7 @@ using System;
 public class Factura : MonoBehaviour
 {
     public Text txtFactura;
+    public Text txtDinero;
     public int cabrasNuevas;
     public SistemaMonetario sistemaMonetario; // Referencia al Singleton del SistemaMonetario
 
@@ -256,7 +257,7 @@ public class Factura : MonoBehaviour
         }
 
         // Agregar el dinero total y el gasto de heno
-        txtFactura.text += "\nDinero total - $" + PlayerPrefs.GetInt("DineroTotal", 0).ToString();
+        txtDinero.text = PlayerPrefs.GetInt("DineroTotal", 0).ToString();
         txtFactura.text += "\nGasto heno siguiente día - $" + sistemaMonetario.CalcularGastoHeno().ToString();
     }
 
