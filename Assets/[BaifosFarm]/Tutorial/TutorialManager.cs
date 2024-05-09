@@ -59,11 +59,11 @@ public class TutorialManager : MonoBehaviour
             // Aqui solo mantienes la logica de verificacion de pasos
             CheckCompletion();
         }
-        if (Input.GetKeyDown(KeyCode.Return))
+        /*if (Input.GetKeyDown(KeyCode.Return))
         {
             // Si la tecla ha sido presionada, activa el evento "OnClick" del botón
             botonSkip.onClick.Invoke();
-        }
+        }*/
 
     }
 

@@ -30,8 +30,8 @@ public class ControlTiempo : MonoBehaviour
         Time.timeScale = 1f;
         PlayerPrefs.SetInt("LechesGuardadas", 0);
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
 
         alimentar = GetComponent<Alimentar>();
         alimentar.GestionarAparienciaMontonHeno();
@@ -104,8 +104,8 @@ public class ControlTiempo : MonoBehaviour
             Debug.Log("Sumo el dinero por botella");
         }
 
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
 
         VerificarYCargarEscena();
     }

@@ -24,14 +24,14 @@ public class MenuAjustes : MonoBehaviour
         }
     }
 
-    // M�todo para ajustar el volumen
+    // Metodo para ajustar el volumen
     public void AjustarVolumen(float volumen)
     {
         Debug.Log(volumen);
         audioMixer.SetFloat("Volumen", volumen); // Establecer el volumen en el AudioMixer
     }
 
-    // M�todo para cerrar el menu de ajustes
+    // Metodo para cerrar el menu de ajustes
     public void CerrarMenuAjustes()
     {
         GrupoMenuAjustes.SetActive(false); // Desactivar el Canvas del menu de ajustes
