@@ -64,6 +64,7 @@ public class MenuPausa : MonoBehaviour
     public void AbrirMenuAjustes()
     {
         Debug.Log("AbrirMenuAjustes"); // Log de depuración
+        objetoMenuPausa.SetActive(false);
         GrupoMenuAjustes.SetActive(true); // Activar el Canvas del menú de ajustes
         
     }
