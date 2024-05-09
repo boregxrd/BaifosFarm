@@ -7,6 +7,7 @@ public class MenuAjustes : MonoBehaviour
     public AudioMixer audioMixer; // AudioMixer para controlar el volumen
     public Slider sliderVolumen; // Slider para ajustar el volumen
     [SerializeField] private GameObject GrupoMenuAjustes; // Referencia al Canvas del menu de ajustes
+    [SerializeField] private GameObject objetoMenuPausa;
 
 
     void Start()
@@ -34,5 +35,6 @@ public class MenuAjustes : MonoBehaviour
     public void CerrarMenuAjustes()
     {
         GrupoMenuAjustes.SetActive(false); // Desactivar el Canvas del menu de ajustes
+        if(objetoMenuPausa != null) objetoMenuPausa.SetActive(true);
     }
 }
