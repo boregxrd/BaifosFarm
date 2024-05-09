@@ -47,8 +47,6 @@ public class MenuPausa : MonoBehaviour
         Pausa = true;
 
         Time.timeScale = 0; //el juego se pausa
-
-        MostrarCursor(); // Mostrar el cursor al pausar el juego
     }
 
     public void Reanudar()
@@ -58,7 +56,6 @@ public class MenuPausa : MonoBehaviour
 
         Time.timeScale = 1; //el juego se reanuda
 
-        OcultarCursor(); // Ocultar el cursor al reanudar el juego
     }
 
     public void AbrirMenuAjustes()
@@ -66,29 +63,14 @@ public class MenuPausa : MonoBehaviour
         Debug.Log("AbrirMenuAjustes"); // Log de depuración
         objetoMenuPausa.SetActive(false);
         GrupoMenuAjustes.SetActive(true); // Activar el Canvas del menú de ajustes
-        
     }
 
 
     public void CerrarMenuAjustes()
     {
-        GrupoMenuAjustes.SetActive(false); // Desactivar el Canvas del menú de ajustes
-        MostrarCursor(); // Mostrar el cursor al cerrar el menú de ajustes
+        GrupoMenuAjustes.SetActive(false); 
     }
 
-    // Método para mostrar el cursor
-    private void MostrarCursor()
-    {
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-    }
-
-    // Método para ocultar el cursor
-    private void OcultarCursor()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
     public void IrAlMenu(string NombreMenu)
     {
         SceneManager.LoadScene(NombreMenu); // Cargar la escena del menú de inicio del juego
