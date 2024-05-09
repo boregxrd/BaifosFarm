@@ -21208,6 +21208,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8684363119005854694, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8882142187997371526, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
       propertyPath: m_Name
       value: CanvasMenuAjustes
