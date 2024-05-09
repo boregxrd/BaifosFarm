@@ -1287,7 +1287,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 530809341}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -21357,6 +21357,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 755172174}
     m_Modifications:
+    - target: {fileID: 1823966761280933612, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3502145443548544499, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4366047024258207318, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 6361708541235207983, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -21441,6 +21453,10 @@ PrefabInstance:
       propertyPath: objetoMenuPausa
       value: 
       objectReference: {fileID: 171463904}
+    - target: {fileID: 8309582965362440684, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8882142187997371526, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
       propertyPath: m_Name
       value: CanvasMenuAjustes
@@ -21578,5 +21594,5 @@ SceneRoots:
   - {fileID: 158033336}
   - {fileID: 1081028109}
   - {fileID: 673667388}
-  - {fileID: 818493061}
   - {fileID: 764613742}
+  - {fileID: 624176666}
