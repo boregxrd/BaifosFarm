@@ -35,5 +35,5 @@ public class ManejarHeno : MonoBehaviour
         Destroy(heno);
         jugador.HenoRecogido = false;  
     }
-    //Implementar DejarHeno, que activará alimentar en cabras
+    
 }
