@@ -20,8 +20,8 @@ public class ControladorAccionesPersonaje : MonoBehaviour
 
     //Diferentes acciones que realiza el personaje:
 
-    [SerializeField] private RecogerAlimento recogerAlimento;
-    [SerializeField] private Alimentar alimentar;
+    //[SerializeField] private RecogerAlimento recogerAlimento;
+    //[SerializeField] private Alimentar alimentar;
     [SerializeField] private Ordeniar ordeniar;
     [SerializeField] private DejarLecheEnCaja dejarLecheEnCaja;
     [SerializeField] private Character movimientoPersonaje;
@@ -33,8 +33,8 @@ public class ControladorAccionesPersonaje : MonoBehaviour
 
     private void Awake()
     {
-        recogerAlimento = GetComponent<RecogerAlimento>();
-        alimentar = GetComponent<Alimentar>();
+        //recogerAlimento = GetComponent<RecogerAlimento>();
+        //alimentar = GetComponent<Alimentar>();
         ordeniar = GetComponent<Ordeniar>();
         dejarLecheEnCaja = GetComponent<DejarLecheEnCaja>();
         lechesGuardadas = 0;
@@ -48,6 +48,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
 
 
         //RECOGER ALIMENTO
+        /*
         if (other.gameObject.name == "MontonHeno") //cuando el personaje se acerca al mont�n de heno,
         {
 
@@ -58,7 +59,8 @@ public class ControladorAccionesPersonaje : MonoBehaviour
                 recogerAlimento.enabled = true;
             }
         }
-
+        */
+        /*
         //ALIMENTAR
         if (other.gameObject.CompareTag("cabraBlanca") || other.gameObject.CompareTag("cabraNegra"))
         {
@@ -72,6 +74,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
 
 
         }
+        */
 
         //ORDENYAR
         if (other.gameObject.CompareTag("cabraBlanca"))
@@ -81,7 +84,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
                 Cabra cabraActual = other.gameObject.GetComponent<Cabra>();
                 ordeniar.enabled = true;
                 ordeniar.IniciarOrdenyado(cabraActual);
-                alimentar.enabled = false;
+                //alimentar.enabled = false;
             }
         }
 
