@@ -9,6 +9,7 @@ public class MontonHeno : MonoBehaviour, IInteractuable
 
     ManejarHeno manejadorHeno;
 
+
     private void Start()
     {
         manejadorHeno = FindObjectOfType<ManejarHeno>();

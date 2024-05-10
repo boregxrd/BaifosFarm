@@ -7,17 +7,20 @@ public class AlimentarCabra : MonoBehaviour, IInteractuable
 
     [SerializeField] private BarraAlimento barraAlimento;
     private ManejarHeno manejadorHeno;
+    private TipoDeHeno tipoDeHeno;
 
+    private void Start()
+    {
+        tipoDeHeno = FindObjectOfType<TipoDeHeno>();
+    }
 
-    private float incremento = 40f;
-   
     public void Interactuar(Jugador jugador)
     {
         if (jugador.HenoRecogido)
         {
             manejadorHeno = jugador.transform.GetComponent<ManejarHeno>();
             manejadorHeno.DejarHeno();
-            barraAlimento.incrementarNivelAlimentacion(incremento);
+            barraAlimento.incrementarNivelAlimentacion(tipoDeHeno.incremento);
         }
         
     }
