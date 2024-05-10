@@ -9,10 +9,12 @@ public class TutorialManager : MonoBehaviour
 
     private int popUpIndex;
     [SerializeField] private RecogerAlimento recogerAlimento;
-    [SerializeField] private Alimentar alimentar;
+    //[SerializeField] private Alimentar alimentar;
+    [SerializeField] private ManejarHeno manejarHeno;
     [SerializeField] private Ordeniar ordeniar;
     [SerializeField] private DejarLecheEnCaja dejarLecheEnCaja;
     [SerializeField] private Character movimientoPersonaje;
+    [SerializeField] private Jugador jugador;
 
     private ControlTiempo controlTiempo;
     public Button botonSkip;
@@ -117,7 +119,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 1: // Recoger Heno
-                if (recogerAlimento.henoRecogido)
+                if (jugador.HenoRecogido)
                 {
                     CompleteStep();
                     Debug.Log("Recoger Heno completado");
@@ -125,7 +127,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 2: // Alimentar
-                if (alimentar.alimentacionRealizada)
+                if (manejarHeno.alimentacionRealizada)
                 {
                     CompleteStep();
                     Debug.Log("Alimentar completado");
