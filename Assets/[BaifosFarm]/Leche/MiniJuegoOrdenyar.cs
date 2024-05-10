@@ -28,7 +28,7 @@ public class MiniJuegoOrdenyar : Ordeniar
     [SerializeField] private bool iniciarProceso = false;
     public bool miniJuegoReseteado = false;
 
-    [SerializeField] MenuPausa menuPausa;
+    //[SerializeField] MenuPausa menuPausa;
 
     private void OnEnable()
     {

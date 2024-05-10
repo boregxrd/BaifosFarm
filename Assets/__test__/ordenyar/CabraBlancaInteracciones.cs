@@ -5,16 +5,18 @@ using UnityEngine;
 public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
 {
 
-    [SerializeField] private BarraLeche barraLeche;
+    private BarraLeche barraLeche;
     [SerializeField] private BarraAlimento barraAlimento;
     private ManejarHeno manejadorHeno;
     private TipoDeHeno tipoDeHeno;
+    [SerializeField] private MiniJuegoOrdenyar miniJuegoOrdenyar;
 
 
     private void Start()
     {
         tipoDeHeno = FindObjectOfType<TipoDeHeno>();
         barraLeche = transform.GetChild(5).GetChild(0).GetChild(0).GetComponent<BarraLeche>();
+        miniJuegoOrdenyar = FindObjectOfType<MiniJuegoOrdenyar>();
     }
 
     public float nivelDeLeche()
@@ -37,7 +39,7 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
     {
         if (!jugador.HenoRecogido && !jugador.LecheRecogida && nivelDeLeche() == barraLeche.ValorMaximo)
         {
-            Debug.Log("minijuego");
+            miniJuegoOrdenyar.enabled = true;
         }
     }
 }
