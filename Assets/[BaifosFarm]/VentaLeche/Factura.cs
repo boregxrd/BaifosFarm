@@ -215,6 +215,8 @@ public class Factura : MonoBehaviour
 
     public void continuar()
     {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         SceneManager.LoadScene("Juego");
         sistemaMonetario.RestarDinero(sistemaMonetario.CalcularGastoHeno());        
     }

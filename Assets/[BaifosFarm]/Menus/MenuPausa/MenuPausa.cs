@@ -45,7 +45,8 @@ public class MenuPausa : MonoBehaviour
     {
         objetoMenuPausa.SetActive(true);
         Pausa = true;
-
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         Time.timeScale = 0; //el juego se pausa
     }
 
@@ -53,7 +54,10 @@ public class MenuPausa : MonoBehaviour
     {
         objetoMenuPausa.SetActive(false);
         Pausa = false;
-
+        if(PlayerPrefs.GetInt("TutorialCompleto") == 1){
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
         Time.timeScale = 1; //el juego se reanuda
 
     }
