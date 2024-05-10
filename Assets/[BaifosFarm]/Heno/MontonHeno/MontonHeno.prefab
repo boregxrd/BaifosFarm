@@ -64,7 +64,8 @@ GameObject:
   - component: {fileID: 7194534949204686220}
   - component: {fileID: 510191975078938635}
   - component: {fileID: 8896141497257148767}
-  m_Layer: 0
+  - component: {fileID: 5405439538972038064}
+  m_Layer: 8
   m_Name: MontonHeno
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,6 +152,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5405439538972038064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7209402400777005293}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2359db493d6f54449ae7c1aa210749b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabHeno: {fileID: 1650743186127636252, guid: 55619198c744252429af9d5f90ca1629, type: 3}
 --- !u!1001 &71857565038748897
 PrefabInstance:
   m_ObjectHideFlags: 0
