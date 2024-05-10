@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlimentarCabra : MonoBehaviour, IInteractuable
+public class CabraNegraInteracciones : MonoBehaviour, IInteractuable
 {
-    //LO PODEMOS BORRAR
-
     [SerializeField] private BarraAlimento barraAlimento;
     private ManejarHeno manejadorHeno;
     private TipoDeHeno tipoDeHeno;
@@ -23,6 +21,6 @@ public class AlimentarCabra : MonoBehaviour, IInteractuable
             manejadorHeno.DejarHeno();
             barraAlimento.incrementarNivelAlimentacion(tipoDeHeno.incremento);
         }
-        
+
     }
 }

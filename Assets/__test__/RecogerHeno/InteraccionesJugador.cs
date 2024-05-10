@@ -19,15 +19,20 @@ public class InteraccionesJugador : MonoBehaviour
         {
             enRango = true;
 
-            if (Input.GetKey(KeyCode.E))
+            if (Input.GetKey(KeyCode.E)) hitInfo.transform.GetComponent<IInteractuable>().Interactuar(jugador);
+            
+
+            if (Input.GetKey(KeyCode.Space))
             {
-                Debug.Log(hitInfo.transform.gameObject.name);
-                hitInfo.transform.GetComponent<IInteractuable>().Interactuar(jugador);
+                if (hitInfo.transform.gameObject.CompareTag("cabraBlanca")) hitInfo.transform.GetComponent<CabraBlancaInteracciones>().Ordenyar(jugador); 
             }
+
             else
             {
                 enRango = false;
+                return;
             }
+            
         }
     }
 
