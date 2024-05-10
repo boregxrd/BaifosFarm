@@ -20,7 +20,7 @@ public class ManejarHeno : MonoBehaviour
         //para el tutorial
         alimentacionRealizada = false;
 
-        if (!jugador.HenoRecogido)
+        if (!jugador.HenoRecogido && !jugador.LecheRecogida) //si no lleva nada en las manos
         {
             jugador.HenoRecogido = true;
 
@@ -29,7 +29,7 @@ public class ManejarHeno : MonoBehaviour
             heno.transform.position = mano.position;
             heno.transform.SetParent(mano);
         }
-        else
+        else if(jugador.HenoRecogido || jugador.LecheRecogida) //si lleva algo en las manos
         {
             return;
         }

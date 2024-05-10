@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-//�������������������������������������������������������SCRIPT MINI JUEGO DE ORDE�AR������������������������������������������������������
 //Este script ha de estar en CanvasMiniJuegoOrdenyar
 
 public class MiniJuegoOrdenyar : Ordeniar
