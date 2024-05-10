@@ -7,6 +7,9 @@ public class ManejarHeno : MonoBehaviour
     private Jugador jugador;
     private GameObject heno;
 
+    //para el tutorial
+    public bool alimentacionRealizada = false;
+
     private void Start()
     {
         jugador = GetComponent<Jugador>();
@@ -14,6 +17,9 @@ public class ManejarHeno : MonoBehaviour
 
     public void CogerHeno(GameObject prefabheno, Transform mano)
     {
+        //para el tutorial
+        alimentacionRealizada = false;
+
         if (!jugador.HenoRecogido)
         {
             jugador.HenoRecogido = true;
@@ -33,7 +39,10 @@ public class ManejarHeno : MonoBehaviour
     public void DejarHeno()
     {
         Destroy(heno);
-        jugador.HenoRecogido = false;  
+        jugador.HenoRecogido = false;
+
+        //para el tutorial
+        alimentacionRealizada = true;
     }
-    //Implementar DejarHeno, que activará alimentar en cabras
+    
 }

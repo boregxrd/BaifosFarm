@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4114214548701760926}
   - component: {fileID: 8009305572916651468}
   - component: {fileID: 4586617124737361326}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cuerpo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -117,7 +117,7 @@ GameObject:
   - component: {fileID: 3062682529025464087}
   - component: {fileID: 1373890232352855443}
   - component: {fileID: 4018882083973768502}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pata der atr
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -222,7 +222,7 @@ GameObject:
   - component: {fileID: 6117249057916804396}
   - component: {fileID: 6017225061510513146}
   - component: {fileID: 7409484551011084090}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cabeza
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   - component: {fileID: 654555266374350106}
   - component: {fileID: 8307505539889002023}
   - component: {fileID: 2027035721684836400}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: leche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -420,7 +420,7 @@ GameObject:
   - component: {fileID: 4702313571809432316}
   - component: {fileID: 4252964118219814810}
   - component: {fileID: 357806651290465597}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: heno
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -528,7 +528,7 @@ GameObject:
   - component: {fileID: 4374082766473631120}
   - component: {fileID: 8667432269102214397}
   - component: {fileID: 2945674811276873275}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: CanvasBarraLeche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -630,7 +630,7 @@ GameObject:
   - component: {fileID: 2937577997459577858}
   - component: {fileID: 8633183655552950307}
   - component: {fileID: 5135148822325827203}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pata izq for
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -735,7 +735,7 @@ GameObject:
   - component: {fileID: 5554389164915245407}
   - component: {fileID: 3174249345224709078}
   - component: {fileID: 9126235875197737451}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: BarraAlimentos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -826,7 +826,7 @@ GameObject:
   - component: {fileID: 1936756945696582095}
   - component: {fileID: 7436366158219529425}
   - component: {fileID: 1110015521479314574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pata der for
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -929,10 +929,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5113766062345863600}
   - component: {fileID: 8113337333320701540}
+  - component: {fileID: 7591006405879771638}
   - component: {fileID: -3913760539117178546}
   - component: {fileID: 5095309746702386214}
   - component: {fileID: 8677559491504154385}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cabra
   m_TagString: cabraBlanca
   m_Icon: {fileID: 0}
@@ -981,6 +982,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4107784, y: 0.8231433, z: 0.7488511}
   m_Center: {x: 0.015591259, y: 0.48842743, z: 0.052277934}
+--- !u!114 &7591006405879771638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6535343484078306890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81715e07c8b47f04aa294947591bbba5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barraAlimento: {fileID: 9126235875197737451}
 --- !u!195 &-3913760539117178546
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1045,7 +1059,7 @@ GameObject:
   - component: {fileID: 7932255508829472029}
   - component: {fileID: 4639069401257489532}
   - component: {fileID: 3876734389561628839}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: BarraLeche
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1139,7 +1153,7 @@ GameObject:
   - component: {fileID: 2139114290339998941}
   - component: {fileID: 5517626953810163102}
   - component: {fileID: 2448724306033096784}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: FondoBarra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1230,7 +1244,7 @@ GameObject:
   - component: {fileID: 6650577844905405911}
   - component: {fileID: 7251558857126917636}
   - component: {fileID: 192519246893021342}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: CanvaBarra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1332,7 +1346,7 @@ GameObject:
   - component: {fileID: 8585673775728699981}
   - component: {fileID: 4103809419583519870}
   - component: {fileID: 2044002132990856157}
-  m_Layer: 5
+  m_Layer: 8
   m_Name: FondoBarra
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1423,7 +1437,7 @@ GameObject:
   - component: {fileID: 7108304595591534245}
   - component: {fileID: 7885462040555489844}
   - component: {fileID: 2729389712153522396}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Pata izq for
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1525,7 +1539,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6911649300848221147}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Patas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1603,18 +1617,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7421769664422360189, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -6226112274748757743, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -5889336345060522132, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 31196958f8a994044b66ae9d788effb4, type: 2}
+    - target: {fileID: -5753384126507049453, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -5677437710813100600, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e215aeb33b8aa494b9d065cbe11a26c4, type: 2}
+    - target: {fileID: -5109849333498223767, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -5097557480111196234, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -4925476216020315671, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e215aeb33b8aa494b9d065cbe11a26c4, type: 2}
+    - target: {fileID: -4370111678170979691, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: -4028414288284279885, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1627,6 +1665,18 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e215aeb33b8aa494b9d065cbe11a26c4, type: 2}
+    - target: {fileID: -1455967995826903903, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -1404414846997187389, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -1292438704640324870, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 95175386993161060, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1635,18 +1685,42 @@ PrefabInstance:
       propertyPath: m_Name
       value: cabra_blanca
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 991605049958453018, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bb114d64f3801d240aff336030c7b218, type: 2}
+    - target: {fileID: 1377580114388006796, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932224596725358791, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3135650947233620459, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 788a6d1a52c520d42934769749ecd260, type: 2}
+    - target: {fileID: 3251916925142075359, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3903670138632119568, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 4572283217715441052, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 788a6d1a52c520d42934769749ecd260, type: 2}
+    - target: {fileID: 4947488628831940643, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5028325354425868682, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -1659,6 +1733,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: bb114d64f3801d240aff336030c7b218, type: 2}
+    - target: {fileID: 6964829745008974424, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7597700993667883094, guid: 679cecfb633768a469018e5d918ce78e, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
