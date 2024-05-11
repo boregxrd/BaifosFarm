@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 //Este script ha de estar en CanvasMiniJuegoOrdenyar
 
-public class MiniJuegoOrdenyar : Ordeniar
+public class MiniJuegoOrdenyar : MonoBehaviour
 {
     [SerializeField] private GameObject objetoMiniJuegoOrdenyar;
     [SerializeField] private Text porcentaje;
@@ -31,10 +31,6 @@ public class MiniJuegoOrdenyar : Ordeniar
     [SerializeField] private bool iniciarProceso = false;
     public bool miniJuegoReseteado = false;
     
-
-
-    //[SerializeField] MenuPausa menuPausa;
-
     private void OnEnable()
     {
         objetoMiniJuegoOrdenyar.SetActive(true);
@@ -47,11 +43,6 @@ public class MiniJuegoOrdenyar : Ordeniar
         enabled = false;
         objetoMiniJuegoOrdenyar.SetActive(false);
         manejarLeche = FindObjectOfType<ManejarLeche>();
-    }
-
-    private void Start()
-    {
-        //manejarLeche = FindObjectOfType<ManejarLeche>();
     }
 
     private void Update()
@@ -106,30 +97,9 @@ public class MiniJuegoOrdenyar : Ordeniar
 
     private void generarLeche()
     {
-        /*
-        leche = Instantiate(prefabLeche);
-
-        //leche.GetComponent<Rigidbody>().useGravity = false;
-        //leche.GetComponent<Rigidbody>().isKinematic = true;
-
-        leche.transform.position = controladorAccionesPersonaje.puntoDeMano.transform.position;
-        leche.transform.SetParent(controladorAccionesPersonaje.puntoDeMano.transform);
-        controladorAccionesPersonaje.objetoEnMano = leche;
-        controladorAccionesPersonaje.ultimaLecheEnMano = leche;
-
-        resetearMiniJuego();
-        */
-
         manejarLeche.CogerLeche(prefabLeche);
         resetearMiniJuego();
     }
-
-   /*
-    public GameObject lecheQueCogeBaifo()
-    {
-        return leche;
-    }
-   */
 
     public void resetearMiniJuego()
     {

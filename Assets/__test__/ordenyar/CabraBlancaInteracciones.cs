@@ -11,7 +11,6 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
     private TipoDeHeno tipoDeHeno;
     private MiniJuegoOrdenyar miniJuegoOrdenyar;
 
-
     private void Start()
     {
         tipoDeHeno = FindObjectOfType<TipoDeHeno>();
@@ -42,4 +41,6 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
             miniJuegoOrdenyar.enabled = true;
         }
     }
+   
+
 }
