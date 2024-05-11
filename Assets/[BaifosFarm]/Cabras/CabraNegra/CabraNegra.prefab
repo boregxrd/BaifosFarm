@@ -272,7 +272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valorMaximo: 100
-  valorActual: 100
   velocidadReduccion: 2
 --- !u!1 &7169530531729945697
 GameObject:
