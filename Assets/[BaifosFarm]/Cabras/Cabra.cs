@@ -21,7 +21,7 @@ public class Cabra : MonoBehaviour
     
     public float nivelDeAlimentacion()
     {
-        return barraAlimento.valorActual;
+        return barraAlimento.ValorActual;
     }
 
     
