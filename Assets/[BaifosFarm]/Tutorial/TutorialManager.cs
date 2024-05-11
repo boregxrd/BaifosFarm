@@ -17,13 +17,13 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private Jugador jugador;
     [SerializeField] private ManejarLeche manejarLeche;
 
-    private ControlTiempo controlTiempo;
+    private Temporizador temporizador;
     public Button botonSkip;
     public GameObject CanvasSkipTutorial;
 
     private void Awake()
     {
-        controlTiempo = FindObjectOfType<ControlTiempo>(); // Obtener referencia a ControlTiempo en la escena
+        temporizador = FindObjectOfType<Temporizador>(); // Obtener referencia a ControlTiempo en la escena
     }
 
     private void Start()
@@ -187,7 +187,7 @@ public class TutorialManager : MonoBehaviour
 
     public void SkipTutorial()
     {
-        controlTiempo.tiempoRestante = 1f;
+        temporizador.tiempoRestante = 1f;
         PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
         Debug.Log("Tutorial completado");
         CanvasSkipTutorial.SetActive(false);

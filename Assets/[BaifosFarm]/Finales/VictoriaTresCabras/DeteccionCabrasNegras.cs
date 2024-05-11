@@ -11,7 +11,6 @@ public class DeteccionCabrasNegras : MonoBehaviour
     public void VerificarSiHayTresCabrasNegrasAlInicio()
     {
         cabrasNegras = FindObjectsOfType<CabraNegra>();
-        // Verifica si hay tres cabras negras al inicio
         Debug.Log("cabras negras al inicio:" + cabrasNegras.Length);
         if (cabrasNegras.Length >= 3)
         {

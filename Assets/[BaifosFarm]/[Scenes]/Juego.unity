@@ -1081,6 +1081,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 442b7a7c463296f49841a6040adc6ddf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &516568518 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4830867766016472560, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
+  m_PrefabInstance: {fileID: 750042798}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &530809340 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8309582965362440684, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
@@ -2309,7 +2320,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7203363221026654370, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1722772883}
   m_SourcePrefab: {fileID: 100100000, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
 --- !u!1 &753358538
 GameObject:
@@ -19910,6 +19924,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1711137561}
   m_CullTransparentMesh: 1
+--- !u!1 &1722772878 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7203363221026654370, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
+  m_PrefabInstance: {fileID: 750042798}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1722772883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722772878}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d64d20ea35088854e896d28ce7dc7c39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tiempoRestante: 60
+  contadorText: {fileID: 516568518}
 --- !u!4 &1747134999 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6629087363685305968, guid: b78b161982e3ef547a067960dbb26876, type: 3}
@@ -20099,7 +20132,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7690306886468379914, guid: f684553e213e425489996f4c5d7e1892, type: 3}
       propertyPath: m_Name
-      value: montonHenoEspecial
+      value: MontonHenoEspecial
       objectReference: {fileID: 0}
     - target: {fileID: 7690306886468379914, guid: f684553e213e425489996f4c5d7e1892, type: 3}
       propertyPath: m_IsActive
