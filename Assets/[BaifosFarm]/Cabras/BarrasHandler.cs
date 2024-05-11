@@ -5,6 +5,7 @@ public class BarrasHandler: MonoBehaviour
 {
     BarraAlimento[] barrasAlimento;
     BarraLeche[] barrasLeche;
+
     private void Start()
     {
         barrasAlimento = FindObjectsOfType<BarraAlimento>();

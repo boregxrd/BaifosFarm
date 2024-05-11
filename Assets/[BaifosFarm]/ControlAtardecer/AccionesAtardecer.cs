@@ -10,24 +10,24 @@ public class AccionesAtardecer : MonoBehaviour
     private DeteccionCabrasNegras deteccionCabrasNegras;
     public static Action OnThreeBlackGoatsVictory;
     private BarrasHandler barrasHandler;
+    private InteraccionesJugador interaccionesJugador;
     private ControlAvisos controlAvisos;
 
     private void Awake()
     {
+        barrasHandler = gameObject.AddComponent<BarrasHandler>();
+        interaccionesJugador = FindObjectOfType<InteraccionesJugador>();
         camion = FindObjectOfType<MovimientoCamion>();
         if (camion != null)
         {
             camion.CamionLlegoADestino += EjecutarAccionesRestantes;
         }
-
-        barrasHandler = gameObject.AddComponent<BarrasHandler>();
-
     }
 
 
     public IEnumerator EjecutarAccionesAtardecer()
     {
-        DesabilitarInteraccionesJugador();
+        interaccionesJugador.DesabilitarInteraccionesJugador();
         barrasHandler.CongelarBarrasCabras();
         EsconderAvisos();
         
@@ -56,31 +56,6 @@ public class AccionesAtardecer : MonoBehaviour
     {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-    }
-
-    private void DesabilitarInteraccionesJugador()
-    {
-        InteraccionesJugador interaccionesJugador = GetComponent<InteraccionesJugador>();
-        if (interaccionesJugador != null)
-        {
-            interaccionesJugador.enabled = false;
-        }
-    }
-
-    private void CongelarBarrasCabras()
-    {
-        BarraAlimento[] barrasAlimento = FindObjectsOfType<BarraAlimento>();
-        BarraLeche[] barrasLeche = FindObjectsOfType<BarraLeche>();
-
-        foreach (BarraAlimento barraAlimento in barrasAlimento)
-        {
-            barraAlimento.enabled = false;
-        }
-
-        foreach (BarraLeche barraLeche in barrasLeche)
-        {
-            barraLeche.enabled = false;
-        }
     }
 
     private void EsconderAvisos()

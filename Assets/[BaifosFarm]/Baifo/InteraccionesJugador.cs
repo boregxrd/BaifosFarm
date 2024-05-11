@@ -8,6 +8,7 @@ public class InteraccionesJugador : MonoBehaviour
     [SerializeField] private LayerMask mask;
     private Jugador jugador;
     [SerializeField] private float distanciaMaxima = 1f;
+    private bool interaccionesActivas = true;
 
     void Start()
     {
@@ -16,6 +17,8 @@ public class InteraccionesJugador : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!interaccionesActivas) return; 
+
         Vector3 posicionEsfera = jugador.transform.position + jugador.transform.forward * distanciaMaxima;
 
         Collider[] colliders = Physics.OverlapSphere(posicionEsfera, 0.5f, mask);
@@ -34,4 +37,9 @@ public class InteraccionesJugador : MonoBehaviour
         }
     }
 
+    public void DesabilitarInteraccionesJugador()
+    {
+        interaccionesActivas = false; 
+    }
 }
+
