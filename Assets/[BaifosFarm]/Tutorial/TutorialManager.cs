@@ -8,7 +8,7 @@ public class TutorialManager : MonoBehaviour
     public ParticleSystem[] particleEffects; // Efectos de partículas para cada paso
 
     private int popUpIndex;
-    [SerializeField] private RecogerAlimento recogerAlimento;
+    //[SerializeField] private RecogerAlimento recogerAlimento;
     //[SerializeField] private Alimentar alimentar;
     [SerializeField] private ManejarHeno manejarHeno;
     //[SerializeField] private Ordeniar ordeniar;
