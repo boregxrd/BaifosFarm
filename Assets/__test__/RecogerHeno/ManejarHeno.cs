@@ -20,20 +20,11 @@ public class ManejarHeno : MonoBehaviour
         //para el tutorial
         alimentacionRealizada = false;
 
-        if (!jugador.HenoRecogido)
-        {
-            jugador.HenoRecogido = true;
+        jugador.HenoRecogido = true;
+        heno = Instantiate(prefabheno);
 
-            heno = Instantiate(prefabheno);
-
-            heno.transform.position = mano.position;
-            heno.transform.SetParent(mano);
-        }
-        else
-        {
-            return;
-        }
-
+        heno.transform.position = mano.position;
+        heno.transform.SetParent(mano);
     }
 
     public void DejarHeno()

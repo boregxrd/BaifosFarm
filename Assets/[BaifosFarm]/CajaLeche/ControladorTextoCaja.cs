@@ -6,25 +6,33 @@ using UnityEngine.UI;
 
 public class ControladorTextoCaja : MonoBehaviour
 {
-    [SerializeField] private ControladorAccionesPersonaje controladorAccionesPersonaje;
     [SerializeField] private TextMeshPro textoCaja;
-    [SerializeField] private SistemaMonetario sistemaMonetario; // Agrega referencia al SistemaMonetario
-    [SerializeField] int PRECIO_POR_BOTELLA = 10;
 
-    void Update()
+    private int lechesEnCaja = 0;
+
+    public int LechesEnCaja { get => lechesEnCaja; }
+
+    public void GuardarLeche()
     {
-        int botellasObtenidas = controladorAccionesPersonaje.lechesGuardadas;
-        if(botellasObtenidas < 10){
-            textoCaja.text = "0" + botellasObtenidas.ToString();
-        } else {
-            textoCaja.text = botellasObtenidas.ToString();
-        }
+        lechesEnCaja++;
+        ActualizarTextoCaja();
     }
 
-    public void SumarDineroPorBotella()
+    public void ResetearContador()
     {
-        int botellasObtenidas = controladorAccionesPersonaje.lechesGuardadas;
-        int dineroGanado = botellasObtenidas * PRECIO_POR_BOTELLA; // Cada botella vale $10
-        sistemaMonetario.AgregarDinero(dineroGanado);
+        lechesEnCaja = 0;
+        ActualizarTextoCaja();
+    }
+
+    private void ActualizarTextoCaja()
+    {
+        if (lechesEnCaja < 10)
+        {
+            textoCaja.text = "0" + lechesEnCaja.ToString();
+        }
+        else
+        {
+            textoCaja.text = lechesEnCaja.ToString();
+        }
     }
 }

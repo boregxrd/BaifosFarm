@@ -418,7 +418,6 @@ GameObject:
   - component: {fileID: 4733742391521443397}
   - component: {fileID: 4520318556590578727}
   - component: {fileID: 4702313571809432316}
-  - component: {fileID: 4252964118219814810}
   - component: {fileID: 357806651290465597}
   m_Layer: 8
   m_Name: heno
@@ -484,22 +483,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4252964118219814810
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 782390642634088033}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cee092f8e44e8b439007206fd16ed55, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barraLeche: {fileID: 0}
-  barraAlimento: {fileID: 0}
-  iconoLeche: {fileID: 0}
-  iconoAlimento: {fileID: 0}
 --- !u!114 &357806651290465597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -929,10 +912,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5113766062345863600}
   - component: {fileID: 8113337333320701540}
-  - component: {fileID: 7591006405879771638}
   - component: {fileID: -3913760539117178546}
-  - component: {fileID: 5095309746702386214}
   - component: {fileID: 8677559491504154385}
+  - component: {fileID: 2243247324913828480}
+  - component: {fileID: 1666234560849382232}
+  - component: {fileID: -5234261996941271916}
   m_Layer: 8
   m_Name: Cabra
   m_TagString: cabraBlanca
@@ -982,19 +966,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.4107784, y: 0.8231433, z: 0.7488511}
   m_Center: {x: 0.015591259, y: 0.48842743, z: 0.052277934}
---- !u!114 &7591006405879771638
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6535343484078306890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81715e07c8b47f04aa294947591bbba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barraAlimento: {fileID: 9126235875197737451}
 --- !u!195 &-3913760539117178546
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1017,20 +988,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 3
---- !u!114 &5095309746702386214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6535343484078306890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b7c3e85d23315c4cb87b3b3176c6cb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barraAlimento: {fileID: 9126235875197737451}
-  barraLeche: {fileID: 3876734389561628839}
 --- !u!114 &8677559491504154385
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1047,6 +1004,46 @@ MonoBehaviour:
   delayMin: 4
   delayMax: 10
   enMovimiento: 0
+--- !u!114 &2243247324913828480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6535343484078306890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66f0e102f6fdf894aab88d883e297976, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barraAlimento: {fileID: 9126235875197737451}
+  movimientoAleatorioCabras: {fileID: 0}
+--- !u!114 &1666234560849382232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6535343484078306890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b7c3e85d23315c4cb87b3b3176c6cb5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barraAlimento: {fileID: 9126235875197737451}
+  barraLeche: {fileID: 3876734389561628839}
+--- !u!114 &-5234261996941271916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6535343484078306890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15aa1501705cab34e9a102824138bd39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6650065937915407930
 GameObject:
   m_ObjectHideFlags: 0

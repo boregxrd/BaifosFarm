@@ -1,40 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.PackageManager;
 using UnityEngine;
 
 public class InteraccionesJugador : MonoBehaviour
 {
     [SerializeField] private LayerMask mask;
-    private bool enRango = false;
     private Jugador jugador;
+    [SerializeField] private float distanciaMaxima = 1f;
 
     void Start()
     {
         jugador = GetComponent<Jugador>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if(Physics.Raycast(transform.position + Vector3.up, transform.forward, out RaycastHit hitInfo, 1f, mask))
-        {
-            enRango = true;
+        Vector3 posicionEsfera = jugador.transform.position + jugador.transform.forward * distanciaMaxima;
 
+        Collider[] colliders = Physics.OverlapSphere(posicionEsfera, 0.5f, mask);
+
+        foreach (Collider collider in colliders)
+        {
             if (Input.GetKey(KeyCode.E))
             {
-                Debug.Log(hitInfo.transform.gameObject.name);
-                hitInfo.transform.GetComponent<IInteractuable>().Interactuar(jugador);
+                collider.GetComponent<IInteractuable>().Interactuar(jugador);
             }
-            else
+
+            if (Input.GetKey(KeyCode.Space) && collider.gameObject.CompareTag("cabraBlanca"))
             {
-                enRango = false;
+                collider.GetComponent<CabraBlancaInteracciones>().Ordenyar(jugador);
             }
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        Color rayColor = enRango ? Color.red : Color.white;
-        Debug.DrawRay(transform.position + Vector3.up, transform.forward * 3, rayColor);
     }
 
 }

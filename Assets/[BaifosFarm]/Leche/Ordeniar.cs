@@ -15,7 +15,7 @@ public class Ordeniar : MonoBehaviour
 
     public bool ordeniarIniciado = false; //Para verificar en el Tutorial
 
-    protected Cabra cabraActual;
+    //protected Cabra cabraActual;
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class Ordeniar : MonoBehaviour
 
     public void IniciarOrdenyado(Cabra cabra)
     {
-        cabraActual = cabra;
+        //cabraActual = cabra;
         var children = cabra.gameObject.GetComponentsInChildren<Transform>(); //dentro de la cabra busco el objeto barraLeche y luego su script
         foreach (var child in children)
         {
@@ -34,7 +34,7 @@ public class Ordeniar : MonoBehaviour
 
                 if (barraLeche.lechePreparada == true)
                 {
-                    cabraActual.pararCabra();
+                    //cabraActual.pararCabra();
                     miniJuegoOrdenyar.enabled = true;
                     ordenioIniciado = true;
                     ordeniarIniciado = true; //Para verificar en el Tutorial
@@ -49,7 +49,7 @@ public class Ordeniar : MonoBehaviour
         if (miniJuegoOrdenyar.miniJuegoReseteado == true)
         {
             barraLeche.resetearLeche();
-            cabraActual.continuarMov();
+            //cabraActual.continuarMov();
             enabled = false;
             miniJuegoOrdenyar.miniJuegoReseteado = false;
         }

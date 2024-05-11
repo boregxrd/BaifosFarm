@@ -11,10 +11,11 @@ public class TutorialManager : MonoBehaviour
     [SerializeField] private RecogerAlimento recogerAlimento;
     //[SerializeField] private Alimentar alimentar;
     [SerializeField] private ManejarHeno manejarHeno;
-    [SerializeField] private Ordeniar ordeniar;
+    //[SerializeField] private Ordeniar ordeniar;
     [SerializeField] private DejarLecheEnCaja dejarLecheEnCaja;
     [SerializeField] private Character movimientoPersonaje;
     [SerializeField] private Jugador jugador;
+    [SerializeField] private ManejarLeche manejarLeche;
 
     private ControlTiempo controlTiempo;
     public Button botonSkip;
@@ -135,7 +136,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 3: // Recoger Leche
-                if (ordeniar.ordeniarIniciado)
+                if (manejarLeche.ordenyoRealizado)
                 {
                     CompleteStep();
                     Debug.Log("Recoger Leche completado");

@@ -22,7 +22,11 @@ public class MontonHeno : MonoBehaviour, IInteractuable
 
     private void GenerarHeno(Jugador jugador)
     {
-        manejadorHeno.CogerHeno(prefabHeno, jugador.Mano);
+        //si no lleva nada en las manos
+        if (!jugador.HenoRecogido && !jugador.LecheRecogida) manejadorHeno.CogerHeno(prefabHeno, jugador.Mano);
+        
+        //si lleva algo en las manos
+        else if (jugador.HenoRecogido || jugador.LecheRecogida) return;
     }
 
 }

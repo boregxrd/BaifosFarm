@@ -6,16 +6,15 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.UI;
 
-//�������������������������������������������������������SCRIPT MINI JUEGO DE ORDE�AR������������������������������������������������������
 //Este script ha de estar en CanvasMiniJuegoOrdenyar
 
-public class MiniJuegoOrdenyar : Ordeniar
+public class MiniJuegoOrdenyar : MonoBehaviour
 {
     [SerializeField] private GameObject objetoMiniJuegoOrdenyar;
     [SerializeField] private Text porcentaje;
 
 
-    private float valorMaximo = 100f;
+    [SerializeField] private float valorMaximo = 100f;
     [SerializeField] private float valorActual = 15f;
     [SerializeField] private float velocidadVaciado = 5f;
     [SerializeField] private float incremento = 15f;
@@ -24,52 +23,65 @@ public class MiniJuegoOrdenyar : Ordeniar
 
     [SerializeField] private ControladorAccionesPersonaje controladorAccionesPersonaje;
     [SerializeField] private GameObject prefabLeche;
-    [SerializeField] private GameObject leche;
+    [SerializeField] private ManejarLeche manejarLeche;
 
-    [SerializeField] private bool iniciarProceso = false;
+    private bool ordenyoIniciado = false;
     public bool miniJuegoReseteado = false;
 
-    [SerializeField] MenuPausa menuPausa;
-
-    private void OnEnable()
-    {
-        objetoMiniJuegoOrdenyar.SetActive(true);
-        iniciarProceso = true;
-        barraOrdenyar.fillAmount = valorActual / valorMaximo;
-    }
+    [SerializeField] private CabraBlancaInteracciones instanciaCabra;
 
     private void Awake()
     {
         enabled = false;
-        objetoMiniJuegoOrdenyar.SetActive(false);
+        manejarLeche = FindObjectOfType<ManejarLeche>();
+    }
+
+
+    public void IniciarOrdenyado(GameObject cabra)
+    {
+        enabled = true;
+        Debug.Log("IniciarOrdenyado");
+        instanciaCabra = cabra.GetComponent<CabraBlancaInteracciones>();
+        
+    }
+
+    private void OnEnable()
+    {
+        objetoMiniJuegoOrdenyar.SetActive(true);
+        ordenyoIniciado = true;
+        barraOrdenyar.fillAmount = valorActual / valorMaximo;
     }
 
     private void Update()
     {
-        if (iniciarProceso)
+        if (ordenyoIniciado)
         {
+            Debug.Log("Dentro de update VaciarConElTiempo");
             VaciarConElTiempo();
 
-            if(Input.GetKeyUp(KeyCode.Q))
+            if (Input.GetKeyUp(KeyCode.Q))
             {
                 resetearMiniJuego();
             }
 
-            if(Input.GetKeyDown(KeyCode.Space)) 
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 incrementar();
             }
 
-            if(valorActual >= valorMaximo)
+            if (valorActual >= valorMaximo)
             {
                 valorActual = valorMaximo;
                 porcentaje.text = valorActual.ToString();
                 generarLeche();
             }
-        } 
+        }
 
     }
 
+    
+
+   
     private void incrementar()
     {
         valorActual += incremento;
@@ -96,32 +108,18 @@ public class MiniJuegoOrdenyar : Ordeniar
 
     private void generarLeche()
     {
-        leche = Instantiate(prefabLeche);
-
-        //leche.GetComponent<Rigidbody>().useGravity = false;
-        //leche.GetComponent<Rigidbody>().isKinematic = true;
-
-        leche.transform.position = controladorAccionesPersonaje.puntoDeMano.transform.position;
-        leche.transform.SetParent(controladorAccionesPersonaje.puntoDeMano.transform);
-        controladorAccionesPersonaje.objetoEnMano = leche;
-        controladorAccionesPersonaje.ultimaLecheEnMano = leche;
-
+        manejarLeche.CogerLeche(prefabLeche);
         resetearMiniJuego();
     }
-
-   
-    public GameObject lecheQueCogeBaifo()
-    {
-        return leche;
-    }
-   
 
     public void resetearMiniJuego()
     {
         valorActual = 15f;
         enabled = false;
         miniJuegoReseteado = true;
-        objetoMiniJuegoOrdenyar.SetActive(false);
+        ordenyoIniciado = false;
+        instanciaCabra.ResetearLeche();
+        
     }
 
     private void mostrarPorcentaje()
@@ -130,9 +128,11 @@ public class MiniJuegoOrdenyar : Ordeniar
         porcentaje.text = $"{valorRedondeado}%";
     }
 
+
     private void OnDisable()
     {
         objetoMiniJuegoOrdenyar.SetActive(false);
     }
+    
 
 }

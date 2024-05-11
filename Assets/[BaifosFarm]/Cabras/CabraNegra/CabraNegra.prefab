@@ -272,7 +272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valorMaximo: 100
-  valorActual: 100
   velocidadReduccion: 2
 --- !u!1 &7169530531729945697
 GameObject:
@@ -386,7 +385,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6341218581839721571}
   - component: {fileID: 3216859230856147325}
-  - component: {fileID: 2463023344088233800}
   - component: {fileID: 8575326236241112370}
   - component: {fileID: -3703250217289309872}
   - component: {fileID: 949272596959093630}
@@ -437,19 +435,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.48047036, y: 0.73682827, z: 0.7535467}
   m_Center: {x: 0.015223586, y: 0.36887732, z: 0.1767739}
---- !u!114 &2463023344088233800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7693945115360077490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81715e07c8b47f04aa294947591bbba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barraAlimento: {fileID: 1249791375483036549}
 --- !u!114 &8575326236241112370
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,9 +21,10 @@ public class Cabra : MonoBehaviour
     
     public float nivelDeAlimentacion()
     {
-        return barraAlimento.valorActual;
+        return barraAlimento.ValorActual;
     }
 
+    
     public float nivelDeLeche()
     {
         if(barraLeche != null)
@@ -35,25 +36,5 @@ public class Cabra : MonoBehaviour
             return 0f;
         }
         
-    }
-    
-    public void pararCabra() {
-        MovimientoAleatorioCabras mov = transform.GetComponent<MovimientoAleatorioCabras>();
-        NavMeshAgent agente = transform.GetComponent<NavMeshAgent>();
-
-        agente.enabled = false;
-        mov.enabled = false;
-
-        Debug.Log("parado movimiento");
-    }
-
-    public void continuarMov() {
-        MovimientoAleatorioCabras mov = transform.GetComponent<MovimientoAleatorioCabras>();
-        NavMeshAgent agente = transform.GetComponent<NavMeshAgent>();
-
-        agente.enabled = true;
-        mov.enabled = true;
-
-        Debug.Log("movimiento continuado");
-    }
+    }    
 }

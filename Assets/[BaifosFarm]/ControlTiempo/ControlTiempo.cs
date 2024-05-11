@@ -30,9 +30,6 @@ public class ControlTiempo : MonoBehaviour
         Time.timeScale = 1f;
         PlayerPrefs.SetInt("LechesGuardadas", 0);
 
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Locked;
-
         alimentar = GetComponent<Alimentar>();
         alimentar.GestionarAparienciaMontonHeno();
 
@@ -96,16 +93,16 @@ public class ControlTiempo : MonoBehaviour
 
         Time.timeScale = 0f;
         // Llamada para sumar el dinero
-        ControladorTextoCaja controladorTextoCaja = FindObjectOfType<ControladorTextoCaja>();
+        ControlPrecioLeche controlPrecioLeche = FindObjectOfType<ControlPrecioLeche>();
 
-        if (controladorTextoCaja != null)
+        if (controlPrecioLeche != null)
         {
-            controladorTextoCaja.SumarDineroPorBotella();
+            controlPrecioLeche.SumarDineroPorBotella();
             Debug.Log("Sumo el dinero por botella");
         }
 
-        //Cursor.visible = true;
-        //Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
 
         VerificarYCargarEscena();
     }
