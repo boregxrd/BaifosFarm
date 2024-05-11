@@ -916,6 +916,7 @@ GameObject:
   - component: {fileID: 8677559491504154385}
   - component: {fileID: 2243247324913828480}
   - component: {fileID: 1666234560849382232}
+  - component: {fileID: -5234261996941271916}
   m_Layer: 8
   m_Name: Cabra
   m_TagString: cabraBlanca
@@ -1016,6 +1017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraAlimento: {fileID: 9126235875197737451}
+  movimientoAleatorioCabras: {fileID: 0}
 --- !u!114 &1666234560849382232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1030,6 +1032,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barraAlimento: {fileID: 9126235875197737451}
   barraLeche: {fileID: 3876734389561628839}
+--- !u!114 &-5234261996941271916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6535343484078306890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15aa1501705cab34e9a102824138bd39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6650065937915407930
 GameObject:
   m_ObjectHideFlags: 0

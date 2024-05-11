@@ -5,13 +5,10 @@ using UnityEngine.UI;
 public class BarraAlimento : MonoBehaviour
 {
     [SerializeField] private float valorMaximo = 100f;
-    public float ValorMaximo {
-        get { return valorMaximo; }
-    }
+    public float ValorMaximo { get { return valorMaximo; } }
 
-    public float valorActual = 100f;
-    public float ValorActual {
-        get { return valorActual; }
+    private float valorActual = 100f;
+    public float ValorActual { get { return valorActual; }
     }
 
     [SerializeField] private float velocidadReduccion = 2f;
@@ -29,6 +26,10 @@ public class BarraAlimento : MonoBehaviour
         {
             valorActual -= velocidadReduccion * Time.deltaTime;
             barraAlimento.fillAmount = valorActual / valorMaximo;
+        }
+        else
+        {
+            valorActual = 0;
         }
     }
 
