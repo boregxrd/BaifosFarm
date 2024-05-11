@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -14,7 +15,7 @@ public class MovimientoCamion : MonoBehaviour
 
     public event Action CamionLlegoADestino;
 
-    public IEnumerator EmpezarMovimientoCamion()
+    public IEnumerator EmpezarMovimiento()
     {
         enMovimiento = true;
         while (enMovimiento)
@@ -22,8 +23,7 @@ public class MovimientoCamion : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(2.0f);
-        // Notificar a los suscriptores que el camión llegó al destino
-        CamionLlegoADestino?.Invoke();
+
     }
 
     private void verificarLlegada()
@@ -31,6 +31,7 @@ public class MovimientoCamion : MonoBehaviour
         if (Vector3.Distance(transform.position, destinoCamion) < 0.1f)
         {
             enMovimiento = false;
+            CamionLlegoADestino?.Invoke();
         }
     }
 
@@ -38,11 +39,13 @@ public class MovimientoCamion : MonoBehaviour
     {
         if (enMovimiento)
         {
+            Debug.Log("true");
             float avance = velocidadCamion * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, destinoCamion, avance);
 
             if (camara != null)
             {
+                Debug.Log("cam no null");
                 Vector3 direccion = transform.position - camara.transform.position;
                 Quaternion rotacion = Quaternion.LookRotation(direccion);
                 camara.transform.rotation = Quaternion.Slerp(camara.transform.rotation, rotacion, velocidadRotacionCamara * Time.deltaTime);

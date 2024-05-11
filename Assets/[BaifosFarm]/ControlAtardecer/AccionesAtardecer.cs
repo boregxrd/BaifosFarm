@@ -12,10 +12,23 @@ public class AccionesAtardecer : MonoBehaviour
 
     private ControlAvisos controlAvisos;
 
-    private void Start()
+    private void Awake()
     {
-        camion.CamionLlegoADestino += EjecutarAccionesRestantes;
+        // Obtener la referencia al componente MovimientoCamion
+        camion = FindObjectOfType<MovimientoCamion>();
+
+        // Verificar si la referencia es válida
+        if (camion != null)
+        {
+            // Suscribirse al evento
+            camion.CamionLlegoADestino += EjecutarAccionesRestantes;
+        }
+        else
+        {
+            Debug.LogError("No se encontró el componente MovimientoCamion.");
+        }
     }
+
 
     public IEnumerator EjecutarAccionesAtardecer()
     {
@@ -23,11 +36,12 @@ public class AccionesAtardecer : MonoBehaviour
         CongelarBarrasCabras();
         EsconderAvisos();
         
-        yield return StartCoroutine(camion.EmpezarMovimientoCamion());
+        yield return StartCoroutine(camion.EmpezarMovimiento());
     }
 
     private void EjecutarAccionesRestantes()
     {
+        Debug.Log("Se ejecutan restantes");
         CalcularDinero();
         VerificarYCargarEscena();
         OcultarCursor();

@@ -37,12 +37,11 @@ public class Temporizador : MonoBehaviour
                 contadorText.text = "Tiempo restante: " + ObtenerTemporizadorActual();
             }
         }
-        Time.timeScale = 0f;
 
         accionesAtardecer = GetComponent<AccionesAtardecer>();
         if (accionesAtardecer != null)
         {
-            accionesAtardecer.EjecutarAccionesAtardecer();
+            StartCoroutine(accionesAtardecer.EjecutarAccionesAtardecer());
         }
     }
 
