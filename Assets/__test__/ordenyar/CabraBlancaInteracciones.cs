@@ -9,7 +9,7 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
     [SerializeField] private BarraAlimento barraAlimento;
     private ManejarHeno manejadorHeno;
     private TipoDeHeno tipoDeHeno;
-    [SerializeField] private MiniJuegoOrdenyar miniJuegoOrdenyar;
+    private MiniJuegoOrdenyar miniJuegoOrdenyar;
 
 
     private void Start()

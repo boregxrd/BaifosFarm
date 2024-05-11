@@ -25,8 +25,13 @@ public class MiniJuegoOrdenyar : Ordeniar
     [SerializeField] private GameObject prefabLeche;
     [SerializeField] private GameObject leche;
 
+    [SerializeField] private ManejarLeche manejarLeche;
+
+
     [SerializeField] private bool iniciarProceso = false;
     public bool miniJuegoReseteado = false;
+    
+
 
     //[SerializeField] MenuPausa menuPausa;
 
@@ -41,6 +46,12 @@ public class MiniJuegoOrdenyar : Ordeniar
     {
         enabled = false;
         objetoMiniJuegoOrdenyar.SetActive(false);
+        manejarLeche = FindObjectOfType<ManejarLeche>();
+    }
+
+    private void Start()
+    {
+        //manejarLeche = FindObjectOfType<ManejarLeche>();
     }
 
     private void Update()
@@ -95,6 +106,7 @@ public class MiniJuegoOrdenyar : Ordeniar
 
     private void generarLeche()
     {
+        /*
         leche = Instantiate(prefabLeche);
 
         //leche.GetComponent<Rigidbody>().useGravity = false;
@@ -106,14 +118,18 @@ public class MiniJuegoOrdenyar : Ordeniar
         controladorAccionesPersonaje.ultimaLecheEnMano = leche;
 
         resetearMiniJuego();
+        */
+
+        manejarLeche.CogerLeche(prefabLeche);
+        resetearMiniJuego();
     }
 
-   
+   /*
     public GameObject lecheQueCogeBaifo()
     {
         return leche;
     }
-   
+   */
 
     public void resetearMiniJuego()
     {
