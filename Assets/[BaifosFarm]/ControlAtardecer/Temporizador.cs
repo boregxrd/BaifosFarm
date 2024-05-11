@@ -5,6 +5,13 @@ using UnityEngine.UI;
 
 public class Temporizador : MonoBehaviour
 {
+    private AccionesAtardecer accionesAtardecer;
+
+    private void Awake()
+    {
+        IniciarCuentaRegresiva();
+    }
+
     public float tiempoRestante = 120;
     [SerializeField] private Text contadorText;
 
@@ -29,6 +36,9 @@ public class Temporizador : MonoBehaviour
             }
         }
         Time.timeScale = 0f;
+
+        accionesAtardecer = GetComponent<AccionesAtardecer>();
+        accionesAtardecer.EjecutarAccionesAtardecer();
     }
 
     private string ObtenerTemporizadorActual()

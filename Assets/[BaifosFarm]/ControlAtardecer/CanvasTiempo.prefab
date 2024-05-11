@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3123367286603581731}
   - component: {fileID: 8795187624510031795}
   - component: {fileID: 4830867766016472560}
-  - component: {fileID: 5948450414786922847}
+  - component: {fileID: 4924002455423102352}
   m_Layer: 5
   m_Name: Texto
   m_TagString: Untagged
@@ -80,7 +80,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Tiempo
---- !u!114 &5948450414786922847
+--- !u!114 &4924002455423102352
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -89,13 +89,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 650993937768202787}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 15276dfec9442364fb71315cd23e5172, type: 3}
+  m_Script: {fileID: 11500000, guid: d64d20ea35088854e896d28ce7dc7c39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  contadorText: {fileID: 0}
-  tiempoRestante: 100
-  sistemaMonetario: {fileID: 0}
-  textoDinero: {fileID: 0}
+  tiempoRestante: 60
+  contadorText: {fileID: 4830867766016472560}
 --- !u!1 &7203363221026654370
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,4 +209,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d68e483fbed20cc469bec5ec5566c906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  condicionesAvisos: {fileID: 0}
+  cabrasEscena: []

@@ -5,7 +5,7 @@ using System;
 
 public class AccionesAtardecer : MonoBehaviour 
 {
-    [SerializeField] private LlegadaCamión llegadaCamion;
+    [SerializeField] private Camion llegadaCamion;
     private ControlPrecioLeche controlPrecioLeche;
     private DeteccionCabrasNegras deteccionCabrasNegras;
     public static Action OnThreeBlackGoatsVictory;
