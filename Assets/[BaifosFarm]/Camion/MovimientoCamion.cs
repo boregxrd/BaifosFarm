@@ -1,17 +1,18 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using TMPro;
 using UnityEngine;
 
-public class Camion : MonoBehaviour
+
+public class MovimientoCamion : MonoBehaviour
 {
     public Vector3 destinoCamion = new Vector3(-6, 0, 17);
-    [SerializeField] public float velocidadCamion = 5f;
+    [SerializeField] private float velocidadCamion = 5f;
     public Camera camara;
-    [SerializeField] public float velocidadRotacionCamara = 5f;
+    [SerializeField] private float velocidadRotacionCamara = 5f;
 
     public bool enMovimiento = false;
+
+    public event Action CamionLlegoADestino;
 
     public IEnumerator EmpezarMovimientoCamion()
     {
@@ -21,11 +22,13 @@ public class Camion : MonoBehaviour
             yield return null;
         }
         yield return new WaitForSeconds(2.0f);
+        // Notificar a los suscriptores que el camión llegó al destino
+        CamionLlegoADestino?.Invoke();
     }
 
     private void verificarLlegada()
     {
-        if (Vector3.Distance(transform.position, destinoCamion) < 0.1f)  
+        if (Vector3.Distance(transform.position, destinoCamion) < 0.1f)
         {
             enMovimiento = false;
         }

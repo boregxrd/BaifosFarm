@@ -5,21 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class AccionesAtardecer : MonoBehaviour 
 {
-    [SerializeField] private Camion camion;
+    [SerializeField] private MovimientoCamion camion;
     private ControlPrecioLeche controlPrecioLeche;
     private DeteccionCabrasNegras deteccionCabrasNegras;
     public static Action OnThreeBlackGoatsVictory;
 
     private ControlAvisos controlAvisos;
 
+    private void Start()
+    {
+        camion.CamionLlegoADestino += EjecutarAccionesRestantes;
+    }
+
     public IEnumerator EjecutarAccionesAtardecer()
     {
         DesabilitarInteraccionesJugador();
         CongelarBarrasCabras();
         EsconderAvisos();
-        CalcularDinero();
+        
         yield return StartCoroutine(camion.EmpezarMovimientoCamion());
-        VerificarYCargarEscena(); 
+    }
+
+    private void EjecutarAccionesRestantes()
+    {
+        CalcularDinero();
+        VerificarYCargarEscena();
         OcultarCursor();
     }
 
