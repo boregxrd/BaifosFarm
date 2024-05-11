@@ -8,18 +8,11 @@ public class DeteccionCabrasNegras : MonoBehaviour
     public CabraNegra[] cabrasNegras;
     private int cabrasNegrasAlFinal = 0;
 
-    public void VerificarSiHayTresCabrasNegrasAlInicio()
-    {
-        cabrasNegras = FindObjectsOfType<CabraNegra>();
-        Debug.Log("cabras negras al inicio:" + cabrasNegras.Length);
-        if (cabrasNegras.Length >= 3)
-        {
-            int contadorCabrasNegras = cabrasNegras.Length;
-        }
-    }
-
     public bool CuidasteLasCabrasNegrasAlFinal()
     {
+        cabrasNegras = FindObjectsOfType<CabraNegra>();
+        Debug.Log("cabras negras al final: " + cabrasNegras.Length);
+
         if (cabrasNegras.Length <= 2) return false;
 
         for (int i = 0; i < cabrasNegras.Length; i++)
@@ -30,7 +23,7 @@ public class DeteccionCabrasNegras : MonoBehaviour
             }
         }
 
-        Debug.Log("cabras negras al final: " + cabrasNegrasAlFinal);
+        Debug.Log("cabras negras al final tras for: " + cabrasNegrasAlFinal);
 
         if (cabrasNegrasAlFinal >= 3) 
         {

@@ -50,7 +50,7 @@ public class TutorialManager : MonoBehaviour
             {
                 particles.Stop(); // Detiene la emisión de partículas
             }
-            Debug.Log("Tutorial completado, pop-ups ocultos");
+            //Debug.Log("Tutorial completado, pop-ups ocultos");
         }
 
     }

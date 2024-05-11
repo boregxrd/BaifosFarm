@@ -40,7 +40,6 @@ public class AccionesAtardecer : MonoBehaviour
 
     private void EjecutarAccionesRestantes()
     {
-        Debug.Log("Se ejecutan restantes");
         controlPrecioLeche.SumarDineroPorBotella();
         VerificarYCargarEscena();
         Cursor.visible = true;
@@ -53,10 +52,10 @@ public class AccionesAtardecer : MonoBehaviour
     void VerificarYCargarEscena()
     {
         deteccionCabrasNegras = GetComponent<DeteccionCabrasNegras>();
-        Debug.Log("Si no hay nada debajo deteccion es nulo");
+        //Debug.Log("Si no hay nada debajo deteccion es nulo");
         if(deteccionCabrasNegras != null)
         {
-            Debug.Log("ooooo");
+            //Debug.Log("ooooo");
             if (deteccionCabrasNegras.CuidasteLasCabrasNegrasAlFinal())
             {
                 Debug.Log("Intento invocar al evento");

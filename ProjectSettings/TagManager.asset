@@ -51,3 +51,9 @@ TagManager:
   - name: TextoContador
     uniqueID: 3335359755
     locked: 0
+  - name: TextoMoneda
+    uniqueID: 2506600745
+    locked: 0
+  - name: FondoMoneda
+    uniqueID: 184178139
+    locked: 0

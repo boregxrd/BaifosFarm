@@ -39,13 +39,11 @@ public class MovimientoCamion : MonoBehaviour
     {
         if (enMovimiento)
         {
-            Debug.Log("true");
             float avance = velocidadCamion * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, destinoCamion, avance);
 
             if (camara != null)
             {
-                Debug.Log("cam no null");
                 Vector3 direccion = transform.position - camara.transform.position;
                 Quaternion rotacion = Quaternion.LookRotation(direccion);
                 camara.transform.rotation = Quaternion.Slerp(camara.transform.rotation, rotacion, velocidadRotacionCamara * Time.deltaTime);

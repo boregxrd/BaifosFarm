@@ -11,7 +11,6 @@ public class Temporizador : MonoBehaviour
     {
         IniciarCuentaRegresiva();
         deteccionCabrasNegras = gameObject.AddComponent<DeteccionCabrasNegras>();
-        deteccionCabrasNegras.VerificarSiHayTresCabrasNegrasAlInicio();
     }
 
     public float tiempoRestante = 120;
