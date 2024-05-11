@@ -9,31 +9,26 @@ public class AccionesAtardecer : MonoBehaviour
     private ControlPrecioLeche controlPrecioLeche;
     private DeteccionCabrasNegras deteccionCabrasNegras;
     public static Action OnThreeBlackGoatsVictory;
-
+    private BarrasHandler barrasHandler;
     private ControlAvisos controlAvisos;
 
     private void Awake()
     {
-        // Obtener la referencia al componente MovimientoCamion
         camion = FindObjectOfType<MovimientoCamion>();
-
-        // Verificar si la referencia es válida
         if (camion != null)
         {
-            // Suscribirse al evento
             camion.CamionLlegoADestino += EjecutarAccionesRestantes;
         }
-        else
-        {
-            Debug.LogError("No se encontró el componente MovimientoCamion.");
-        }
+
+        barrasHandler = gameObject.AddComponent<BarrasHandler>();
+
     }
 
 
     public IEnumerator EjecutarAccionesAtardecer()
     {
         DesabilitarInteraccionesJugador();
-        CongelarBarrasCabras();
+        barrasHandler.CongelarBarrasCabras();
         EsconderAvisos();
         
         yield return StartCoroutine(camion.EmpezarMovimiento());
