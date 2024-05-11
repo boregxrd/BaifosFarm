@@ -8,6 +8,7 @@ public class MuerteCabraNegra : MonoBehaviour
     [SerializeField] BarraAlimento barraAlimento;
     [SerializeField] GameObject cabraNormal;
     [SerializeField] GameObject cabraMuerta;
+    public LayerMask nuevaLayerMask;
 
     private void Start()
     {
@@ -27,9 +28,10 @@ public class MuerteCabraNegra : MonoBehaviour
 
     public void Morir()
     {
+        gameObject.layer = nuevaLayerMask;
         cabraNormal.SetActive(false);
         cabraMuerta.SetActive(true);
-        transform.GetChild(2).gameObject.SetActive(false);
+        transform.GetChild(2).gameObject.SetActive(false);  
     }
 
 }
