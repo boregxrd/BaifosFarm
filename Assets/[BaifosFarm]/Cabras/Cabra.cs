@@ -24,6 +24,7 @@ public class Cabra : MonoBehaviour
         return barraAlimento.valorActual;
     }
 
+    
     public float nivelDeLeche()
     {
         if(barraLeche != null)
@@ -36,6 +37,7 @@ public class Cabra : MonoBehaviour
         }
         
     }
+    
     
     public void pararCabra() {
         MovimientoAleatorioCabras mov = transform.GetComponent<MovimientoAleatorioCabras>();
