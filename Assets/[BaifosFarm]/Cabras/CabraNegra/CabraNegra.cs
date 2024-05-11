@@ -4,10 +4,12 @@ using UnityEngine.AI;
 
 public class CabraNegra : MonoBehaviour
 {
-    [SerializeField] BarraAlimento barraAlimento;
     public Transform targetBaifo;
     private NavMeshAgent navMeshAgent;
     private NavMeshObstacle obstaculo;
+    [SerializeField] BarraAlimento barraAlimento;
+    [SerializeField] Temporizador temporizador;
+    public bool cabraNegraMuerta = false;
 
     private void Start()
     {
@@ -43,32 +45,9 @@ public class CabraNegra : MonoBehaviour
         obstaculo.enabled = true;
     }
 
-    
-    //[SerializeField] GameObject objetoControlTiempo;
-    [SerializeField] ControlTiempo controlTiempo;
-    public bool cabraNegraMuerta = false;
-    /*
-    
-
-    private void Start()
-    {
-        objetoControlTiempo = GameObject.Find("CanvasTiempo");
-        controlTiempo = objetoControlTiempo.GetComponentInChildren<ControlTiempo>();
-    }
-
-   
-
-    public void MuerteDeCabraNegra()
-    {
-       
-
-        cabraNegraMuerta = true;
-    }
-    */
-
     public void DestruirCabrasNegrasMuertas()
     {
-        if (Quaternion.Euler(0, 0, 180) == transform.rotation && controlTiempo.tiempoRestante < 1f)
+        if (Quaternion.Euler(0, 0, 180) == transform.rotation && temporizador.tiempoRestante < 1f)
         {
             Destroy(gameObject);
         }

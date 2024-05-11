@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AcabarDiaSiTodasLasCabrasMueren : MonoBehaviour
+public class AtardecerSiCabrasMuertas : MonoBehaviour
 {
     private CondicionesAvisos condicionesAvisos;
-    private ControlTiempo controlTiempo;
+    private Temporizador temporizador;
 
     [SerializeField] private List<Cabra> cabrasEscena;
 
@@ -13,7 +13,7 @@ public class AcabarDiaSiTodasLasCabrasMueren : MonoBehaviour
     private void Awake()
     {
         condicionesAvisos = FindObjectOfType<CondicionesAvisos>();
-        controlTiempo = transform.GetChild(0).GetComponent<ControlTiempo>();
+        temporizador = GetComponent<Temporizador>();
     }
 
     private void Update()
@@ -21,9 +21,9 @@ public class AcabarDiaSiTodasLasCabrasMueren : MonoBehaviour
         cabrasEscena = condicionesAvisos.ObtenerCabrasDeEscena();
         if(cabrasEscena.Count == 0 ) 
         {
-            if(controlTiempo.tiempoRestante > 5f)
+            if(temporizador.tiempoRestante > 5f)
             {
-                controlTiempo.tiempoRestante = 1f;
+                temporizador.tiempoRestante = 1f;
             }
             
         }
