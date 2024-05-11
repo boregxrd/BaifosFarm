@@ -36,4 +36,14 @@ public class Character : MonoBehaviour
     {
         return transform.position != posicionSpawn;
     }
+
+    public void PararMovimiento()
+    {
+        enabled = false;
+    }
+    public void ContinuarMovimiento()
+    {
+        enabled = true;
+    }
+
 }
