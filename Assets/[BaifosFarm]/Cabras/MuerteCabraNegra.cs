@@ -32,13 +32,4 @@ public class MuerteCabraNegra : MonoBehaviour
         transform.GetChild(2).gameObject.SetActive(false);
     }
 
-    /*
-    public void DestruirCabrasNegrasMuertas()
-    {
-        if (Quaternion.Euler(0, 0, 180) == transform.rotation && controlTiempo.tiempoRestante < 1f)
-        {
-            Destroy(gameObject);
-        }
-    }
-    */
 }
