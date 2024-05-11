@@ -8721,9 +8721,8 @@ MonoBehaviour:
   - {fileID: 1703229007}
   - {fileID: 1703229007}
   - {fileID: 1703229007}
-  recogerAlimento: {fileID: 0}
   manejarHeno: {fileID: 1018782743}
-  dejarLecheEnCaja: {fileID: 0}
+  dejarLecheEnCaja: {fileID: 1951563983}
   movimientoPersonaje: {fileID: 484809034}
   jugador: {fileID: 1018782742}
   manejarLeche: {fileID: 1018782740}
