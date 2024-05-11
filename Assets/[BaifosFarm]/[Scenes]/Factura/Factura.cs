@@ -7,21 +7,38 @@ using System;
 
 public class Factura : MonoBehaviour
 {
-    public Text txtFactura;
-    public Text txtDinero;
     public int cabrasNuevas;
     public SistemaMonetario sistemaMonetario; // Referencia al Singleton del SistemaMonetario
 
     private const int COSTO_CABRA = 20;
     private const int COSTO_ALIMENTAR_CABRA = 5;
     private const int COSTO_HENO_ESPECIAL = 20;
+    private const int GANANCIA_LECHE = 10;
 
     private int numCabrasBlancas;
     private int numCabrasNegras;
-    private int dineroTotal;
     public static Action OnGameOver; // Eventos estático que se disparan al cumplirse una condicion
     public static Action OnMoneyVictory;
     public static Action OnBlackGoatsVictory;
+
+    // textos 
+    [SerializeField] Text cantidadLeche;
+    [SerializeField] Text cantidadCabras;
+    [SerializeField] Text gananciaLeche;
+    [SerializeField] Text costoHeno;
+    [SerializeField] Text costoCabras;
+    [SerializeField] GameObject henoEspecial;
+    [SerializeField] GameObject objCabras;
+    [SerializeField] Text dineroTotal;
+    [SerializeField] Text contadorDinero;
+
+    // valores para total
+    int dinero;
+    int sumaDinero;
+    int dineroLeche;
+    int dineroCabras;
+    int dineroHeno;
+    int dineroHenoEspecial;
 
     public GameObject[] popUpsFactura; // Array para los popups en la escena de factura
 
@@ -29,19 +46,19 @@ public class Factura : MonoBehaviour
     {
         cabrasNuevas = 0;
         PlayerPrefs.SetInt("HenoMejorado", 0);
-        ActualizarTexto();
         //PlayerPrefs.SetInt("cabrasNegras", 0);
         // Get valores de PlayerPrefs
         numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
         numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
-        dineroTotal = PlayerPrefs.GetInt("DineroTotal", 0);
+        dinero = PlayerPrefs.GetInt("DineroTotal", 0);
+        ActualizarTexto();
     }
 
     private void Start()
     {
         Debug.Log("cabras negras: " + numCabrasNegras);
         Debug.Log("cabras blancas: " + numCabrasBlancas);
-        Debug.Log("dinero: " + dineroTotal);
+        Debug.Log("dinero: " + dinero);
         Debug.Log("Método Start iniciado");
 
         Debug.Log("Valor de PlayerPrefs 'TutorialCompleto': " + PlayerPrefs.GetInt("TutorialCompleto"));
@@ -51,12 +68,12 @@ public class Factura : MonoBehaviour
             Debug.Log("pierdes por no tener dinero para comprar cabras y no tener cabras");
             OnGameOver?.Invoke();
         }
-        else if (sistemaMonetario.CalcularGastoHeno() > dineroTotal)
+        else if (sistemaMonetario.CalcularGastoHeno() > dinero)
         {
             Debug.Log("pierdes por no tener dinero suficiente para alimentar a las cabras");
             OnGameOver?.Invoke();
         }
-        else if (dineroTotal >= 200)
+        else if (dinero >= 200)
         {
             Debug.Log("Entra al if de victoria dinero");
             OnMoneyVictory?.Invoke();
@@ -79,7 +96,7 @@ public class Factura : MonoBehaviour
 
     private bool isGameOver()
     {
-        if ((numCabrasBlancas + numCabrasNegras) == 0 && dineroTotal < (COSTO_CABRA + COSTO_ALIMENTAR_CABRA))
+        if ((numCabrasBlancas + numCabrasNegras) == 0 && dinero < (COSTO_CABRA + COSTO_ALIMENTAR_CABRA))
         {
             return true;
         }
@@ -118,7 +135,8 @@ public class Factura : MonoBehaviour
         buttonText.fontStyle = FontStyle.Bold; // Establecer el texto en negrita
 
         // Añadir listener al botón
-        okButton.onClick.AddListener(() => {
+        okButton.onClick.AddListener(() =>
+        {
             Destroy(okButtonObject); // Destruir el botón al hacer clic
         });
 
@@ -160,7 +178,8 @@ public class Factura : MonoBehaviour
         buttonText2.fontStyle = FontStyle.Bold; // Establecer el texto en negrita
 
         // Añadir listener al botón
-        okButton2.onClick.AddListener(() => {
+        okButton2.onClick.AddListener(() =>
+        {
             Destroy(okButtonObject2); // Destruir el botón al hacer clic
         });
 
@@ -183,10 +202,10 @@ public class Factura : MonoBehaviour
 
     public void comprarCabra()
     {
-        int dineroTotal = PlayerPrefs.GetInt("DineroTotal", 0);
+        dinero = PlayerPrefs.GetInt("DineroTotal", 0);
         // Verificar si el jugador tiene suficiente dinero para comprar una cabra y si tiene menos de 20 cabras (20 es el limite)
         //tambien si tiene suficiente dinero para comprar heno para el siguiente dia
-        if (dineroTotal >= COSTO_CABRA && numCabrasBlancas+numCabrasNegras < 20 && dineroTotal - COSTO_CABRA >= (sistemaMonetario.CalcularGastoHeno() + SistemaMonetario.PRECIO_HENO_POR_CABRA))
+        if (dinero >= COSTO_CABRA && numCabrasBlancas + numCabrasNegras < 20 && dinero - COSTO_CABRA >= (sistemaMonetario.CalcularGastoHeno() + SistemaMonetario.PRECIO_HENO_POR_CABRA))
         {
             // Restar el costo de la cabra del dinero total
             sistemaMonetario.RestarDinero(COSTO_CABRA);
@@ -204,6 +223,7 @@ public class Factura : MonoBehaviour
             PlayerPrefs.SetInt("cabrasNegras", numCabrasNegras);
 
             cabrasNuevas++;
+            dineroCabras = cabrasNuevas * COSTO_CABRA;
             ActualizarTexto();
         }
         else
@@ -216,7 +236,7 @@ public class Factura : MonoBehaviour
     public void continuar()
     {
         SceneManager.LoadScene("Juego");
-        sistemaMonetario.RestarDinero(sistemaMonetario.CalcularGastoHeno());        
+        sistemaMonetario.RestarDinero(sistemaMonetario.CalcularGastoHeno());
     }
 
     public void comprarHenoEspecial()
@@ -224,7 +244,7 @@ public class Factura : MonoBehaviour
         int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado");
         int dineroTotal = PlayerPrefs.GetInt("DineroTotal", 0);
         //Si tienes suficiente dinero, y no has comprado heno especial aun, puede comprarlo
-        if (dineroTotal >= COSTO_HENO_ESPECIAL && valorHenoMejorado == 0 && dineroTotal - COSTO_HENO_ESPECIAL >= sistemaMonetario.CalcularGastoHeno()) 
+        if (dineroTotal >= COSTO_HENO_ESPECIAL && valorHenoMejorado == 0 && dineroTotal - COSTO_HENO_ESPECIAL >= sistemaMonetario.CalcularGastoHeno())
         {
             sistemaMonetario.RestarDinero(COSTO_HENO_ESPECIAL);
             PlayerPrefs.SetInt("HenoMejorado", 1);
@@ -235,30 +255,100 @@ public class Factura : MonoBehaviour
             Debug.Log("¡No tienes suficiente dinero para comprar heno especial, o ya lo has comprado!");
             // Aquí puedes mostrar un mensaje al jugador indicando que no tiene suficiente dinero
         }
-    }   
+    }
 
     private void ActualizarTexto()
     {
+        // cogemos valores necesarios
         int leches = PlayerPrefs.GetInt("LechesGuardadas", 0);
-        int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado");
-        // Inicializar el texto con el valor de la leche vendida
-        txtFactura.text = "Leche vendida - " + leches.ToString();
+        int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado", 0);
+        int cabras = numCabrasBlancas + numCabrasNegras;
 
-        // Agregar cabras compradas si hay nuevas
+        // LECHE
+        cantidadLeche.text = "X" + leches.ToString();
+        if (leches > 0)
+        {
+            dineroLeche = leches * GANANCIA_LECHE;
+            gananciaLeche.text = "+" + dineroLeche;
+            gananciaLeche.color = Color.green;
+        }
+        else
+        {
+            dineroLeche = 0;
+            gananciaLeche.text = "0";
+            gananciaLeche.color = Color.black;
+        }
+
+        // HENO
+        if(cabras > 0) {
+            dineroHeno = cabras * COSTO_ALIMENTAR_CABRA;
+            costoHeno.text = "-" + dineroHeno;
+        } else {
+            dineroHeno = 0;
+            costoHeno.text = "0";
+        }
+
+        // CABRAS COMPRADAS
         if (cabrasNuevas >= 1)
         {
-            txtFactura.text += "\nCabras compradas - " + cabrasNuevas.ToString();
+            objCabras.SetActive(true);
+            RectTransform objCabrasRect = objCabras.GetComponent<RectTransform>();
+            objCabrasRect.anchoredPosition = new Vector3(-155, -36, 0);
+            cantidadCabras.text = "X" + cabrasNuevas.ToString();
+            costoCabras.text = "-" + dineroCabras.ToString();
         }
-
-        // Agregar mensaje si se ha comprado heno especial
-        if (valorHenoMejorado == 1)
+        else
         {
-            txtFactura.text += "\nHeno especial comprado";
+            objCabras.SetActive(false);
+            dineroCabras = 0;
         }
 
-        // Agregar el dinero total y el gasto de heno
-        txtDinero.text = PlayerPrefs.GetInt("DineroTotal", 0).ToString();
-        txtFactura.text += "\nGasto heno siguiente día - $" + sistemaMonetario.CalcularGastoHeno().ToString();
+        // HENO ESPECIAL
+        if (valorHenoMejorado == 0)
+        {
+            henoEspecial.SetActive(false);
+        }
+        else
+        {
+            dineroHenoEspecial = COSTO_HENO_ESPECIAL;
+            henoEspecial.SetActive(true);
+            RectTransform objHenoEspecialRect = objCabras.GetComponent<RectTransform>();
+            
+            if (cabrasNuevas > 0)
+            {
+                objHenoEspecialRect.anchoredPosition = new Vector3(-147, -107, 226);
+            }
+            else
+            {
+                objHenoEspecialRect.anchoredPosition = new Vector3(-155, -36, 0);
+            }
+        }
+
+        // TOTAL FACTURA
+        sumaDinero = dineroLeche - dineroCabras - dineroHeno - dineroHenoEspecial;
+
+        if (sumaDinero > 0)
+        {
+            dineroTotal.text = "+" + sumaDinero.ToString();
+            dineroTotal.color = Color.green;
+        }
+        else if (sumaDinero < 0)
+        {
+            dineroTotal.text = sumaDinero.ToString();
+            dineroTotal.color = Color.red;
+        }
+        else
+        {
+            dineroTotal.text = "0";
+            dineroTotal.color = Color.black;
+        }
+
+        // CONTADOR DINERO
+        contadorDinero.text = (dinero + sumaDinero).ToString();
     }
 
+    private void moverMoneda()
+    {
+
+    }
 }
