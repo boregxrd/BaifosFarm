@@ -3,8 +3,21 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class DejarLecheEnCaja : MonoBehaviour
+public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
 {
+    private ManejarLeche manejarLeche;
+    private ControladorTextoCaja controladorTextoCaja;
+
+    //para el tutorial
+    public bool lecheGuardada = false;
+
+    private void Start()
+    {
+        controladorTextoCaja = GetComponent<ControladorTextoCaja>();
+    }
+
+
+    /*
     [SerializeField] ControladorAccionesPersonaje controladorAccionesPersonaje;
     [SerializeField] MiniJuegoOrdenyar miniJuegoOrdenyar;
     [SerializeField] private GameObject leche;
@@ -31,5 +44,20 @@ public class DejarLecheEnCaja : MonoBehaviour
         }
 
         return false;
+    }
+    */
+
+    public void Interactuar(Jugador jugador)
+    {
+        if (jugador.LecheRecogida)
+        {
+            manejarLeche = jugador.GetComponent<ManejarLeche>();
+            manejarLeche.DejarLeche();
+            controladorTextoCaja.GuardarLeche();
+
+            //para el tutorial
+            lecheGuardada = true;
+        }
+        
     }
 }

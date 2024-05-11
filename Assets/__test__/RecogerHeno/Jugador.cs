@@ -5,8 +5,8 @@ using UnityEngine;
 public class Jugador : MonoBehaviour
 {
     private Transform mano;
-    private bool henoRecogido = false;
-    private bool lecheRecogida = false;
+    [SerializeField] private bool henoRecogido = false;
+    [SerializeField] private bool lecheRecogida = false;
 
     public Transform Mano { get => mano;}
     public bool HenoRecogido { get => henoRecogido; set => henoRecogido = value; }

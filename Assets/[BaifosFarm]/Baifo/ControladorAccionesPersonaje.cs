@@ -13,10 +13,10 @@ public class ControladorAccionesPersonaje : MonoBehaviour
     public GameObject objetoEnMano = null;
 
     //Variable global para almacenar el clon del instance del prefab leche
-    public GameObject ultimaLecheEnMano = null;
+    //public GameObject ultimaLecheEnMano = null;
     //Variable global para almacenar el numero de leches guardadas
-    public int lechesGuardadas = 0;
-    private bool cajaLecheInteractuada = false;
+    //public int lechesGuardadas = 0;
+    //private bool cajaLecheInteractuada = false;
 
     //Diferentes acciones que realiza el personaje:
 
@@ -36,8 +36,8 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         //recogerAlimento = GetComponent<RecogerAlimento>();
         //alimentar = GetComponent<Alimentar>();
         //ordeniar = GetComponent<Ordeniar>();
-        dejarLecheEnCaja = GetComponent<DejarLecheEnCaja>();
-        lechesGuardadas = 0;
+        //dejarLecheEnCaja = GetComponent<DejarLecheEnCaja>();
+        //lechesGuardadas = 0;
     }
 
     private void OnTriggerStay(Collider other)
@@ -89,6 +89,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
         }
         */
 
+        /*
         //DEJAR LECHE EN CAJA
         if (other.gameObject.CompareTag("CajaLeche"))
         {
@@ -110,6 +111,7 @@ public class ControladorAccionesPersonaje : MonoBehaviour
             cajaLecheInteractuada = false;
             dejarLecheEnCaja.enabled = false;
         }
+        */
 
     }
 

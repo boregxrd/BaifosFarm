@@ -3729,9 +3729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0732bc0683c451e44b26c2d7cb380d56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controladorAccionesPersonaje: {fileID: 1018782752}
-  miniJuegoOrdenyar: {fileID: 1179347175}
-  leche: {fileID: 0}
   lecheGuardada: 0
 --- !u!114 &1018782751
 MonoBehaviour:
@@ -3763,8 +3760,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntoDeMano: {fileID: 1891372462}
   objetoEnMano: {fileID: 0}
-  ultimaLecheEnMano: {fileID: 0}
-  lechesGuardadas: 0
   dejarLecheEnCaja: {fileID: 1018782747}
   movimientoPersonaje: {fileID: 484809034}
   cabraMuerta: 0
@@ -20505,6 +20500,10 @@ PrefabInstance:
       value: CajaLeche
       objectReference: {fileID: 0}
     - target: {fileID: 2949518663174923328, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2949518663174923328, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -20586,6 +20585,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2949518663174923328, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1951563980}
+    - targetCorrespondingSourceObject: {fileID: 2949518663174923328, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1951563983}
     - targetCorrespondingSourceObject: {fileID: 6545345139398252518, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -20616,6 +20618,19 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2, y: 3, z: 2}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1951563983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951563974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0732bc0683c451e44b26c2d7cb380d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lecheGuardada: 0
 --- !u!1 &1968672358
 GameObject:
   m_ObjectHideFlags: 0

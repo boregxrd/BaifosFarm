@@ -53,6 +53,6 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
     {
         barraLeche.resetearLeche();
         movimientoAleatorioCabras.continuarMov(gameObject);
-        jugador.GetComponent <Character>().ContinuarMovimiento();
+        jugador.GetComponent<Character>().ContinuarMovimiento();
     }
 }
