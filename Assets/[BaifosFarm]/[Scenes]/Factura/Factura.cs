@@ -102,6 +102,7 @@ public class Factura : MonoBehaviour
         }
         return false;
     }
+
     private IEnumerator ShowPopUps()
     {
         Debug.Log("Iniciando corrutina ShowPopUps");

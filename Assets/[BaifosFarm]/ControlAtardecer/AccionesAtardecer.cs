@@ -6,17 +6,22 @@ using UnityEngine.SceneManagement;
 public class AccionesAtardecer : MonoBehaviour 
 {
     [SerializeField] private MovimientoCamion camion;
-    private ControlPrecioLeche controlPrecioLeche;
-    private DeteccionCabrasNegras deteccionCabrasNegras;
+
     public static Action OnThreeBlackGoatsVictory;
+
+    private DeteccionCabrasNegras deteccionCabrasNegras;
     private BarrasHandler barrasHandler;
     private InteraccionesJugador interaccionesJugador;
+    private ControlPrecioLeche controlPrecioLeche;
     private ControlAvisos controlAvisos;
 
     private void Awake()
     {
         barrasHandler = gameObject.AddComponent<BarrasHandler>();
         interaccionesJugador = FindObjectOfType<InteraccionesJugador>();
+        controlPrecioLeche = FindObjectOfType<ControlPrecioLeche>();
+        controlAvisos = FindObjectOfType<ControlAvisos>();
+        
         camion = FindObjectOfType<MovimientoCamion>();
         if (camion != null)
         {
@@ -24,12 +29,11 @@ public class AccionesAtardecer : MonoBehaviour
         }
     }
 
-
     public IEnumerator EjecutarAccionesAtardecer()
     {
         interaccionesJugador.DesabilitarInteraccionesJugador();
         barrasHandler.CongelarBarrasCabras();
-        EsconderAvisos();
+        controlAvisos.EsconderTodosLosAvisos();
         
         yield return StartCoroutine(camion.EmpezarMovimiento());
     }
@@ -37,32 +41,13 @@ public class AccionesAtardecer : MonoBehaviour
     private void EjecutarAccionesRestantes()
     {
         Debug.Log("Se ejecutan restantes");
-        CalcularDinero();
+        controlPrecioLeche.SumarDineroPorBotella();
         VerificarYCargarEscena();
-        OcultarCursor();
-    }
-
-    public void CalcularDinero()
-    {
-        controlPrecioLeche = FindObjectOfType<ControlPrecioLeche>();
-        if (controlPrecioLeche != null)
-        {
-            controlPrecioLeche.SumarDineroPorBotella();
-            Debug.Log("Sumo el dinero por botella");
-        }
-    }
-
-    private void OcultarCursor()
-    {
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
 
-    private void EsconderAvisos()
-    {
-        controlAvisos = FindObjectOfType<ControlAvisos>();
-        controlAvisos.gameObject.SetActive(false);
-    }
+    
 
 
     void VerificarYCargarEscena()
