@@ -13,7 +13,7 @@ public class AtardecerSiCabrasMuertas : MonoBehaviour
     private void Awake()
     {
         condicionesAvisos = FindObjectOfType<CondicionesAvisos>();
-        temporizador = GetComponent<Temporizador>();
+        temporizador = FindObjectOfType<Temporizador>();
     }
 
     private void Update()
