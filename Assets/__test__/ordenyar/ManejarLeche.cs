@@ -8,7 +8,7 @@ public class ManejarLeche : MonoBehaviour
     private GameObject leche;
 
     //para el tutorial
-    //public bool alimentacionRealizada = false;
+    public bool ordenyoRealizado = false;
 
     private void Start()
     {
@@ -18,7 +18,7 @@ public class ManejarLeche : MonoBehaviour
     public void CogerLeche(GameObject prefabLeche)
     {
         //para el tutorial
-        //alimentacionRealizada = false;
+        ordenyoRealizado = true;
 
         jugador.LecheRecogida = true;
         leche = Instantiate(prefabLeche);
@@ -33,6 +33,6 @@ public class ManejarLeche : MonoBehaviour
         jugador.LecheRecogida = false;
 
         //para el tutorial
-        //alimentacionRealizada = true;
+        ordenyoRealizado = false;
     }
 }

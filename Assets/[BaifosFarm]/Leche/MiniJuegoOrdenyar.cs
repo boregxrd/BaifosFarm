@@ -14,7 +14,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     [SerializeField] private Text porcentaje;
 
 
-    private float valorMaximo = 100f;
+    [SerializeField] private float valorMaximo = 100f;
     [SerializeField] private float valorActual = 15f;
     [SerializeField] private float velocidadVaciado = 5f;
     [SerializeField] private float incremento = 15f;
@@ -23,18 +23,16 @@ public class MiniJuegoOrdenyar : MonoBehaviour
 
     [SerializeField] private ControladorAccionesPersonaje controladorAccionesPersonaje;
     [SerializeField] private GameObject prefabLeche;
-    [SerializeField] private GameObject leche;
-
+    //[SerializeField] private GameObject leche;
     [SerializeField] private ManejarLeche manejarLeche;
 
-
-    [SerializeField] private bool iniciarProceso = false;
+    private bool ordenyoIniciado = false;
     public bool miniJuegoReseteado = false;
     
     private void OnEnable()
     {
         objetoMiniJuegoOrdenyar.SetActive(true);
-        iniciarProceso = true;
+        ordenyoIniciado = true;
         barraOrdenyar.fillAmount = valorActual / valorMaximo;
     }
 
@@ -47,7 +45,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
 
     private void Update()
     {
-        if (iniciarProceso)
+        if (ordenyoIniciado)
         {
             VaciarConElTiempo();
 
@@ -107,6 +105,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         enabled = false;
         miniJuegoReseteado = true;
         objetoMiniJuegoOrdenyar.SetActive(false);
+        ordenyoIniciado = false;
     }
 
     private void mostrarPorcentaje()
