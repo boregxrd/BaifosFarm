@@ -13,10 +13,14 @@ public class Camion : MonoBehaviour
 
     public bool enMovimiento = false;
 
-    public void empezarMovimientoCamion()
+    public IEnumerator EmpezarMovimientoCamion()
     {
         enMovimiento = true;
-        StartCoroutine(EsperarAlCamion());  
+        while (enMovimiento)
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(2.0f);
     }
 
     private void verificarLlegada()
@@ -43,14 +47,5 @@ public class Camion : MonoBehaviour
 
             verificarLlegada();
         }
-    }
-
-    private IEnumerator EsperarAlCamion()
-    {
-        while (enMovimiento)
-        {
-            yield return null;
-        }
-        yield return new WaitForSeconds(2.0f); 
     }
 }

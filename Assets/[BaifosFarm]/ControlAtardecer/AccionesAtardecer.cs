@@ -12,17 +12,18 @@ public class AccionesAtardecer : MonoBehaviour
 
     private ControlAvisos controlAvisos;
 
-    public void EjecutarAccionesAtardecer()
+    public IEnumerator EjecutarAccionesAtardecer()
     {
         DesabilitarInteraccionesJugador();
         CongelarBarrasCabras();
         EsconderAvisos();
-        camion.empezarMovimientoCamion();
+        CalcularDinero();
+        yield return StartCoroutine(camion.EmpezarMovimientoCamion());
         VerificarYCargarEscena(); 
         OcultarCursor();
     }
 
-    public void CalcularDinero(SistemaMonetario sistemaMonetario, ControlPrecioLeche controlPrecioBotellas)
+    public void CalcularDinero()
     {
         controlPrecioLeche = FindObjectOfType<ControlPrecioLeche>();
         if (controlPrecioLeche != null)
