@@ -30,11 +30,15 @@ public class Factura : MonoBehaviour
     [SerializeField] GameObject henoEspecial;
     [SerializeField] GameObject objCabras;
     [SerializeField] Text dineroTotal;
-    int dinero;
+    [SerializeField] Text contadorDinero;
 
-    // Colores
-    Color rojo = new Color(207, 40, 0);
-    Color verde = new Color(28, 207, 0);
+    // valores para total
+    int dinero;
+    int sumaDinero;
+    int dineroLeche;
+    int dineroCabras;
+    int dineroHeno;
+    int dineroHenoEspecial;
 
     public GameObject[] popUpsFactura; // Array para los popups en la escena de factura
 
@@ -42,12 +46,12 @@ public class Factura : MonoBehaviour
     {
         cabrasNuevas = 0;
         PlayerPrefs.SetInt("HenoMejorado", 0);
-        ActualizarTexto();
         //PlayerPrefs.SetInt("cabrasNegras", 0);
         // Get valores de PlayerPrefs
         numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
         numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
         dinero = PlayerPrefs.GetInt("DineroTotal", 0);
+        ActualizarTexto();
     }
 
     private void Start()
@@ -219,6 +223,7 @@ public class Factura : MonoBehaviour
             PlayerPrefs.SetInt("cabrasNegras", numCabrasNegras);
 
             cabrasNuevas++;
+            dineroCabras = cabrasNuevas * COSTO_CABRA;
             ActualizarTexto();
         }
         else
@@ -254,65 +259,96 @@ public class Factura : MonoBehaviour
 
     private void ActualizarTexto()
     {
+        // cogemos valores necesarios
         int leches = PlayerPrefs.GetInt("LechesGuardadas", 0);
-        int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado");
-        // Inicializar el texto con el valor de la leche vendida
+        int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado", 0);
+        int cabras = numCabrasBlancas + numCabrasNegras;
+
+        // LECHE
         cantidadLeche.text = "X" + leches.ToString();
         if (leches > 0)
         {
-            gananciaLeche.text += "+" + leches * GANANCIA_LECHE;
-            gananciaLeche.color = verde;
+            dineroLeche = leches * GANANCIA_LECHE;
+            gananciaLeche.text = "+" + dineroLeche;
+            gananciaLeche.color = Color.green;
         }
         else
         {
+            dineroLeche = 0;
             gananciaLeche.text = "0";
             gananciaLeche.color = Color.black;
         }
 
-        // Agregar cabras compradas si hay nuevas
+        // HENO
+        if(cabras > 0) {
+            dineroHeno = cabras * COSTO_ALIMENTAR_CABRA;
+            costoHeno.text = "-" + dineroHeno;
+        } else {
+            dineroHeno = 0;
+            costoHeno.text = "0";
+        }
+
+        // CABRAS COMPRADAS
         if (cabrasNuevas >= 1)
         {
             objCabras.SetActive(true);
-            objCabras.transform.position = new Vector3(-145, -36, 226);
-            cantidadCabras.text += "X" + cabrasNuevas.ToString();
-            costoCabras.text = (cabrasNuevas * COSTO_CABRA).ToString();
+            RectTransform objCabrasRect = objCabras.GetComponent<RectTransform>();
+            objCabrasRect.anchoredPosition = new Vector3(-155, -36, 0);
+            cantidadCabras.text = "X" + cabrasNuevas.ToString();
+            costoCabras.text = "-" + dineroCabras.ToString();
+        }
+        else
+        {
+            objCabras.SetActive(false);
+            dineroCabras = 0;
         }
 
-        // Agregar mensaje si se ha comprado heno especial
-        if (valorHenoMejorado == 1)
+        // HENO ESPECIAL
+        if (valorHenoMejorado == 0)
         {
+            henoEspecial.SetActive(false);
+        }
+        else
+        {
+            dineroHenoEspecial = COSTO_HENO_ESPECIAL;
+            henoEspecial.SetActive(true);
+            RectTransform objHenoEspecialRect = objCabras.GetComponent<RectTransform>();
+            
             if (cabrasNuevas > 0)
             {
-                henoEspecial.transform.position = new Vector3(-147,-107,226);
+                objHenoEspecialRect.anchoredPosition = new Vector3(-147, -107, 226);
             }
             else
             {
-                henoEspecial.transform.position = new Vector3(-145, -36, 226);
+                objHenoEspecialRect.anchoredPosition = new Vector3(-155, -36, 0);
             }
-
-            henoEspecial.SetActive(true);
         }
 
-        // Agregar el dinero total y el gasto de heno
-        int dinero = PlayerPrefs.GetInt("DineroTotal", 0);
-        if (dinero > 0)
+        // TOTAL FACTURA
+        sumaDinero = dineroLeche - dineroCabras - dineroHeno - dineroHenoEspecial;
+
+        if (sumaDinero > 0)
         {
-            dineroTotal.text = "+" + dinero.ToString();
-            dineroTotal.color = verde;
+            dineroTotal.text = "+" + sumaDinero.ToString();
+            dineroTotal.color = Color.green;
         }
-        else if (dinero < 0)
+        else if (sumaDinero < 0)
         {
-            dineroTotal.text = "-" + dinero.ToString();
-            dineroTotal.color = rojo;
+            dineroTotal.text = sumaDinero.ToString();
+            dineroTotal.color = Color.red;
         }
         else
         {
             dineroTotal.text = "0";
             dineroTotal.color = Color.black;
         }
+
+        // CONTADOR DINERO
+        contadorDinero.text = (dinero + sumaDinero).ToString();
     }
 
-    private void moverMoneda() {
-        
+    private void moverMoneda()
+    {
+
     }
 }
