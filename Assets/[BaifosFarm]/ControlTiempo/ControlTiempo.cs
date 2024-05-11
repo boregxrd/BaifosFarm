@@ -10,13 +10,12 @@ public class ControlTiempo : MonoBehaviour
     public Text contadorText; // Referencia al objeto Text donde se mostrará el contador
     [SerializeField]
     public float tiempoRestante = 120f; // 2 minutos en segundos
-    private Alimentar alimentar;
     public SistemaMonetario sistemaMonetario; // Referencia al C# Script de sistema de dinero
     public Text textoDinero; // Referencia al objeto de texto que mostrará el dinero total
     int dineroTotal;
     [SerializeField] public ControladorAccionesPersonaje accionesBaifo; 
     [SerializeField] LlegadaCamión llegadaCamion;
-
+    [SerializeField] private ControlAvisos controlAvisos;
     private DeteccionCabrasNegras deteccionCabrasNegras;
 
     //-------------------------------------------------------------
@@ -29,9 +28,6 @@ public class ControlTiempo : MonoBehaviour
     {
         Time.timeScale = 1f;
         PlayerPrefs.SetInt("LechesGuardadas", 0);
-
-        alimentar = GetComponent<Alimentar>();
-        alimentar.GestionarAparienciaMontonHeno();
 
         RecogerDatosDinero();
         ActivarCuentaRegresiva();
@@ -79,6 +75,7 @@ public class ControlTiempo : MonoBehaviour
         // Cuando el tiempo llega a cero...
         congelarBarrasCabras();
         desabilitarAccionesBaifo();
+        EsconderAvisos();
 
         if(llegadaCamion != null) llegadaCamion.empezarMovimientoCamion();
 
@@ -156,5 +153,10 @@ public class ControlTiempo : MonoBehaviour
         int minutos = Mathf.FloorToInt(tiempoRestante / 60f);
         int segundos = Mathf.FloorToInt(tiempoRestante % 60f);
         return minutos.ToString("00") + ":" + segundos.ToString("00");
+    }
+
+    private void EsconderAvisos()
+    {
+        controlAvisos.gameObject.SetActive(false);
     }
 }

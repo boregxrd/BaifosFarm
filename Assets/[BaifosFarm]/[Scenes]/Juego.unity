@@ -2279,6 +2279,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5948450414786922847, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
+      propertyPath: controlAvisos
+      value: 
+      objectReference: {fileID: 2057699905}
+    - target: {fileID: 5948450414786922847, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: llegadaCamion
       value: 
       objectReference: {fileID: 35173433}
@@ -2305,10 +2309,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 650993937768202787, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1612307995}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
 --- !u!1 &753358538
 GameObject:
@@ -14893,28 +14894,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1596080981}
   m_CullTransparentMesh: 1
---- !u!1 &1612307990 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 650993937768202787, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
-  m_PrefabInstance: {fileID: 750042798}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1612307995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612307990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce9e396166878ce46ae9c5d520f64e02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controladorAccionesPersonaje: {fileID: 0}
-  barraAlimento: {fileID: 0}
-  materialHenoNormal: {fileID: 2100000, guid: 57adaa258c23e684c903b58d6f08c806, type: 2}
-  materialHenoMejorado: {fileID: 2100000, guid: edca393f3d0143546be3037a999532d7, type: 2}
-  alimentacionRealizada: 0
 --- !u!1 &1637833999
 GameObject:
   m_ObjectHideFlags: 0
@@ -21291,6 +21270,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 4557411409927564023, guid: c0ae5991c0d970f4dbadee1e22204bb7, type: 3}
   m_PrefabInstance: {fileID: 729169324}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2057699905 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3727519561106993747, guid: c0ae5991c0d970f4dbadee1e22204bb7, type: 3}
+  m_PrefabInstance: {fileID: 729169324}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9939825d0c077b4a8541831dd11e497, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2079609023 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5888467992093432168, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
