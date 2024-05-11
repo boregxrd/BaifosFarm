@@ -42,6 +42,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         enabled = true;
         Debug.Log("IniciarOrdenyado");
         instanciaCabra = cabra.GetComponent<CabraBlancaInteracciones>();
+        
     }
 
     private void OnEnable()

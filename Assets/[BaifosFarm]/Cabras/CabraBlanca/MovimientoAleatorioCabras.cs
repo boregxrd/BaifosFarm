@@ -82,7 +82,24 @@ public class MovimientoAleatorioCabras : MonoBehaviour
         return finalPosition;
     }
 
-    // public void pararCabra() {
-    //     agente.isStopped = true;
-    // }
+    public void pararCabra(GameObject cabra)
+    {
+        NavMeshAgent agente = cabra.transform.GetComponent<NavMeshAgent>();
+
+        agente.enabled = false;
+        enabled = false;
+
+        Debug.Log("parado movimiento");
+    }
+
+    public void continuarMov(GameObject cabra)
+    {
+        NavMeshAgent agente = cabra.transform.GetComponent<NavMeshAgent>();
+
+        agente.enabled = true;
+        enabled = true;
+
+        Debug.Log("movimiento continuado");
+    }
+
 }

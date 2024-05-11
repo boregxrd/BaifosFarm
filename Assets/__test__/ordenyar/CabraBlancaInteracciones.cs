@@ -10,12 +10,14 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
     private ManejarHeno manejadorHeno;
     private TipoDeHeno tipoDeHeno;
     private MiniJuegoOrdenyar miniJuegoOrdenyar;
+    [SerializeField] private MovimientoAleatorioCabras movimientoAleatorioCabras;
 
     private void Start()
     {
         tipoDeHeno = FindObjectOfType<TipoDeHeno>();
         barraLeche = transform.GetChild(5).GetChild(0).GetChild(0).GetComponent<BarraLeche>();
         miniJuegoOrdenyar = FindObjectOfType<MiniJuegoOrdenyar>();
+        movimientoAleatorioCabras = GetComponent<MovimientoAleatorioCabras>();
     }
 
     public float nivelDeLeche()
@@ -39,11 +41,13 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
         if (!jugador.HenoRecogido && !jugador.LecheRecogida && nivelDeLeche() == barraLeche.ValorMaximo)
         {
             miniJuegoOrdenyar.IniciarOrdenyado(gameObject);
+            movimientoAleatorioCabras.pararCabra(gameObject);
         }
     }
 
     public void ResetearLeche()
     {
         barraLeche.resetearLeche();
+        movimientoAleatorioCabras.continuarMov(gameObject);
     }
 }
