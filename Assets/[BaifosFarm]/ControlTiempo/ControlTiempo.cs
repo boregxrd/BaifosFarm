@@ -93,11 +93,11 @@ public class ControlTiempo : MonoBehaviour
 
         Time.timeScale = 0f;
         // Llamada para sumar el dinero
-        ControladorTextoCaja controladorTextoCaja = FindObjectOfType<ControladorTextoCaja>();
+        ControlPrecioLeche controlPrecioLeche = FindObjectOfType<ControlPrecioLeche>();
 
-        if (controladorTextoCaja != null)
+        if (controlPrecioLeche != null)
         {
-            controladorTextoCaja.SumarDineroPorBotella();
+            controlPrecioLeche.SumarDineroPorBotella();
             Debug.Log("Sumo el dinero por botella");
         }
 

@@ -20588,6 +20588,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2949518663174923328, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1951563983}
+    - targetCorrespondingSourceObject: {fileID: 2949518663174923328, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1951563985}
     - targetCorrespondingSourceObject: {fileID: 6545345139398252518, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -20631,6 +20634,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lecheGuardada: 0
+--- !u!114 &1951563985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1951563974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3e757dda8fe00f498b635d2e743c0ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sistemaMonetario: {fileID: 1997526313015578739}
+  PRECIO_POR_BOTELLA: 10
+  controladorTextoCaja: {fileID: 0}
 --- !u!1 &1968672358
 GameObject:
   m_ObjectHideFlags: 0
