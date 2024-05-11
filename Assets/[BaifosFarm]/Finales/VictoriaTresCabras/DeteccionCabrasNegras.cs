@@ -5,7 +5,7 @@ using System;
 
 public class DeteccionCabrasNegras : MonoBehaviour
 {
-    private CabraNegra[] cabrasNegras;
+    public CabraNegra[] cabrasNegras;
     private int cabrasNegrasAlFinal = 0;
 
     public void VerificarSiHayTresCabrasNegrasAlInicio()

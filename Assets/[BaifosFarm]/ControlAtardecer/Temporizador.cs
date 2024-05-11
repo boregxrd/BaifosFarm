@@ -1,15 +1,17 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Temporizador : MonoBehaviour
 {
     private AccionesAtardecer accionesAtardecer;
+    private DeteccionCabrasNegras deteccionCabrasNegras;
 
     private void Awake()
     {
         IniciarCuentaRegresiva();
+        deteccionCabrasNegras = gameObject.AddComponent<DeteccionCabrasNegras>();
+        deteccionCabrasNegras.VerificarSiHayTresCabrasNegrasAlInicio();
     }
 
     public float tiempoRestante = 120;
@@ -38,7 +40,10 @@ public class Temporizador : MonoBehaviour
         Time.timeScale = 0f;
 
         accionesAtardecer = GetComponent<AccionesAtardecer>();
-        accionesAtardecer.EjecutarAccionesAtardecer();
+        if (accionesAtardecer != null)
+        {
+            accionesAtardecer.EjecutarAccionesAtardecer();
+        }
     }
 
     private string ObtenerTemporizadorActual()

@@ -1,11 +1,11 @@
-using UnityEngine;
-using System.Collections;
-using UnityEngine.SceneManagement;
 using System;
+using System.Collections;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AccionesAtardecer : MonoBehaviour 
 {
-    [SerializeField] private Camion llegadaCamion;
+    [SerializeField] private Camion camion;
     private ControlPrecioLeche controlPrecioLeche;
     private DeteccionCabrasNegras deteccionCabrasNegras;
     public static Action OnThreeBlackGoatsVictory;
@@ -14,25 +14,12 @@ public class AccionesAtardecer : MonoBehaviour
 
     public void EjecutarAccionesAtardecer()
     {
-        desabilitarInteraccionesJugador();
-        EsperarAlCamion();
-        congelarBarrasCabras();
+        DesabilitarInteraccionesJugador();
+        CongelarBarrasCabras();
         EsconderAvisos();
+        camion.empezarMovimientoCamion();
         VerificarYCargarEscena(); 
         OcultarCursor();
-    }
-
-    private IEnumerator EsperarAlCamion()
-    {
-        if (llegadaCamion != null)
-        {
-            llegadaCamion.empezarMovimientoCamion();
-        }
-        while (llegadaCamion.enMovimiento)
-        {
-            yield return null;
-        }
-        yield return new WaitForSeconds(2.0f);
     }
 
     public void CalcularDinero(SistemaMonetario sistemaMonetario, ControlPrecioLeche controlPrecioBotellas)
@@ -51,7 +38,7 @@ public class AccionesAtardecer : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
-    private void desabilitarInteraccionesJugador()
+    private void DesabilitarInteraccionesJugador()
     {
         InteraccionesJugador interaccionesJugador = GetComponent<InteraccionesJugador>();
         if (interaccionesJugador != null)
@@ -60,7 +47,7 @@ public class AccionesAtardecer : MonoBehaviour
         }
     }
 
-    private void congelarBarrasCabras()
+    private void CongelarBarrasCabras()
     {
         BarraAlimento[] barrasAlimento = FindObjectsOfType<BarraAlimento>();
         BarraLeche[] barrasLeche = FindObjectsOfType<BarraLeche>();
@@ -85,16 +72,22 @@ public class AccionesAtardecer : MonoBehaviour
 
     void VerificarYCargarEscena()
     {
-        if (deteccionCabrasNegras.CuidasteLasCabrasNegrasAlFinal())
+        deteccionCabrasNegras = GetComponent<DeteccionCabrasNegras>();
+        Debug.Log("Si no hay nada debajo deteccion es nulo");
+        if(deteccionCabrasNegras != null)
         {
-            Debug.Log("Intento invocar al evento");
-            OnThreeBlackGoatsVictory?.Invoke();
-            return;
-        }
-        else
-        {
-            deteccionCabrasNegras.DestruirCabrasCadaUna();
-            SceneManager.LoadScene("Factura");
+            Debug.Log("ooooo");
+            if (deteccionCabrasNegras.CuidasteLasCabrasNegrasAlFinal())
+            {
+                Debug.Log("Intento invocar al evento");
+                OnThreeBlackGoatsVictory?.Invoke();
+                return;
+            }
+            else
+            {
+                deteccionCabrasNegras.DestruirCabrasCadaUna();
+                SceneManager.LoadScene("Factura");
+            }
         }
     }
 }

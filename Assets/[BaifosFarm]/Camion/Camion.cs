@@ -16,13 +16,12 @@ public class Camion : MonoBehaviour
     public void empezarMovimientoCamion()
     {
         enMovimiento = true;
+        StartCoroutine(EsperarAlCamion());  
     }
 
-    void verificarLlegada()
+    private void verificarLlegada()
     {
-        Vector3 posActual = transform.position;
-
-        if (posActual == destinoCamion)
+        if (Vector3.Distance(transform.position, destinoCamion) < 0.1f)  
         {
             enMovimiento = false;
         }
@@ -30,7 +29,7 @@ public class Camion : MonoBehaviour
 
     void Update()
     {
-        if (enMovimiento == true)
+        if (enMovimiento)
         {
             float avance = velocidadCamion * Time.deltaTime;
             transform.position = Vector3.MoveTowards(transform.position, destinoCamion, avance);
@@ -44,5 +43,14 @@ public class Camion : MonoBehaviour
 
             verificarLlegada();
         }
+    }
+
+    private IEnumerator EsperarAlCamion()
+    {
+        while (enMovimiento)
+        {
+            yield return null;
+        }
+        yield return new WaitForSeconds(2.0f); 
     }
 }
