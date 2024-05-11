@@ -23,12 +23,27 @@ public class MiniJuegoOrdenyar : MonoBehaviour
 
     [SerializeField] private ControladorAccionesPersonaje controladorAccionesPersonaje;
     [SerializeField] private GameObject prefabLeche;
-    //[SerializeField] private GameObject leche;
     [SerializeField] private ManejarLeche manejarLeche;
 
     private bool ordenyoIniciado = false;
     public bool miniJuegoReseteado = false;
-    
+
+    [SerializeField] private CabraBlancaInteracciones instanciaCabra;
+
+    private void Awake()
+    {
+        enabled = false;
+        manejarLeche = FindObjectOfType<ManejarLeche>();
+    }
+
+
+    public void IniciarOrdenyado(GameObject cabra)
+    {
+        enabled = true;
+        Debug.Log("IniciarOrdenyado");
+        instanciaCabra = cabra.GetComponent<CabraBlancaInteracciones>();
+    }
+
     private void OnEnable()
     {
         objetoMiniJuegoOrdenyar.SetActive(true);
@@ -36,39 +51,36 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         barraOrdenyar.fillAmount = valorActual / valorMaximo;
     }
 
-    private void Awake()
-    {
-        enabled = false;
-        objetoMiniJuegoOrdenyar.SetActive(false);
-        manejarLeche = FindObjectOfType<ManejarLeche>();
-    }
-
     private void Update()
     {
         if (ordenyoIniciado)
         {
+            Debug.Log("Dentro de update VaciarConElTiempo");
             VaciarConElTiempo();
 
-            if(Input.GetKeyUp(KeyCode.Q))
+            if (Input.GetKeyUp(KeyCode.Q))
             {
                 resetearMiniJuego();
             }
 
-            if(Input.GetKeyDown(KeyCode.Space)) 
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 incrementar();
             }
 
-            if(valorActual >= valorMaximo)
+            if (valorActual >= valorMaximo)
             {
                 valorActual = valorMaximo;
                 porcentaje.text = valorActual.ToString();
                 generarLeche();
             }
-        } 
+        }
 
     }
 
+    
+
+   
     private void incrementar()
     {
         valorActual += incremento;
@@ -104,8 +116,9 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         valorActual = 15f;
         enabled = false;
         miniJuegoReseteado = true;
-        objetoMiniJuegoOrdenyar.SetActive(false);
         ordenyoIniciado = false;
+        instanciaCabra.ResetearLeche();
+        
     }
 
     private void mostrarPorcentaje()
@@ -114,9 +127,11 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         porcentaje.text = $"{valorRedondeado}%";
     }
 
+
     private void OnDisable()
     {
         objetoMiniJuegoOrdenyar.SetActive(false);
     }
+    
 
 }

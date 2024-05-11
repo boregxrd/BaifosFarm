@@ -38,9 +38,12 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
     {
         if (!jugador.HenoRecogido && !jugador.LecheRecogida && nivelDeLeche() == barraLeche.ValorMaximo)
         {
-            miniJuegoOrdenyar.enabled = true;
+            miniJuegoOrdenyar.IniciarOrdenyado(gameObject);
         }
     }
-   
 
+    public void ResetearLeche()
+    {
+        barraLeche.resetearLeche();
+    }
 }
