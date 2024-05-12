@@ -91,7 +91,7 @@ public class Factura : MonoBehaviour
 
     private bool isGameOver()
     {
-        if ((numCabrasBlancas + numCabrasNegras) == 0 && dinero < (COSTO_CABRA + COSTO_ALIMENTAR_CABRA))
+        if ((numCabrasBlancas + numCabrasNegras) == 0 && dinero < COSTO_CABRA + COSTO_ALIMENTAR_CABRA)
         {
             return true;
         }

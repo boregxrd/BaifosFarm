@@ -23,5 +23,6 @@ public class MuerteCabraBlanca : MonoBehaviour
     public void Morir()
     {
         Destroy(gameObject);
+        PlayerPrefs.SetInt("cabrasBlancas", PlayerPrefs.GetInt("cabrasBlancas", 0) - 1);
     }
 }

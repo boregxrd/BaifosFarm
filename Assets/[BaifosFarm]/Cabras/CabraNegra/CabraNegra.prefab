@@ -449,9 +449,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 666b7f9668af9544f9ba121da6cc2f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barraAlimento: {fileID: 0}
   targetBaifo: {fileID: 0}
-  controlTiempo: {fileID: 0}
+  barraAlimento: {fileID: 0}
+  temporizador: {fileID: 0}
   cabraNegraMuerta: 0
 --- !u!195 &-3703250217289309872
 NavMeshAgent:
@@ -523,6 +523,7 @@ MonoBehaviour:
   nuevaLayerMask:
     serializedVersion: 2
     m_Bits: 1
+  cabra: {fileID: 8575326236241112370}
 --- !u!114 &1839023476782865911
 MonoBehaviour:
   m_ObjectHideFlags: 0
