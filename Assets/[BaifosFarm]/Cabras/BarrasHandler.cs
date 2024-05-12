@@ -15,12 +15,18 @@ public class BarrasHandler: MonoBehaviour
     {
         foreach (BarraAlimento barraAlimento in barrasAlimento)
         {
-            barraAlimento.enabled = false;
+            if(barraAlimento!=null)
+            {
+                barraAlimento.enabled = false;
+            }
         }
 
         foreach (BarraLeche barraLeche in barrasLeche)
         {
-            barraLeche.enabled = false;
+            if (barraLeche != null)
+            {
+                barraLeche.enabled = false;
+            }
         }
     }
 }
