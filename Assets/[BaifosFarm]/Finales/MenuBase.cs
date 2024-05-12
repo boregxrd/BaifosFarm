@@ -9,10 +9,7 @@ public abstract class MenuBase : MonoBehaviour, IMenu
 
     public virtual void ShowMenu()
     {
-        Debug.Log("victoria");
-        //este menu es el canva, pero lo que esta
-        //es el panel que esta dentro del canva,
-        //tal vez lo que deba tener el enable es su hijo?
+        Debug.Log("invocado show menu");
         enabled = true;
         if (menuObject != null)
         {   

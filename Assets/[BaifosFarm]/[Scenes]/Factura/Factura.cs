@@ -58,30 +58,26 @@ public class Factura : MonoBehaviour
         Debug.Log("cabras negras: " + numCabrasNegras);
         Debug.Log("cabras blancas: " + numCabrasBlancas);
         Debug.Log("dinero: " + dinero);
-        Debug.Log("Método Start iniciado");
 
-        Debug.Log("Valor de PlayerPrefs 'TutorialCompleto': " + PlayerPrefs.GetInt("TutorialCompleto"));
+        //Debug.Log("Valor de PlayerPrefs 'TutorialCompleto': " + PlayerPrefs.GetInt("TutorialCompleto"));
 
         if (isGameOver())
         {
-            Debug.Log("pierdes por no tener dinero para comprar cabras y no tener cabras");
             OnGameOver?.Invoke();
         }
-        else if (sistemaMonetario.CalcularGastoHeno() > dinero)
-        {
-            Debug.Log("pierdes por no tener dinero suficiente para alimentar a las cabras");
-            OnGameOver?.Invoke();
-        }
-        else if (dinero >= 200)
+        
+        else if (dinero >= 150)
         {
             Debug.Log("Entra al if de victoria dinero");
             OnMoneyVictory?.Invoke();
         }
+
         if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
         {
             Debug.Log("Iniciando corrutina ShowPopUps");
             StartCoroutine(ShowPopUps());
         }
+
         else
         {
             // Ocultar todos los pop-ups
@@ -96,6 +92,10 @@ public class Factura : MonoBehaviour
     private bool isGameOver()
     {
         if ((numCabrasBlancas + numCabrasNegras) == 0 && dinero < (COSTO_CABRA + COSTO_ALIMENTAR_CABRA))
+        {
+            return true;
+        }
+        else if (sistemaMonetario.CalcularGastoHeno() > dinero)
         {
             return true;
         }
@@ -347,10 +347,5 @@ public class Factura : MonoBehaviour
 
         // CONTADOR DINERO
         contadorDinero.text = (dinero + sumaDinero).ToString();
-    }
-
-    private void moverMoneda()
-    {
-
     }
 }
