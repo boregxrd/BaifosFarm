@@ -17,9 +17,8 @@ public class Factura : MonoBehaviour
 
     private int numCabrasBlancas;
     private int numCabrasNegras;
-    public static Action OnGameOver; // Eventos estático que se disparan al cumplirse una condicion
+    public static Action OnGameOver; 
     public static Action OnMoneyVictory;
-    public static Action OnBlackGoatsVictory;
 
     // textos 
     [SerializeField] Text cantidadLeche;

@@ -2,17 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class DeteccionCabrasNegras : MonoBehaviour
 {
     public CabraNegra[] cabrasNegras;
     private int cabrasNegrasAlFinal = 0;
 
+    public static Action OnThreeBlackGoatsVictory;
+
     public bool CuidasteLasCabrasNegrasAlFinal()
     {
         cabrasNegras = FindObjectsOfType<CabraNegra>();
-        Debug.Log("cabras negras al final: " + cabrasNegras.Length);
-
+        
         if (cabrasNegras.Length <= 2) return false;
 
         for (int i = 0; i < cabrasNegras.Length; i++)
@@ -23,11 +25,8 @@ public class DeteccionCabrasNegras : MonoBehaviour
             }
         }
 
-        Debug.Log("cabras negras al final tras for: " + cabrasNegrasAlFinal);
-
         if (cabrasNegrasAlFinal >= 3) 
         {
-            Debug.Log("Tres cabras vivas al final true");
             return true;
         }
         return false;
@@ -38,6 +37,20 @@ public class DeteccionCabrasNegras : MonoBehaviour
         foreach (CabraNegra cabra in cabrasNegras)
         {
             cabra.DestruirCabrasNegrasMuertas();
+        }
+    }
+
+    public void InvocarVictoria()
+    {
+        if (CuidasteLasCabrasNegrasAlFinal())
+        {
+            OnThreeBlackGoatsVictory?.Invoke();
+            return;
+        }
+        else
+        {
+            DestruirCabrasCadaUna();
+            SceneManager.LoadScene("Factura");
         }
     }
 }

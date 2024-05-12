@@ -6,9 +6,6 @@ using UnityEngine.SceneManagement;
 public class AccionesAtardecer : MonoBehaviour 
 {
     [SerializeField] private MovimientoCamion camion;
-
-    public static Action OnThreeBlackGoatsVictory;
-
     private DeteccionCabrasNegras deteccionCabrasNegras;
     private BarrasHandler barrasHandler;
     private InteraccionesJugador interaccionesJugador;
@@ -21,7 +18,8 @@ public class AccionesAtardecer : MonoBehaviour
         interaccionesJugador = FindObjectOfType<InteraccionesJugador>();
         controlPrecioLeche = FindObjectOfType<ControlPrecioLeche>();
         controlAvisos = FindObjectOfType<ControlAvisos>();
-        
+        deteccionCabrasNegras = GetComponent<DeteccionCabrasNegras>();
+
         camion = FindObjectOfType<MovimientoCamion>();
         if (camion != null)
         {
@@ -41,33 +39,9 @@ public class AccionesAtardecer : MonoBehaviour
     private void EjecutarAccionesRestantes()
     {
         controlPrecioLeche.SumarDineroPorBotella();
-        VerificarYCargarEscena();
+        deteccionCabrasNegras.InvocarVictoria();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-    }
-
-    
-
-
-    void VerificarYCargarEscena()
-    {
-        deteccionCabrasNegras = GetComponent<DeteccionCabrasNegras>();
-        //Debug.Log("Si no hay nada debajo deteccion es nulo");
-        if(deteccionCabrasNegras != null)
-        {
-            //Debug.Log("ooooo");
-            if (deteccionCabrasNegras.CuidasteLasCabrasNegrasAlFinal())
-            {
-                Debug.Log("Intento invocar al evento");
-                OnThreeBlackGoatsVictory?.Invoke();
-                return;
-            }
-            else
-            {
-                deteccionCabrasNegras.DestruirCabrasCadaUna();
-                SceneManager.LoadScene("Factura");
-            }
-        }
     }
 }
 

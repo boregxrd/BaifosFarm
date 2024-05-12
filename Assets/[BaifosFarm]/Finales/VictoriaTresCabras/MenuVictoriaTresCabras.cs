@@ -8,12 +8,12 @@ public class MenuVictoriaTresCabras : MenuBase
     protected override void Start()
     {
         base.Start();
-        AccionesAtardecer.OnThreeBlackGoatsVictory += ShowMenu;
+        DeteccionCabrasNegras.OnThreeBlackGoatsVictory += ShowMenu;
     }
 
     protected override void OnDestroy()
     {
         base.OnDestroy();
-        AccionesAtardecer.OnThreeBlackGoatsVictory -= ShowMenu;
+        DeteccionCabrasNegras.OnThreeBlackGoatsVictory -= ShowMenu;
     }
 }
