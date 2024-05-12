@@ -7,19 +7,20 @@ public class AtardecerSiCabrasMuertas : MonoBehaviour
     private CondicionesAvisos condicionesAvisos;
     private Temporizador temporizador;
 
-    [SerializeField] private List<Cabra> cabrasEscena;
-
+    private List<Cabra> cabrasEscena;
+    private DeteccionCabrasNegras deteccionCabras;
 
     private void Awake()
     {
         condicionesAvisos = FindObjectOfType<CondicionesAvisos>();
         temporizador = FindObjectOfType<Temporizador>();
+        deteccionCabras = GetComponent<DeteccionCabrasNegras>();
     }
 
     private void Update()
     {
         cabrasEscena = condicionesAvisos.ObtenerCabrasDeEscena();
-        if(cabrasEscena.Count == 0 ) 
+        if((cabrasEscena.Count - deteccionCabras.CabrasNegrasMuertas()) == 0 ) 
         {
             if(temporizador.tiempoRestante > 5f)
             {
