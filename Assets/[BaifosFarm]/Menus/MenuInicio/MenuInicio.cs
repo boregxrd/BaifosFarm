@@ -44,4 +44,9 @@ public class MenuInicio : MonoBehaviour
         PlayerPrefs.SetInt("TutorialCompleto", 0); // Marcar el tutorial como no completado
         SceneManager.LoadScene("Tutorial");
     }
+
+    public void EscenaTresCabrasNegras()
+    {
+        SceneManager.LoadScene("PruebaTresCabras");
+    }
 }
