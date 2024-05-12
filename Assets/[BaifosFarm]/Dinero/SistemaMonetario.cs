@@ -1,16 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SistemaMonetario : MonoBehaviour
 {
     private static SistemaMonetario instance;
     public int totalDinero;
     public const int PRECIO_HENO_POR_CABRA = 5;
+    [SerializeField] Text dineroTexto;
 
     void Awake()
     {
         totalDinero = PlayerPrefs.GetInt("DineroTotal", 0);
+        dineroTexto.text = totalDinero.ToString();
     }
 
     public void AgregarDinero(int cantidad)

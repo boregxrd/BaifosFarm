@@ -22105,6 +22105,10 @@ PrefabInstance:
       propertyPath: m_OverrideSorting
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5080521469667659100, guid: e41cfbb8d7ecf3b44ab845e98d4f35d3, type: 3}
+      propertyPath: dineroTexto
+      value: 
+      objectReference: {fileID: 2099062772}
     - target: {fileID: 5219616467688673368, guid: e41cfbb8d7ecf3b44ab845e98d4f35d3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

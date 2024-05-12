@@ -62,11 +62,15 @@ public class Factura : MonoBehaviour
         Debug.Log("cabras negras: " + numCabrasNegras);
         Debug.Log("cabras blancas: " + numCabrasBlancas);
         Debug.Log("dinero: " + dinero);
+        Debug.Log("COSTOCABRA + COSTOALIMENTAR: " + (COSTO_ALIMENTAR_CABRA + COSTO_CABRA));
+        Debug.Log("Gastodiario: " + sistemaMonetario.CalcularGastoHeno());
+        contadorDinero.text = dinero.ToString();
 
         //Debug.Log("Valor de PlayerPrefs 'TutorialCompleto': " + PlayerPrefs.GetInt("TutorialCompleto"));
 
         if (isGameOver())
         {
+            Debug.Log("invoca al metodo");
             OnGameOver?.Invoke();
         }
         
@@ -214,6 +218,7 @@ public class Factura : MonoBehaviour
             // Restar el costo de la cabra del dinero total
             sistemaMonetario.RestarDinero(COSTO_CABRA);
 
+
             // comprobar si hay cabra negra y 10% de que salga 
             if (numCabrasNegras < 3 && UnityEngine.Random.value <= 0.3f)
             {
@@ -350,6 +355,6 @@ public class Factura : MonoBehaviour
         }
 
         // CONTADOR DINERO
-        contadorDinero.text = (dinero + sumaDinero).ToString();
+        //contadorDinero.text = (dinero + sumaDinero).ToString();
     }
 }
