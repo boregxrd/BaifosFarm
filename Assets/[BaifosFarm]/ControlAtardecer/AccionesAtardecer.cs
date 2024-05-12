@@ -21,7 +21,6 @@ public class AccionesAtardecer : MonoBehaviour
         controlPrecioLeche = FindObjectOfType<ControlPrecioLeche>();
         controlAvisos = FindObjectOfType<ControlAvisos>();
         deteccionCabrasNegras = GetComponent<DeteccionCabrasNegras>();
-        cantidadCabrasAtardecer = GetComponent<CantidadCabrasAtardecer>();
 
         camion = FindObjectOfType<MovimientoCamion>();
         if (camion != null)
@@ -42,7 +41,6 @@ public class AccionesAtardecer : MonoBehaviour
     private void EjecutarAccionesRestantes()
     {
         controlPrecioLeche.SumarDineroPorBotella();
-        cantidadCabrasAtardecer.Calcular();
         deteccionCabrasNegras.InvocarVictoria();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

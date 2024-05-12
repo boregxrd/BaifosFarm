@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class CantidadCabrasAtardecer : MonoBehaviour
 {
-    private static CantidadCabrasAtardecer instancia;
+    private static CantidadCabrasAtardecer instance;
 
     private CondicionesAvisos avisos;
 
@@ -19,20 +19,24 @@ public class CantidadCabrasAtardecer : MonoBehaviour
 
     private void Awake()
     {
-        if (instancia == null)
+        if (instance == null)
         {
-            instancia = this;
-            DontDestroyOnLoad(gameObject); // Para que el objeto persista entre las escenas
+            instance = this;
         }
         else
         {
-            Destroy(gameObject); 
+            Destroy(gameObject); // Destruye el objeto si ya hay una instancia
         }
     }
 
     public static CantidadCabrasAtardecer ObtenerInstancia()
     {
-        return instancia;
+        return instance;
+    }
+
+    private void Update()
+    {
+        Calcular();
     }
 
     public void Calcular()
