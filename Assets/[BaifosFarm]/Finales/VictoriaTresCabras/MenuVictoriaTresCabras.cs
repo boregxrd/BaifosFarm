@@ -3,38 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuVictoriaTresCabras : MonoBehaviour
+public class MenuVictoriaTresCabras : MenuBase
 {
-    [SerializeField] GameObject objetoMenuVictoriaTresCabras;
-    string NOMBRE_MENU = "Main";
-
-    void Start()
+    protected override void Start()
     {
-        objetoMenuVictoriaTresCabras.SetActive(false);
-        AccionesAtardecer.OnThreeBlackGoatsVictory += MostrarMenuVictoriaTresCabras;
+        base.Start();
+        AccionesAtardecer.OnThreeBlackGoatsVictory += ShowMenu;
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
-        AccionesAtardecer.OnThreeBlackGoatsVictory -= MostrarMenuVictoriaTresCabras;
-    }
-
-    void MostrarMenuVictoriaTresCabras()
-    {
-        if (objetoMenuVictoriaTresCabras != null)
-        {
-            objetoMenuVictoriaTresCabras.SetActive(true);
-            Cursor.visible = true;
-            Cursor.lockState = CursorLockMode.None;
-        }
-        else
-        {
-            Debug.LogWarning("objetoMenuVictoriaTresCabras es nulo.");
-        }
-    }
-
-    public void VolverAlMenu()
-    {
-        SceneManager.LoadScene(NOMBRE_MENU);
+        base.OnDestroy();
+        AccionesAtardecer.OnThreeBlackGoatsVictory -= ShowMenu;
     }
 }
