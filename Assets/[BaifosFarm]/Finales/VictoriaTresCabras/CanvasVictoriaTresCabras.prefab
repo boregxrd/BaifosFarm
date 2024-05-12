@@ -594,4 +594,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988af8dc012f1c2478951788a3cd0236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetoMenuVictoriaTresCabras: {fileID: 4945762243706268086}
+  menuObject: {fileID: 4945762243706268086}

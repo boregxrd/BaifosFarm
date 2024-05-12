@@ -13,6 +13,7 @@ public class MenuVictoriaMetaDinero : MenuBase
     {
         base.OnDestroy();
         Factura.OnMoneyVictory -= ShowMenu;
+        
     }
 }
 
