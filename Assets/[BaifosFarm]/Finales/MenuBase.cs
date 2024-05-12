@@ -1,3 +1,4 @@
+using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,8 +9,13 @@ public abstract class MenuBase : MonoBehaviour, IMenu
 
     public virtual void ShowMenu()
     {
+        Debug.Log("victoria");
+        //este menu es el canva, pero lo que esta
+        //es el panel que esta dentro del canva,
+        //tal vez lo que deba tener el enable es su hijo?
+        enabled = true;
         if (menuObject != null)
-        {
+        {   
             menuObject.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
@@ -21,6 +27,7 @@ public abstract class MenuBase : MonoBehaviour, IMenu
         if (menuObject != null)
         {
             menuObject.SetActive(false);
+            enabled = false;
         }
     }
 

@@ -44,6 +44,7 @@ public class DeteccionCabrasNegras : MonoBehaviour
     {
         if (CuidasteLasCabrasNegrasAlFinal())
         {
+            Debug.Log("invocamos");
             OnThreeBlackGoatsVictory?.Invoke();
             return;
         }

@@ -9,6 +9,7 @@ public class MenuVictoriaTresCabras : MenuBase
     {
         base.Start();
         DeteccionCabrasNegras.OnThreeBlackGoatsVictory += ShowMenu;
+        Debug.Log("showmenuinvocado");
     }
 
     protected override void OnDestroy()
