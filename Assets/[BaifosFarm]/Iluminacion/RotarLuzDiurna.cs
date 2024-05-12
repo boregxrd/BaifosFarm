@@ -10,10 +10,10 @@ public class RotarLuzDiurna : MonoBehaviour
     private void Start()
     {
         // Obtener la referencia al script de control de tiempo
-        ControlTiempo controlTiempo = FindObjectOfType<ControlTiempo>();
+        Temporizador temporizador = FindObjectOfType<Temporizador>();
 
         // Calcular el tiempo total de rotación
-        tiempoTotalRotacion = controlTiempo.tiempoRestante;
+        tiempoTotalRotacion = temporizador.tiempoRestante;
 
         // Calcular la velocidad de rotación en función del tiempo total
         velocidadRotacion = (anguloFinal - anguloInicial) / tiempoTotalRotacion;

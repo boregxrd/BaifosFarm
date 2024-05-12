@@ -8,21 +8,22 @@ public class TutorialManager : MonoBehaviour
     public ParticleSystem[] particleEffects; // Efectos de partículas para cada paso
 
     private int popUpIndex;
-    [SerializeField] private RecogerAlimento recogerAlimento;
+    //[SerializeField] private RecogerAlimento recogerAlimento;
     //[SerializeField] private Alimentar alimentar;
     [SerializeField] private ManejarHeno manejarHeno;
-    [SerializeField] private Ordeniar ordeniar;
+    //[SerializeField] private Ordeniar ordeniar;
     [SerializeField] private DejarLecheEnCaja dejarLecheEnCaja;
     [SerializeField] private Character movimientoPersonaje;
     [SerializeField] private Jugador jugador;
+    [SerializeField] private ManejarLeche manejarLeche;
 
-    private ControlTiempo controlTiempo;
+    private Temporizador temporizador;
     public Button botonSkip;
     public GameObject CanvasSkipTutorial;
 
     private void Awake()
     {
-        controlTiempo = FindObjectOfType<ControlTiempo>(); // Obtener referencia a ControlTiempo en la escena
+        temporizador = FindObjectOfType<Temporizador>(); // Obtener referencia a ControlTiempo en la escena
     }
 
     private void Start()
@@ -49,7 +50,7 @@ public class TutorialManager : MonoBehaviour
             {
                 particles.Stop(); // Detiene la emisión de partículas
             }
-            Debug.Log("Tutorial completado, pop-ups ocultos");
+            //Debug.Log("Tutorial completado, pop-ups ocultos");
         }
 
     }
@@ -135,7 +136,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 3: // Recoger Leche
-                if (ordeniar.ordeniarIniciado)
+                if (manejarLeche.ordenyoRealizado)
                 {
                     CompleteStep();
                     Debug.Log("Recoger Leche completado");
@@ -186,7 +187,7 @@ public class TutorialManager : MonoBehaviour
 
     public void SkipTutorial()
     {
-        controlTiempo.tiempoRestante = 1f;
+        temporizador.tiempoRestante = 1f;
         PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
         Debug.Log("Tutorial completado");
         CanvasSkipTutorial.SetActive(false);

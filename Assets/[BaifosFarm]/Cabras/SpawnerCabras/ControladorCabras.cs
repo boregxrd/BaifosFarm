@@ -27,7 +27,7 @@ public class ControladorCabras : MonoBehaviour
         {
             Vector3 spawnPosition = posicionAleatoria();
             Instantiate(cabraBlanca, spawnPosition, Quaternion.identity);
-            Debug.Log("CABRA BLANCA " + i);
+            //Debug.Log("CABRA BLANCA " + i);
         }
 
         // spawn cabras negras

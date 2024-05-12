@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 823764022510038694}
   - component: {fileID: 4703482119110514230}
   m_Layer: 5
-  m_Name: sliderVolumen
+  m_Name: SliderVolumen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

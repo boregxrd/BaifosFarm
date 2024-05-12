@@ -1,36 +1,19 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuVictoriaMetaDinero : MonoBehaviour
+public class MenuVictoriaMetaDinero : MenuBase
 {
-    [SerializeField] GameObject objetoMenuVictoria;
-    string NOMBRE_MENU = "Main";
-
-    void Start()
+    protected override void Start()
     {
-        objetoMenuVictoria.SetActive(false);
-        Factura.OnMoneyVictory += MostrarMenuVictoria;
+        base.Start();
+        Factura.OnMoneyVictory += ShowMenu;
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
-        Factura.OnGameOver -= MostrarMenuVictoria; 
-    }
-
-    void MostrarMenuVictoria()
-    {
-        if (objetoMenuVictoria != null)
-        {
-            objetoMenuVictoria.SetActive(true);
-        }
-        /* else
-        {
-            Debug.LogWarning("objetoMenuVictoria es nulo.");
-        }*/
-    }
-
-    public void VolverAlMenu()
-    {
-        SceneManager.LoadScene(NOMBRE_MENU);
+        base.OnDestroy();
+        Factura.OnMoneyVictory -= ShowMenu;
+        
     }
 }
+

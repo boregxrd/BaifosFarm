@@ -272,7 +272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valorMaximo: 100
-  valorActual: 100
   velocidadReduccion: 2
 --- !u!1 &7169530531729945697
 GameObject:
@@ -386,11 +385,12 @@ GameObject:
   m_Component:
   - component: {fileID: 6341218581839721571}
   - component: {fileID: 3216859230856147325}
-  - component: {fileID: 2463023344088233800}
   - component: {fileID: 8575326236241112370}
   - component: {fileID: -3703250217289309872}
   - component: {fileID: 949272596959093630}
   - component: {fileID: 8671757947354089879}
+  - component: {fileID: 1290812866300521174}
+  - component: {fileID: 1839023476782865911}
   m_Layer: 8
   m_Name: CabraNegra
   m_TagString: cabraNegra
@@ -437,19 +437,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.48047036, y: 0.73682827, z: 0.7535467}
   m_Center: {x: 0.015223586, y: 0.36887732, z: 0.1767739}
---- !u!114 &2463023344088233800
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7693945115360077490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81715e07c8b47f04aa294947591bbba5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barraAlimento: {fileID: 1249791375483036549}
 --- !u!114 &8575326236241112370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,11 +449,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 666b7f9668af9544f9ba121da6cc2f2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetoControlTiempo: {fileID: 0}
-  controlTiempo: {fileID: 0}
   targetBaifo: {fileID: 0}
-  cabraNormal: {fileID: 1648110388227936865}
-  cabraMuerta: {fileID: 8118679793982387589}
+  barraAlimento: {fileID: 0}
+  temporizador: {fileID: 0}
   cabraNegraMuerta: 0
 --- !u!195 &-3703250217289309872
 NavMeshAgent:
@@ -520,6 +505,38 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.5, z: 0.2}
   m_TimeToStationary: 0.5
+--- !u!114 &1290812866300521174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7693945115360077490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e935d17735670c74992dcbe8b3701df0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barraAlimento: {fileID: 0}
+  cabraNormal: {fileID: 1648110388227936865}
+  cabraMuerta: {fileID: 8118679793982387589}
+  nuevaLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  cabra: {fileID: 8575326236241112370}
+--- !u!114 &1839023476782865911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7693945115360077490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 198a08c7406cfba499619f875ed5d426, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barraAlimento: {fileID: 1249791375483036549}
 --- !u!1001 &1881988403750776624
 PrefabInstance:
   m_ObjectHideFlags: 0

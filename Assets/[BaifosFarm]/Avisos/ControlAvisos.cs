@@ -7,6 +7,7 @@ public class ControlAvisos : MonoBehaviour
     
     private Camera camara;
     private float bordePantalla = 100f;
+    private bool generarAvisos = true;
 
     private Dictionary<Cabra, GameObject> avisosActivos = new Dictionary<Cabra, GameObject>();
 
@@ -17,6 +18,8 @@ public class ControlAvisos : MonoBehaviour
 
     public void GenerarOActualizarAviso(Cabra cabra, Vector3 posicionCabra, GameObject prefabAviso)
     {
+        if (!generarAvisos) return;
+
         if (avisosActivos.TryGetValue(cabra, out GameObject avisoActual))
         {
             // Verificar si el tipo de aviso actual difiere del nuevo tipo de aviso
@@ -78,5 +81,16 @@ public class ControlAvisos : MonoBehaviour
             Destroy(aviso);
             avisosActivos.Remove(cabra);
         }
+    }
+
+    public void EsconderTodosLosAvisos()
+    {
+        generarAvisos = false;
+
+        foreach (var aviso in avisosActivos.Values)
+        {
+            Destroy(aviso);
+        }
+        avisosActivos.Clear();
     }
 }

@@ -1,60 +1,57 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class CabraNegra : MonoBehaviour
 {
-    
-    [SerializeField] GameObject objetoControlTiempo;
-    [SerializeField] ControlTiempo controlTiempo;
     public Transform targetBaifo;
     private NavMeshAgent navMeshAgent;
     private NavMeshObstacle obstaculo;
-    [SerializeField] GameObject cabraNormal;
-    [SerializeField] GameObject cabraMuerta;
+    [SerializeField] BarraAlimento barraAlimento;
+    [SerializeField] Temporizador temporizador;
     public bool cabraNegraMuerta = false;
 
     private void Start()
     {
-        objetoControlTiempo = GameObject.Find("CanvasTiempo");
-        controlTiempo = objetoControlTiempo.GetComponentInChildren<ControlTiempo>();
+        barraAlimento = transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<BarraAlimento>();
         targetBaifo = GameObject.Find("Personaje").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         obstaculo = GetComponent<NavMeshObstacle>();
-        cabraNormal.SetActive(true);
+
         navMeshAgent.enabled = true;
-        cabraMuerta.SetActive(false);
         obstaculo.enabled = false;
     }
 
     private void Update()
     {
-        if (!Quaternion.Euler(0, 0, 180).Equals(transform.rotation) && !cabraNegraMuerta)
+        if(barraAlimento.ValorActual > 0)
         {
-            navMeshAgent.SetDestination(targetBaifo.position);
-
-
+            SeguirAlJugador();
+        }
+        else
+        {
+            NoSeguirAlJugador();
         }
     }
 
-    public void MuerteDeCabraNegra()
+    private void SeguirAlJugador()
     {
-        navMeshAgent.enabled = false; // Desactivar el NavMeshAgent
+        navMeshAgent.SetDestination(targetBaifo.position);
+    }
 
-        // cambiar a modelo muerto
-        cabraNormal.SetActive(false);
+    public void NoSeguirAlJugador()
+    {
         navMeshAgent.enabled = false;
-        cabraMuerta.SetActive(true);
         obstaculo.enabled = true;
-
-        cabraNegraMuerta = true;
     }
 
     public void DestruirCabrasNegrasMuertas()
     {
-        if (Quaternion.Euler(0, 0, 180) == transform.rotation && controlTiempo.tiempoRestante < 1f)
+        if (Quaternion.Euler(0, 0, 180) == transform.rotation && temporizador.tiempoRestante < 1f)
         {
             Destroy(gameObject);
         }
     }
     
+
 }

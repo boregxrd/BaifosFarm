@@ -68,7 +68,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: f4198bf2a00c9d440a676d9394d59b4f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 49cc89481c52a884e8733173370c6ef8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -273,7 +273,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &3800202161223279514
 MonoBehaviour:
@@ -327,7 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32dc71254e2b29b44b68006813fb63be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetoMenuVictoria: {fileID: 4719820939345059568}
+  menuObject: {fileID: 0}
 --- !u!1 &6841348421143570907
 GameObject:
   m_ObjectHideFlags: 0
@@ -528,7 +528,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: fca934a0417a7344ebab70c818ca2249, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ecd5356e43b36d64daf1cbd98683c296, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -583,8 +583,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1574231783442205000}
-        m_TargetAssemblyTypeName: MenuVictoriaMetaDinero, Assembly-CSharp
-        m_MethodName: VolverAlMenu
+        m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
+        m_MethodName: ReturnToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
