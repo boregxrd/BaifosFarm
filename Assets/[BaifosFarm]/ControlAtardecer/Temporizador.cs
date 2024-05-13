@@ -5,15 +5,23 @@ using UnityEngine.UI;
 
 public class Temporizador : MonoBehaviour
 {
+    //Fases del reloj
+    [SerializeField] private Image seisManyana;
+    [SerializeField] private Image ocho;
+    [SerializeField] private Image diez;
+    [SerializeField] private Image doce;
+    [SerializeField] private Image dos;
+    [SerializeField] private Image cuatro;
+    [SerializeField] private Image seisTarde;
 
 
     private AccionesAtardecer accionesAtardecer;
     private DeteccionCabrasNegras deteccionCabrasNegras;
 
     private DateTime horaInicio;
-    private float duracionDia = 60; // Duración de un día en segundos (2 minutos)
+    private float duracionDia = 60; 
 
-    public float tiempoRestante = 60; // Tiempo restante en segundos
+    public float tiempoRestante = 60; 
     [SerializeField] private Text contadorText;
 
     private void Awake()
@@ -37,7 +45,8 @@ public class Temporizador : MonoBehaviour
 
             if (contadorText != null)
             {
-                contadorText.text = "Hora en el juego: " + ObtenerTemporizadorActual();
+                contadorText.text = ObtenerTemporizadorActual();
+                MostrarFasesReloj(contadorText.text);
             }
         }
 
@@ -55,67 +64,60 @@ public class Temporizador : MonoBehaviour
 
     private string ObtenerTemporizadorActual()
     {
-        // Calcular la hora en el juego
-        int horaEnJuego = Mathf.FloorToInt(6 + (1 - tiempoRestante / duracionDia) * 12); // Empieza en las 6:00, termina en las 18:00
+       
+        int horaEnJuego = Mathf.FloorToInt(6 + (1 - tiempoRestante / duracionDia) * 12); 
         if (horaEnJuego >= 18)
         {
-            horaEnJuego = 18; // Si es después de las 18:00, ajustar a las 18:00
+            horaEnJuego = 18; 
         }
 
-        // Formatear la hora en formato de 24 horas
         string horaFormateada = horaEnJuego.ToString("00") + ":00";
 
         return horaFormateada;
     }
 
-}
-
-/*
-private AccionesAtardecer accionesAtardecer;
-private DeteccionCabrasNegras deteccionCabrasNegras;
-
-private void Awake()
-{
-    IniciarCuentaRegresiva();
-    deteccionCabrasNegras = gameObject.AddComponent<DeteccionCabrasNegras>();
-}
-
-public float tiempoRestante = 120;
-[SerializeField] private Text contadorText;
-
-public void IniciarCuentaRegresiva()
-{
-    contadorText.text = "Tiempo restante: " + ObtenerTemporizadorActual();
-    StartCoroutine(CuentaRegresiva());
-}
-
-private IEnumerator CuentaRegresiva()
-{
-    while (tiempoRestante > 0)
+    private void MostrarFasesReloj(String hora)
     {
-        yield return new WaitForSeconds(1f);
-        tiempoRestante -= 1f;
-        Debug.Log(tiempoRestante.ToString());
-
-        if (contadorText != null)
+        if (hora == "08:00")
         {
-            int minutos = Mathf.FloorToInt(tiempoRestante / 60f);
-            int segundos = Mathf.FloorToInt(tiempoRestante % 60f);
-            contadorText.text = "Tiempo restante: " + ObtenerTemporizadorActual();
+            seisManyana.gameObject.SetActive(false);
+            ocho.gameObject.SetActive(true);
         }
+        
+        else if (hora == "10:00")
+        {
+            ocho.gameObject.SetActive(false);
+            diez.gameObject.SetActive(true);
+        }
+
+        else if (hora == "12:00")
+        {
+            diez.gameObject.SetActive(false);
+            doce.gameObject.SetActive(true);
+        }
+
+        else if (hora == "14:00")
+        {
+            doce.gameObject.SetActive(false);
+            dos.gameObject.SetActive(true);
+        }
+
+        else if (hora == "16:00")
+        {
+            dos.gameObject.SetActive(false);
+            cuatro.gameObject.SetActive(true);
+        }
+
+        else if (hora == "18:00")
+        {
+            cuatro.gameObject.SetActive(false);
+            seisTarde.gameObject.SetActive(true);
+        }
+
+
     }
 
-    accionesAtardecer = GetComponent<AccionesAtardecer>();
-    if (accionesAtardecer != null)
-    {
-        StartCoroutine(accionesAtardecer.EjecutarAccionesAtardecer());
-    }
+
+
 }
 
-private string ObtenerTemporizadorActual()
-{
-    int minutos = Mathf.FloorToInt(tiempoRestante / 60f);
-    int segundos = Mathf.FloorToInt(tiempoRestante % 60f);
-    return minutos.ToString("00") + ":" + segundos.ToString("00");
-}
-*/
