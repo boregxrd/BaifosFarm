@@ -2215,7 +2215,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1998156178139999884, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: m_Text
-      value: 10:00
+      value: 06:00
       objectReference: {fileID: 0}
     - target: {fileID: 1998156178139999884, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: m_Color.b
@@ -2239,7 +2239,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1998156178139999884, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: m_FontData.m_FontSize
-      value: 34
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 1998156178139999884, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: m_FontData.m_FontStyle

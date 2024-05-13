@@ -249,7 +249,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c3afd645e3030944fbace2cb7d778e53, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1ac7d172d4be50a44bf77e5ee46932aa, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -523,7 +523,7 @@ MonoBehaviour:
   nuevaLayerMask:
     serializedVersion: 2
     m_Bits: 1
-  cabra: {fileID: 8575326236241112370}
+  cabraNegra: {fileID: 0}
 --- !u!114 &1839023476782865911
 MonoBehaviour:
   m_ObjectHideFlags: 0
