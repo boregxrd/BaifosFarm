@@ -72,22 +72,8 @@ public class Factura : MonoBehaviour
 
         //Debug.Log("Valor de PlayerPrefs 'TutorialCompleto': " + PlayerPrefs.GetInt("TutorialCompleto"));
 
-        if (isGameOver())
-        {
-            Debug.Log("invoca al metodo");
-            //OnGameOver?.Invoke();
-            menuDerrota.ShowMenu();
-        }
-        
-        else if (dinero >= 200)
-        {
-            Debug.Log("Entra al if de victoria dinero");
-            OnMoneyVictory?.Invoke();
-        }
-
         if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
         {
-            Debug.Log("Iniciando corrutina ShowPopUps");
             StartCoroutine(ShowPopUps());
         }
 
@@ -98,7 +84,6 @@ public class Factura : MonoBehaviour
             {
                 popup.SetActive(false);
             }
-            Debug.Log("Tutorial completado, pop-ups ocultos");
         }
     }
 
@@ -106,14 +91,12 @@ public class Factura : MonoBehaviour
     {
         if (isGameOver())
         {
-            Debug.Log("invoca al metodo");
             //OnGameOver?.Invoke();
             menuDerrota.ShowMenu();
         }
 
         else if (dinero >= 200)
         {
-            Debug.Log("Entra al if de victoria dinero");
             OnMoneyVictory?.Invoke();
         }
     }
@@ -133,11 +116,8 @@ public class Factura : MonoBehaviour
 
     private IEnumerator ShowPopUps()
     {
-        Debug.Log("Iniciando corrutina ShowPopUps");
-
         // Mostrar el primer popup
         popUpsFactura[0].SetActive(true);
-        Debug.Log("Mostrando primer popup");
 
         // Crear un botón "OK" dinámicamente en el primer popup
         GameObject okButtonObject = new GameObject("OKButton");
@@ -177,10 +157,8 @@ public class Factura : MonoBehaviour
 
         // Ocultar el primer popup y mostrar el segundo popup
         popUpsFactura[0].SetActive(false);
-        Debug.Log("Ocultando primer popup");
 
         popUpsFactura[1].SetActive(true);
-        Debug.Log("Mostrando segundo popup");
 
         // Crear un botón "OK" dinámicamente en el segundo popup
         GameObject okButtonObject2 = new GameObject("OKButton2");
@@ -220,13 +198,10 @@ public class Factura : MonoBehaviour
 
         // Ocultar el segundo popup
         popUpsFactura[1].SetActive(false);
-        Debug.Log("Ocultando segundo popup");
 
         PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
 
         Debug.Log("Valor de PlayerPrefs 'TutorialCompleto': " + PlayerPrefs.GetInt("TutorialCompleto"));
-
-        Debug.Log("Corrutina ShowPopUps finalizada");
     }
 
     public void comprarCabra()
