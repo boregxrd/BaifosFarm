@@ -39,6 +39,8 @@ public class Factura : MonoBehaviour
     int dineroHeno;
     int dineroHenoEspecial;
 
+    MenuDerrota menuDerrota;
+
     public GameObject[] popUpsFactura; // Array para los popups en la escena de factura
 
     private void Awake()
@@ -51,15 +53,18 @@ public class Factura : MonoBehaviour
         numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
         dinero = PlayerPrefs.GetInt("DineroTotal", 0);
         ActualizarTexto();
+
+
+        menuDerrota = FindObjectOfType<MenuDerrota>();
     }
 
     private void Start()
     {
-        Debug.Log("cabras negras: " + numCabrasNegras);
-        Debug.Log("cabras blancas: " + numCabrasBlancas);
-        Debug.Log("dinero: " + dinero);
-        Debug.Log("COSTOCABRA + COSTOALIMENTAR: " + (COSTO_ALIMENTAR_CABRA + COSTO_CABRA));
-        Debug.Log("Gastodiario: " + sistemaMonetario.CalcularGastoHeno());
+        //Debug.Log("cabras negras: " + numCabrasNegras);
+        //Debug.Log("cabras blancas: " + numCabrasBlancas);
+        //Debug.Log("dinero: " + dinero);
+        //Debug.Log("COSTOCABRA + COSTOALIMENTAR: " + (COSTO_ALIMENTAR_CABRA + COSTO_CABRA));
+        //Debug.Log("Gastodiario: " + sistemaMonetario.CalcularGastoHeno());
         contadorDinero.text = dinero.ToString();
 
         //Debug.Log("Valor de PlayerPrefs 'TutorialCompleto': " + PlayerPrefs.GetInt("TutorialCompleto"));
@@ -67,7 +72,8 @@ public class Factura : MonoBehaviour
         if (isGameOver())
         {
             Debug.Log("invoca al metodo");
-            OnGameOver?.Invoke();
+            //OnGameOver?.Invoke();
+            menuDerrota.ShowMenu();
         }
         
         else if (dinero >= 150)
