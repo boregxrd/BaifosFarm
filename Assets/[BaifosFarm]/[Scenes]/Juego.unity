@@ -20983,7 +20983,7 @@ PrefabInstance:
     - target: {fileID: 2900900432402851291, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
+      objectReference: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
     - target: {fileID: 2900900432402851291, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
@@ -21087,7 +21087,7 @@ PrefabInstance:
     - target: {fileID: 3847072355661007833, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       propertyPath: m_sharedMaterial
       value: 
-      objectReference: {fileID: 2100000, guid: 9ad269c99dcf42b7aedefd83dd5a7b9d, type: 2}
+      objectReference: {fileID: 2100000, guid: 79459efec17a4d00a321bdcc27bbc385, type: 2}
     - target: {fileID: 3847072355661007833, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4280825690
