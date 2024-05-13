@@ -33,13 +33,13 @@ public class ComicIntroController : MonoBehaviour
         {
             // Mostrar la imagen actual del cómic
             image.gameObject.SetActive(true);
-            Debug.Log($"Mostrada la imagen {currentIndex + 1}");
+            //Debug.Log($"Mostrada la imagen {currentIndex + 1}");
 
             if (currentIndex == 3)
             {
                 // Mostrar el botón de continuar junto con la cuarta imagen
                 continueButton.gameObject.SetActive(true);
-                Debug.Log("Mostrando botón de continuar");
+                //Debug.Log("Mostrando botón de continuar");
 
                 // Ocultar el puntero del ratón al mostrar el botón de continuar
                 //Cursor.visible = false;

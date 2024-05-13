@@ -5,6 +5,7 @@ using UnityEngine;
 public class MuerteCabraBlanca : MonoBehaviour
 {
     [SerializeField] BarraAlimento barraAlimento;
+    public int cabrasBlancasAlMomento;
 
     private void Start()
     {
@@ -13,8 +14,10 @@ public class MuerteCabraBlanca : MonoBehaviour
 
     private void Update()
     {
+        cabrasBlancasAlMomento = PlayerPrefs.GetInt("cabrasBlancas", 0);
         if(barraAlimento.ValorActual == 0)
         {
+            PlayerPrefs.SetInt("cabrasBlancas", cabrasBlancasAlMomento - 1);
             Morir();
         }
     }

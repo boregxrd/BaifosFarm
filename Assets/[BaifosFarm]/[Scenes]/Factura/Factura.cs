@@ -41,6 +41,8 @@ public class Factura : MonoBehaviour
     int dineroHeno;
     int dineroHenoEspecial;
 
+    MenuDerrota menuDerrota;
+
     public GameObject[] popUpsFactura; // Array para los popups en la escena de factura
 
     private void Awake()
@@ -54,23 +56,30 @@ public class Factura : MonoBehaviour
         numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
         dinero = PlayerPrefs.GetInt("DineroTotal", 0);
         ActualizarTexto();
+
+
+        menuDerrota = FindObjectOfType<MenuDerrota>();
     }
 
     private void Start()
     {
-        Debug.Log("CABRAS SEGUN EL SINGLETON: " + cantidadCabrasAtardecer.cabrasVivas); //quiero obtener las cabras vivas 
-        Debug.Log("cabras negras: " + numCabrasNegras);
-        Debug.Log("cabras blancas: " + numCabrasBlancas);
-        Debug.Log("dinero: " + dinero);
+        //Debug.Log("cabras negras: " + numCabrasNegras);
+        //Debug.Log("cabras blancas: " + numCabrasBlancas);
+        //Debug.Log("dinero: " + dinero);
+        //Debug.Log("COSTOCABRA + COSTOALIMENTAR: " + (COSTO_ALIMENTAR_CABRA + COSTO_CABRA));
+        //Debug.Log("Gastodiario: " + sistemaMonetario.CalcularGastoHeno());
+        contadorDinero.text = dinero.ToString();
 
         //Debug.Log("Valor de PlayerPrefs 'TutorialCompleto': " + PlayerPrefs.GetInt("TutorialCompleto"));
 
         if (isGameOver())
         {
-            OnGameOver?.Invoke();
+            Debug.Log("invoca al metodo");
+            //OnGameOver?.Invoke();
+            menuDerrota.ShowMenu();
         }
         
-        else if (dinero >= 150)
+        else if (dinero >= 200)
         {
             Debug.Log("Entra al if de victoria dinero");
             OnMoneyVictory?.Invoke();
@@ -214,6 +223,7 @@ public class Factura : MonoBehaviour
             // Restar el costo de la cabra del dinero total
             sistemaMonetario.RestarDinero(COSTO_CABRA);
 
+
             // comprobar si hay cabra negra y 10% de que salga 
             if (numCabrasNegras < 3 && UnityEngine.Random.value <= 0.3f)
             {
@@ -350,6 +360,6 @@ public class Factura : MonoBehaviour
         }
 
         // CONTADOR DINERO
-        contadorDinero.text = (dinero + sumaDinero).ToString();
+        //contadorDinero.text = (dinero + sumaDinero).ToString();
     }
 }

@@ -54,4 +54,20 @@ public class DeteccionCabrasNegras : MonoBehaviour
             SceneManager.LoadScene("Factura");
         }
     }
+
+    public int CabrasNegrasMuertas()
+    {
+        cabrasNegras = FindObjectsOfType<CabraNegra>();
+        int cabrasNegrasMuertas = 0;
+
+        for (int i = 0; i < cabrasNegras.Length; i++)
+        {
+            if (cabrasNegras[i].cabraNegraMuerta)
+            {
+                cabrasNegrasMuertas++;
+            }
+        }
+        
+        return cabrasNegrasMuertas;
+    }
 }
