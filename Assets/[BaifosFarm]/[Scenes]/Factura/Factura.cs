@@ -102,6 +102,22 @@ public class Factura : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (isGameOver())
+        {
+            Debug.Log("invoca al metodo");
+            //OnGameOver?.Invoke();
+            menuDerrota.ShowMenu();
+        }
+
+        else if (dinero >= 200)
+        {
+            Debug.Log("Entra al if de victoria dinero");
+            OnMoneyVictory?.Invoke();
+        }
+    }
+
     private bool isGameOver()
     {
         if ((numCabrasBlancas + numCabrasNegras) == 0 && dinero < COSTO_CABRA + COSTO_ALIMENTAR_CABRA)
