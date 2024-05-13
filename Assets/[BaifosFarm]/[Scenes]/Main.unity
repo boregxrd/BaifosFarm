@@ -215,6 +215,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 3570747892296719081, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_FontData.m_Font
+      value: 
+      objectReference: {fileID: 12800000, guid: 2e1d0d48bf916e24a9ae0327bef5d4b2, type: 3}
     - target: {fileID: 3781176442212706543, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_Name
       value: CanvasInicio
@@ -227,8 +231,13 @@ PrefabInstance:
       propertyPath: canvasMenuAjustes
       value: 
       objectReference: {fileID: 963868568}
+    - target: {fileID: 8117120117019935762, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -124.1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5880977915053405869, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2965598649290572794, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       insertIndex: -1
