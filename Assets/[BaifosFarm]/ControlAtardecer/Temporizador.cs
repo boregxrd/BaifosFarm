@@ -1,11 +1,28 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Temporizador : MonoBehaviour
 {
+    //Fases del reloj
+    [SerializeField] private Image seisManyana;
+    [SerializeField] private Image ocho;
+    [SerializeField] private Image diez;
+    [SerializeField] private Image doce;
+    [SerializeField] private Image dos;
+    [SerializeField] private Image cuatro;
+    [SerializeField] private Image seisTarde;
+
+
     private AccionesAtardecer accionesAtardecer;
     private DeteccionCabrasNegras deteccionCabrasNegras;
+
+    private DateTime horaInicio;
+    private float duracionDia = 60; 
+
+    public float tiempoRestante = 60; 
+    [SerializeField] private Text contadorText;
 
     private void Awake()
     {
@@ -13,12 +30,9 @@ public class Temporizador : MonoBehaviour
         deteccionCabrasNegras = gameObject.AddComponent<DeteccionCabrasNegras>();
     }
 
-    public float tiempoRestante = 120;
-    [SerializeField] private Text contadorText;
-
     public void IniciarCuentaRegresiva()
     {
-        contadorText.text = "Tiempo restante: " + ObtenerTemporizadorActual();
+        horaInicio = DateTime.Now;
         StartCoroutine(CuentaRegresiva());
     }
 
@@ -31,12 +45,16 @@ public class Temporizador : MonoBehaviour
 
             if (contadorText != null)
             {
-                int minutos = Mathf.FloorToInt(tiempoRestante / 60f);
-                int segundos = Mathf.FloorToInt(tiempoRestante % 60f);
-                contadorText.text = "Tiempo restante: " + ObtenerTemporizadorActual();
+                contadorText.text = ObtenerTemporizadorActual();
+                MostrarFasesReloj(contadorText.text);
             }
         }
 
+        EjecutarAccionesAtardecer();
+    }
+
+    private void EjecutarAccionesAtardecer()
+    {
         accionesAtardecer = GetComponent<AccionesAtardecer>();
         if (accionesAtardecer != null)
         {
@@ -46,8 +64,60 @@ public class Temporizador : MonoBehaviour
 
     private string ObtenerTemporizadorActual()
     {
-        int minutos = Mathf.FloorToInt(tiempoRestante / 60f);
-        int segundos = Mathf.FloorToInt(tiempoRestante % 60f);
-        return minutos.ToString("00") + ":" + segundos.ToString("00");
+       
+        int horaEnJuego = Mathf.FloorToInt(6 + (1 - tiempoRestante / duracionDia) * 12); 
+        if (horaEnJuego >= 18)
+        {
+            horaEnJuego = 18; 
+        }
+
+        string horaFormateada = horaEnJuego.ToString("00") + ":00";
+
+        return horaFormateada;
     }
+
+    private void MostrarFasesReloj(String hora)
+    {
+        if (hora == "08:00")
+        {
+            seisManyana.gameObject.SetActive(false);
+            ocho.gameObject.SetActive(true);
+        }
+        
+        else if (hora == "10:00")
+        {
+            ocho.gameObject.SetActive(false);
+            diez.gameObject.SetActive(true);
+        }
+
+        else if (hora == "12:00")
+        {
+            diez.gameObject.SetActive(false);
+            doce.gameObject.SetActive(true);
+        }
+
+        else if (hora == "14:00")
+        {
+            doce.gameObject.SetActive(false);
+            dos.gameObject.SetActive(true);
+        }
+
+        else if (hora == "16:00")
+        {
+            dos.gameObject.SetActive(false);
+            cuatro.gameObject.SetActive(true);
+        }
+
+        else if (hora == "18:00")
+        {
+            cuatro.gameObject.SetActive(false);
+            seisTarde.gameObject.SetActive(true);
+        }
+
+
+    }
+
+
+
 }
+
