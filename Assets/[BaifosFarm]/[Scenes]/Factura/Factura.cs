@@ -18,7 +18,8 @@ public class Factura : MonoBehaviour
     private int numCabrasBlancas;
     private int numCabrasNegras;
 
-    CantidadCabrasAtardecer cantidadCabrasAtardecer;
+    //CantidadCabrasAtardecer cantidadCabrasAtardecer;
+    
     public static Action OnGameOver; 
     public static Action OnMoneyVictory;
 
@@ -47,11 +48,10 @@ public class Factura : MonoBehaviour
 
     private void Awake()
     {
-        cantidadCabrasAtardecer = CantidadCabrasAtardecer.ObtenerInstancia();
+        //cantidadCabrasAtardecer = CantidadCabrasAtardecer.ObtenerInstancia();
+
         cabrasNuevas = 0;
         PlayerPrefs.SetInt("HenoMejorado", 0);
-        //PlayerPrefs.SetInt("cabrasNegras", 0);
-        // Get valores de PlayerPrefs
         numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
         numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
         dinero = PlayerPrefs.GetInt("DineroTotal", 0);

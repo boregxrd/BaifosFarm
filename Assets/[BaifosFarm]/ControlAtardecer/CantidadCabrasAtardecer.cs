@@ -34,11 +34,6 @@ public class CantidadCabrasAtardecer : MonoBehaviour
         return instance;
     }
 
-    private void Update()
-    {
-        Calcular();
-    }
-
     public void Calcular()
     {
         ObtenerCabrasBlancasVivas();

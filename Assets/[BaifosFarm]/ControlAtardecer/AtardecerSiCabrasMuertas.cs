@@ -5,18 +5,19 @@ using UnityEngine;
 public class AtardecerSiCabrasMuertas : MonoBehaviour
 {
     private Temporizador temporizador;
-
+    CondicionesAvisos condicionesAvisos;
     private List<Cabra> cabrasEscena;
     private DeteccionCabrasNegras deteccionCabras;
+
     /*
     [SerializeField] private List<Cabra> cabrasEscena;
     CantidadCabrasAtardecer cantidadCabrasAtardecer;
     CondicionesAvisos avisos;
-*/
+    */
     private void Awake()
     {
         //cantidadCabrasAtardecer = CantidadCabrasAtardecer.ObtenerInstancia();
-        avisos = FindObjectOfType<CondicionesAvisos>();
+        condicionesAvisos = FindObjectOfType<CondicionesAvisos>();
         temporizador = FindObjectOfType<Temporizador>();
         deteccionCabras = GetComponent<DeteccionCabrasNegras>();
     }

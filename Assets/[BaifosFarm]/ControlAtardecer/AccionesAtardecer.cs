@@ -11,7 +11,7 @@ public class AccionesAtardecer : MonoBehaviour
     private InteraccionesJugador interaccionesJugador;
     private ControlPrecioLeche controlPrecioLeche;
     private ControlAvisos controlAvisos;
-    private CantidadCabrasAtardecer cantidadCabrasAtardecer;
+    //private CantidadCabrasAtardecer cantidadCabrasAtardecer;
 
 
     private void Awake()
