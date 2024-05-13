@@ -1231,6 +1231,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cabrasNegras: []
+--- !u!114 &516568524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516568515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d68e483fbed20cc469bec5ec5566c906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &530809340 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8309582965362440684, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
@@ -2462,6 +2474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5948450414786922847, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
+    - {fileID: 6384196676889972840, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -2471,6 +2484,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 650993937768202787, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       insertIndex: -1
       addedObject: {fileID: 516568522}
+    - targetCorrespondingSourceObject: {fileID: 650993937768202787, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 516568524}
   m_SourcePrefab: {fileID: 100100000, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
 --- !u!1 &753358538
 GameObject:
@@ -22228,6 +22244,10 @@ PrefabInstance:
       propertyPath: m_OverrideSorting
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5080521469667659100, guid: e41cfbb8d7ecf3b44ab845e98d4f35d3, type: 3}
+      propertyPath: dineroTexto
+      value: 
+      objectReference: {fileID: 2099062772}
     - target: {fileID: 5219616467688673368, guid: e41cfbb8d7ecf3b44ab845e98d4f35d3, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
