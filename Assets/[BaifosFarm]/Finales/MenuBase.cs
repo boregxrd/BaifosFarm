@@ -10,7 +10,14 @@ public abstract class MenuBase : MonoBehaviour, IMenu
     public virtual void ShowMenu()
     {
         if (menuObject != null)
-        {   
+        {
+            CanvasGroup canvasGroup = menuObject.GetComponent<CanvasGroup>();
+            if (canvasGroup != null)
+            {
+                canvasGroup.alpha = 1;  // Hacer visible
+                canvasGroup.interactable = true;  // Permitir interacción
+                canvasGroup.blocksRaycasts = true;  // Permitir detección de rayos
+            }
             menuObject.SetActive(true);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
