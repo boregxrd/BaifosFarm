@@ -24,7 +24,7 @@ public class TutorialManager : MonoBehaviour
     private void Awake()
     {
         temporizador = FindObjectOfType<Temporizador>();// Obtener referencia a ControlTiempo en la escena
-        PlayerPrefs.SetInt("TutorialCompleto", 1);
+        //PlayerPrefs.SetInt("TutorialCompleto", 1);
     }
 
     private void Start()

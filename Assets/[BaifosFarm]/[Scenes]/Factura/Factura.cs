@@ -79,7 +79,7 @@ public class Factura : MonoBehaviour
             menuDerrota.ShowMenu();
         }
         
-        else if (dinero >= 150)
+        else if (dinero >= 200)
         {
             Debug.Log("Entra al if de victoria dinero");
             OnMoneyVictory?.Invoke();
