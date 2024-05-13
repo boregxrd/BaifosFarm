@@ -5,6 +5,7 @@ public class MenuDerrota : MenuBase
 {
     protected override void Start()
     {
+        enabled = true;
         base.Start();
         Factura.OnGameOver += ShowMenu;
     }

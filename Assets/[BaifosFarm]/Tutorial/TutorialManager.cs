@@ -23,7 +23,8 @@ public class TutorialManager : MonoBehaviour
 
     private void Awake()
     {
-        temporizador = FindObjectOfType<Temporizador>(); // Obtener referencia a ControlTiempo en la escena
+        temporizador = FindObjectOfType<Temporizador>();// Obtener referencia a ControlTiempo en la escena
+        PlayerPrefs.SetInt("TutorialCompleto", 1);
     }
 
     private void Start()
@@ -31,7 +32,7 @@ public class TutorialManager : MonoBehaviour
 
         if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
         {
-            Debug.Log("Iniciando ShowNextPopUp()");
+            //Debug.Log("Iniciando ShowNextPopUp()");
             ShowNextPopUp();
             CanvasSkipTutorial.SetActive(true);
             botonSkip.interactable = true;
