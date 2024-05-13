@@ -46,10 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 068d0fdb37aa0f54cbda4f09b46e5ebb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controladorAccionesPersonaje: {fileID: 0}
   textoCaja: {fileID: 3847072355661007833}
-  sistemaMonetario: {fileID: 0}
-  PRECIO_POR_BOTELLA: 10
 --- !u!1 &6545345139398252518
 GameObject:
   m_ObjectHideFlags: 0
