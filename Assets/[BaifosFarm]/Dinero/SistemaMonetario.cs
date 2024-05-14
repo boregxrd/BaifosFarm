@@ -1,16 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
+
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SistemaMonetario : MonoBehaviour
 {
     private static SistemaMonetario instance;
     public int totalDinero;
-    private const int PRECIO_HENO_POR_CABRA = 5;
+    public const int PRECIO_HENO_POR_CABRA = 5;
+    [SerializeField] Text dineroTexto;
 
     void Awake()
     {
         totalDinero = PlayerPrefs.GetInt("DineroTotal", 0);
+        dineroTexto.text = totalDinero.ToString();
     }
 
     public void AgregarDinero(int cantidad)
@@ -36,6 +38,15 @@ public class SistemaMonetario : MonoBehaviour
     {
         int numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
         int numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
-        return (numCabrasBlancas + numCabrasNegras) * PRECIO_HENO_POR_CABRA;
+
+        if (numCabrasBlancas + numCabrasNegras == 0)
+        {
+            return 0;
+        } else 
+        {
+            return (numCabrasBlancas + numCabrasNegras) * PRECIO_HENO_POR_CABRA;
+
+        }
+
     }
 }

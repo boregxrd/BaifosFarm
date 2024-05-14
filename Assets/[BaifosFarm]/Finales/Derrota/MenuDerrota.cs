@@ -1,36 +1,18 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuDerrota : MonoBehaviour
+public class MenuDerrota : MenuBase
 {
-    [SerializeField] GameObject objetoMenuDerrota;
-    string NOMBRE_MENU = "Main";
-
-    void Start()
+    protected override void Start()
     {
-        objetoMenuDerrota.SetActive(false);
-        Factura.OnGameOver += MostrarMenuDerrota; 
+        enabled = true;
+        base.Start();
+        Factura.OnGameOver += ShowMenu;
     }
 
-    private void OnDestroy()
+    protected override void OnDestroy()
     {
-        Factura.OnGameOver -= MostrarMenuDerrota;
-    }
-
-    void MostrarMenuDerrota()
-    {
-        if(objetoMenuDerrota != null)
-        {
-            objetoMenuDerrota.SetActive(true);
-        }
-        else
-        {
-            Debug.LogWarning("objetoMenuDerrota es nulo.");
-        }
-    }
-
-    public void VolverAlMenu()
-    {
-        SceneManager.LoadScene(NOMBRE_MENU);
+        base.OnDestroy();
+        Factura.OnGameOver -= ShowMenu;
     }
 }

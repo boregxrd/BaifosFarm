@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -7,21 +8,67 @@ public class TutorialManager : MonoBehaviour
     public ParticleSystem[] particleEffects; // Efectos de partículas para cada paso
 
     private int popUpIndex;
-    [SerializeField] private RecogerAlimento recogerAlimento;
-    [SerializeField] private Alimentar alimentar;
-    [SerializeField] private Ordeniar ordeniar;
+    //[SerializeField] private RecogerAlimento recogerAlimento;
+    //[SerializeField] private Alimentar alimentar;
+    [SerializeField] private ManejarHeno manejarHeno;
+    //[SerializeField] private Ordeniar ordeniar;
     [SerializeField] private DejarLecheEnCaja dejarLecheEnCaja;
     [SerializeField] private Character movimientoPersonaje;
+    [SerializeField] private Jugador jugador;
+    [SerializeField] private ManejarLeche manejarLeche;
+
+    private Temporizador temporizador;
+    public Button botonSkip;
+    public GameObject CanvasSkipTutorial;
+
+    private void Awake()
+    {
+        temporizador = FindObjectOfType<Temporizador>();// Obtener referencia a ControlTiempo en la escena
+        //PlayerPrefs.SetInt("TutorialCompleto", 1);
+    }
 
     private void Start()
     {
-        ShowNextPopUp();
+
+        if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
+        {
+            //Debug.Log("Iniciando ShowNextPopUp()");
+            ShowNextPopUp();
+            CanvasSkipTutorial.SetActive(true);
+            botonSkip.interactable = true;
+        }
+        else if (PlayerPrefs.GetInt("TutorialCompleto") == 1)
+        {
+            CanvasSkipTutorial.SetActive(false);
+            botonSkip.interactable = false;
+            // Ocultar todos los pop-ups
+            foreach (var popup in popUps)
+            {
+                popup.SetActive(false);
+            }
+            // Ocultar todos las particulas
+            foreach (var particles in particleEffects)
+            {
+                particles.Stop(); // Detiene la emisión de partículas
+            }
+            //Debug.Log("Tutorial completado, pop-ups ocultos");
+        }
+
     }
 
     private void Update()
     {
-        // Aqui solo mantienes la logica de verificacion de pasos
-        CheckCompletion();
+        if (PlayerPrefs.GetInt("TutorialCompleto") == 0) 
+        {
+            // Aqui solo mantienes la logica de verificacion de pasos
+            CheckCompletion();
+        }
+        /*if (Input.GetKeyDown(KeyCode.Return))
+        {
+            // Si la tecla ha sido presionada, activa el evento "OnClick" del botón
+            botonSkip.onClick.Invoke();
+        }*/
+
     }
 
     private void ShowNextPopUp()
@@ -74,7 +121,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 1: // Recoger Heno
-                if (recogerAlimento.henoRecogido)
+                if (jugador.HenoRecogido)
                 {
                     CompleteStep();
                     Debug.Log("Recoger Heno completado");
@@ -82,7 +129,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 2: // Alimentar
-                if (alimentar.alimentacionRealizada)
+                if (manejarHeno.alimentacionRealizada)
                 {
                     CompleteStep();
                     Debug.Log("Alimentar completado");
@@ -90,7 +137,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 3: // Recoger Leche
-                if (ordeniar.ordeniarIniciado)
+                if (manejarLeche.ordenyoRealizado)
                 {
                     CompleteStep();
                     Debug.Log("Recoger Leche completado");
@@ -102,7 +149,7 @@ public class TutorialManager : MonoBehaviour
                 {
                     CompleteStep();
                     Debug.Log("Guardar Leche completado");
-                    PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
+                    //PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
                 }
                 break;
 
@@ -138,4 +185,25 @@ public class TutorialManager : MonoBehaviour
         // Mostrar el siguiente pop-up
         ShowNextPopUp();
     }
+
+    public void SkipTutorial()
+    {
+        temporizador.tiempoRestante = 1f;
+        PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
+        Debug.Log("Tutorial completado");
+        CanvasSkipTutorial.SetActive(false);
+        botonSkip.interactable = false;
+        // Ocultar todos los pop-ups
+        foreach (var popup in popUps)
+        {
+            popup.SetActive(false);
+        }
+        // Ocultar todos las particulas
+        foreach (var particles in particleEffects)
+        {
+            particles.Stop(); // Detiene la emisión de partículas
+        }
+        Debug.Log("Tutorial completado, pop-ups ocultos");
+    }
+
 }

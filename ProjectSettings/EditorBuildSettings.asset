@@ -15,6 +15,6 @@ EditorBuildSettings:
     path: Assets/[BaifosFarm]/[Scenes]/Factura.unity
     guid: 21246ff28e77fa04f9d62da215856c05
   - enabled: 1
-    path: Assets/[BaifosFarm]/[Scenes]/Tutorial.unity
-    guid: 588f4c09f271a204495e2a807305dc5a
+    path: Assets/[BaifosFarm]/[Scenes]/PruebaTresCabras.unity
+    guid: 993496f3ecf510240aa122bae911ad3b
   m_configObjects: {}

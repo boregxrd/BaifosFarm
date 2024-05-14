@@ -2,25 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.SceneManagement;
 
 public class DeteccionCabrasNegras : MonoBehaviour
 {
-    private CabraNegra[] cabrasNegras;
+    public CabraNegra[] cabrasNegras;
     private int cabrasNegrasAlFinal = 0;
 
-    public void VerificarSiHayTresCabrasNegrasAlInicio()
-    {
-        cabrasNegras = FindObjectsOfType<CabraNegra>();
-        // Verifica si hay tres cabras negras al inicio
-        Debug.Log("cabras negras al inicio:" + cabrasNegras.Length);
-        if (cabrasNegras.Length >= 3)
-        {
-            int contadorCabrasNegras = cabrasNegras.Length;
-        }
-    }
+    public static Action OnThreeBlackGoatsVictory;
 
     public bool CuidasteLasCabrasNegrasAlFinal()
     {
+        cabrasNegras = FindObjectsOfType<CabraNegra>();
+        
         if (cabrasNegras.Length <= 2) return false;
 
         for (int i = 0; i < cabrasNegras.Length; i++)
@@ -31,11 +25,8 @@ public class DeteccionCabrasNegras : MonoBehaviour
             }
         }
 
-        Debug.Log("cabras negras al final: " + cabrasNegrasAlFinal);
-
         if (cabrasNegrasAlFinal >= 3) 
         {
-            Debug.Log("Tres cabras vivas al final true");
             return true;
         }
         return false;
@@ -47,5 +38,36 @@ public class DeteccionCabrasNegras : MonoBehaviour
         {
             cabra.DestruirCabrasNegrasMuertas();
         }
+    }
+
+    public void InvocarVictoria()
+    {
+        if (CuidasteLasCabrasNegrasAlFinal())
+        {
+            Debug.Log("invocamos");
+            OnThreeBlackGoatsVictory?.Invoke();
+            return;
+        }
+        else
+        {
+            DestruirCabrasCadaUna();
+            SceneManager.LoadScene("Factura");
+        }
+    }
+
+    public int CabrasNegrasMuertas()
+    {
+        cabrasNegras = FindObjectsOfType<CabraNegra>();
+        int cabrasNegrasMuertas = 0;
+
+        for (int i = 0; i < cabrasNegras.Length; i++)
+        {
+            if (cabrasNegras[i].cabraNegraMuerta)
+            {
+                cabrasNegrasMuertas++;
+            }
+        }
+        
+        return cabrasNegrasMuertas;
     }
 }
