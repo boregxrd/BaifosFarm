@@ -534,6 +534,7 @@ GameObject:
   - component: {fileID: 177771679}
   - component: {fileID: 177771678}
   - component: {fileID: 177771682}
+  - component: {fileID: 177771683}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -660,6 +661,21 @@ MonoBehaviour:
   dineroTotal: {fileID: 405902147}
   contadorDinero: {fileID: 1582581177}
   popUpsFactura:
+  - {fileID: 1891385101}
+  - {fileID: 382615536}
+--- !u!114 &177771683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 177771677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05302cc78c743244db6de64925758b4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  popUps:
   - {fileID: 1891385101}
   - {fileID: 382615536}
 --- !u!1 &182221016
