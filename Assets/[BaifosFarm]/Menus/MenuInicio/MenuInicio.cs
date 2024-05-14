@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class MenuInicio : MonoBehaviour
 {
-    public GameObject canvasMenuAjustes; // Referencia al Canvas del menú de ajustes
+    public GameObject canvasMenuAjustes; // Referencia al Canvas del menï¿½ de ajustes
 
     public void Start()
     {
-        canvasMenuAjustes.SetActive(false); // Desactivar el Canvas del menú de ajustes al iniciar
+        canvasMenuAjustes.SetActive(false); // Desactivar el Canvas del menï¿½ de ajustes al iniciar
     }
 
     public void Jugar()
@@ -20,13 +20,14 @@ public class MenuInicio : MonoBehaviour
         PlayerPrefs.SetInt("cabrasNegras", 0);
         PlayerPrefs.SetInt("DineroTotal", 100);
         PlayerPrefs.SetInt("HenoMejorado", 0);
+        PlayerPrefs.SetInt("LecheGuardadas", 0);
         PlayerPrefs.SetInt("TutorialCompleto", 0); // Marcar el tutorial como no completado
         SceneManager.LoadScene("Juego");
     }
 
     public void Ajustes()
     {
-        canvasMenuAjustes.SetActive(true); // Activar el Canvas del menú de ajustes
+        canvasMenuAjustes.SetActive(true); // Activar el Canvas del menï¿½ de ajustes
     }
 
     public void Salir()

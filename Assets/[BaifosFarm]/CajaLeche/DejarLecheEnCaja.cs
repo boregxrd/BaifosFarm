@@ -23,8 +23,6 @@ public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
             manejarLeche = jugador.GetComponent<ManejarLeche>();
             manejarLeche.DejarLeche();
             controladorTextoCaja.GuardarLeche();
-            int leches = controladorTextoCaja.LechesEnCaja;
-            PlayerPrefs.SetInt("LechesGuardadas", leches);
 
             //para el tutorial
             lecheGuardada = true;
