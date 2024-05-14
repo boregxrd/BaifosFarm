@@ -22,7 +22,6 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     [SerializeField] private Image barraOrdenyar;
     [SerializeField] private Image iconoProgreso;
 
-    [SerializeField] private ControladorAccionesPersonaje controladorAccionesPersonaje;
     [SerializeField] private GameObject prefabLeche;
     [SerializeField] private ManejarLeche manejarLeche;
 

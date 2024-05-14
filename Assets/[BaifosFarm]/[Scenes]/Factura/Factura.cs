@@ -69,6 +69,7 @@ public class Factura : MonoBehaviour
         //Debug.Log("COSTOCABRA + COSTOALIMENTAR: " + (COSTO_ALIMENTAR_CABRA + COSTO_CABRA));
         //Debug.Log("Gastodiario: " + sistemaMonetario.CalcularGastoHeno());
         contadorDinero.text = dinero.ToString();
+        cantidadLeche.text = PlayerPrefs.GetInt("LechesGuardadas", 0).ToString();
 
         //Debug.Log("Valor de PlayerPrefs 'TutorialCompleto': " + PlayerPrefs.GetInt("TutorialCompleto"));
 

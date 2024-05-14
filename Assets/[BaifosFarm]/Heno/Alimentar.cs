@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class Alimentar : MonoBehaviour
 {
-    [SerializeField] ControladorAccionesPersonaje controladorAccionesPersonaje;
 
     [SerializeField] private BarraAlimento barraAlimento;
     
