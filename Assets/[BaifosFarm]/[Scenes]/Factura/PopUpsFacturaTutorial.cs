@@ -60,5 +60,14 @@ public class PopUpsFacturaTutorial : MonoBehaviour
         }
         PlayerPrefs.SetInt("TutorialCompleto", 1);
     }
+
+    public void HidePopUps()
+    {
+        // Ocultar todos los pop-ups
+        foreach (var popup in popUps)
+        {
+            popup.SetActive(false);
+        }
+    }
 }
 

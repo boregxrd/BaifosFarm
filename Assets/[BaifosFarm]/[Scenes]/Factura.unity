@@ -473,7 +473,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 177771682}
         m_TargetAssemblyTypeName: Factura, Assembly-CSharp
-        m_MethodName: continuar
+        m_MethodName: Continuar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -660,9 +660,6 @@ MonoBehaviour:
   objCabras: {fileID: 1092371738}
   dineroTotal: {fileID: 405902147}
   contadorDinero: {fileID: 1582581177}
-  popUpsFactura:
-  - {fileID: 1891385101}
-  - {fileID: 382615536}
 --- !u!114 &177771683
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2926,7 +2923,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 177771682}
         m_TargetAssemblyTypeName: Factura, Assembly-CSharp
-        m_MethodName: comprarHenoEspecial
+        m_MethodName: ComprarHenoEspecial
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4021,7 +4018,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 177771682}
         m_TargetAssemblyTypeName: Factura, Assembly-CSharp
-        m_MethodName: comprarCabra
+        m_MethodName: ComprarCabra
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

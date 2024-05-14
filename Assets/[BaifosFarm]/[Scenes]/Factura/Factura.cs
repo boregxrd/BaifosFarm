@@ -7,7 +7,7 @@ using System;
 
 public class Factura : MonoBehaviour
 {
-    public int cabrasNuevas;
+    public int cabrasNuevas = 0;
     public SistemaMonetario sistemaMonetario; // Referencia al Singleton del SistemaMonetario
 
     private const int COSTO_CABRA = 20;
@@ -44,64 +44,55 @@ public class Factura : MonoBehaviour
 
     MenuDerrota menuDerrota;
 
-    public GameObject[] popUpsFactura; // Array para los popups en la escena de factura
     PopUpsFacturaTutorial popUpsFacturaTutorial;
 
     private void Awake()
     {
         //cantidadCabrasAtardecer = CantidadCabrasAtardecer.ObtenerInstancia();
         popUpsFacturaTutorial = GetComponent<PopUpsFacturaTutorial>();
-        cabrasNuevas = 0;
-        PlayerPrefs.SetInt("HenoMejorado", 0);
+        menuDerrota = FindObjectOfType<MenuDerrota>();
+
         numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
         numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
         dinero = PlayerPrefs.GetInt("DineroTotal", 0);
+        PlayerPrefs.SetInt("HenoMejorado", 0);
+
         ActualizarTexto();
-
-
-        menuDerrota = FindObjectOfType<MenuDerrota>();
     }
 
     private void Start()
     {
-        //Debug.Log("cabras negras: " + numCabrasNegras);
-        //Debug.Log("cabras blancas: " + numCabrasBlancas);
-        //Debug.Log("dinero: " + dinero);
-        //Debug.Log("COSTOCABRA + COSTOALIMENTAR: " + (COSTO_ALIMENTAR_CABRA + COSTO_CABRA));
-        //Debug.Log("Gastodiario: " + sistemaMonetario.CalcularGastoHeno());
         contadorDinero.text = dinero.ToString();
-        cantidadLeche.text = PlayerPrefs.GetInt("LechesGuardadas", 0).ToString();
-
-        //Debug.Log("Valor de PlayerPrefs 'TutorialCompleto': " + PlayerPrefs.GetInt("TutorialCompleto"));
-        
+        cantidadLeche.text = PlayerPrefs.GetInt("LechesGuardadas", 0).ToString(); 
 
         if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
         {
             
             StartCoroutine(popUpsFacturaTutorial.ShowPopUps());
         }
-
         else
         {
-            // Ocultar todos los pop-ups
-            foreach (var popup in popUpsFactura)
-            {
-                popup.SetActive(false);
-            }
+            popUpsFacturaTutorial.HidePopUps();
         }
+
+        //Debug.Log("cabras negras: " + numCabrasNegras);
+        //Debug.Log("cabras blancas: " + numCabrasBlancas);
+        //Debug.Log("dinero: " + dinero);
+        //Debug.Log("COSTOCABRA + COSTOALIMENTAR: " + (COSTO_ALIMENTAR_CABRA + COSTO_CABRA));
+        //Debug.Log("Gastodiario: " + sistemaMonetario.CalcularGastoHeno());
     }
 
     private void Update()
     {
-        CondicionesVictoriaDerrota();
+        VerificarCondicionesVictoriaDerrota();
     }
 
-    private void CondicionesVictoriaDerrota()
+    private void VerificarCondicionesVictoriaDerrota()
     {
-        if (isGameOver())
+        if (IsGameOver())
         {
-            //OnGameOver?.Invoke();
-            menuDerrota.ShowMenu();
+            OnGameOver?.Invoke();
+            //menuDerrota.ShowMenu();
         }
 
         else if (dinero >= 200)
@@ -110,7 +101,7 @@ public class Factura : MonoBehaviour
         }
     }
 
-    private bool isGameOver()
+    private bool IsGameOver()
     {
         if ((numCabrasBlancas + numCabrasNegras) == 0 && dinero < COSTO_CABRA + COSTO_ALIMENTAR_CABRA)
         {
@@ -123,7 +114,7 @@ public class Factura : MonoBehaviour
         return false;
     }
 
-    public void comprarCabra()
+    public void ComprarCabra()
     {
         dinero = PlayerPrefs.GetInt("DineroTotal", 0);
         // Verificar si el jugador tiene suficiente dinero para comprar una cabra y si tiene menos de 20 cabras (20 es el limite)
@@ -157,7 +148,7 @@ public class Factura : MonoBehaviour
         }
     }
 
-    public void continuar()
+    public void Continuar()
     {
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
@@ -165,7 +156,7 @@ public class Factura : MonoBehaviour
         sistemaMonetario.RestarDinero(sistemaMonetario.CalcularGastoHeno());
     }
 
-    public void comprarHenoEspecial()
+    public void ComprarHenoEspecial()
     {
         int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado");
         int dineroTotal = PlayerPrefs.GetInt("DineroTotal", 0);
