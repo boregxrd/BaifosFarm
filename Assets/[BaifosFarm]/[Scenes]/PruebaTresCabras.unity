@@ -1837,11 +1837,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 697870283}
   m_CullTransparentMesh: 1
---- !u!1 &703745627 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4206943660840412181, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
-  m_PrefabInstance: {fileID: 1018782739}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -3853,10 +3848,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5888467992093432168, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1581974547}
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4206943660840412181, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1018782752}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
 --- !u!114 &1018782740 stripped
 MonoBehaviour:
@@ -3896,24 +3888,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a528aec56e3d16e45ae9a83461b2ee7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1018782752
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 703745627}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79e07668f9843f446b85aac628605588, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  puntoDeMano: {fileID: 1891372462}
-  objetoEnMano: {fileID: 0}
-  dejarLecheEnCaja: {fileID: 0}
-  movimientoPersonaje: {fileID: 484809034}
-  cabraMuerta: 0
-  miniJuegoOrdenyar: {fileID: 1179347175}
 --- !u!4 &1019404625 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8683750983908447732, guid: e797a0223f592994cb4bbf488010b1cd, type: 3}
@@ -20271,7 +20245,7 @@ PrefabInstance:
     - target: {fileID: 3983467815505877483, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
       propertyPath: controladorAccionesPersonaje
       value: 
-      objectReference: {fileID: 1018782752}
+      objectReference: {fileID: 0}
     - target: {fileID: 4720857595408577858, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
       propertyPath: m_Name
       value: CanvasMiniJuegoOrdenyar
@@ -20614,7 +20588,7 @@ PrefabInstance:
     - target: {fileID: 353295487528020412, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       propertyPath: controladorAccionesPersonaje
       value: 
-      objectReference: {fileID: 1018782752}
+      objectReference: {fileID: 0}
     - target: {fileID: 561599688137733893, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       propertyPath: m_Size.z
       value: 1.811491

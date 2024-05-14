@@ -48,6 +48,10 @@ public class MenuInicio : MonoBehaviour
 
     public void EscenaTresCabrasNegras()
     {
+        PlayerPrefs.SetInt("cabrasBlancas", 0);
+        PlayerPrefs.SetInt("cabrasNegras", 3);
+        PlayerPrefs.SetInt("DineroTotal", 100);
+        PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
         SceneManager.LoadScene("PruebaTresCabras");
     }
 }
