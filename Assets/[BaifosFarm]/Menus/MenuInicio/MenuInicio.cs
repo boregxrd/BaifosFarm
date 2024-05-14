@@ -20,7 +20,7 @@ public class MenuInicio : MonoBehaviour
         PlayerPrefs.SetInt("cabrasNegras", 0);
         PlayerPrefs.SetInt("DineroTotal", 100);
         PlayerPrefs.SetInt("HenoMejorado", 0);
-        PlayerPrefs.SetInt("LecheGuardadas", 0);
+        PlayerPrefs.SetInt("LechesGuardadas", 0);
         PlayerPrefs.SetInt("TutorialCompleto", 0); // Marcar el tutorial como no completado
         SceneManager.LoadScene("Juego");
     }
