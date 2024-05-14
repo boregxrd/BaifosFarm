@@ -15,8 +15,8 @@ public class ControladorTextoCaja : MonoBehaviour
     public void GuardarLeche()
     {
         lechesEnCaja++;
-        PlayerPrefs.SetInt("LechesGuardadas", lechesEnCaja);
         ActualizarTextoCaja();
+        PlayerPrefs.SetInt("LechesGuardadas", lechesEnCaja);
     }
 
     public void ResetearContador()
