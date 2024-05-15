@@ -14,8 +14,6 @@ public class ManejoCompras : MonoBehaviour
 
     private void Awake()
     {
-        //sistemaMonetario = GetComponent<SistemaMonetario>();
-        //sistemaMonetario = FindObjectOfType<SistemaMonetario>();
         uIFactura = GetComponent<UIFactura>();
         numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
         numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);

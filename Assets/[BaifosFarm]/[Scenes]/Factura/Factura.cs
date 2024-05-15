@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using System;
 
 public class Factura : MonoBehaviour
@@ -54,14 +51,6 @@ public class Factura : MonoBehaviour
         }
     }
 
-    public void Continuar()
-    {
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        SceneManager.LoadScene("Juego");
-        manejoCompras.RestarDinero();
-    }
-
     private bool IsGameOver()
     {
         if ((manejoCompras.numCabrasBlancas + manejoCompras.numCabrasNegras) == 0 && uIFactura.dinero < manejoCompras.COSTO_CABRA + manejoCompras.COSTO_ALIMENTAR_CABRA)
@@ -74,6 +63,15 @@ public class Factura : MonoBehaviour
         }
         return false;
     }
+
+    public void Continuar()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        SceneManager.LoadScene("Juego");
+        manejoCompras.RestarDinero();
+    }
+
 }
 
 

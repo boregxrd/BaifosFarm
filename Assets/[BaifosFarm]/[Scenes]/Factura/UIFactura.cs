@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,41 +15,45 @@ public class UIFactura : MonoBehaviour
     [SerializeField] Text dineroTotal;
     [SerializeField] Text contadorDinero;
 
-    public int dinero;
+    
     int sumaDinero;
     int dineroLeche;
     int dineroCabras;
     int dineroHeno;
     int dineroHenoEspecial;
-    public int cabrasNuevas = 0;
     int numCabras;
+    public int dinero;
+    public int cabrasNuevas = 0;
+    RectTransform objHenoEspecialRect;
 
     private void Awake()
     {
         manejoCompras = GetComponent<ManejoCompras>();
+        objHenoEspecialRect = GetComponent<RectTransform>();
         dinero = PlayerPrefs.GetInt("DineroTotal", 0);
         PlayerPrefs.SetInt("HenoMejorado", 0);
-        //numCabras = manejoCompras.numCabrasBlancas + manejoCompras.numCabrasNegras;
-        //dineroHeno = numCabras * manejoCompras.COSTO_ALIMENTAR_CABRA
     }
 
     private void Start()
     {
         contadorDinero.text = dinero.ToString();
-        cantidadLeche.text = PlayerPrefs.GetInt("LechesGuardadas", 0).ToString();
         ActualizarUI();
     }
 
     public void ActualizarUI()
     {
-        // cogemos valores necesarios
-        int leches = PlayerPrefs.GetInt("LechesGuardadas", 0);
-        int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado", 0);
-        numCabras = manejoCompras.numCabrasBlancas + manejoCompras.numCabrasNegras;
-        dineroCabras = cabrasNuevas * manejoCompras.COSTO_CABRA;
+        ActualizarCantidadLeche();
+        ActualizarCostoHeno();
+        ActualizarCabrasCompradas();
+        ActualizarHenoEspecial();
+        ActualizarTotalFactura();
+    }
 
-        // LECHE
+    private void ActualizarCantidadLeche()
+    {
+        int leches = PlayerPrefs.GetInt("LechesGuardadas", 0);
         cantidadLeche.text = "X" + leches.ToString();
+
         if (leches > 0)
         {
             dineroLeche = leches * manejoCompras.GANANCIA_LECHE;
@@ -64,12 +66,15 @@ public class UIFactura : MonoBehaviour
             gananciaLeche.text = "0";
             gananciaLeche.color = Color.black;
         }
+    }
 
-        // HENO
+    private void ActualizarCostoHeno()
+    {
+        numCabras = manejoCompras.numCabrasBlancas + manejoCompras.numCabrasNegras;
+
         if (numCabras > 0)
         {
             dineroHeno = numCabras * manejoCompras.COSTO_ALIMENTAR_CABRA;
-            Debug.Log("dinero heno: " + dineroHeno);
             costoHeno.text = "-" + dineroHeno;
         }
         else
@@ -77,8 +82,12 @@ public class UIFactura : MonoBehaviour
             dineroHeno = 0;
             costoHeno.text = "0";
         }
+    }
 
-        // CABRAS COMPRADAS
+    private void ActualizarCabrasCompradas()
+    {
+        dineroCabras = cabrasNuevas * manejoCompras.COSTO_CABRA;
+
         if (cabrasNuevas >= 1)
         {
             objCabras.SetActive(true);
@@ -92,8 +101,12 @@ public class UIFactura : MonoBehaviour
             objCabras.SetActive(false);
             dineroCabras = 0;
         }
+    }
 
-        // HENO ESPECIAL
+    private void ActualizarHenoEspecial()
+    {
+        int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado", 0);
+
         if (valorHenoMejorado == 0)
         {
             henoEspecial.SetActive(false);
@@ -102,7 +115,6 @@ public class UIFactura : MonoBehaviour
         {
             dineroHenoEspecial = manejoCompras.COSTO_HENO_ESPECIAL;
             henoEspecial.SetActive(true);
-            RectTransform objHenoEspecialRect = objCabras.GetComponent<RectTransform>();
 
             if (cabrasNuevas > 0)
             {
@@ -113,8 +125,10 @@ public class UIFactura : MonoBehaviour
                 objHenoEspecialRect.anchoredPosition = new Vector3(-155, -36, 0);
             }
         }
+    }
 
-        // TOTAL FACTURA
+    private void ActualizarTotalFactura()
+    {
         sumaDinero = dineroLeche - dineroCabras - dineroHeno - dineroHenoEspecial;
 
         if (sumaDinero > 0)
