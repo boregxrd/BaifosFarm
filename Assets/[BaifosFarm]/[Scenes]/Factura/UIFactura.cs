@@ -24,21 +24,22 @@ public class UIFactura : MonoBehaviour
     int dineroHeno;
     int dineroHenoEspecial;
     public int cabrasNuevas = 0;
+    int numCabras;
 
     private void Awake()
     {
         manejoCompras = GetComponent<ManejoCompras>();
         dinero = PlayerPrefs.GetInt("DineroTotal", 0);
         PlayerPrefs.SetInt("HenoMejorado", 0);
-
-        ActualizarUI();
+        //numCabras = manejoCompras.numCabrasBlancas + manejoCompras.numCabrasNegras;
+        //dineroHeno = numCabras * manejoCompras.COSTO_ALIMENTAR_CABRA
     }
 
     private void Start()
     {
         contadorDinero.text = dinero.ToString();
         cantidadLeche.text = PlayerPrefs.GetInt("LechesGuardadas", 0).ToString();
-
+        ActualizarUI();
     }
 
     public void ActualizarUI()
@@ -46,7 +47,8 @@ public class UIFactura : MonoBehaviour
         // cogemos valores necesarios
         int leches = PlayerPrefs.GetInt("LechesGuardadas", 0);
         int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado", 0);
-        int cabras = manejoCompras.numCabrasBlancas + manejoCompras.numCabrasNegras;
+        numCabras = manejoCompras.numCabrasBlancas + manejoCompras.numCabrasNegras;
+        Debug.Log(numCabras);
 
         // LECHE
         cantidadLeche.text = "X" + leches.ToString();
@@ -64,9 +66,10 @@ public class UIFactura : MonoBehaviour
         }
 
         // HENO
-        if (cabras > 0)
+        if (numCabras > 0)
         {
-            dineroHeno = cabras * manejoCompras.COSTO_ALIMENTAR_CABRA;
+            dineroHeno = numCabras * manejoCompras.COSTO_ALIMENTAR_CABRA;
+            Debug.Log("dinero heno: " + dineroHeno);
             costoHeno.text = "-" + dineroHeno;
         }
         else
