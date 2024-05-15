@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ManejoCompras : MonoBehaviour 
 {
-    SistemaMonetario sistemaMonetario;
+    public SistemaMonetario sistemaMonetario;
     UIFactura uIFactura;
     public int numCabrasBlancas;
     public int numCabrasNegras;
@@ -14,7 +14,7 @@ public class ManejoCompras : MonoBehaviour
 
     private void Awake()
     {
-        sistemaMonetario = GetComponent<SistemaMonetario>();
+        //sistemaMonetario = GetComponent<SistemaMonetario>();
         //sistemaMonetario = FindObjectOfType<SistemaMonetario>();
         uIFactura = GetComponent<UIFactura>();
         numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
@@ -28,6 +28,7 @@ public class ManejoCompras : MonoBehaviour
         {
             sistemaMonetario.RestarDinero(COSTO_CABRA);
             AsignarCabra();
+            uIFactura.cabrasNuevas++;
             uIFactura.ActualizarUI();
         }
         else

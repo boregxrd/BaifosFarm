@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 58542806}
   m_Layer: 0
-  m_Name: cabraNueva
+  m_Name: cabraNuevaa
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -537,7 +537,6 @@ GameObject:
   - component: {fileID: 177771685}
   - component: {fileID: 177771684}
   - component: {fileID: 177771683}
-  - component: {fileID: 177771686}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -684,11 +683,12 @@ MonoBehaviour:
   gananciaLeche: {fileID: 651095369}
   costoHeno: {fileID: 155316567}
   costoCabras: {fileID: 1232713975}
-  henoEspecial: {fileID: 1327534351}
-  objCabras: {fileID: 2020489005}
+  henoEspecial: {fileID: 969918430}
+  objCabras: {fileID: 1092371738}
   dineroTotal: {fileID: 405902147}
   contadorDinero: {fileID: 1582581177}
   dinero: 0
+  cabrasNuevas: 0
 --- !u!114 &177771685
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -701,6 +701,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c19edc9be0acd9940b227cecb9d7fdde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sistemaMonetario: {fileID: 2607430924471541632, guid: 1f5dd34bc155bff4a8735e8fcb6b6989, type: 3}
   numCabrasBlancas: 0
   numCabrasNegras: 0
   COSTO_CABRA: 20
@@ -708,20 +709,6 @@ MonoBehaviour:
   COSTO_HENO_ESPECIAL: 20
   GANANCIA_LECHE: 10
   MAX_CABRAS: 20
---- !u!114 &177771686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 177771677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 61bab1eb811ea894fa478c9e3042c446, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  totalDinero: 0
-  dineroTexto: {fileID: 209063611}
 --- !u!1 &182221016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2968,8 +2955,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 177771682}
-        m_TargetAssemblyTypeName: Factura, Assembly-CSharp
+      - m_Target: {fileID: 177771685}
+        m_TargetAssemblyTypeName: ManejoCompras, Assembly-CSharp
         m_MethodName: ComprarHenoEspecial
         m_Mode: 1
         m_Arguments:
@@ -4063,8 +4050,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 177771682}
-        m_TargetAssemblyTypeName: Factura, Assembly-CSharp
+      - m_Target: {fileID: 177771685}
+        m_TargetAssemblyTypeName: ManejoCompras, Assembly-CSharp
         m_MethodName: ComprarCabra
         m_Mode: 1
         m_Arguments:

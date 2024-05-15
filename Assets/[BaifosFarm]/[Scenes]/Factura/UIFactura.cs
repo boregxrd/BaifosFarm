@@ -23,7 +23,7 @@ public class UIFactura : MonoBehaviour
     int dineroCabras;
     int dineroHeno;
     int dineroHenoEspecial;
-    int cabrasNuevas = 0;
+    public int cabrasNuevas = 0;
 
     private void Awake()
     {
