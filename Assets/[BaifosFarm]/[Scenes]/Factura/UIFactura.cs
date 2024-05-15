@@ -48,7 +48,7 @@ public class UIFactura : MonoBehaviour
         int leches = PlayerPrefs.GetInt("LechesGuardadas", 0);
         int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado", 0);
         numCabras = manejoCompras.numCabrasBlancas + manejoCompras.numCabrasNegras;
-        Debug.Log(numCabras);
+        dineroCabras = cabrasNuevas * manejoCompras.COSTO_CABRA;
 
         // LECHE
         cantidadLeche.text = "X" + leches.ToString();
