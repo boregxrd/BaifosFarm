@@ -678,6 +678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c07479d2c2110458f5ae31e13bf1da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sistemaMonetario: {fileID: 2607430924471541632, guid: 1f5dd34bc155bff4a8735e8fcb6b6989, type: 3}
   cantidadLeche: {fileID: 1952543985}
   cantidadCabras: {fileID: 1731277767}
   gananciaLeche: {fileID: 651095369}

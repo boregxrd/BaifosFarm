@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ControlPrecioLeche : MonoBehaviour
@@ -16,7 +14,6 @@ public class ControlPrecioLeche : MonoBehaviour
     public void SumarDineroPorBotella()
     {
         int dineroGanado = controladorTextoCaja.LechesEnCaja * PRECIO_POR_BOTELLA;
-        sistemaMonetario.AgregarDinero(dineroGanado);
         controladorTextoCaja.ResetearContador();
     }
 }

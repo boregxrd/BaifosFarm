@@ -76,6 +76,7 @@ public class Factura : MonoBehaviour
 
 
 //debugs
+
 //Debug.Log("cabras negras: " + numCabrasNegras);
 //Debug.Log("cabras blancas: " + numCabrasBlancas);
 //Debug.Log("dinero: " + dinero);

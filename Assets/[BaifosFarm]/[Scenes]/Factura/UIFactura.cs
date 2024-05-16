@@ -4,6 +4,7 @@ using UnityEngine.UI;
 public class UIFactura : MonoBehaviour
 {
     ManejoCompras manejoCompras;
+    public SistemaMonetario sistemaMonetario;
 
     [SerializeField] Text cantidadLeche;
     [SerializeField] Text cantidadCabras;
@@ -25,6 +26,7 @@ public class UIFactura : MonoBehaviour
     public int dinero;
     public int cabrasNuevas = 0;
     RectTransform objHenoEspecialRect;
+    bool dineroSumadoFlag = false;
 
     private void Awake()
     {
@@ -54,6 +56,12 @@ public class UIFactura : MonoBehaviour
         int leches = PlayerPrefs.GetInt("LechesGuardadas", 0);
         cantidadLeche.text = "X" + leches.ToString();
 
+        if (!dineroSumadoFlag)
+        {
+            sistemaMonetario.AgregarDinero(leches * manejoCompras.GANANCIA_LECHE);
+            dineroSumadoFlag = true;
+        }
+        
         if (leches > 0)
         {
             dineroLeche = leches * manejoCompras.GANANCIA_LECHE;

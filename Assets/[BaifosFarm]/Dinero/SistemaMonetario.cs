@@ -42,11 +42,9 @@ public class SistemaMonetario : MonoBehaviour
         if (numCabrasBlancas + numCabrasNegras == 0)
         {
             return 0;
-        } else 
+        } else
         {
             return (numCabrasBlancas + numCabrasNegras) * PRECIO_HENO_POR_CABRA;
-
         }
-
     }
 }
