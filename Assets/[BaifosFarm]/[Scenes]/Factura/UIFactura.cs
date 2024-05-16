@@ -32,13 +32,12 @@ public class UIFactura : MonoBehaviour
     {
         manejoCompras = GetComponent<ManejoCompras>();
         objHenoEspecialRect = GetComponent<RectTransform>();
-        dinero = PlayerPrefs.GetInt("DineroTotal", 0);
         PlayerPrefs.SetInt("HenoMejorado", 0);
     }
 
     private void Start()
     {
-        contadorDinero.text = dinero.ToString();
+        contadorDinero.text = PlayerPrefs.GetInt("DineroTotal", 0).ToString();
         ActualizarUI();
     }
 
@@ -59,6 +58,7 @@ public class UIFactura : MonoBehaviour
         if (!dineroSumadoFlag)
         {
             sistemaMonetario.AgregarDinero(leches * manejoCompras.GANANCIA_LECHE);
+            dinero = PlayerPrefs.GetInt("DineroTotal", 0);
             dineroSumadoFlag = true;
         }
         

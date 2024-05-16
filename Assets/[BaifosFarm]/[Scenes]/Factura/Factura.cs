@@ -44,11 +44,11 @@ public class Factura : MonoBehaviour
         {
             OnGameOver?.Invoke();
         }
-
         else if (uIFactura.dinero >= 200)
         {
             OnMoneyVictory?.Invoke();
         }
+        Debug.Log(uIFactura.dinero);
     }
 
     private bool IsGameOver()
