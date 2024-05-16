@@ -1822,13 +1822,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d61e6fb35482724db37555eeb51ea94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   anguloInicial: -30
   anguloFinal: 180
+  colorInicial: {r: 1, g: 0.97468936, b: 0.8962264, a: 1}
+  colorFinal: {r: 1, g: 0.73, b: 0, a: 1}
 --- !u!1001 &729033111
 PrefabInstance:
   m_ObjectHideFlags: 0
