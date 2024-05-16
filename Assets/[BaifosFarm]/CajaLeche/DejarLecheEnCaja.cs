@@ -11,9 +11,12 @@ public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
     //para el tutorial
     public bool lecheGuardada = false;
 
+    private Animator animatorDejarLeche;
+
     private void Start()
     {
         controladorTextoCaja = GetComponent<ControladorTextoCaja>();
+        animatorDejarLeche = GetComponent<Animator>();
     }
 
     public void Interactuar(Jugador jugador)
@@ -23,7 +26,7 @@ public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
             manejarLeche = jugador.GetComponent<ManejarLeche>();
             manejarLeche.DejarLeche();
             controladorTextoCaja.GuardarLeche();
-
+            animatorDejarLeche.SetTrigger("DejarLeche");
             //para el tutorial
             lecheGuardada = true;
         }
