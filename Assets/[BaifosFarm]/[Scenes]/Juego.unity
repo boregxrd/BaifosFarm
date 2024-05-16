@@ -1539,6 +1539,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2872550176124107248, guid: efeccd70cd476454ea8b44a60d54525f, type: 3}
   m_PrefabInstance: {fileID: 675541718187225579}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &670911131 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4462689253134597926, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+  m_PrefabInstance: {fileID: 1951563973}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &673667384
 GameObject:
   m_ObjectHideFlags: 0
@@ -21134,6 +21139,10 @@ PrefabInstance:
       propertyPath: m_enableVertexGradient
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4334919850071293380, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4935494787978274824, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       propertyPath: m_TagString
       value: CajaLeche
@@ -21241,6 +21250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lecheGuardada: 0
+  tapaCajaLeche: {fileID: 670911131}
 --- !u!114 &1951563985
 MonoBehaviour:
   m_ObjectHideFlags: 0
