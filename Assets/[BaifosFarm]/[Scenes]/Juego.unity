@@ -22946,16 +22946,32 @@ PrefabInstance:
       value: 6.8
       objectReference: {fileID: 0}
     - target: {fileID: 1261131448790871962, guid: ecba4276a88962f428f2c3e9abe2cfdd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 1261131448790871962, guid: ecba4276a88962f428f2c3e9abe2cfdd, type: 3}
       propertyPath: m_LocalPosition.z
       value: 10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1467807776680026699, guid: ecba4276a88962f428f2c3e9abe2cfdd, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2790369768438542514, guid: ecba4276a88962f428f2c3e9abe2cfdd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3239103827885366463, guid: ecba4276a88962f428f2c3e9abe2cfdd, type: 3}
       propertyPath: m_Name
       value: Suelo
       objectReference: {fileID: 0}
+    - target: {fileID: 4258581381733082053, guid: ecba4276a88962f428f2c3e9abe2cfdd, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5125234403196758031, guid: ecba4276a88962f428f2c3e9abe2cfdd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 21
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5125234403196758031, guid: ecba4276a88962f428f2c3e9abe2cfdd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22963,7 +22979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5125234403196758031, guid: ecba4276a88962f428f2c3e9abe2cfdd, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 18.05
+      value: 18.22
       objectReference: {fileID: 0}
     - target: {fileID: 5125234403196758031, guid: ecba4276a88962f428f2c3e9abe2cfdd, type: 3}
       propertyPath: m_LocalRotation.w
