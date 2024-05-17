@@ -48,7 +48,6 @@ public class Factura : MonoBehaviour
         {
             OnMoneyVictory?.Invoke();
         }
-        Debug.Log(uIFactura.dinero);
     }
 
     private bool IsGameOver()
