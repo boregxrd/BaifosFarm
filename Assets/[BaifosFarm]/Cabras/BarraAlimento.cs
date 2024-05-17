@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,16 +7,18 @@ public class BarraAlimento : MonoBehaviour
     public float ValorMaximo { get { return valorMaximo; } }
 
     private float valorActual = 100f;
-    public float ValorActual { get { return valorActual; }
-    }
+    public float ValorActual { get { return valorActual; } }
 
     [SerializeField] private float velocidadReduccion = 2f;
     private Image barraAlimento;
+
+    private Cabra cabra; // Referencia a la cabra
 
     void Start()
     {
         barraAlimento = GetComponent<Image>();
         barraAlimento.fillAmount = valorActual / valorMaximo;
+        cabra = GetComponentInParent<Cabra>(); // Obtener la referencia a la cabra
     }
 
     void Update()
@@ -41,5 +42,12 @@ public class BarraAlimento : MonoBehaviour
             incremento = valorMaximo - valorActual;
         }
         valorActual += incremento;
+        barraAlimento.fillAmount = valorActual / valorMaximo;
+
+        // Activar partículas de heno si se incrementa la alimentación
+        if (incremento > 0)
+        {
+            cabra.MostrarParticulasHeno();
+        }
     }
 }
