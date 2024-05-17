@@ -12,11 +12,13 @@ public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
     public bool lecheGuardada = false;
 
     private Animator animatorDejarLeche;
+    private ParticleSystem particulasDejarLeche;
 
     private void Start()
     {
         controladorTextoCaja = GetComponent<ControladorTextoCaja>();
         animatorDejarLeche = GetComponent<Animator>();
+        particulasDejarLeche = GetComponent<ParticleSystem>();
     }
 
     public void Interactuar(Jugador jugador)
@@ -27,6 +29,7 @@ public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
             manejarLeche.DejarLeche();
             controladorTextoCaja.GuardarLeche();
             animatorDejarLeche.SetTrigger("DejarLeche");
+            particulasDejarLeche.Play();
             //para el tutorial
             lecheGuardada = true;
         }
