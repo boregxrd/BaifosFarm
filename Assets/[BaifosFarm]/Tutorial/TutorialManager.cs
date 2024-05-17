@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class TutorialManager : MonoBehaviour
 {
     public GameObject[] popUps;
-    public ParticleSystem[] particleEffects; // Efectos de partículas para cada paso
+    public ParticleSystem[] particleEffects; // Efectos de partï¿½culas para cada paso
 
     private int popUpIndex;
     //[SerializeField] private RecogerAlimento recogerAlimento;
@@ -21,6 +21,8 @@ public class TutorialManager : MonoBehaviour
     public Button botonSkip;
     public GameObject CanvasSkipTutorial;
 
+    public Texture2D cursorMano; // Textura del cursor de mano
+    public Texture2D cursorNormal; // Textura del cursor normal
     private void Awake()
     {
         temporizador = FindObjectOfType<Temporizador>();// Obtener referencia a ControlTiempo en la escena
@@ -49,7 +51,7 @@ public class TutorialManager : MonoBehaviour
             // Ocultar todos las particulas
             foreach (var particles in particleEffects)
             {
-                particles.Stop(); // Detiene la emisión de partículas
+                particles.Stop(); // Detiene la emisiï¿½n de partï¿½culas
             }
             //Debug.Log("Tutorial completado, pop-ups ocultos");
         }
@@ -65,7 +67,7 @@ public class TutorialManager : MonoBehaviour
         }
         /*if (Input.GetKeyDown(KeyCode.Return))
         {
-            // Si la tecla ha sido presionada, activa el evento "OnClick" del botón
+            // Si la tecla ha sido presionada, activa el evento "OnClick" del botï¿½n
             botonSkip.onClick.Invoke();
         }*/
 
@@ -91,7 +93,7 @@ public class TutorialManager : MonoBehaviour
 
             // Mostrar el pop-up
             popUps[popUpIndex].SetActive(true);
-            Debug.Log($"Mostrando pop-up {popUpIndex + 1}"); // Mensaje de depuración
+            Debug.Log($"Mostrando pop-up {popUpIndex + 1}"); // Mensaje de depuraciï¿½n
         }
         else
         {
@@ -167,7 +169,7 @@ public class TutorialManager : MonoBehaviour
 
     private void CompleteStep()
     {
-        // Detener el efecto de partículas actual
+        // Detener el efecto de partï¿½culas actual
         particleEffects[popUpIndex].Stop();
 
         // Pasar al siguiente pop-up
@@ -179,7 +181,7 @@ public class TutorialManager : MonoBehaviour
         // Ocultar el pop-up actual
         popUps[popUpIndex].SetActive(false);
 
-        // Incrementar el índice del pop-up
+        // Incrementar el ï¿½ndice del pop-up
         popUpIndex++;
 
         // Mostrar el siguiente pop-up
@@ -201,9 +203,20 @@ public class TutorialManager : MonoBehaviour
         // Ocultar todos las particulas
         foreach (var particles in particleEffects)
         {
-            particles.Stop(); // Detiene la emisión de partículas
+            particles.Stop(); // Detiene la emisiï¿½n de partï¿½culas
         }
         Debug.Log("Tutorial completado, pop-ups ocultos");
     }
 
+    public void OnButtonCursorEnter()
+    {
+        // Cambiar el cursor a mano
+        Cursor.SetCursor(cursorMano, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void OnButtonCursorExit()
+    {
+        // Cambiar el cursor a normal
+        Cursor.SetCursor(cursorNormal, Vector2.zero, CursorMode.Auto);
+    }
 }
