@@ -8,6 +8,8 @@ public class MenuPausa : MonoBehaviour
     [SerializeField] private GameObject objetoMenuPausa;
     [SerializeField] private GameObject GrupoMenuAjustes; // Referencia al Canvas del menú de ajustes
     public bool Pausa = false;
+    public Texture2D cursorMano; // Textura del cursor de mano
+    public Texture2D cursorNormal; // Textura del cursor normal
 
     void Start()
     {
@@ -78,5 +80,17 @@ public class MenuPausa : MonoBehaviour
     public void IrAlMenu(string NombreMenu)
     {
         SceneManager.LoadScene(NombreMenu); // Cargar la escena del menú de inicio del juego
+    }
+
+    public void OnButtonCursorEnter()
+    {
+        // Cambiar el cursor a mano
+        Cursor.SetCursor(cursorMano, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void OnButtonCursorExit()
+    {
+        // Cambiar el cursor a normal
+        Cursor.SetCursor(cursorNormal, Vector2.zero, CursorMode.Auto);
     }
 }
