@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class MenuInicio : MonoBehaviour
 {
     public GameObject canvasMenuAjustes; // Referencia al Canvas del men� de ajustes
-
+    public Texture2D cursorMano; // Textura del cursor de mano
+    public Texture2D cursorNormal; // Textura del cursor normal
     public void Start()
     {
         canvasMenuAjustes.SetActive(false); // Desactivar el Canvas del men� de ajustes al iniciar
@@ -53,5 +54,17 @@ public class MenuInicio : MonoBehaviour
         PlayerPrefs.SetInt("DineroTotal", 100);
         PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
         SceneManager.LoadScene("PruebaTresCabras");
+    }
+
+    public void OnButtonCursorEnter()
+    {
+        // Cambiar el cursor a mano
+        Cursor.SetCursor(cursorMano, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void OnButtonCursorExit()
+    {
+        // Cambiar el cursor a normal
+        Cursor.SetCursor(cursorNormal, Vector2.zero, CursorMode.Auto);
     }
 }
