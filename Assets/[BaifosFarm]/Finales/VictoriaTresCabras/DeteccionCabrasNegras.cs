@@ -14,7 +14,6 @@ public class DeteccionCabrasNegras : MonoBehaviour
     public bool CuidasteLasCabrasNegrasAlFinal()
     {
         cabrasNegras = FindObjectsOfType<CabraNegra>();
-        
         if (cabrasNegras.Length <= 2) return false;
 
         for (int i = 0; i < cabrasNegras.Length; i++)
