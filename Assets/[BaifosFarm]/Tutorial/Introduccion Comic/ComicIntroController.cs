@@ -7,6 +7,7 @@ public class ComicIntroController : MonoBehaviour
     public Image[] comicImages; // Array de im�genes del c�mic
     public Button continueButton; // Bot�n de continuar
 
+    private bool isRunning = true;
     private int currentIndex = 0; // �ndice actual de la imagen mostrada
 
     public Texture2D cursorMano; // Textura del cursor de mano
@@ -30,38 +31,32 @@ public class ComicIntroController : MonoBehaviour
     private IEnumerator ShowComicSequence()
     {
         Time.timeScale = 0f; // Pausar el tiempo del juego
-
+        continueButton.gameObject.SetActive(true);
         foreach (Image image in comicImages)
         {
-            // Mostrar la imagen actual del c�mic
+            if (!isRunning) // Si isRunning es falso, detener la corutina
+                yield break;
+
             image.gameObject.SetActive(true);
-            //Debug.Log($"Mostrada la imagen {currentIndex + 1}");
 
             if (currentIndex == 3)
             {
-                // Mostrar el bot�n de continuar junto con la cuarta imagen
-                continueButton.gameObject.SetActive(true);
-                //Debug.Log("Mostrando bot�n de continuar");
-
-                // Ocultar el puntero del rat�n al mostrar el bot�n de continuar
-                //Cursor.visible = false;
+                continueButton.GetComponentInChildren<Text>().text = "Empezar";
             }
 
             yield return new WaitForSecondsRealtime(3f); // Esperar 3 segundos
-
-            currentIndex++; // Avanzar al siguiente �ndice
+            currentIndex++; // Avanzar al siguiente índice
         }
-
-        // Mostrar el puntero del rat�n cuando se completa la secuencia del c�mic
-        //Cursor.visible = true;
     }
 
-    // M�todo llamado por el bot�n de continuar
+    // Método llamado por el botón de continuar
     public void OnContinueButtonClicked()
     {
-        Debug.Log("Bot�n de continuar pulsado");
+        Debug.Log("Botón de continuar pulsado");
 
-        // Ocultar todas las im�genes y el bot�n de continuar
+        isRunning = false; // Detener la corutina
+
+        // Ocultar todas las imágenes y el botón de continuar
         foreach (Image image in comicImages)
         {
             image.gameObject.SetActive(false);
