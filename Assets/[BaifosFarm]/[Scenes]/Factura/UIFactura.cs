@@ -28,6 +28,9 @@ public class UIFactura : MonoBehaviour
     RectTransform objHenoEspecialRect;
     bool dineroSumadoFlag = false;
 
+    public Texture2D cursorMano; // Textura del cursor de mano
+    public Texture2D cursorNormal; // Textura del cursor normal
+    
     private void Awake()
     {
         manejoCompras = GetComponent<ManejoCompras>();
@@ -154,5 +157,17 @@ public class UIFactura : MonoBehaviour
             dineroTotal.text = "0";
             dineroTotal.color = Color.black;
         }
+    }
+
+    public void OnButtonCursorEnter()
+    {
+        // Cambiar el cursor a mano
+        Cursor.SetCursor(cursorMano, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void OnButtonCursorExit()
+    {
+        // Cambiar el cursor a normal
+        Cursor.SetCursor(cursorNormal, Vector2.zero, CursorMode.Auto);
     }
 }
