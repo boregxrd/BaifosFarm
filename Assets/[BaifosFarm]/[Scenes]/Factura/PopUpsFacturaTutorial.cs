@@ -4,70 +4,60 @@ using UnityEngine.UI;
 
 public class PopUpsFacturaTutorial : MonoBehaviour
 {
-    private static Font buttonFont;
-    public GameObject[] popUps;
+    public GameObject[] popUps; // Array de pop-ups
+    public Button okButton; // Botón de OK que será asignado en el inspector
 
-    private void Awake()
+    private bool isButtonClicked = false; // Flag para saber si el botón ha sido clicado
+
+    private void Start()
     {
-        buttonFont = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+        // Asegurarse de que el botón esté desactivado al inicio
+        //okButton.gameObject.SetActive(false);
+        okButton.onClick.AddListener(OnOkButtonClicked);
     }
 
-    public static GameObject CreateButton(GameObject parent, string buttonName, string buttonText, Vector2 size, Color textColor, int fontSize = 35)
+    // Método que maneja la acción del botón OK
+    private void OnOkButtonClicked()
     {
-        GameObject buttonObject = new GameObject(buttonName);
-        buttonObject.transform.SetParent(parent.transform, false);
-
-        Button button = buttonObject.AddComponent<Button>();
-        RectTransform rectTransform = buttonObject.AddComponent<RectTransform>();
-        rectTransform.sizeDelta = size;
-
-        GameObject textObject = new GameObject("ButtonText");
-        textObject.transform.SetParent(buttonObject.transform, false);
-
-        Text text = textObject.AddComponent<Text>();
-        text.text = buttonText;
-        text.font = buttonFont;
-        text.fontSize = fontSize;
-        text.alignment = TextAnchor.MiddleCenter;
-        text.color = textColor;
-        text.fontStyle = FontStyle.Bold;
-
-        return buttonObject;
+        isButtonClicked = true; // Marcar que el botón ha sido clicado
+        okButton.gameObject.SetActive(false); // Ocultar el botón OK
     }
 
-
+    // Coroutine que maneja cada pop-up individualmente
     private IEnumerator HandlePopUp(GameObject popUp)
     {
-        popUp.SetActive(true);
+        isButtonClicked = false; // Resetear el flag del botón clicado
+        popUp.SetActive(true); // Mostrar el pop-up
+        okButton.gameObject.SetActive(true); // Mostrar el botón OK
 
-        GameObject okButtonObject = PopUpsFacturaTutorial.CreateButton(
-            popUp, "OKButton", ">OK<", new Vector2(160, 50), new Color(22f / 255f, 237f / 255f, 72f / 255f)
-        );
+        Debug.Log($"Mostrado pop-up: {popUp.name}");
 
-        Button okButton = okButtonObject.GetComponent<Button>();
-        okButton.onClick.AddListener(() => Destroy(okButtonObject));
+        // Esperar hasta que el botón OK se haya clicado
+        yield return new WaitUntil(() => isButtonClicked);
 
-        yield return new WaitWhile(() => okButtonObject != null);
+        popUp.SetActive(false); // Ocultar el pop-up
 
-        popUp.SetActive(false);
+        Debug.Log($"Ocultado pop-up: {popUp.name}");
     }
 
+    // Coroutine que muestra todos los pop-ups en secuencia
     public IEnumerator ShowPopUps()
     {
-        foreach ( GameObject popUp in popUps )
+        okButton.gameObject.SetActive(true);
+        foreach (GameObject popUp in popUps)
         {
             yield return StartCoroutine(HandlePopUp(popUp));
         }
-        PlayerPrefs.SetInt("TutorialCompleto", 1);
+        PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
     }
 
+    // Método para ocultar todos los pop-ups
     public void HidePopUps()
     {
-        // Ocultar todos los pop-ups
         foreach (var popup in popUps)
         {
             popup.SetActive(false);
         }
+        okButton.gameObject.SetActive(false); // Asegurarse de que el botón OK esté desactivado
     }
 }
-
