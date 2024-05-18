@@ -34,7 +34,7 @@ public class UIFactura : MonoBehaviour
     private void Awake()
     {
         manejoCompras = GetComponent<ManejoCompras>();
-        objHenoEspecialRect = GetComponent<RectTransform>();
+        objHenoEspecialRect = henoEspecial.GetComponent<RectTransform>();
         PlayerPrefs.SetInt("HenoMejorado", 0);
     }
 
@@ -129,7 +129,7 @@ public class UIFactura : MonoBehaviour
 
             if (cabrasNuevas > 0)
             {
-                objHenoEspecialRect.anchoredPosition = new Vector3(-147, -107, 226);
+                objHenoEspecialRect.anchoredPosition = new Vector3(-147, -85, 226);
             }
             else
             {
