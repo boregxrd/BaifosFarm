@@ -1033,7 +1033,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barraAlimento: {fileID: 9126235875197737451}
   barraLeche: {fileID: 3876734389561628839}
-  bocaCabra: {fileID: 0}
+  bocaCabra: {fileID: 283322462460689921}
   henoParticlesPrefab: {fileID: 6061518067734099879}
 --- !u!114 &-5234261996941271916
 MonoBehaviour:
@@ -1734,6 +1734,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 5359192976079480439}
   m_SourcePrefab: {fileID: 100100000, guid: 906e35a8d2e739841aaa64826c0a6e1f, type: 3}
+--- !u!4 &283322462460689921 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 618564196229298208, guid: 906e35a8d2e739841aaa64826c0a6e1f, type: 3}
+  m_PrefabInstance: {fileID: 827260027715585569}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &556877682970934128 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 906e35a8d2e739841aaa64826c0a6e1f, type: 3}
