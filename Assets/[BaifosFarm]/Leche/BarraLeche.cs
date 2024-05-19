@@ -15,7 +15,7 @@ public class BarraLeche : MonoBehaviour
     }
 
     public float valorAlerta = 30f;
-    [SerializeField] private float velocidadAumento = 10f;
+    private float velocidadAumento = 5f;
     public bool lechePreparada = false;
 
     private Image barraLeche;

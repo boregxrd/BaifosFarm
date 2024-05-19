@@ -9,7 +9,8 @@ public class BarraAlimento : MonoBehaviour
     private float valorActual = 100f;
     public float ValorActual { get { return valorActual; } }
 
-    [SerializeField] private float velocidadReduccion = 2f;
+    [SerializeField]
+    private float velocidadReduccion = 1.7f;
     private Image barraAlimento;
 
     private Cabra cabra; // Referencia a la cabra
@@ -44,7 +45,7 @@ public class BarraAlimento : MonoBehaviour
         valorActual += incremento;
         barraAlimento.fillAmount = valorActual / valorMaximo;
 
-        // Activar partículas de heno si se incrementa la alimentación
+        // Activar partï¿½culas de heno si se incrementa la alimentaciï¿½n
         if (incremento > 0)
         {
             cabra.MostrarParticulasHeno();
