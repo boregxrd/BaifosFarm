@@ -109,6 +109,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7436d497b5079d54895a4598c2fcaddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  henoRecogido: 0
+  lecheRecogida: 0
+  henoParticlesPrefab: {fileID: 7582727586109151205, guid: b48e818c61671ab439daeec1ad802a39, type: 3}
 --- !u!114 &2364680883733909671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,6 +127,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 256
+  distanciaMaxima: 1
 --- !u!114 &8305099644719831740
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jugador: {fileID: 0}
+  ordenyoRealizado: 0
 --- !u!1 &4206943660840412181
 GameObject:
   m_ObjectHideFlags: 0
