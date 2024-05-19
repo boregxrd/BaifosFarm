@@ -19,9 +19,10 @@ public class Temporizador : MonoBehaviour
     private DeteccionCabrasNegras deteccionCabrasNegras;
 
     private DateTime horaInicio;
-    private float duracionDia = 60; 
+    private float duracionDia = 90; 
 
-    public float tiempoRestante = 60; 
+    [SerializeField]
+    public float tiempoRestante = 90; 
     [SerializeField] private Text contadorText;
 
     private void Awake()
