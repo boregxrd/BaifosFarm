@@ -9,6 +9,7 @@ public class CabraNegra : MonoBehaviour
     private NavMeshObstacle obstaculo;
     [SerializeField] BarraAlimento barraAlimento;
     [SerializeField] Temporizador temporizador;
+    Animator animator;
     public bool cabraNegraMuerta = false;
 
     private void Start()
@@ -17,6 +18,7 @@ public class CabraNegra : MonoBehaviour
         targetBaifo = GameObject.Find("Personaje").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         obstaculo = GetComponent<NavMeshObstacle>();
+        animator = GetComponentInChildren<Animator>();
 
         navMeshAgent.enabled = true;
         obstaculo.enabled = false;
@@ -32,6 +34,26 @@ public class CabraNegra : MonoBehaviour
         {
             NoSeguirAlJugador();
         }
+
+        
+
+        if(cabraNegraMuerta)
+        {
+            animator.SetBool("HaMuerto", true);
+        }
+        else
+        {
+            if (navMeshAgent.isStopped)
+            {
+                animator.SetBool("EnMovimiento", false);
+            }
+            else
+            {
+                animator.SetBool("EnMovimiento", true);
+            }
+        }
+
+        
     }
 
     private void SeguirAlJugador()
