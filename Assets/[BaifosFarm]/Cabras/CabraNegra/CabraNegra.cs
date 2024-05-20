@@ -26,7 +26,7 @@ public class CabraNegra : MonoBehaviour
 
     private void Update()
     {
-        if(barraAlimento.ValorActual > 0)
+        if (barraAlimento.ValorActual > 0)
         {
             SeguirAlJugador();
         }
@@ -35,25 +35,21 @@ public class CabraNegra : MonoBehaviour
             NoSeguirAlJugador();
         }
 
-        
-
-        if(cabraNegraMuerta)
+        if (cabraNegraMuerta)
         {
             animator.SetBool("HaMuerto", true);
         }
         else
         {
-            if (navMeshAgent.isStopped)
-            {
-                animator.SetBool("EnMovimiento", false);
-            }
-            else
+            if (navMeshAgent.enabled && navMeshAgent.velocity.magnitude > 0.1f)
             {
                 animator.SetBool("EnMovimiento", true);
             }
+            else
+            {
+                animator.SetBool("EnMovimiento", false);
+            }
         }
-
-        
     }
 
     private void SeguirAlJugador()
