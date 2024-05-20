@@ -15,9 +15,16 @@ public class MovimientoCamion : MonoBehaviour
 
     public event Action CamionLlegoADestino;
 
+    Animator animator;
+
+    private void Awake() {
+        animator = GetComponentInChildren<Animator>();
+    }
+
     public IEnumerator EmpezarMovimiento()
     {
         enMovimiento = true;
+        animator.SetTrigger("moviendose");
         while (enMovimiento)
         {
             yield return null;
