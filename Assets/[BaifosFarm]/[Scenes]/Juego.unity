@@ -2818,6 +2818,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Personaje
       objectReference: {fileID: 0}
+    - target: {fileID: 2362205511153037576, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: velocidad
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362205511153037576, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: velocidadGiro
+      value: 720
+      objectReference: {fileID: 0}
     - target: {fileID: 2364221436971311951, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: m_Enabled
       value: 0
