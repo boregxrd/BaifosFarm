@@ -74,12 +74,6 @@ public class CabraNegra : MonoBehaviour
         obstaculo.enabled = true;
         animator.SetBool("EnMovimiento", false);
         animator.SetTrigger("HaMuerto");
-        StartCoroutine(PlayAnimacionMuerte());
-    }
-
-    private IEnumerator PlayAnimacionMuerte()
-    { 
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
         muerteRealizada = true;
     }
 }
