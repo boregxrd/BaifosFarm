@@ -36,7 +36,7 @@ public class MuerteCabraNegra : MonoBehaviour
         gameObject.layer = nuevaLayerMask;
         //cabraNormal.SetActive(false);
         //cabraMuerta.SetActive(true);
-        //transform.GetChild(2).gameObject.SetActive(false);
+        transform.GetChild(2).gameObject.SetActive(false);
         int negrasAntesDeMorir = PlayerPrefs.GetInt("cabrasNegras", 0);
         PlayerPrefs.SetInt("cabrasNegras", negrasAntesDeMorir - 1);
         cabraNegra.cabraNegraMuerta = true;

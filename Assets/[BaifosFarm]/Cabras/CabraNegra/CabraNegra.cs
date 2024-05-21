@@ -73,7 +73,7 @@ public class CabraNegra : MonoBehaviour
         navMeshAgent.enabled = false;
         obstaculo.enabled = true;
         animator.SetBool("EnMovimiento", false);
-        animator.Play("Muerte", 0, 0);
+        animator.SetTrigger("HaMuerto");
         StartCoroutine(PlayAnimacionMuerte());
     }
 
