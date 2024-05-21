@@ -1,6 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class CabraNegra : MonoBehaviour
 {
@@ -11,6 +11,7 @@ public class CabraNegra : MonoBehaviour
     [SerializeField] Temporizador temporizador;
     Animator animator;
     public bool cabraNegraMuerta = false;
+    private bool muerteRealizada = false;
 
     private void Start()
     {
@@ -26,7 +27,7 @@ public class CabraNegra : MonoBehaviour
 
     private void Update()
     {
-        if (barraAlimento.ValorActual > 0)
+        if (barraAlimento.ValorActual > 0 && !cabraNegraMuerta)
         {
             SeguirAlJugador();
         }
@@ -37,7 +38,10 @@ public class CabraNegra : MonoBehaviour
 
         if (cabraNegraMuerta)
         {
-            animator.SetBool("HaMuerto", true);
+            if (!muerteRealizada)
+            {
+                Muerte();
+            }
         }
         else
         {
@@ -70,6 +74,23 @@ public class CabraNegra : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
 
+    private void Muerte()
+    {
+        //navMeshAgent.isStopped = true;
+        navMeshAgent.enabled = false;
+
+        animator.SetBool("EnMovimiento", false);
+        animator.SetTrigger("HaMuerto");
+
+        muerteRealizada = true;
+
+        StartCoroutine(DesactivarAnimator());
+    }
+
+    private IEnumerator DesactivarAnimator()
+    {
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        animator.enabled = false;
+    }
 }
