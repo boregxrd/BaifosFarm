@@ -10,6 +10,8 @@ public class ManejarHeno : MonoBehaviour
     // Para el tutorial
     public bool alimentacionRealizada = false;
 
+    [SerializeField] ParticleSystem particulasHeno; 
+
     private void Start()
     {
         jugador = GetComponent<Jugador>();
@@ -40,27 +42,29 @@ public class ManejarHeno : MonoBehaviour
 
     private void MostrarParticulasHeno()
     {
-        if (jugador.HenoParticlesPrefab != null)
-        {
-            var particles = Instantiate(jugador.HenoParticlesPrefab, jugador.Mano.position, Quaternion.identity);
-            particles.transform.SetParent(jugador.Mano);
+        // if (jugador.HenoParticlesPrefab != null)
+        // {
+        //     var particles = Instantiate(jugador.HenoParticlesPrefab, jugador.Mano.position, Quaternion.identity);
+        //     particles.transform.SetParent(jugador.Mano);
 
-            // Ajustar la escala de las partículas
-            particles.transform.localScale = Vector3.one * 0.3f;
+        //     // Ajustar la escala de las partï¿½culas
+        //     particles.transform.localScale = Vector3.one * 0.3f;
 
-            var particleSystem = particles.GetComponent<ParticleSystem>();
-            if (particleSystem != null)
-            {
-                particleSystem.Play();
-                StartCoroutine(StopParticles(particleSystem, 0.5f));
-            }
-        }
+        //     var particleSystem = particles.GetComponent<ParticleSystem>();
+        //     if (particleSystem != null)
+        //     {
+        //         particleSystem.Play();
+        //         StartCoroutine(StopParticles(particleSystem, 0.5f));
+        //     }
+        // }
+
+        particulasHeno.Play();
     }
 
     private IEnumerator StopParticles(ParticleSystem particleSystem, float delay)
     {
         yield return new WaitForSeconds(delay);
         particleSystem.Stop();
-        Destroy(particleSystem.gameObject, particleSystem.main.startLifetime.constantMax); // Destruir después de que las partículas se hayan detenido
+        Destroy(particleSystem.gameObject, particleSystem.main.startLifetime.constantMax); // Destruir despuï¿½s de que las partï¿½culas se hayan detenido
     }
 }
