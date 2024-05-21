@@ -16,19 +16,17 @@ public class ManejarHeno : MonoBehaviour
 
     [SerializeField] ParticleSystem particulasHeno;
 
-    bool HenoMejorado;
 
     private void Start()
     {
         if (PlayerPrefs.GetInt("HenoMejorado", 0) == 0)
         {
-            HenoMejorado = false;
+            animatorHeno = montonHeno.GetComponentInChildren<Animator>();
         }
-        // else
-        // {
-        //     HenoMejorado = false;
-        // }
-        animatorHeno = montonHeno.GetComponentInChildren<Animator>();
+        else
+        {
+            animatorHeno = montonHenoEspecial.GetComponentInChildren<Animator>();
+        }
         jugador = GetComponent<Jugador>();
     }
 
@@ -58,11 +56,6 @@ public class ManejarHeno : MonoBehaviour
     private void fxMontonHeno()
     {
         animatorHeno.SetTrigger("coger");
-        // else
-        // {
-        //     Animation a = montonHenoEspecial.GetComponentInChildren<Animation>();
-        //     a.Play();
-        // }
         particulasHeno.Play();
     }
 }
