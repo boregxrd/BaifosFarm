@@ -540,6 +540,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraAlimento: {fileID: 1249791375483036549}
+  estaComiendo: 0
 --- !u!1001 &3544188005661839734
 PrefabInstance:
   m_ObjectHideFlags: 0

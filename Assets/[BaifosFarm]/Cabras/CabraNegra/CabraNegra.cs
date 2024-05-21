@@ -36,7 +36,6 @@ public class CabraNegra : MonoBehaviour
         }
         else if (!muerteRealizada)
         {
-            NoSeguirAlJugador();
             Muerte();
         }
     }
@@ -61,12 +60,6 @@ public class CabraNegra : MonoBehaviour
         }
     }
 
-    public void NoSeguirAlJugador()
-    {
-        navMeshAgent.enabled = false;
-        obstaculo.enabled = true;
-    }
-
     public void DestruirCabrasNegrasMuertas()
     {
         if (Quaternion.Euler(0, 0, 180) == transform.rotation && temporizador.tiempoRestante < 1f)
@@ -78,21 +71,15 @@ public class CabraNegra : MonoBehaviour
     private void Muerte()
     {
         navMeshAgent.enabled = false;
+        obstaculo.enabled = true;
         animator.SetBool("EnMovimiento", false);
-        animator.SetTrigger("HaMuerto");
+        animator.Play("Muerte", 0, 0);
         StartCoroutine(PlayAnimacionMuerte());
     }
 
     private IEnumerator PlayAnimacionMuerte()
-    {
-        // Espera hasta que la animación de muerte termine
-        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
-
-        // Desactivar el Animator para detener todas las animaciones
-        animator.enabled = false;
-
-        // Asegurar que la cabra se queda quieta
+    { 
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
         muerteRealizada = true;
     }
 }
