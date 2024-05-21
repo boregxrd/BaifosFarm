@@ -10,8 +10,25 @@ public class ManejarHeno : MonoBehaviour
     // Para el tutorial
     public bool alimentacionRealizada = false;
 
+    Animator animatorHeno;
+    [SerializeField] GameObject montonHeno;
+    [SerializeField] GameObject montonHenoEspecial;
+
+    [SerializeField] ParticleSystem particulasHeno;
+
+    bool HenoMejorado;
+
     private void Start()
     {
+        if (PlayerPrefs.GetInt("HenoMejorado", 0) == 0)
+        {
+            HenoMejorado = false;
+        }
+        // else
+        // {
+        //     HenoMejorado = false;
+        // }
+        animatorHeno = montonHeno.GetComponentInChildren<Animator>();
         jugador = GetComponent<Jugador>();
     }
 
@@ -26,7 +43,7 @@ public class ManejarHeno : MonoBehaviour
         heno.transform.position = mano.position;
         heno.transform.SetParent(mano);
 
-        MostrarParticulasHeno();
+        fxMontonHeno();
     }
 
     public void DejarHeno()
@@ -38,29 +55,14 @@ public class ManejarHeno : MonoBehaviour
         alimentacionRealizada = true;
     }
 
-    private void MostrarParticulasHeno()
+    private void fxMontonHeno()
     {
-        if (jugador.HenoParticlesPrefab != null)
-        {
-            var particles = Instantiate(jugador.HenoParticlesPrefab, jugador.Mano.position, Quaternion.identity);
-            particles.transform.SetParent(jugador.Mano);
-
-            // Ajustar la escala de las partículas
-            particles.transform.localScale = Vector3.one * 0.3f;
-
-            var particleSystem = particles.GetComponent<ParticleSystem>();
-            if (particleSystem != null)
-            {
-                particleSystem.Play();
-                StartCoroutine(StopParticles(particleSystem, 0.5f));
-            }
-        }
-    }
-
-    private IEnumerator StopParticles(ParticleSystem particleSystem, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        particleSystem.Stop();
-        Destroy(particleSystem.gameObject, particleSystem.main.startLifetime.constantMax); // Destruir después de que las partículas se hayan detenido
+        animatorHeno.SetTrigger("coger");
+        // else
+        // {
+        //     Animation a = montonHenoEspecial.GetComponentInChildren<Animation>();
+        //     a.Play();
+        // }
+        particulasHeno.Play();
     }
 }
