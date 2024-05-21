@@ -7,6 +7,7 @@ public class CabraNegraInteracciones : MonoBehaviour, IInteractuable
     private ManejarHeno manejadorHeno;
     private TipoDeHeno tipoDeHeno;
     Animator animator;
+    public bool estaComiendo = false;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class CabraNegraInteracciones : MonoBehaviour, IInteractuable
         {
             manejadorHeno = jugador.transform.GetComponent<ManejarHeno>();
             manejadorHeno.DejarHeno();
+            estaComiendo = true;
             StartCoroutine(ComerAnimacion());
             barraAlimento.incrementarNivelAlimentacion(tipoDeHeno.incremento);
         }
@@ -34,6 +36,7 @@ public class CabraNegraInteracciones : MonoBehaviour, IInteractuable
             yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
             animator.SetBool("RecibeComida", false);
         }
+        estaComiendo = false;
     }
 }
 

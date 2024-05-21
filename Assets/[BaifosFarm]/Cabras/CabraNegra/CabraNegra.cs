@@ -12,6 +12,7 @@ public class CabraNegra : MonoBehaviour
     private Animator animator;
     public bool cabraNegraMuerta = false;
     private bool muerteRealizada = false;
+    CabraNegraInteracciones interacciones;
 
     private void Start()
     {
@@ -20,6 +21,7 @@ public class CabraNegra : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         obstaculo = GetComponent<NavMeshObstacle>();
         animator = GetComponentInChildren<Animator>();
+        interacciones = GetComponent<CabraNegraInteracciones>();
 
         navMeshAgent.enabled = true;
         obstaculo.enabled = false;
@@ -41,7 +43,7 @@ public class CabraNegra : MonoBehaviour
 
     private void ControlAnimacionMovimiento()
     {
-        if (navMeshAgent.enabled && navMeshAgent.velocity.magnitude > 0.1f)
+        if (navMeshAgent.enabled && navMeshAgent.velocity.magnitude > 0.5f)
         {
             animator.SetBool("EnMovimiento", true);
         }
@@ -53,7 +55,10 @@ public class CabraNegra : MonoBehaviour
 
     private void SeguirAlJugador()
     {
-        navMeshAgent.SetDestination(targetBaifo.position);
+        if(!interacciones.estaComiendo)
+        {
+            navMeshAgent.SetDestination(targetBaifo.position);
+        }
     }
 
     public void NoSeguirAlJugador()
