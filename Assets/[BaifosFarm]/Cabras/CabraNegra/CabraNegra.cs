@@ -9,7 +9,7 @@ public class CabraNegra : MonoBehaviour
     private NavMeshObstacle obstaculo;
     [SerializeField] BarraAlimento barraAlimento;
     [SerializeField] Temporizador temporizador;
-    Animator animator;
+    private Animator animator;
     public bool cabraNegraMuerta = false;
     private bool muerteRealizada = false;
 
@@ -27,32 +27,27 @@ public class CabraNegra : MonoBehaviour
 
     private void Update()
     {
-        if (barraAlimento.ValorActual > 0 && !cabraNegraMuerta)
+        if (!cabraNegraMuerta && barraAlimento.ValorActual > 0)
         {
             SeguirAlJugador();
+            ControlAnimacionMovimiento();
         }
-        else
+        else if (!muerteRealizada)
         {
             NoSeguirAlJugador();
+            Muerte();
         }
+    }
 
-        if (cabraNegraMuerta)
+    private void ControlAnimacionMovimiento()
+    {
+        if (navMeshAgent.enabled && navMeshAgent.velocity.magnitude > 0.1f)
         {
-            if (!muerteRealizada)
-            {
-                Muerte();
-            }
+            animator.SetBool("EnMovimiento", true);
         }
         else
         {
-            if (navMeshAgent.enabled && navMeshAgent.velocity.magnitude > 0.1f)
-            {
-                animator.SetBool("EnMovimiento", true);
-            }
-            else
-            {
-                animator.SetBool("EnMovimiento", false);
-            }
+            animator.SetBool("EnMovimiento", false);
         }
     }
 
@@ -77,20 +72,22 @@ public class CabraNegra : MonoBehaviour
 
     private void Muerte()
     {
-        //navMeshAgent.isStopped = true;
         navMeshAgent.enabled = false;
-
         animator.SetBool("EnMovimiento", false);
         animator.SetTrigger("HaMuerto");
-
-        muerteRealizada = true;
-
-        StartCoroutine(DesactivarAnimator());
+        StartCoroutine(PlayAnimacionMuerte());
     }
 
-    private IEnumerator DesactivarAnimator()
+    private IEnumerator PlayAnimacionMuerte()
     {
-        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length + animator.GetCurrentAnimatorStateInfo(0).normalizedTime);
+        // Espera hasta que la animación de muerte termine
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length);
+
+        // Desactivar el Animator para detener todas las animaciones
         animator.enabled = false;
+
+        // Asegurar que la cabra se queda quieta
+        muerteRealizada = true;
     }
 }
