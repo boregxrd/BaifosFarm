@@ -35,6 +35,7 @@ public class TipoDeHeno : MonoBehaviour
         }
         else
         {
-            ActivarHenoNormal();        }
+            ActivarHenoNormal();
         }
+    }
 }

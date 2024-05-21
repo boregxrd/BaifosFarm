@@ -10,10 +10,25 @@ public class ManejarHeno : MonoBehaviour
     // Para el tutorial
     public bool alimentacionRealizada = false;
 
-    [SerializeField] ParticleSystem particulasHeno; 
+    Animator animatorHeno;
+    [SerializeField] GameObject montonHeno;
+    [SerializeField] GameObject montonHenoEspecial;
+
+    [SerializeField] ParticleSystem particulasHeno;
+
+    bool HenoMejorado;
 
     private void Start()
     {
+        if (PlayerPrefs.GetInt("HenoMejorado", 0) == 0)
+        {
+            HenoMejorado = false;
+        }
+        // else
+        // {
+        //     HenoMejorado = false;
+        // }
+        animatorHeno = montonHeno.GetComponentInChildren<Animator>();
         jugador = GetComponent<Jugador>();
     }
 
@@ -28,7 +43,7 @@ public class ManejarHeno : MonoBehaviour
         heno.transform.position = mano.position;
         heno.transform.SetParent(mano);
 
-        MostrarParticulasHeno();
+        fxMontonHeno();
     }
 
     public void DejarHeno()
@@ -40,31 +55,14 @@ public class ManejarHeno : MonoBehaviour
         alimentacionRealizada = true;
     }
 
-    private void MostrarParticulasHeno()
+    private void fxMontonHeno()
     {
-        // if (jugador.HenoParticlesPrefab != null)
+        animatorHeno.SetTrigger("coger");
+        // else
         // {
-        //     var particles = Instantiate(jugador.HenoParticlesPrefab, jugador.Mano.position, Quaternion.identity);
-        //     particles.transform.SetParent(jugador.Mano);
-
-        //     // Ajustar la escala de las part�culas
-        //     particles.transform.localScale = Vector3.one * 0.3f;
-
-        //     var particleSystem = particles.GetComponent<ParticleSystem>();
-        //     if (particleSystem != null)
-        //     {
-        //         particleSystem.Play();
-        //         StartCoroutine(StopParticles(particleSystem, 0.5f));
-        //     }
+        //     Animation a = montonHenoEspecial.GetComponentInChildren<Animation>();
+        //     a.Play();
         // }
-
         particulasHeno.Play();
-    }
-
-    private IEnumerator StopParticles(ParticleSystem particleSystem, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        particleSystem.Stop();
-        Destroy(particleSystem.gameObject, particleSystem.main.startLifetime.constantMax); // Destruir despu�s de que las part�culas se hayan detenido
     }
 }
