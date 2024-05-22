@@ -64,7 +64,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Idle
       takeName: Take 001
-      internalID: 9067093048684652814
+      internalID: -998496362607748373
       firstFrame: 120
       lastFrame: 290
       wrapMode: 0
@@ -93,7 +93,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Ordenyada
       takeName: Take 001
-      internalID: -8481709605947105597
+      internalID: 3060872287085348379
       firstFrame: 300
       lastFrame: 335
       wrapMode: 0
@@ -122,7 +122,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Comiendo
       takeName: Take 001
-      internalID: 1178167638873134046
+      internalID: 6641085478485924818
       firstFrame: 340
       lastFrame: 380
       wrapMode: 0
@@ -151,7 +151,7 @@ ModelImporter:
     - serializedVersion: 16
       name: Comiendo Caminando
       takeName: Take 001
-      internalID: 1950896874197824025
+      internalID: -5059006814000262888
       firstFrame: 40
       lastFrame: 104
       wrapMode: 0
