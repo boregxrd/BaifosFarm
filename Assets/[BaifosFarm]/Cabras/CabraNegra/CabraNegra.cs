@@ -1,6 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
 public class CabraNegra : MonoBehaviour
 {
@@ -9,8 +9,10 @@ public class CabraNegra : MonoBehaviour
     private NavMeshObstacle obstaculo;
     [SerializeField] BarraAlimento barraAlimento;
     [SerializeField] Temporizador temporizador;
-    Animator animator;
+    private Animator animator;
     public bool cabraNegraMuerta = false;
+    private bool muerteRealizada = false;
+    CabraNegraInteracciones interacciones;
 
     private void Start()
     {
@@ -19,6 +21,7 @@ public class CabraNegra : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         obstaculo = GetComponent<NavMeshObstacle>();
         animator = GetComponentInChildren<Animator>();
+        interacciones = GetComponent<CabraNegraInteracciones>();
 
         navMeshAgent.enabled = true;
         obstaculo.enabled = false;
@@ -26,41 +29,35 @@ public class CabraNegra : MonoBehaviour
 
     private void Update()
     {
-        if (barraAlimento.ValorActual > 0)
+        if (!cabraNegraMuerta && barraAlimento.ValorActual > 0)
         {
             SeguirAlJugador();
+            ControlAnimacionMovimiento();
         }
-        else
+        else if (!muerteRealizada)
         {
-            NoSeguirAlJugador();
+            Muerte();
         }
+    }
 
-        if (cabraNegraMuerta)
+    private void ControlAnimacionMovimiento()
+    {
+        if (navMeshAgent.enabled && navMeshAgent.velocity.magnitude > 0.5f)
         {
-            animator.SetBool("HaMuerto", true);
+            animator.SetBool("EnMovimiento", true);
         }
         else
         {
-            if (navMeshAgent.enabled && navMeshAgent.velocity.magnitude > 0.1f)
-            {
-                animator.SetBool("EnMovimiento", true);
-            }
-            else
-            {
-                animator.SetBool("EnMovimiento", false);
-            }
+            animator.SetBool("EnMovimiento", false);
         }
     }
 
     private void SeguirAlJugador()
     {
-        navMeshAgent.SetDestination(targetBaifo.position);
-    }
-
-    public void NoSeguirAlJugador()
-    {
-        navMeshAgent.enabled = false;
-        obstaculo.enabled = true;
+        if(!interacciones.estaComiendo)
+        {
+            navMeshAgent.SetDestination(targetBaifo.position);
+        }
     }
 
     public void DestruirCabrasNegrasMuertas()
@@ -70,6 +67,13 @@ public class CabraNegra : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    
 
+    private void Muerte()
+    {
+        navMeshAgent.enabled = false;
+        obstaculo.enabled = true;
+        animator.SetBool("EnMovimiento", false);
+        animator.SetTrigger("HaMuerto");
+        muerteRealizada = true;
+    }
 }

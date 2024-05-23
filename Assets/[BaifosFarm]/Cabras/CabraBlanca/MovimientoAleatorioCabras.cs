@@ -103,8 +103,6 @@ public class MovimientoAleatorioCabras : MonoBehaviour
 
     public void continuarMov(GameObject cabra)
     {
-        animator.SetBool("enMovimiento", true);
-
         NavMeshAgent agente = cabra.transform.GetComponent<NavMeshAgent>();
 
         agente.enabled = true;

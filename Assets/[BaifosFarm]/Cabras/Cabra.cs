@@ -6,10 +6,10 @@ public class Cabra : MonoBehaviour
     private BarraAlimento barraAlimento;
     [SerializeField]
     private BarraLeche barraLeche;
+    
+    private Transform bocaCabra; // Punto de emisiï¿½n de partï¿½culas
     [SerializeField]
-    private Transform bocaCabra; // Punto de emisión de partículas
-    [SerializeField]
-    private GameObject henoParticlesPrefab; // Prefab de partículas de heno
+    private GameObject henoParticlesPrefab; // Prefab de partï¿½culas de heno
 
     private Vector3 posicionCabra;
 
@@ -17,6 +17,7 @@ public class Cabra : MonoBehaviour
 
     private void Awake()
     {
+        bocaCabra = transform.GetChild(0).GetChild(0).GetChild(2);
         posicionCabra = transform.position;
     }
 
@@ -51,10 +52,10 @@ public class Cabra : MonoBehaviour
             var particles = Instantiate(henoParticlesPrefab, bocaCabra.position, Quaternion.identity);            
             particles.transform.SetParent(bocaCabra);
 
-            // Ajustar la escala de las partículas
+            // Ajustar la escala de las partï¿½culas
             particles.transform.localScale = Vector3.one * 0.3f;
 
-            Destroy(particles, 3f); // Destruir las partículas después de 3 segundos
+            Destroy(particles, 3f); // Destruir las partï¿½culas despuï¿½s de 3 segundos
         }
         henoParticlesPrefab.gameObject.SetActive(false);
     }

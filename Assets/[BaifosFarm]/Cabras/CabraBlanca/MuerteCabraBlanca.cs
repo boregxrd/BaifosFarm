@@ -4,12 +4,12 @@ using UnityEngine;
 public class MuerteCabraBlanca : MonoBehaviour
 {
     [SerializeField] private BarraAlimento barraAlimento;
-    [SerializeField] private GameObject muerteCabraPrefab; // Prefab que contiene la animación de muerte
+    [SerializeField] private GameObject muerteCabraPrefab; // Prefab que contiene la animaciï¿½n de muerte
     private bool isDead = false;
 
     private void Start()
     {
-        barraAlimento = transform.GetChild(4).GetChild(0).GetChild(0).GetComponent<BarraAlimento>();
+        barraAlimento = transform.GetComponentInChildren<BarraAlimento>();
     }
 
     private void Update()
@@ -23,20 +23,20 @@ public class MuerteCabraBlanca : MonoBehaviour
     private void Morir()
     {
         isDead = true;
-        // Crear el objeto de muerte de la cabra en la misma posición
+        // Crear el objeto de muerte de la cabra en la misma posiciï¿½n
         GameObject muerteCabra = Instantiate(muerteCabraPrefab, transform.position, Quaternion.identity);
-        // Reducir la escala de la animación
+        // Reducir la escala de la animaciï¿½n
         muerteCabra.transform.localScale *= 0.5f;
-        // Elevar un poco la animación
+        // Elevar un poco la animaciï¿½n
         muerteCabra.transform.position += Vector3.up * 2f;
-        // Calcular la dirección hacia la cámara del jugador
+        // Calcular la direcciï¿½n hacia la cï¿½mara del jugador
         Vector3 dirToCamera = Camera.main.transform.position - muerteCabra.transform.position;
-        dirToCamera.y = 0f; // Asegurar que la rotación sea plana en el eje Y
-        // Rotar el objeto de muerte de la cabra para que mire hacia la cámara
+        dirToCamera.y = 0f; // Asegurar que la rotaciï¿½n sea plana en el eje Y
+        // Rotar el objeto de muerte de la cabra para que mire hacia la cï¿½mara
         muerteCabra.transform.rotation = Quaternion.LookRotation(dirToCamera);
-        // Iniciar la animación de muerte
+        // Iniciar la animaciï¿½n de muerte
         muerteCabra.GetComponent<Animator>().SetTrigger("Death");
-        // Destruir la cabra blanca después de la animación
+        // Destruir la cabra blanca despuï¿½s de la animaciï¿½n
         Destroy(gameObject);
     }
 }

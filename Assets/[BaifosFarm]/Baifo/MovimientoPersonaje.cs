@@ -6,30 +6,64 @@ using UnityEngine;
 public class Character : MonoBehaviour
 {
 
-    private CharacterController controller;
-    [SerializeField] private float playerSpeed = 2.0f;
-    public Vector3 posicionSpawn  = new Vector3(10f, 0f, 10f);
-    public float rotationSpeed = 10f;
+    CharacterController characterController;
 
-    private void Start()
+    [Header("Movimiento")]
+    [SerializeField] public float velocidad = 8.0f;
+    [SerializeField] public float velocidadGiro = 360.0f;
+    public TiposMovimientosPlatformer tipoMovimiento = TiposMovimientosPlatformer.ambos;
+    private Vector3 moveDirection = Vector3.zero;
+
+    public Vector3 posicionSpawn = new Vector3(10f, 0f, 10f);
+
+    void Start()
     {
-        controller = GetComponent<CharacterController>();
+        characterController = GetComponent<CharacterController>();
         transform.position = posicionSpawn;
     }
 
     void Update()
     {
-        Vector3 move = new Vector3(Input.GetAxisRaw("Horizontal"), 0, Input.GetAxisRaw("Vertical")).normalized;
-
-        if (move != Vector3.zero)
+        switch (tipoMovimiento)
         {
-            // Rotación suave
-            Quaternion targetRotation = Quaternion.LookRotation(move);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-
-            // Movimiento
-            controller.Move(transform.forward * Time.deltaTime * playerSpeed);
+            case TiposMovimientosPlatformer.horizontal:
+                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, 0.0f);
+                break;
+            case TiposMovimientosPlatformer.vertical:
+                moveDirection = new Vector3(0.0f, 0.0f, Input.GetAxis("Vertical"));
+                break;
+            case TiposMovimientosPlatformer.ambos:
+                moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+                break;
         }
+
+        // Normalize moveDirection if not zero to prevent faster diagonal movement
+        if (moveDirection.sqrMagnitude > 1)
+        {
+            moveDirection.Normalize();
+        }
+
+        moveDirection *= velocidad;
+
+        // Movimiento
+        characterController.Move(moveDirection * Time.deltaTime);
+
+        // Rotacion
+        if (moveDirection != Vector3.zero)
+        {
+            Vector3 targetPosition = transform.position + moveDirection;
+            targetPosition.y = transform.position.y;
+            Vector3 positionDelta = targetPosition - transform.position;
+            Quaternion q = Quaternion.LookRotation(positionDelta);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, q, velocidadGiro * Time.deltaTime);
+        }
+    }
+
+    public enum TiposMovimientosPlatformer
+    {
+        horizontal,
+        vertical,
+        ambos
     }
 
     public bool HasMoved()
@@ -45,5 +79,4 @@ public class Character : MonoBehaviour
     {
         enabled = true;
     }
-
 }
