@@ -13,6 +13,7 @@ public class CabraNegra : MonoBehaviour
     public bool cabraNegraMuerta = false;
     private bool muerteRealizada = false;
     CabraNegraInteracciones interacciones;
+    Collider collider;
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class CabraNegra : MonoBehaviour
         obstaculo = GetComponent<NavMeshObstacle>();
         animator = GetComponentInChildren<Animator>();
         interacciones = GetComponent<CabraNegraInteracciones>();
+        collider = GetComponent<Collider>();
 
         navMeshAgent.enabled = true;
         obstaculo.enabled = false;
@@ -74,6 +76,18 @@ public class CabraNegra : MonoBehaviour
         obstaculo.enabled = true;
         animator.SetBool("EnMovimiento", false);
         animator.SetTrigger("HaMuerto");
+        AdjustColliderForDeath();
         muerteRealizada = true;
+    }
+
+    private void AdjustColliderForDeath()
+    {
+        BoxCollider boxCollider = collider as BoxCollider;
+        if (boxCollider != null)
+        {
+            boxCollider.center = new Vector3(-0.9f, 0.4f, 0.18f); 
+            boxCollider.size = new Vector3(0.48f, 0.77f, 1);
+        }
+        Debug.Log("Collider ajustado para el estado de muerte");
     }
 }
