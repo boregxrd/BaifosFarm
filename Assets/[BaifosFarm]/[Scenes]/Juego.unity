@@ -411,11 +411,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa7155796051b734daa718462081dc5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: 0, z: -10}
-  m_XDamping: 1
-  m_YDamping: 1
-  m_ZDamping: 1
+  m_BindingMode: 4
+  m_FollowOffset: {x: -32.3, y: 15.6, z: -16.2}
+  m_XDamping: 0
+  m_YDamping: 0
+  m_ZDamping: 0
   m_AngularDampingMode: 0
   m_PitchDamping: 0
   m_YawDamping: 0
@@ -439,14 +439,14 @@ MonoBehaviour:
   m_LookaheadIgnoreY: 0
   m_HorizontalDamping: 0.5
   m_VerticalDamping: 0.5
-  m_ScreenX: 0.5
-  m_ScreenY: 0.5
+  m_ScreenX: 0.55
+  m_ScreenY: 0.62
   m_DeadZoneWidth: 0
   m_DeadZoneHeight: 0
   m_SoftZoneWidth: 0.8
   m_SoftZoneHeight: 0.8
   m_BiasX: 0
-  m_BiasY: 0
+  m_BiasY: -0.159
   m_CenterOnActivate: 1
 --- !u!114 &162794657
 MonoBehaviour:
@@ -3976,8 +3976,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20144157, y: 0.54780114, z: -0.13789329, w: 0.80020046}
-  m_LocalPosition: {x: -23.676186, y: 23.167946, z: -8.555653}
+  m_LocalRotation: {x: 0.1605893, y: 0.50642794, z: -0.096625865, w: 0.8416682}
+  m_LocalPosition: {x: -32.3, y: 15.6, z: -16.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3995,8 +3995,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f1d6e7dbf0dad94482a943b3d4f7851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _offset: {x: 0, y: 0, z: 0}
   target: {fileID: 232572231}
   smoothTime: 0.2
+  _currentVelocity: {x: 0, y: 0, z: 0}
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7704,8 +7706,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2078499762}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20144157, y: 0.54780114, z: -0.13789329, w: 0.80020046}
-  m_LocalPosition: {x: -44.261482, y: 24.221325, z: -15.327603}
+  m_LocalRotation: {x: 0.1605893, y: 0.50642794, z: -0.096625865, w: 0.8416682}
+  m_LocalPosition: {x: -52.885296, y: 16.653381, z: -22.97195}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7730,8 +7732,8 @@ MonoBehaviour:
   m_StreamingVersion: 20170927
   m_Priority: 10
   m_StandbyUpdate: 2
-  m_LookAt: {fileID: 0}
-  m_Follow: {fileID: 0}
+  m_LookAt: {fileID: 232572231}
+  m_Follow: {fileID: 232572231}
   m_Lens:
     FieldOfView: 60.000004
     OrthographicSize: 5
