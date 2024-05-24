@@ -20,7 +20,7 @@ namespace LowPolyWater
         static Camera lastUsedCam;
 
         //Generated plane meshes are saved and loaded from Plane Meshes folder (you can change it to whatever you want)
-        public static string assetSaveLocation = "Assets/Low Poly Water/Plane Meshes/";
+        public static string assetSaveLocation = "Assets/Low_Poly_Water/Plane_Meshes/";
 
         [MenuItem("GameObject/LowPoly Water/Generate Water Plane...")]
         static void CreateWizard()
