@@ -25,9 +25,12 @@ public class Temporizador : MonoBehaviour
     public float tiempoRestante = 90; 
     [SerializeField] private Text contadorText;
 
+    [SerializeField] GraneroInicio graneroInicio;
+
     private void Awake()
     {
         IniciarCuentaRegresiva();
+        graneroInicio.activarGallo();
         deteccionCabrasNegras = gameObject.AddComponent<DeteccionCabrasNegras>();
     }
 

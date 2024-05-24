@@ -490,7 +490,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barraAlimento: {fileID: 1249791375483036549}
   barraLeche: {fileID: 0}
-  bocaCabra: {fileID: 975909083846299273}
   henoParticlesPrefab: {fileID: 6037225920840432895}
 --- !u!208 &8671757947354089879
 NavMeshObstacle:
@@ -521,8 +520,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   barraAlimento: {fileID: 0}
-  cabraNormal: {fileID: 919132149155446097, guid: 84fa149da80d2fe4cbb58efdab5d525f, type: 3}
-  cabraMuerta: {fileID: 8118679793982387589}
   nuevaLayerMask:
     serializedVersion: 2
     m_Bits: 1
@@ -673,11 +670,6 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 6507262701341881332}
   m_SourcePrefab: {fileID: 100100000, guid: 84fa149da80d2fe4cbb58efdab5d525f, type: 3}
---- !u!4 &975909083846299273 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4369718773873172479, guid: 84fa149da80d2fe4cbb58efdab5d525f, type: 3}
-  m_PrefabInstance: {fileID: 3544188005661839734}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3937770379012077213 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 84fa149da80d2fe4cbb58efdab5d525f, type: 3}
@@ -1069,11 +1061,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a6d7cbf5d31b2c4987d66d17fb7fe6b, type: 3}
---- !u!1 &8118679793982387589 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2a6d7cbf5d31b2c4987d66d17fb7fe6b, type: 3}
-  m_PrefabInstance: {fileID: 8965032519581501652}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8926285019778281279 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2a6d7cbf5d31b2c4987d66d17fb7fe6b, type: 3}
