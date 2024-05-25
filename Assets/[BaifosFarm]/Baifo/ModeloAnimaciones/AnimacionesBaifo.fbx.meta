@@ -37,7 +37,7 @@ ModelImporter:
       takeName: Take 001
       internalID: 1827226128182048838
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 100
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -65,8 +65,8 @@ ModelImporter:
       name: CaminarSinObjeto
       takeName: Take 001
       internalID: -998496362607748373
-      firstFrame: 30
-      lastFrame: 43
+      firstFrame: 101
+      lastFrame: 136
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -94,8 +94,8 @@ ModelImporter:
       name: CogerHeno
       takeName: Take 001
       internalID: 3060872287085348379
-      firstFrame: 44
-      lastFrame: 64
+      firstFrame: 138
+      lastFrame: 159
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -123,8 +123,8 @@ ModelImporter:
       name: CaminarConObjeto
       takeName: Take 001
       internalID: 6641085478485924818
-      firstFrame: 65
-      lastFrame: 78
+      firstFrame: 160
+      lastFrame: 195
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -152,8 +152,8 @@ ModelImporter:
       name: IdleConObjeto
       takeName: Take 001
       internalID: -5059006814000262888
-      firstFrame: 79
-      lastFrame: 110
+      firstFrame: 197
+      lastFrame: 297
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -181,8 +181,8 @@ ModelImporter:
       name: DarHenoDejarLeche
       takeName: Take 001
       internalID: 6234510843852800090
-      firstFrame: 111
-      lastFrame: 118
+      firstFrame: 298
+      lastFrame: 305
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -210,8 +210,8 @@ ModelImporter:
       name: Ordenyar
       takeName: Take 001
       internalID: -6788666626592393668
-      firstFrame: 119
-      lastFrame: 135
+      firstFrame: 306
+      lastFrame: 322
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
