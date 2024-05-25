@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class Temporizador : MonoBehaviour
@@ -19,20 +20,38 @@ public class Temporizador : MonoBehaviour
     private DeteccionCabrasNegras deteccionCabrasNegras;
 
     private DateTime horaInicio;
-    private float duracionDia = 90; 
+    private float duracionDia = 90;
 
     [SerializeField]
-    public float tiempoRestante = 90; 
+    public float tiempoRestante = 90;
     [SerializeField] private Text contadorText;
+
+    [SerializeField] PlayableDirector animaticaGallo;
 
     private void Awake()
     {
-        IniciarCuentaRegresiva();
+        StartCoroutine(ProcesoInicio());
         deteccionCabrasNegras = gameObject.AddComponent<DeteccionCabrasNegras>();
+    }
+
+    private IEnumerator ProcesoInicio() {
+        yield return PlayAnimaticaGallo();
+        
+        IniciarCuentaRegresiva();
+    }
+
+    private IEnumerator PlayAnimaticaGallo()
+    {
+        animaticaGallo.Play();
+        while (animaticaGallo.state == PlayState.Playing)
+        {
+            yield return null;
+        }
     }
 
     public void IniciarCuentaRegresiva()
     {
+        Debug.Log("INICIO");
         horaInicio = DateTime.Now;
         StartCoroutine(CuentaRegresiva());
     }
@@ -65,11 +84,11 @@ public class Temporizador : MonoBehaviour
 
     private string ObtenerTemporizadorActual()
     {
-       
-        int horaEnJuego = Mathf.FloorToInt(6 + (1 - tiempoRestante / duracionDia) * 12); 
+
+        int horaEnJuego = Mathf.FloorToInt(6 + (1 - tiempoRestante / duracionDia) * 12);
         if (horaEnJuego >= 18)
         {
-            horaEnJuego = 18; 
+            horaEnJuego = 18;
         }
 
         string horaFormateada = horaEnJuego.ToString("00") + ":00";
@@ -84,7 +103,7 @@ public class Temporizador : MonoBehaviour
             seisManyana.gameObject.SetActive(false);
             ocho.gameObject.SetActive(true);
         }
-        
+
         else if (hora == "10:00")
         {
             ocho.gameObject.SetActive(false);

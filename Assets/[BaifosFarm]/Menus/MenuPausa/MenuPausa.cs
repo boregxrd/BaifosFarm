@@ -14,7 +14,6 @@ public class MenuPausa : MonoBehaviour
     void Start()
     {
         objetoMenuPausa.SetActive(false);
-        GrupoMenuAjustes.SetActive(false); // Desactivar el Canvas del menú de ajustes al iniciar
         Time.timeScale = 1; //el juego se reanuda
     }
 

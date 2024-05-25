@@ -12,6 +12,9 @@ GameObject:
   - component: {fileID: 8795187624510031795}
   - component: {fileID: 4830867766016472560}
   - component: {fileID: 4924002455423102352}
+  - component: {fileID: 5982066734413491517}
+  - component: {fileID: 2841989248415361859}
+  - component: {fileID: 10682000447093317}
   m_Layer: 5
   m_Name: Texto
   m_TagString: Untagged
@@ -35,8 +38,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -214, y: -238}
-  m_SizeDelta: {x: 300, y: 60}
+  m_AnchoredPosition: {x: -250, y: -60}
+  m_SizeDelta: {x: 500, y: 60}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8795187624510031795
 CanvasRenderer:
@@ -59,7 +62,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -101,8 +104,47 @@ MonoBehaviour:
   dos: {fileID: 6544038926589143396}
   cuatro: {fileID: 2169964035769919210}
   seisTarde: {fileID: 177727889768464785}
-  tiempoRestante: 60
+  tiempoRestante: 90
   contadorText: {fileID: 1998156178139999884}
+  animaticaGallo: {fileID: 0}
+--- !u!114 &5982066734413491517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650993937768202787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ad1f2ceaf256be468c62e4911bfeffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  camion: {fileID: 0}
+--- !u!114 &2841989248415361859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650993937768202787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f7283bff1608f4189ccb1ec7f134c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cabrasNegras: []
+--- !u!114 &10682000447093317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650993937768202787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d68e483fbed20cc469bec5ec5566c906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1902374414920727741
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +260,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -20, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2938222889962043480
@@ -608,7 +650,6 @@ GameObject:
   - component: {fileID: 7763340163046609970}
   - component: {fileID: 5676973204847528210}
   - component: {fileID: 5047635723822537221}
-  - component: {fileID: 6384196676889972840}
   m_Layer: 5
   m_Name: CanvasTiempo
   m_TagString: Untagged
@@ -700,18 +741,6 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &6384196676889972840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7203363221026654370}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d68e483fbed20cc469bec5ec5566c906, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8441215646577575766
 GameObject:
   m_ObjectHideFlags: 0
@@ -821,8 +850,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 755.2, y: 278.8}
-  m_SizeDelta: {x: 123.87, y: 43.59}
+  m_AnchoredPosition: {x: 757.6, y: 283.6}
+  m_SizeDelta: {x: 123.87, y: 54}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &6873106314041949278
 CanvasRenderer:
@@ -845,7 +874,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 0.3529412, g: 0.21568628, b: 0.15686275, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -853,11 +882,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    m_Font: {fileID: 12800000, guid: 2e1d0d48bf916e24a9ae0327bef5d4b2, type: 3}
     m_FontSize: 38
-    m_FontStyle: 0
+    m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 3
+    m_MinSize: 0
     m_MaxSize: 45
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -865,6 +894,4 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '
-
-'
+  m_Text: 06:00
