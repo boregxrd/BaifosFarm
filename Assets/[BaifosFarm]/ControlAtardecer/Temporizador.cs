@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.UI;
 
 public class Temporizador : MonoBehaviour
@@ -25,10 +26,20 @@ public class Temporizador : MonoBehaviour
     public float tiempoRestante = 90; 
     [SerializeField] private Text contadorText;
 
+    [SerializeField] PlayableDirector animaticaGallo;	
+
     private void Awake()
     {
+        StartCoroutine(PlayAnimaticaGallo());
         IniciarCuentaRegresiva();
         deteccionCabrasNegras = gameObject.AddComponent<DeteccionCabrasNegras>();
+    }
+
+    private IEnumerator PlayAnimaticaGallo() {
+        animaticaGallo.Play();
+        while(animaticaGallo.state == PlayState.Playing) {
+            yield return null;
+        }
     }
 
     public void IniciarCuentaRegresiva()
