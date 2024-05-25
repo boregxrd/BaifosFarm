@@ -173,7 +173,7 @@ PlayableDirector:
   - key: {fileID: -8159020870169335273, guid: a249ff716a1ccbd469a65e7718d8c246, type: 2}
     value: {fileID: 963194233}
   - key: {fileID: -115299277286021680, guid: a249ff716a1ccbd469a65e7718d8c246, type: 2}
-    value: {fileID: 1574021096689310721}
+    value: {fileID: 1574021096689310723}
   - key: {fileID: -3539563406843549969, guid: a249ff716a1ccbd469a65e7718d8c246, type: 2}
     value: {fileID: 1574021096689310721}
   - key: {fileID: -770454645147231945, guid: a249ff716a1ccbd469a65e7718d8c246, type: 2}
@@ -3124,6 +3124,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5982066734413491517, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
+      propertyPath: camaraJuego
+      value: 
+      objectReference: {fileID: 2078499764}
+    - target: {fileID: 5982066734413491517, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: animaticaCamion
       value: 
       objectReference: {fileID: 68059325}
@@ -3572,7 +3576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819134997}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03938691, y: 0.61767095, z: -0.030997675, w: 0.7848379}
+  m_LocalRotation: {x: 0.039386902, y: 0.6176709, z: -0.030997664, w: 0.7848379}
   m_LocalPosition: {x: -7, y: 7, z: 3.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -8067,6 +8071,11 @@ Animator:
 --- !u!4 &1574021096689310722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7465909038655029081, guid: 51e72b2c122020d46a20b6f8534f46f0, type: 3}
+  m_PrefabInstance: {fileID: 1574021096689310719}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1574021096689310723 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6266743444070805373, guid: 51e72b2c122020d46a20b6f8534f46f0, type: 3}
   m_PrefabInstance: {fileID: 1574021096689310719}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1997526313015578739 stripped

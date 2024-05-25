@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Cinemachine;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,7 @@ public class AccionesAtardecer : MonoBehaviour
     private ControlPrecioLeche controlPrecioLeche;
     private ControlAvisos controlAvisos;
     [SerializeField] PlayableDirector animaticaCamion;
+    [SerializeField] CinemachineVirtualCamera camaraJuego;
     //private CantidadCabrasAtardecer cantidadCabrasAtardecer;
 
 
@@ -38,9 +40,11 @@ public class AccionesAtardecer : MonoBehaviour
     private IEnumerator AnimaticaCamion()
     {
         animaticaCamion.Play();
+        camaraJuego.enabled = false;
         while (animaticaCamion.state == PlayState.Playing) {
             yield return null;
         }
+
     }
 
     private void EjecutarAccionesRestantes()
