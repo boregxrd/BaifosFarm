@@ -40,18 +40,22 @@ public class ManejarHeno : MonoBehaviour
 
         jugador.HenoRecogido = true;
         heno = Instantiate(prefabheno);
+        
+        animator.SetTrigger("heno");
+        fxMontonHeno();
 
         heno.transform.position = mano.position;
         heno.transform.SetParent(mano);
 
-        animator.SetTrigger("heno");
-        fxMontonHeno();
+        
     }
 
     public void DejarHeno()
     {
         Destroy(heno);
         jugador.HenoRecogido = false;
+
+        animator.SetTrigger("dejarObjeto");
 
         // Para el tutorial
         alimentacionRealizada = true;
