@@ -4323,6 +4323,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4814844835204061785, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.12
+      objectReference: {fileID: 0}
     - target: {fileID: 7309692476549889380, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]
       value: 

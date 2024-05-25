@@ -5,8 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(CharacterController))]
 public class Character : MonoBehaviour
 {
-
+    Jugador jugador;
     CharacterController characterController;
+    Animator animator;
 
     [Header("Movimiento")]
     [SerializeField] public float velocidad = 8.0f;
@@ -20,6 +21,8 @@ public class Character : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         transform.position = posicionSpawn;
+        animator = transform.GetChild(0).GetComponent<Animator>();
+        jugador = GetComponent<Jugador>();
     }
 
     void Update()
@@ -47,6 +50,15 @@ public class Character : MonoBehaviour
 
         // Movimiento
         characterController.Move(moveDirection * Time.deltaTime);
+
+        if (!jugador.LecheRecogida && !jugador.HenoRecogido)
+        {
+            animator.SetBool("moviendose", moveDirection != Vector3.zero);
+        }
+        else if(jugador.LecheRecogida || jugador.HenoRecogido)
+        {
+            animator.SetBool("moviendoseConObjeto", moveDirection != Vector3.zero);
+        }
 
         // Rotacion
         if (moveDirection != Vector3.zero)

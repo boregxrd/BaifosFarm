@@ -6,6 +6,7 @@ public class ManejarHeno : MonoBehaviour
 {
     private Jugador jugador;
     private GameObject heno;
+    private Animator animator;
 
     // Para el tutorial
     public bool alimentacionRealizada = false;
@@ -28,6 +29,8 @@ public class ManejarHeno : MonoBehaviour
             animatorHeno = montonHenoEspecial.GetComponentInChildren<Animator>();
         }
         jugador = GetComponent<Jugador>();
+        animator = transform.GetChild(0).GetComponent<Animator>();
+
     }
 
     public void CogerHeno(GameObject prefabheno, Transform mano)
@@ -37,17 +40,22 @@ public class ManejarHeno : MonoBehaviour
 
         jugador.HenoRecogido = true;
         heno = Instantiate(prefabheno);
+        
+        animator.SetTrigger("heno");
+        fxMontonHeno();
 
         heno.transform.position = mano.position;
         heno.transform.SetParent(mano);
 
-        fxMontonHeno();
+        
     }
 
     public void DejarHeno()
     {
         Destroy(heno);
         jugador.HenoRecogido = false;
+
+        animator.SetTrigger("dejarObjeto");
 
         // Para el tutorial
         alimentacionRealizada = true;
