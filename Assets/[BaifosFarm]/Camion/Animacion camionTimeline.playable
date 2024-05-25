@@ -71,7 +71,7 @@ MonoBehaviour:
     m_PreExtrapolationMode: 0
     m_PostExtrapolationTime: 0
     m_PreExtrapolationTime: 0
-    m_DisplayName: Camara camion
+    m_DisplayName: CamaraCamion
   - m_Version: 1
     m_Start: 0
     m_ClipIn: 0
