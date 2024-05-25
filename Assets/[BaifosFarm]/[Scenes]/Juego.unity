@@ -123,17 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &35173433 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: -8218686273930369799, guid: 51e72b2c122020d46a20b6f8534f46f0, type: 3}
-  m_PrefabInstance: {fileID: 1574021096689310719}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1574021096689310720}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d261724cd24aad04396254bdd3191bab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &68059323
 GameObject:
   m_ObjectHideFlags: 0
@@ -1198,7 +1187,7 @@ Transform:
   m_GameObject: {fileID: 364441132}
   serializedVersion: 2
   m_LocalRotation: {x: 0.07256512, y: 0.37909123, z: -0.029835133, w: 0.9220271}
-  m_LocalPosition: {x: 7.6, y: 7.6, z: -2.1}
+  m_LocalPosition: {x: 9.23, y: 7.23, z: -0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1221,13 +1210,13 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 1
+  m_Priority: 11
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 60.000004
-    OrthographicSize: 5
+    OrthographicSize: 2.4
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -3133,7 +3122,7 @@ PrefabInstance:
     - target: {fileID: 5982066734413491517, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: camion
       value: 
-      objectReference: {fileID: 35173433}
+      objectReference: {fileID: 0}
     - target: {fileID: 5982066734413491517, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: animaticaCamion
       value: 
@@ -3583,7 +3572,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819134997}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.039386902, y: 0.6176709, z: -0.030997664, w: 0.7848379}
+  m_LocalRotation: {x: 0.03938691, y: 0.61767095, z: -0.030997675, w: 0.7848379}
   m_LocalPosition: {x: -7, y: 7, z: 3.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4146,7 +4135,7 @@ Camera:
   far clip plane: 1000
   field of view: 60.000004
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 2.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -4170,8 +4159,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.1605893, y: 0.50642794, z: -0.096625865, w: 0.8416682}
-  m_LocalPosition: {x: -32.3, y: 15.6, z: -16.2}
+  m_LocalRotation: {x: 0.07256512, y: 0.37909123, z: -0.029835133, w: 0.9220271}
+  m_LocalPosition: {x: 9.23, y: 7.23, z: -0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7997,10 +7986,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -8218686273930369799, guid: 51e72b2c122020d46a20b6f8534f46f0, type: 3}
-      propertyPath: camara
-      value: 
-      objectReference: {fileID: 963194227}
     - target: {fileID: 2711920397536686053, guid: 51e72b2c122020d46a20b6f8534f46f0, type: 3}
       propertyPath: m_Name
       value: Camion
