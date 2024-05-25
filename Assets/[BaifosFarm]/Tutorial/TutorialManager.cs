@@ -1,17 +1,14 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UI; // Asegúrate de tener esta directiva
 
 public class TutorialManager : MonoBehaviour
 {
     public GameObject[] popUps;
-    public ParticleSystem[] particleEffects; // Efectos de part�culas para cada paso
+    public ParticleSystem[] particleEffects; // Efectos de partículas para cada paso
 
     private int popUpIndex;
-    //[SerializeField] private RecogerAlimento recogerAlimento;
-    //[SerializeField] private Alimentar alimentar;
     [SerializeField] private ManejarHeno manejarHeno;
-    //[SerializeField] private Ordeniar ordeniar;
     [SerializeField] private DejarLecheEnCaja dejarLecheEnCaja;
     [SerializeField] private Character movimientoPersonaje;
     [SerializeField] private Jugador jugador;
@@ -23,18 +20,16 @@ public class TutorialManager : MonoBehaviour
 
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
+
     private void Awake()
     {
-        temporizador = FindObjectOfType<Temporizador>();// Obtener referencia a ControlTiempo en la escena
-        //PlayerPrefs.SetInt("TutorialCompleto", 1);
+        temporizador = FindObjectOfType<Temporizador>(); // Obtener referencia a ControlTiempo en la escena
     }
 
     private void Start()
     {
-
         if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
         {
-            //Debug.Log("Iniciando ShowNextPopUp()");
             ShowNextPopUp();
             CanvasSkipTutorial.SetActive(true);
             botonSkip.interactable = true;
@@ -48,29 +43,20 @@ public class TutorialManager : MonoBehaviour
             {
                 popup.SetActive(false);
             }
-            // Ocultar todos las particulas
+            // Ocultar todos los efectos de partículas
             foreach (var particles in particleEffects)
             {
-                particles.Stop(); // Detiene la emisi�n de part�culas
+                particles.Stop(); // Detiene la emisión de partículas
             }
-            //Debug.Log("Tutorial completado, pop-ups ocultos");
         }
-
     }
 
     private void Update()
     {
-        if (PlayerPrefs.GetInt("TutorialCompleto") == 0) 
+        if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
         {
-            // Aqui solo mantienes la logica de verificacion de pasos
             CheckCompletion();
         }
-        /*if (Input.GetKeyDown(KeyCode.Return))
-        {
-            // Si la tecla ha sido presionada, activa el evento "OnClick" del bot�n
-            botonSkip.onClick.Invoke();
-        }*/
-
     }
 
     private void ShowNextPopUp()
@@ -80,7 +66,7 @@ public class TutorialManager : MonoBehaviour
         {
             popUp.SetActive(false);
         }
-        // Desactivar los efectos de particulas al inicio
+        // Desactivar los efectos de partículas al inicio
         foreach (var effect in particleEffects)
         {
             effect.Stop();
@@ -88,12 +74,12 @@ public class TutorialManager : MonoBehaviour
 
         if (popUpIndex < popUps.Length)
         {
-            // Activar el efecto de particulas correspondiente
+            // Activar el efecto de partículas correspondiente
             particleEffects[popUpIndex].Play();
 
             // Mostrar el pop-up
             popUps[popUpIndex].SetActive(true);
-            Debug.Log($"Mostrando pop-up {popUpIndex + 1}"); // Mensaje de depuraci�n
+            Debug.Log($"Mostrando pop-up {popUpIndex + 1}"); // Mensaje de depuración
         }
         else
         {
@@ -151,13 +137,6 @@ public class TutorialManager : MonoBehaviour
                 {
                     CompleteStep();
                     Debug.Log("Guardar Leche completado");
-                    //PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
-                }
-                break;
-
-            case 5: // Guardar Leche
-                {
-
                 }
                 break;
 
@@ -166,10 +145,9 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-
     private void CompleteStep()
     {
-        // Detener el efecto de part�culas actual
+        // Detener el efecto de partículas actual
         particleEffects[popUpIndex].Stop();
 
         // Pasar al siguiente pop-up
@@ -181,7 +159,7 @@ public class TutorialManager : MonoBehaviour
         // Ocultar el pop-up actual
         popUps[popUpIndex].SetActive(false);
 
-        // Incrementar el �ndice del pop-up
+        // Incrementar el índice del pop-up
         popUpIndex++;
 
         // Mostrar el siguiente pop-up
@@ -190,7 +168,6 @@ public class TutorialManager : MonoBehaviour
 
     public void SkipTutorial()
     {
-        temporizador.tiempoRestante = 1f;
         PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
         Debug.Log("Tutorial completado");
         CanvasSkipTutorial.SetActive(false);
@@ -200,10 +177,10 @@ public class TutorialManager : MonoBehaviour
         {
             popup.SetActive(false);
         }
-        // Ocultar todos las particulas
+        // Ocultar todos los efectos de partículas
         foreach (var particles in particleEffects)
         {
-            particles.Stop(); // Detiene la emisi�n de part�culas
+            particles.Stop(); // Detiene la emisión de partículas
         }
         Debug.Log("Tutorial completado, pop-ups ocultos");
     }
