@@ -1,16 +1,17 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Playables;
 using UnityEngine.SceneManagement;
 
 public class AccionesAtardecer : MonoBehaviour 
 {
-    [SerializeField] private MovimientoCamion camion;
     private DeteccionCabrasNegras deteccionCabrasNegras;
     private BarrasHandler barrasHandler;
     private InteraccionesJugador interaccionesJugador;
     private ControlPrecioLeche controlPrecioLeche;
     private ControlAvisos controlAvisos;
+    [SerializeField] PlayableDirector animaticaCamion;
     //private CantidadCabrasAtardecer cantidadCabrasAtardecer;
 
 
@@ -21,12 +22,6 @@ public class AccionesAtardecer : MonoBehaviour
         controlPrecioLeche = FindObjectOfType<ControlPrecioLeche>();
         controlAvisos = FindObjectOfType<ControlAvisos>();
         deteccionCabrasNegras = GetComponent<DeteccionCabrasNegras>();
-
-        camion = FindObjectOfType<MovimientoCamion>();
-        if (camion != null)
-        {
-            camion.CamionLlegoADestino += EjecutarAccionesRestantes;
-        }
     }
 
     public IEnumerator EjecutarAccionesAtardecer()
@@ -35,7 +30,17 @@ public class AccionesAtardecer : MonoBehaviour
         barrasHandler.CongelarBarrasCabras();
         controlAvisos.EsconderTodosLosAvisos();
         
-        yield return StartCoroutine(camion.EmpezarMovimiento());
+        yield return StartCoroutine(AnimaticaCamion());
+
+        EjecutarAccionesRestantes();
+    }
+
+    private IEnumerator AnimaticaCamion()
+    {
+        animaticaCamion.Play();
+        while (animaticaCamion.state == PlayState.Playing) {
+            yield return null;
+        }
     }
 
     private void EjecutarAccionesRestantes()

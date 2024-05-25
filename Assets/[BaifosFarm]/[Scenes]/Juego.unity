@@ -3134,6 +3134,10 @@ PrefabInstance:
       propertyPath: camion
       value: 
       objectReference: {fileID: 35173433}
+    - target: {fileID: 5982066734413491517, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
+      propertyPath: animaticaCamion
+      value: 
+      objectReference: {fileID: 68059325}
     - target: {fileID: 7203363221026654370, guid: c77f1e550df06c14db6b9b61b8f84c88, type: 3}
       propertyPath: m_Name
       value: CanvasTiempo
