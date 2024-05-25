@@ -7,6 +7,7 @@ public class Character : MonoBehaviour
 {
 
     CharacterController characterController;
+    Animator animator;
 
     [Header("Movimiento")]
     [SerializeField] public float velocidad = 8.0f;
@@ -20,6 +21,7 @@ public class Character : MonoBehaviour
     {
         characterController = GetComponent<CharacterController>();
         transform.position = posicionSpawn;
+        animator = transform.GetChild(0).GetComponent<Animator>();
     }
 
     void Update()
@@ -47,6 +49,11 @@ public class Character : MonoBehaviour
 
         // Movimiento
         characterController.Move(moveDirection * Time.deltaTime);
+
+        if (animator != null)
+        {
+            animator.SetBool("moviendose", moveDirection != Vector3.zero);
+        }
 
         // Rotacion
         if (moveDirection != Vector3.zero)
