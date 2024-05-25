@@ -4877,7 +4877,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4814844835204061785}
+  - {fileID: 65601336814837570}
   - {fileID: 5888467992093432168}
   - {fileID: 7845364944249158664}
   m_Father: {fileID: 0}
@@ -4999,7 +4999,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a78f17310bf0a4ca8f9483a4c70b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jugador: {fileID: 0}
   ordenyoRealizado: 0
 --- !u!1 &4206943660840412181
 GameObject:
@@ -5092,7 +5091,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 7845364944249158664}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &4997723053812825522
+--- !u!1001 &532455462400882857
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -5106,7 +5105,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.12
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5140,6 +5139,34 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.0001732707
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.08581138
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.67972815
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 1.0559685
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1.0387375
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.79653955
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
       propertyPath: m_Name
       value: AnimacionesBaifo
@@ -5150,26 +5177,26 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5904215935934002395}
+      addedObject: {fileID: 3040327224479136556}
   m_SourcePrefab: {fileID: 100100000, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
---- !u!4 &4814844835204061785 stripped
+--- !u!4 &65601336814837570 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
-  m_PrefabInstance: {fileID: 4997723053812825522}
+  m_PrefabInstance: {fileID: 532455462400882857}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5303572893815668963 stripped
+--- !u!1 &838444402435409400 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
-  m_PrefabInstance: {fileID: 4997723053812825522}
+  m_PrefabInstance: {fileID: 532455462400882857}
   m_PrefabAsset: {fileID: 0}
---- !u!95 &5904215935934002395
+--- !u!95 &3040327224479136556
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5303572893815668963}
+  m_GameObject: {fileID: 838444402435409400}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7845803f74c150841a7661210f5b75c1, type: 2}
