@@ -3576,7 +3576,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819134997}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03938691, y: 0.61767095, z: -0.030997675, w: 0.7848379}
+  m_LocalRotation: {x: 0.039386902, y: 0.6176709, z: -0.030997664, w: 0.7848379}
   m_LocalPosition: {x: -7, y: 7, z: 3.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4139,7 +4139,7 @@ Camera:
   far clip plane: 1000
   field of view: 60.000004
   orthographic: 1
-  orthographic size: 2.4
+  orthographic size: 5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -5894,6 +5894,32 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7209402400777005293, guid: c804f1b73bfdf6247a810346820156d4, type: 3}
   m_PrefabInstance: {fileID: 998527803}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1455184324 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7720204884069914918, guid: b9b8c16da05524a428ff51f10a8dbd27, type: 3}
+  m_PrefabInstance: {fileID: 2386012851728720858}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1455184330
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455184324}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 10, y: 0.1, z: 10}
+  m_Center: {x: -0.000000074505806, y: 0, z: -0.00000028312206}
 --- !u!1 &1473206519
 GameObject:
   m_ObjectHideFlags: 0
@@ -8097,6 +8123,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1479771944886992267, guid: b9b8c16da05524a428ff51f10a8dbd27, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2488352089308149458, guid: b9b8c16da05524a428ff51f10a8dbd27, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.34
@@ -8149,6 +8179,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Escenario
       objectReference: {fileID: 0}
+    - target: {fileID: 7720204884069914918, guid: b9b8c16da05524a428ff51f10a8dbd27, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7720204884069914918, guid: b9b8c16da05524a428ff51f10a8dbd27, type: 3}
+      propertyPath: m_TagString
+      value: Suelo
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3113155642822384988, guid: b9b8c16da05524a428ff51f10a8dbd27, type: 3}
     m_RemovedGameObjects: []
@@ -8157,6 +8195,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4705778681867450921, guid: b9b8c16da05524a428ff51f10a8dbd27, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2386012851728720862}
+    - targetCorrespondingSourceObject: {fileID: 7720204884069914918, guid: b9b8c16da05524a428ff51f10a8dbd27, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1455184330}
   m_SourcePrefab: {fileID: 100100000, guid: b9b8c16da05524a428ff51f10a8dbd27, type: 3}
 --- !u!95 &2386012851728720859 stripped
 Animator:
