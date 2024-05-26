@@ -13,7 +13,7 @@ public class FxCaminar : MonoBehaviour
         collidersPiernas = new List<BoxCollider>();
 
         // buscar piernas
-        GameObject[] piernas = GameObject.FindGameObjectsWithTag("Pierna");
+        GameObject[] piernas = GameObject.FindGameObjectsWithTag("piernaCabra");
 
         // anyadir a la lista solo los BoxColliders de las piernas
         foreach (var pierna in piernas) {
