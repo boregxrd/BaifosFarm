@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8199390648299049833
 Transform:
   m_ObjectHideFlags: 0
@@ -31,7 +31,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 5888467992093432168}
+  m_Father: {fileID: 892908031600250289}
   m_LocalEulerAnglesHint: {x: -90, y: -90, z: 0}
 --- !u!198 &7309692476549889380
 ParticleSystem:
@@ -4878,6 +4878,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 65601336814837570}
+  - {fileID: 8199390648299049833}
   - {fileID: 5888467992093432168}
   - {fileID: 7845364944249158664}
   m_Father: {fileID: 0}
@@ -5400,10 +5401,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 1ccb6ba4c51c0af439e42912e43d7539, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1edcf6bc36851b94fa7087e026ef49b6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8199390648299049833}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1edcf6bc36851b94fa7087e026ef49b6, type: 3}
 --- !u!4 &5888467992093432168 stripped
