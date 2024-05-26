@@ -16,7 +16,8 @@ public class UIFactura : MonoBehaviour
     [SerializeField] Text dineroTotal;
     [SerializeField] Text contadorDinero;
 
-    
+    Color customGreen = new Color(92f / 255f, 167f / 255f, 81f / 255f);
+
     int sumaDinero;
     int dineroLeche;
     int dineroCabras;
@@ -69,7 +70,7 @@ public class UIFactura : MonoBehaviour
         {
             dineroLeche = leches * manejoCompras.GANANCIA_LECHE;
             gananciaLeche.text = "+" + dineroLeche;
-            gananciaLeche.color = Color.green;
+            gananciaLeche.color = customGreen;
         }
         else
         {
@@ -139,13 +140,13 @@ public class UIFactura : MonoBehaviour
     }
 
     private void ActualizarTotalFactura()
-    {
+    {    
         sumaDinero = dineroLeche - dineroCabras - dineroHeno - dineroHenoEspecial;
 
         if (sumaDinero > 0)
         {
             dineroTotal.text = "+" + sumaDinero.ToString();
-            dineroTotal.color = Color.green;
+            dineroTotal.color = customGreen;
         }
         else if (sumaDinero < 0)
         {
