@@ -16,6 +16,6 @@ public class Jugador : MonoBehaviour
 
     private void Start()
     {
-        mano = gameObject.transform.GetChild(2).GetChild(0);
+        mano = gameObject.transform.GetChild(1).GetChild(0);
     }
 }
