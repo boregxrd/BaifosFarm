@@ -4525,10 +4525,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7309692476549889380, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: lengthInSec
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7309692476549889380, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: startDelay.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309692476549889380, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309692476549889380, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: InitialModule.startSize.scalar
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7309692476549889380, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
