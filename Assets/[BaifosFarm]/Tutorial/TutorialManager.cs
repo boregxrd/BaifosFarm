@@ -98,6 +98,12 @@ public class TutorialManager : MonoBehaviour
         // Esperar 2 segundos
         yield return new WaitForSeconds(3f);
 
+        // Verificar si el tutorial ha sido completado antes de continuar
+        if (PlayerPrefs.GetInt("TutorialCompleto") == 1)
+        {
+            yield break; // Salir de la corrutina si el tutorial está completado
+        }
+
         switch (popUpIndex)
         {
             case 0: // Movimiento
