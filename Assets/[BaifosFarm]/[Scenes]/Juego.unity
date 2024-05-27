@@ -8614,6 +8614,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -14.16
       objectReference: {fileID: 0}
+    - target: {fileID: 2888741079795720894, guid: b9b8c16da05524a428ff51f10a8dbd27, type: 3}
+      propertyPath: m_TagString
+      value: Suelo
+      objectReference: {fileID: 0}
     - target: {fileID: 5444113862416718446, guid: b9b8c16da05524a428ff51f10a8dbd27, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.65
