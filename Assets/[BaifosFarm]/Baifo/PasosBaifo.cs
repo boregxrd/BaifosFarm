@@ -10,13 +10,11 @@ public class PasosBaifo : MonoBehaviour
 
     public void DispararParticulasPieDcho()
     {
-        Debug.Log("pieDcho");
         particulasPieDcho.Play();
     }
 
     public void DispararParticulasPieIzqdo()
     {
-        Debug.Log("pieIzqdo");
         particulasPieIzqdo.Play();
     }
 }
