@@ -38,5 +38,7 @@ public class MuerteCabraBlanca : MonoBehaviour
         muerteCabra.GetComponent<Animator>().SetTrigger("Death");
         // Destruir la cabra blanca despu�s de la animaci�n
         Destroy(gameObject);
+        int blancasAntesDeMorir = PlayerPrefs.GetInt("cabrasBlancas", 0);
+        PlayerPrefs.SetInt("cabrasBlancas", blancasAntesDeMorir - 1);
     }
 }
