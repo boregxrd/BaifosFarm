@@ -7,9 +7,9 @@ public class FxPierna : MonoBehaviour
     Animator animator;
     [SerializeField] ParticleSystem particulas;
 
-    bool enSuelo = true;
-    bool enMovimiento;
-
+    public bool enSuelo = true;
+    public bool enMovimiento;
+    Vector3 particlePosition;
     ParticleSystem fx;
 
     void Awake()
@@ -25,8 +25,9 @@ public class FxPierna : MonoBehaviour
         }
         // Adjust the position of the particle system relative to the leg's pivot point
         float offsetY = 0.16f; // Adjust this value as needed
-        Vector3 particlePosition = transform.position - new Vector3(0, offsetY, 0);
 
+        particlePosition = transform.position - new Vector3(0, offsetY, 0);
+        
         // Instantiate the particle system at the adjusted position
         fx = Instantiate<ParticleSystem>(particulas, particlePosition, Quaternion.identity, transform);
 
@@ -35,11 +36,13 @@ public class FxPierna : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         enMovimiento = animator.GetBool("enMovimiento");
+        // Debug.Log("enmov" + enMovimiento);
+        // Debug.Log("ensuelo" + enSuelo);
 
         if (enMovimiento == true && enSuelo == false && other.gameObject.CompareTag("Suelo"))
         {
             enSuelo = true;
-            // Debug.Log("contacto mientras se mueve");
+            //Debug.Log("contacto mientras se mueve");
             fx.Play();
         }
 

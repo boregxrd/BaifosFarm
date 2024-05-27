@@ -45,11 +45,11 @@ public class CabraNegra : MonoBehaviour
     {
         if (navMeshAgent.enabled && navMeshAgent.velocity.magnitude > 0.5f)
         {
-            animator.SetBool("EnMovimiento", true);
+            animator.SetBool("enMovimiento", true);
         }
         else
         {
-            animator.SetBool("EnMovimiento", false);
+            animator.SetBool("enMovimiento", false);
         }
     }
 
@@ -73,7 +73,7 @@ public class CabraNegra : MonoBehaviour
     {
         navMeshAgent.enabled = false;
         obstaculo.enabled = true;
-        animator.SetBool("EnMovimiento", false);
+        animator.SetBool("enMovimiento", false);
         animator.SetTrigger("HaMuerto");
         AdjustColliderForDeath();
         muerteRealizada = true;
