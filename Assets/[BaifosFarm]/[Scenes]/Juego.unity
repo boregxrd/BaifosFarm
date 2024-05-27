@@ -3767,7 +3767,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819134997}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03938691, y: 0.61767095, z: -0.030997675, w: 0.7848379}
+  m_LocalRotation: {x: 0.039386902, y: 0.6176709, z: -0.030997664, w: 0.7848379}
   m_LocalPosition: {x: -7, y: 7, z: 3.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4694,6 +4694,10 @@ PrefabInstance:
     - target: {fileID: 1393686520797697360, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: m_Name
       value: Personaje
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309692476549889380, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: startDelay.scalar
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7309692476549889380, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]
