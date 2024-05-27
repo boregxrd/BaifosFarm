@@ -9,8 +9,7 @@ public class BarraAlimento : MonoBehaviour
     private float valorActual = 100f;
     public float ValorActual { get { return valorActual; } }
 
-    [SerializeField]
-    private float velocidadReduccion = 1.7f;
+    private float velocidadReduccion = 1.6f;
     private Image barraAlimento;
 
     private Cabra cabra; // Referencia a la cabra

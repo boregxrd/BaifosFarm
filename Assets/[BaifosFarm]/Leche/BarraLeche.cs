@@ -15,7 +15,7 @@ public class BarraLeche : MonoBehaviour
     }
 
     public float valorAlerta = 30f;
-    private float velocidadAumento = 5f;
+    private float velocidadAumento = 4.5f;
     public bool lechePreparada = false;
 
     private Image barraLeche;
@@ -52,7 +52,6 @@ public class BarraLeche : MonoBehaviour
                 lechePreparada = true;
             }
         }
-
         barraLeche.fillAmount = valorActual / valorMaximo;
     }
 
