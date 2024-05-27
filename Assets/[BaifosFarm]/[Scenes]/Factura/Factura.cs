@@ -68,6 +68,7 @@ public class Factura : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         SceneManager.LoadScene("Juego");
+        PlayerPrefs.SetInt("LechesGuardadas", 0);
         manejoCompras.RestarDinero();
     }
 
