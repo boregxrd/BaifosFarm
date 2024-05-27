@@ -4696,13 +4696,25 @@ PrefabInstance:
       value: Personaje
       objectReference: {fileID: 0}
     - target: {fileID: 7309692476549889380, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309692476549889380, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: prewarm
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309692476549889380, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: startDelay.scalar
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7309692476549889380, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]
       value: 
       objectReference: {fileID: 217138352}
+    - target: {fileID: 7309692476549889380, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: EmissionModule.rateOverTime.maxCurve.m_Curve.Array.data[0].value
+      value: 0.16000366
+      objectReference: {fileID: 0}
     - target: {fileID: 8305099644719831740, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: montonHeno
       value: 
