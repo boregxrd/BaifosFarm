@@ -28,6 +28,8 @@ public class Temporizador : MonoBehaviour
 
     [SerializeField] PlayableDirector animaticaGallo;
 
+    [SerializeField] TutorialManager tutorial;
+
     private void Awake()
     {
         StartCoroutine(ProcesoInicio());
@@ -37,6 +39,7 @@ public class Temporizador : MonoBehaviour
     private IEnumerator ProcesoInicio() {
         yield return PlayAnimaticaGallo();
         
+        tutorial.IniciarTutorial();
         IniciarCuentaRegresiva();
     }
 

@@ -26,7 +26,7 @@ public class TutorialManager : MonoBehaviour
         temporizador = FindObjectOfType<Temporizador>(); // Obtener referencia a ControlTiempo en la escena
     }
 
-    private void Start()
+    public void IniciarTutorial()
     {
         if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
         {
