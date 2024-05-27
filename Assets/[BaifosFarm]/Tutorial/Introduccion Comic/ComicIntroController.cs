@@ -39,7 +39,7 @@ public class ComicIntroController : MonoBehaviour
 
             image.gameObject.SetActive(true);
 
-            if (currentIndex == 3)
+            if (currentIndex == 6)
             {
                 continueButton.GetComponentInChildren<Text>().text = "Empezar";
             }
