@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
@@ -10,13 +11,16 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
     private ManejarHeno manejadorHeno;
     private TipoDeHeno tipoDeHeno;
     private MiniJuegoOrdenyar miniJuegoOrdenyar;
-    [SerializeField] private MovimientoAleatorioCabras movimientoAleatorioCabras;
+    private MovimientoAleatorioCabras movimientoAleatorioCabras;
     private Jugador jugador;
+
+    Animator animator;
 
     private void Start()
     {
+        animator = GetComponentInChildren<Animator>();
         tipoDeHeno = FindObjectOfType<TipoDeHeno>();
-        barraLeche = transform.GetChild(5).GetChild(0).GetChild(0).GetComponent<BarraLeche>();
+        barraLeche = transform.GetComponentInChildren<BarraLeche>();
         miniJuegoOrdenyar = FindObjectOfType<MiniJuegoOrdenyar>();
         movimientoAleatorioCabras = GetComponent<MovimientoAleatorioCabras>();
     }
@@ -34,6 +38,11 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
             manejadorHeno = jugador.transform.GetComponent<ManejarHeno>();
             manejadorHeno.DejarHeno();
             barraAlimento.incrementarNivelAlimentacion(tipoDeHeno.incremento);
+            if(animator.GetBool("enMovimiento")) {
+                animator.SetTrigger("comerMov");
+            } else {
+                animator.SetTrigger("Comiendo");
+            }
         }
     }
 
@@ -54,5 +63,6 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
         barraLeche.resetearLeche();
         movimientoAleatorioCabras.continuarMov(gameObject);
         jugador.GetComponent<Character>().ContinuarMovimiento();
+        animator.SetTrigger("Ordenyada");
     }
 }

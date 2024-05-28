@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,15 +19,20 @@ public class MovimientoAleatorioCabras : MonoBehaviour
 
     private NavMeshAgent agente;
 
+    Animator animator;
+
     IEnumerator Start()
     {
+        animator = GetComponentInChildren<Animator>();
         agente = GetComponent<NavMeshAgent>();
+        animator.SetBool("enMovimiento", true);
         while (true)
         {
             if (agente.isActiveAndEnabled) // Check if the agent is active and enabled
             {
                 agente.SetDestination(RandomNavmeshLocation(7f));
-
+                animator.SetBool("enMovimiento", true);
+                
                 float elapsedTime = 0f;
                 while (agente.isActiveAndEnabled && (agente.pathPending || agente.remainingDistance > agente.stoppingDistance))
                 {
@@ -46,6 +52,7 @@ public class MovimientoAleatorioCabras : MonoBehaviour
                     agente.SetDestination(RandomNavmeshLocation(7f));
                 }
 
+                animator.SetBool("enMovimiento", false);
                 yield return new WaitForSeconds(Random.Range(delayMin, delayMax));
             }
             else
@@ -84,6 +91,8 @@ public class MovimientoAleatorioCabras : MonoBehaviour
 
     public void pararCabra(GameObject cabra)
     {
+        animator.SetBool("enMovimiento", false);
+
         NavMeshAgent agente = cabra.transform.GetComponent<NavMeshAgent>();
 
         agente.enabled = false;

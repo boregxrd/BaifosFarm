@@ -4,62 +4,59 @@ using UnityEngine.UI;
 
 public class ComicIntroController : MonoBehaviour
 {
-    public Image[] comicImages; // Array de imágenes del cómic
-    public Button continueButton; // Botón de continuar
+    public Image[] comicImages; // Array de imï¿½genes del cï¿½mic
+    public Button continueButton; // Botï¿½n de continuar
 
-    private int currentIndex = 0; // Índice actual de la imagen mostrada
+    private bool isRunning = true;
+    private int currentIndex = 0; // ï¿½ndice actual de la imagen mostrada
 
+    public Texture2D cursorMano; // Textura del cursor de mano
+    public Texture2D cursorNormal; // Textura del cursor normal
     private void Start()
     {
-        // Desactivar el botón de continuar al inicio
+        // Desactivar el botï¿½n de continuar al inicio
         continueButton.gameObject.SetActive(false);
 
-        // Mostrar el puntero del ratón al inicio
+        // Mostrar el puntero del ratï¿½n al inicio
         //Cursor.visible = true;
 
         if (PlayerPrefs.GetInt("TutorialCompleto") == 0) 
         { 
-            // Iniciar la secuencia de mostrar imágenes del cómic
+            // Iniciar la secuencia de mostrar imï¿½genes del cï¿½mic
             StartCoroutine(ShowComicSequence());
         }
     }
 
-    // Método para mostrar la secuencia de imágenes del cómic
+    // Mï¿½todo para mostrar la secuencia de imï¿½genes del cï¿½mic
     private IEnumerator ShowComicSequence()
     {
         Time.timeScale = 0f; // Pausar el tiempo del juego
-
+        continueButton.gameObject.SetActive(true);
         foreach (Image image in comicImages)
         {
-            // Mostrar la imagen actual del cómic
+            if (!isRunning) // Si isRunning es falso, detener la corutina
+                yield break;
+
             image.gameObject.SetActive(true);
-            //Debug.Log($"Mostrada la imagen {currentIndex + 1}");
 
-            if (currentIndex == 3)
+            if (currentIndex == 6)
             {
-                // Mostrar el botón de continuar junto con la cuarta imagen
-                continueButton.gameObject.SetActive(true);
-                //Debug.Log("Mostrando botón de continuar");
-
-                // Ocultar el puntero del ratón al mostrar el botón de continuar
-                //Cursor.visible = false;
+                continueButton.GetComponentInChildren<Text>().text = "Empezar";
             }
 
             yield return new WaitForSecondsRealtime(3f); // Esperar 3 segundos
-
-            currentIndex++; // Avanzar al siguiente índice
+            currentIndex++; // Avanzar al siguiente Ã­ndice
         }
-
-        // Mostrar el puntero del ratón cuando se completa la secuencia del cómic
-        //Cursor.visible = true;
     }
 
-    // Método llamado por el botón de continuar
+    // MÃ©todo llamado por el botÃ³n de continuar
     public void OnContinueButtonClicked()
     {
-        Debug.Log("Botón de continuar pulsado");
+        Debug.Log("BotÃ³n de continuar pulsado");
 
-        // Ocultar todas las imágenes y el botón de continuar
+        isRunning = false; // Detener la corutina
+
+        // Ocultar todas las imÃ¡genes y el botÃ³n de continuar
         foreach (Image image in comicImages)
         {
             image.gameObject.SetActive(false);
@@ -67,5 +64,17 @@ public class ComicIntroController : MonoBehaviour
         continueButton.gameObject.SetActive(false);
 
         Time.timeScale = 1f; // Reanudar el tiempo del juego
+    }
+
+    public void OnButtonCursorEnter()
+    {
+        // Cambiar el cursor a mano
+        Cursor.SetCursor(cursorMano, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void OnButtonCursorExit()
+    {
+        // Cambiar el cursor a normal
+        Cursor.SetCursor(cursorNormal, Vector2.zero, CursorMode.Auto);
     }
 }

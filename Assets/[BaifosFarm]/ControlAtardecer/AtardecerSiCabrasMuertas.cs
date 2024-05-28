@@ -29,7 +29,7 @@ public class AtardecerSiCabrasMuertas : MonoBehaviour
         {
             if(temporizador.tiempoRestante > 5f)
             {
-                temporizador.tiempoRestante = 1f;
+                temporizador.tiempoRestante = 3f; //esperar a las animaciones de muerte
             }
             
         }
