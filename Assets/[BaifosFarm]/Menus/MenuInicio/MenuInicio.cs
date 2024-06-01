@@ -23,7 +23,7 @@ public class MenuInicio : MonoBehaviour
         PlayerPrefs.SetInt("HenoMejorado", 0);
         PlayerPrefs.SetInt("LechesGuardadas", 0);
         PlayerPrefs.SetInt("TutorialCompleto", 0); // Marcar el tutorial como no completado
-        SceneManager.LoadScene("Juego");
+        SceneManager.LoadScene("Comic_Introduccion");
     }
 
     public void Ajustes()
