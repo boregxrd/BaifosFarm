@@ -33,12 +33,19 @@ public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
             manejarLeche.DejarLeche();
             controladorTextoCaja.GuardarLeche();
             animatorDejarLeche.SetTrigger("DejarLeche");
-            particulasDejarLeche.Play();
             
+            StartCoroutine(PlayParticlesAfterDelay(1.05f)); // Iniciar la corutina
+
             childGameObjectParticle.Stop();
             //para el tutorial
             lecheGuardada = true;
         }
-        
+    }
+
+    // Corutina para reproducir las partículas después de un retraso
+    private IEnumerator PlayParticlesAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay); // Esperar el tiempo especificado
+        particulasDejarLeche.Play(); // Reproducir las partículas
     }
 }
