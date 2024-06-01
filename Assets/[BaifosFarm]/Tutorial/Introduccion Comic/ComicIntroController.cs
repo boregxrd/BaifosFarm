@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ComicIntroController : MonoBehaviour
 {
@@ -25,12 +26,14 @@ public class ComicIntroController : MonoBehaviour
             // Iniciar la secuencia de mostrar im�genes del c�mic
             StartCoroutine(ShowComicSequence());
         }
+        else{
+            SceneManager.LoadScene("Juego");
+        }
     }
 
     // M�todo para mostrar la secuencia de im�genes del c�mic
     private IEnumerator ShowComicSequence()
     {
-        Time.timeScale = 0f; // Pausar el tiempo del juego
         continueButton.gameObject.SetActive(true);
         foreach (Image image in comicImages)
         {
@@ -52,18 +55,8 @@ public class ComicIntroController : MonoBehaviour
     // Método llamado por el botón de continuar
     public void OnContinueButtonClicked()
     {
-        Debug.Log("Botón de continuar pulsado");
-
         isRunning = false; // Detener la corutina
-
-        // Ocultar todas las imágenes y el botón de continuar
-        foreach (Image image in comicImages)
-        {
-            image.gameObject.SetActive(false);
-        }
-        continueButton.gameObject.SetActive(false);
-
-        Time.timeScale = 1f; // Reanudar el tiempo del juego
+        SceneManager.LoadScene("Juego");
     }
 
     public void OnButtonCursorEnter()
