@@ -9,7 +9,8 @@ public class BarraAlimento : MonoBehaviour
     private float valorActual = 100f;
     public float ValorActual { get { return valorActual; } }
 
-    private float velocidadReduccion = 1.6f;
+    private float velocidadReduccion;
+    private float velocidadReduccionInicial = 5f;
     private Image barraAlimento;
 
     private Cabra cabra; // Referencia a la cabra
@@ -19,6 +20,8 @@ public class BarraAlimento : MonoBehaviour
         barraAlimento = GetComponent<Image>();
         barraAlimento.fillAmount = valorActual / valorMaximo;
         cabra = GetComponentInParent<Cabra>(); // Obtener la referencia a la cabra
+
+        velocidadReduccion = velocidadReduccionInicial / (PlayerPrefs.GetInt("cabrasBlancas", 0) + PlayerPrefs.GetInt("cabrasNegras", 0));
     }
 
     void Update()
