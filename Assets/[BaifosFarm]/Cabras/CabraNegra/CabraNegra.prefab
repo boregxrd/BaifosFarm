@@ -272,7 +272,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valorMaximo: 100
-  velocidadReduccion: 2
 --- !u!1 &7169530531729945697
 GameObject:
   m_ObjectHideFlags: 0
@@ -473,7 +472,7 @@ NavMeshAgent:
   m_AutoBraking: 1
   m_AutoRepath: 1
   m_Height: 0.75
-  m_BaseOffset: 0
+  m_BaseOffset: -0.095
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 --- !u!114 &949272596959093630
@@ -792,6 +791,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particulas: {fileID: 6835362448353067802, guid: 3568bc083c4c22c43b5ae454af044c16, type: 3}
+  enSuelo: 1
+  enMovimiento: 0
 --- !u!1 &873993813782392245 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4823794418751374141, guid: 84fa149da80d2fe4cbb58efdab5d525f, type: 3}
@@ -858,6 +859,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   particulas: {fileID: 6835362448353067802, guid: 3568bc083c4c22c43b5ae454af044c16, type: 3}
+  enSuelo: 1
+  enMovimiento: 0
 --- !u!1 &3243937433417501602 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -7193449417387681068, guid: 84fa149da80d2fe4cbb58efdab5d525f, type: 3}
