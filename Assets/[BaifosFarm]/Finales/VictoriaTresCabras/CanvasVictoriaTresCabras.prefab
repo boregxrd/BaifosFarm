@@ -391,8 +391,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7385793737722797177}
-        m_TargetAssemblyTypeName: MenuVictoriaTresCabras, Assembly-CSharp
-        m_MethodName: VolverAlMenu
+        m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
+        m_MethodName: ReturnToMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -476,7 +476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4424635410448992700
 RectTransform:
   m_ObjectHideFlags: 0
@@ -598,7 +598,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &2424819118753622499
 MonoBehaviour:
@@ -652,6 +652,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 988af8dc012f1c2478951788a3cd0236, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuObject: {fileID: 4945762243706268086}
+  menuObject: {fileID: 3782092972823338917}
   cursorMano: {fileID: 2800000, guid: 045fbab49145d184d906da82dee49db0, type: 3}
   cursorNormal: {fileID: 2800000, guid: 6ec4d07ab26436d47a662515951f2215, type: 3}
