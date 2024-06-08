@@ -13,7 +13,7 @@ public class MuerteCabraNegra : MonoBehaviour
 
     private void Start()
     {
-        barraAlimento = transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<BarraAlimento>();
+        barraAlimento = GetComponentInChildren<BarraAlimento>();
         //cabraNormal.SetActive(true);
         //cabraMuerta.SetActive(false);
         cabraNegra = GetComponent<CabraNegra>();
