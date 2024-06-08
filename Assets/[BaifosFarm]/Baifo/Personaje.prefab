@@ -4857,6 +4857,7 @@ GameObject:
   - component: {fileID: 2364680883733909671}
   - component: {fileID: 8305099644719831740}
   - component: {fileID: 1584819286800175148}
+  - component: {fileID: 1599205885694580116}
   m_Layer: 0
   m_Name: Personaje
   m_TagString: Untagged
@@ -5000,6 +5001,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ordenyoRealizado: 0
+--- !u!81 &1599205885694580116
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393686520797697360}
+  m_Enabled: 1
 --- !u!1 &4206943660840412181
 GameObject:
   m_ObjectHideFlags: 0
