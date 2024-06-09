@@ -203,14 +203,14 @@ ModelImporter:
       curves: []
       events:
       - time: 0
-        functionName: PlayGrito
+        functionName: GritoMuerte
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 1
-        functionName: PlayExplosion
+        functionName: Explosion
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

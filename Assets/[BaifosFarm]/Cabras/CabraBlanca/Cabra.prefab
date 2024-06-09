@@ -518,6 +518,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barraAlimento: {fileID: 0}
   muerteCabraPrefab: {fileID: 2042112421631913504, guid: 6b6f91a4666b8874abe1432743a50de8, type: 3}
+  gritos:
+  - {fileID: 8300000, guid: 4ef6e0d712709fb4e81bec3df3c689e8, type: 3}
+  - {fileID: 8300000, guid: c4693e7c28f552b4f9c60db5617c06c4, type: 3}
+  explosion: {fileID: 1025013361913775510, guid: a6045ea9f3fffb740a347a0179f4e4df, type: 3}
 --- !u!212 &1906519594161752902
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1259,7 +1263,7 @@ PrefabInstance:
       addedObject: {fileID: 3360400954015243158}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 906e35a8d2e739841aaa64826c0a6e1f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 8617853511262024068}
+      addedObject: {fileID: 4117181550697033770}
     - targetCorrespondingSourceObject: {fileID: -1292438704640324870, guid: 906e35a8d2e739841aaa64826c0a6e1f, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3060880721013041957}
@@ -1696,7 +1700,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &8617853511262024068
+--- !u!114 &4117181550697033770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1705,10 +1709,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 9004478402646997421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 884438d9b2ad650478a91df7b7d8ae2c, type: 3}
+  m_Script: {fileID: 11500000, guid: fe6dab55b0aff82488ea7ac4e4525f7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gritos:
-  - {fileID: 8300000, guid: 4ef6e0d712709fb4e81bec3df3c689e8, type: 3}
-  - {fileID: 8300000, guid: c4693e7c28f552b4f9c60db5617c06c4, type: 3}
-  explosion: {fileID: 8300000, guid: efee60de520f2a64aa5313bb4b306887, type: 3}
