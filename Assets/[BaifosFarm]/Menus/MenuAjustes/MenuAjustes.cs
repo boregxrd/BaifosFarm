@@ -8,14 +8,13 @@ public class MenuAjustes : MonoBehaviour
     public Slider sliderVolumen; // Slider para ajustar el volumen
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
-    [SerializeField] private GameObject GrupoMenuAjustes; // Referencia al Canvas del menu de ajustes
     [SerializeField] private GameObject objetoMenuPausa;
 
 
     void Start()
     {
         // Desactivar el GameObject del menu de ajustes al iniciar el juego
-        GrupoMenuAjustes.SetActive(false);
+        gameObject.SetActive(false);
         // Obtener el valor actual del volumen y actualizar el slider
         float volumenActual;
         bool resultado = audioMixer.GetFloat("Volumen", out volumenActual);
@@ -36,7 +35,7 @@ public class MenuAjustes : MonoBehaviour
     // Metodo para cerrar el menu de ajustes
     public void CerrarMenuAjustes()
     {
-        GrupoMenuAjustes.SetActive(false); // Desactivar el Canvas del menu de ajustes
+        gameObject.SetActive(false); // Desactivar el Canvas del menu de ajustes
         if(objetoMenuPausa != null) objetoMenuPausa.SetActive(true);
     }
 
