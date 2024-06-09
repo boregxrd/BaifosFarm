@@ -13,6 +13,12 @@ public class ComicIntroController : MonoBehaviour
 
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
+
+    void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     private void Start()
     {
         // Desactivar el bot�n de continuar al inicio
@@ -21,12 +27,13 @@ public class ComicIntroController : MonoBehaviour
         // Mostrar el puntero del rat�n al inicio
         //Cursor.visible = true;
 
-        if (PlayerPrefs.GetInt("TutorialCompleto") == 0) 
-        { 
+        if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
+        {
             // Iniciar la secuencia de mostrar im�genes del c�mic
             StartCoroutine(ShowComicSequence());
         }
-        else{
+        else
+        {
             SceneManager.LoadScene("Juego");
         }
     }

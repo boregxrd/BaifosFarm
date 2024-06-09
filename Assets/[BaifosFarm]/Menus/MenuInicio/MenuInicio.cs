@@ -9,6 +9,12 @@ public class MenuInicio : MonoBehaviour
     public GameObject canvasMenuAjustes; // Referencia al Canvas del men� de ajustes
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
+
+    void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     public void Start()
     {
         canvasMenuAjustes.SetActive(false); // Desactivar el Canvas del men� de ajustes al iniciar

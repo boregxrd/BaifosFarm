@@ -15,6 +15,7 @@ public class Factura : MonoBehaviour
     private void Awake()
     {
         //cantidadCabrasAtardecer = CantidadCabrasAtardecer.ObtenerInstancia();
+        Application.targetFrameRate = 60;
         popUpsFacturaTutorial = GetComponent<PopUpsFacturaTutorial>();
         manejoCompras = GetComponent<ManejoCompras>();
         uIFactura = GetComponent<UIFactura>();
