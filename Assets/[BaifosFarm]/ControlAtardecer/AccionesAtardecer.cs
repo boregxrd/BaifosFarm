@@ -15,6 +15,7 @@ public class AccionesAtardecer : MonoBehaviour
     [SerializeField] PlayableDirector animaticaCamion;
     [SerializeField] CinemachineVirtualCamera camaraJuego;
     //private CantidadCabrasAtardecer cantidadCabrasAtardecer;
+    [SerializeField] private ContadorDias contadorDias;
 
 
     private void Awake()
@@ -24,6 +25,7 @@ public class AccionesAtardecer : MonoBehaviour
         controlPrecioLeche = FindObjectOfType<ControlPrecioLeche>();
         controlAvisos = FindObjectOfType<ControlAvisos>();
         deteccionCabrasNegras = GetComponent<DeteccionCabrasNegras>();
+        contadorDias = FindObjectOfType<ContadorDias>();
     }
 
     public IEnumerator EjecutarAccionesAtardecer()
@@ -53,6 +55,7 @@ public class AccionesAtardecer : MonoBehaviour
         deteccionCabrasNegras.InvocarVictoria();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
+        contadorDias.SumarUnDiaAlContador();
     }
 }
 
