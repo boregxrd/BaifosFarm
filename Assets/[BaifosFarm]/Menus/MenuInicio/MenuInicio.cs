@@ -1,6 +1,7 @@
 // MenuInicio.cs
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,7 +18,8 @@ public class MenuInicio : MonoBehaviour
 
     public void Start()
     {
-        canvasMenuAjustes.SetActive(false); // Desactivar el Canvas del men� de ajustes al iniciar
+        // Desactivar menu de ajustes al iniciar
+        if(canvasMenuAjustes.activeSelf == true) canvasMenuAjustes.SetActive(false); 
     }
 
     public void Jugar()
@@ -34,7 +36,7 @@ public class MenuInicio : MonoBehaviour
 
     public void Ajustes()
     {
-        canvasMenuAjustes.SetActive(true); // Activar el Canvas del men� de ajustes
+        if(canvasMenuAjustes.activeSelf == false) canvasMenuAjustes.SetActive(true); 
     }
 
     public void Salir()
