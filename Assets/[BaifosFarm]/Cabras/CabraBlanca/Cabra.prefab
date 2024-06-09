@@ -392,6 +392,7 @@ GameObject:
   - component: {fileID: 1666234560849382232}
   - component: {fileID: -5234261996941271916}
   - component: {fileID: 1906519594161752902}
+  - component: {fileID: 2038857450114873952}
   m_Layer: 8
   m_Name: Cabra
   m_TagString: cabraBlanca
@@ -517,7 +518,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15aa1501705cab34e9a102824138bd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barraAlimento: {fileID: 0}
   muerteCabraPrefab: {fileID: 2042112421631913504, guid: 6b6f91a4666b8874abe1432743a50de8, type: 3}
 --- !u!212 &1906519594161752902
 SpriteRenderer:
@@ -571,6 +571,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2038857450114873952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6535343484078306890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d22a268559a4ed419f1a114eb7929d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  necesidad:
+  - {fileID: 8300000, guid: 5e292c5eafd702747a09a95433ba5325, type: 3}
+  - {fileID: 8300000, guid: 06a3e95aca572be49a56959ad4a7b08e, type: 3}
 --- !u!1 &6650065937915407930
 GameObject:
   m_ObjectHideFlags: 0
