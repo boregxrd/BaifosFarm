@@ -24,8 +24,4 @@ public class TextoContadorDias : MonoBehaviour
         txtContadorDias.text = "Día " + numero.ToString();
     }
 
-
-
-
-
 }

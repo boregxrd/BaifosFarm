@@ -34,5 +34,8 @@ public class ContadorDias : MonoBehaviour
         contador++;
     }
 
-    
+    public void ResetearContadorDias()
+    {
+        contador = 1;
+    }
 }
