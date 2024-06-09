@@ -36,7 +36,7 @@ public class MuerteCabraBlanca : MonoBehaviour
     {
         isDead = true;
 
-        animator.SetTrigger("Death");
+        animator.SetTrigger("Muerte");
     }
 
     public void PlayGrito() {
