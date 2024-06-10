@@ -1070,8 +1070,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sonidoSaltitos:
-  - {fileID: 8300000, guid: 5b5352df58bbc4d47b7754f2129a18cb, type: 3}
+  - {fileID: 8300000, guid: bbac62b8ea524194e87019e84872c501, type: 3}
+  - {fileID: 8300000, guid: 017a32cb0c1c7194d812978ca8cfcd35, type: 3}
   - {fileID: 8300000, guid: 5b2fa29d9e3cecf4d9676a04a906621d, type: 3}
+  - {fileID: 8300000, guid: 67d31e61e2e159d41a07403b1249ce92, type: 3}
   - {fileID: 8300000, guid: 79e5525a83407c344b1aa11e17393122, type: 3}
 --- !u!1001 &6428484672322407859
 PrefabInstance:
