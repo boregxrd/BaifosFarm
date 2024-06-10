@@ -5,15 +5,14 @@ using UnityEngine.UI;
 
 public class MenuPausa : MonoBehaviour
 {
-    [SerializeField] private GameObject objetoMenuPausa;
-    [SerializeField] private GameObject GrupoMenuAjustes; // Referencia al Canvas del menú de ajustes
+    [SerializeField] private GameObject menuAjustes; // Referencia al Canvas del menú de ajustes
     public bool Pausa = false;
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
 
     void Start()
     {
-        objetoMenuPausa.SetActive(false);
+        gameObject.SetActive(false);
         Time.timeScale = 1; //el juego se reanuda
     }
 
@@ -21,7 +20,7 @@ public class MenuPausa : MonoBehaviour
     {
 
         // Verificar si el menú de ajustes está activo antes de procesar la entrada de la tecla ESC
-        if (GrupoMenuAjustes.activeSelf)
+        if (menuAjustes.activeSelf)
         {
             if (Input.GetKeyDown(KeyCode.P))
             {
@@ -45,7 +44,7 @@ public class MenuPausa : MonoBehaviour
 
     public void Pausar()
     {
-        objetoMenuPausa.SetActive(true);
+        gameObject.SetActive(true);
         Pausa = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -54,7 +53,7 @@ public class MenuPausa : MonoBehaviour
 
     public void Reanudar()
     {
-        objetoMenuPausa.SetActive(false);
+        gameObject.SetActive(false);
         Pausa = false;
         if(PlayerPrefs.GetInt("TutorialCompleto") == 1){
             Cursor.visible = false;
@@ -67,14 +66,14 @@ public class MenuPausa : MonoBehaviour
     public void AbrirMenuAjustes()
     {
         Debug.Log("AbrirMenuAjustes"); // Log de depuración
-        objetoMenuPausa.SetActive(false);
-        GrupoMenuAjustes.SetActive(true); // Activar el Canvas del menú de ajustes
+        gameObject.SetActive(false);
+        menuAjustes.SetActive(true); // Activar el Canvas del menú de ajustes
     }
 
 
     public void CerrarMenuAjustes()
     {
-        GrupoMenuAjustes.SetActive(false); 
+        menuAjustes.SetActive(false); 
     }
 
     public void IrAlMenu(string NombreMenu)

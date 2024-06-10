@@ -8,7 +8,7 @@ public class MenuAjustes : MonoBehaviour
     public Slider sliderVolumen; // Slider para ajustar el volumen
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
-    [SerializeField] private GameObject objetoMenuPausa;
+    [SerializeField] private GameObject menuPausa;
 
 
     void Start()
@@ -36,7 +36,7 @@ public class MenuAjustes : MonoBehaviour
     public void CerrarMenuAjustes()
     {
         gameObject.SetActive(false); // Desactivar el Canvas del menu de ajustes
-        if(objetoMenuPausa != null) objetoMenuPausa.SetActive(true);
+        if(menuPausa != null) menuPausa.SetActive(true);
     }
 
     public void OnButtonCursorEnter()
