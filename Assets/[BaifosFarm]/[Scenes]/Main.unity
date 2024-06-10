@@ -226,7 +226,7 @@ PrefabInstance:
     - target: {fileID: 7850997803217300950, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: canvasMenuAjustes
       value: 
-      objectReference: {fileID: 963868568}
+      objectReference: {fileID: 1084522920}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -326,11 +326,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
---- !u!1 &963868568 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8309582965362440684, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
-  m_PrefabInstance: {fileID: 1084522919}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1049368876
 GameObject:
   m_ObjectHideFlags: 0
@@ -532,6 +527,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
+--- !u!1 &1084522920 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8882142187997371526, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
+  m_PrefabInstance: {fileID: 1084522919}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1870252113
 GameObject:
   m_ObjectHideFlags: 0

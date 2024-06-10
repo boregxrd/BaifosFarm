@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &43032687 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 325870968471336555, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
+  m_PrefabInstance: {fileID: 947776370}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &43032688 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7902452620180797636, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
@@ -133,7 +138,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2816968371450568810, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
   m_PrefabInstance: {fileID: 947776370}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 43032687}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 18060c5205e060148967577899d5878a, type: 3}
@@ -534,17 +539,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 8882142187997371526, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
   m_PrefabInstance: {fileID: 7819238856747342145}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &231340430 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6233944797514867470, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
-  m_PrefabInstance: {fileID: 7819238856747342145}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 231340425}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb093e268f9607946b3aed5aa57d29d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &232572231 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 892908031600250289, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
@@ -2487,14 +2481,6 @@ PrefabInstance:
     - target: {fileID: 325870968471336555, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
       propertyPath: m_Name
       value: CanvasPausa
-      objectReference: {fileID: 0}
-    - target: {fileID: 325870968471336555, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2816968371450568810, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
-      propertyPath: pausa
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2816968371450568810, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
       propertyPath: menuAjustes
@@ -5046,18 +5032,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2338784715367696673, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 231340430}
-    - target: {fileID: 2338784715367696673, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: CerrarMenuAjustes
-      objectReference: {fileID: 0}
     - target: {fileID: 3502145443548544499, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6233944797514867470, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
+      propertyPath: menuPausa
+      value: 
+      objectReference: {fileID: 43032687}
     - target: {fileID: 6361708541235207983, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -5138,17 +5120,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6749491153117772452, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
-      propertyPath: objetoMenuPausa
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8882142187997371526, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
       propertyPath: m_Name
       value: CanvasMenuAjustes
-      objectReference: {fileID: 0}
-    - target: {fileID: 8882142187997371526, guid: f0ada7ae91f2b8342ac670ef16e4a0e9, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
