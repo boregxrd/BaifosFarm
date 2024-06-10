@@ -16,7 +16,7 @@ public class CabraNegra : MonoBehaviour
 
     private void Start()
     {
-        barraAlimento = transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<BarraAlimento>();
+        barraAlimento = GetComponentInChildren<BarraAlimento>();
         targetBaifo = GameObject.Find("Personaje").transform;
         navMeshAgent = GetComponent<NavMeshAgent>();
         obstaculo = GetComponent<NavMeshObstacle>();
