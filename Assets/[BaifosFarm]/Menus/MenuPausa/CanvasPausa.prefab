@@ -118,9 +118,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18060c5205e060148967577899d5878a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objetoMenuPausa: {fileID: 0}
-  GrupoMenuAjustes: {fileID: 0}
-  Pausa: 0
+  menuAjustes: {fileID: 0}
+  pausa: 0
   cursorMano: {fileID: 2800000, guid: 045fbab49145d184d906da82dee49db0, type: 3}
   cursorNormal: {fileID: 2800000, guid: 6ec4d07ab26436d47a662515951f2215, type: 3}
 --- !u!1 &668264685369377875
