@@ -6,7 +6,6 @@ public class MuerteCabraBlanca : MonoBehaviour
 {
     BarraAlimento barraAlimento;
     private Animator animator;
-    [SerializeField] private GameObject muerteCabraPrefab; // Prefab que contiene la animaci�n de muerte
     private bool isDead = false;
 
     AudioSource audioSource;

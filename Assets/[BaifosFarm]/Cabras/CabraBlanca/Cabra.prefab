@@ -516,7 +516,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15aa1501705cab34e9a102824138bd39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barraAlimento: {fileID: 0}
   muerteCabraPrefab: {fileID: 2042112421631913504, guid: 6b6f91a4666b8874abe1432743a50de8, type: 3}
   gritos:
   - {fileID: 8300000, guid: 4ef6e0d712709fb4e81bec3df3c689e8, type: 3}
