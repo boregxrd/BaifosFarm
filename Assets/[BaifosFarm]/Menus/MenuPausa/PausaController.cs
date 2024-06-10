@@ -10,7 +10,6 @@ public class PausaController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.P))
         {
-            Debug.LogWarning("EY");
             if (menuPausa.pausa == false)
             {
                 menuPausa.Pausar();

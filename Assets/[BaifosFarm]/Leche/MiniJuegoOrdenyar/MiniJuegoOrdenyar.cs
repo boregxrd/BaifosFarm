@@ -40,7 +40,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     public void IniciarOrdenyado(GameObject cabra)
     {
         enabled = true;
-        Debug.Log("IniciarOrdenyado");
+        // Debug.Log("IniciarOrdenyado");
         instanciaCabra = cabra.GetComponent<CabraBlancaInteracciones>();
         
     }

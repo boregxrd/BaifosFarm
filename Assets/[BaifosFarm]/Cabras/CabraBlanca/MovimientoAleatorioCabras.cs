@@ -98,7 +98,7 @@ public class MovimientoAleatorioCabras : MonoBehaviour
         agente.enabled = false;
         enabled = false;
 
-        Debug.Log("parado movimiento");
+        // Debug.Log("parado movimiento");
     }
 
     public void continuarMov(GameObject cabra)
@@ -108,7 +108,7 @@ public class MovimientoAleatorioCabras : MonoBehaviour
         agente.enabled = true;
         enabled = true;
 
-        Debug.Log("movimiento continuado");
+        // Debug.Log("movimiento continuado");
     }
 
 }
