@@ -25,7 +25,6 @@ public class MenuInicio : MonoBehaviour
     public void Jugar()
     {
         PlayerPrefs.SetInt("HenoMejorado", 0);
-        PlayerPrefs.SetInt("LechesGuardadas", 0);
         PlayerPrefs.SetInt("TutorialCompleto", 0); // Marcar el tutorial como no completado
         SceneManager.LoadScene("Comic_Introduccion");
     }
@@ -43,7 +42,6 @@ public class MenuInicio : MonoBehaviour
     public void EscenaTresCabrasNegras()
     {
         PlayerPrefs.SetInt("HenoMejorado", 0);
-        PlayerPrefs.SetInt("LechesGuardadas", 0);
         PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
         SceneManager.LoadScene("Juego");
     }

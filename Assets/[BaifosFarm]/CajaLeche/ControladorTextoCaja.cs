@@ -8,32 +8,15 @@ public class ControladorTextoCaja : MonoBehaviour
 {
     [SerializeField] private TextMeshPro textoCaja;
 
-    private int lechesEnCaja = 0;
-
-    public int LechesEnCaja { get => lechesEnCaja; }
-
-    public void GuardarLeche()
+    public void ActualizarTextoCaja(int leches)
     {
-        lechesEnCaja++;
-        ActualizarTextoCaja();
-        PlayerPrefs.SetInt("LechesGuardadas", lechesEnCaja);
-    }
-
-    public void ResetearContador()
-    {
-        lechesEnCaja = 0;
-        ActualizarTextoCaja();
-    }
-
-    private void ActualizarTextoCaja()
-    {
-        if (lechesEnCaja < 10)
+        if (leches < 10)
         {
-            textoCaja.text = "0" + lechesEnCaja.ToString();
+            textoCaja.text = "0" + leches.ToString();
         }
         else
         {
-            textoCaja.text = lechesEnCaja.ToString();
+            textoCaja.text = leches.ToString();
         }
     }
 }
