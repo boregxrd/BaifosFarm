@@ -17,6 +17,7 @@ public class ManejarHeno : MonoBehaviour
 
     [SerializeField] ParticleSystem particulasHeno;
     [SerializeField] AudioSource audioSource;
+    [SerializeField] AudioClip[] sonidosCogerHeno;
 
 
     private void Start()
@@ -45,6 +46,8 @@ public class ManejarHeno : MonoBehaviour
         
         animator.SetTrigger("heno");
         fxMontonHeno();
+        
+        audioSource.PlayOneShot(sonidosCogerHeno[Random.Range(0, sonidosCogerHeno.Length)]);
 
         heno.transform.position = mano.position;
         heno.transform.SetParent(mano);

@@ -3026,6 +3026,10 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 937098142103243611, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: sonidosEsfuerzoBaifo.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 937098142103243611, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: sonidosPasosBaifo.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: f05173c4feb62bd488a03040ffc39e89, type: 3}
@@ -3045,6 +3049,34 @@ PrefabInstance:
       propertyPath: sonidosPasosBaifo.Array.data[4]
       value: 
       objectReference: {fileID: 8300000, guid: c1dee86ca47c2e1478c20b8535f07909, type: 3}
+    - target: {fileID: 937098142103243611, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: sonidosEsfuerzoBaifo.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 37899af82612c0e438971bf6a26bba09, type: 3}
+    - target: {fileID: 937098142103243611, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: sonidosEsfuerzoBaifo.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: c6629fd1246c7b24199fe869d72f45bc, type: 3}
+    - target: {fileID: 937098142103243611, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: sonidosEsfuerzoBaifo.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 9d0852b1ba59f6848879f531fcbe0763, type: 3}
+    - target: {fileID: 937098142103243611, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: sonidosEsfuerzoBaifo.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 0e911c42b90845548b53ad2d922f4ef3, type: 3}
+    - target: {fileID: 937098142103243611, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: sonidosEsfuerzoBaifo.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: e6f9d1de91f85b1479a705c0a2f7927f, type: 3}
+    - target: {fileID: 937098142103243611, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: sonidosEsfuerzoBaifo.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: e6f9d1de91f85b1479a705c0a2f7927f, type: 3}
+    - target: {fileID: 937098142103243611, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: sonidosEsfuerzoBaifo.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: e6f9d1de91f85b1479a705c0a2f7927f, type: 3}
     - target: {fileID: 1393686520797697360, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: m_Name
       value: Personaje
@@ -3105,6 +3137,22 @@ PrefabInstance:
       propertyPath: montonHenoEspecial
       value: 
       objectReference: {fileID: 128988484}
+    - target: {fileID: 8305099644719831740, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: sonidosCogerHeno.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8305099644719831740, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: sonidosCogerHeno.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 70b2a77f71124b24dadaab533d2d4358, type: 3}
+    - target: {fileID: 8305099644719831740, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: sonidosCogerHeno.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: f7316658b274f474e9e9d05db7e78d3e, type: 3}
+    - target: {fileID: 8305099644719831740, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: sonidosCogerHeno.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: df29d18f320ee5f4b95850071e2d9e5d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5012,7 +5060,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

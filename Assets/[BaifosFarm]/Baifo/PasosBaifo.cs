@@ -8,8 +8,10 @@ public class PasosBaifo : MonoBehaviour
 
     [SerializeField] ParticleSystem particulasPieIzqdo;
 
-    [SerializeField] AudioSource audioSource;
+    private AudioSource audioSource;
     [SerializeField] AudioClip[] sonidosPasosBaifo;
+    [SerializeField] AudioClip[] sonidosEsfuerzoBaifo;
+
 
     private void Start()
     {
@@ -19,16 +21,17 @@ public class PasosBaifo : MonoBehaviour
     public void DispararParticulasPieDcho()
     {
         particulasPieDcho.Play();
-
-        AudioClip paso = sonidosPasosBaifo[Random.Range(0, sonidosPasosBaifo.Length)];
-        audioSource.PlayOneShot(paso);
+        audioSource.PlayOneShot(sonidosPasosBaifo[Random.Range(0, sonidosPasosBaifo.Length)]);
     }
 
     public void DispararParticulasPieIzqdo()
     {
         particulasPieIzqdo.Play();
+        audioSource.PlayOneShot(sonidosPasosBaifo[Random.Range(0, sonidosPasosBaifo.Length)]);
+    }
 
-        AudioClip paso = sonidosPasosBaifo[Random.Range(0, sonidosPasosBaifo.Length)];
-        audioSource.PlayOneShot(paso);
+    public void ReproducirSonidoEsfuerzo()
+    {
+        audioSource.PlayOneShot(sonidosEsfuerzoBaifo[Random.Range(0, sonidosEsfuerzoBaifo.Length)]);
     }
 }
