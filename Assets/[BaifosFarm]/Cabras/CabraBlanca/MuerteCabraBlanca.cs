@@ -6,7 +6,7 @@ public class MuerteCabraBlanca : MonoBehaviour
 {
     BarraAlimento barraAlimento;
     private Animator animator;
-    // private bool isDead = false;
+    private bool isDead = false;
 
     AudioSource audioSource;
     [SerializeField] AudioClip[] gritos;
@@ -27,7 +27,7 @@ public class MuerteCabraBlanca : MonoBehaviour
 
     private void Update()
     {
-        if (barraAlimento.ValorActual == 0)
+        if (barraAlimento.ValorActual == 0 && !isDead)
         {
             StartCoroutine(Morir());
         }
@@ -35,6 +35,8 @@ public class MuerteCabraBlanca : MonoBehaviour
 
     private IEnumerator Morir()
     {
+        isDead = true;
+
         // random delay para evitar muerte simultanea y asi evitar audio petado
         yield return new WaitForSeconds(Random.Range(0, 0.6f));
         animator.SetTrigger("Muerte");
@@ -42,6 +44,7 @@ public class MuerteCabraBlanca : MonoBehaviour
 
     public void PlayGrito()
     {
+        contadorCabras.MuerteCabraGris();
         mov.pararCabra(gameObject);
         AudioClip sonidoRandom = gritos[Random.Range(0, gritos.Length)];
         audioSource.PlayOneShot(sonidoRandom);
@@ -51,7 +54,6 @@ public class MuerteCabraBlanca : MonoBehaviour
     {
         Instantiate(explosion, transform.position, transform.rotation);
 
-        contadorCabras.MuerteCabraGris();
         Destroy(gameObject);
     }
 }
