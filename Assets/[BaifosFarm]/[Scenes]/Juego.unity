@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!4 &5791089 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 65601336814837570, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+  m_PrefabInstance: {fileID: 1018782739}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &43032687 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 325870968471336555, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
@@ -2964,6 +2969,10 @@ PrefabInstance:
       propertyPath: sonidoLeche2
       value: 
       objectReference: {fileID: 8300000, guid: a347ce05a5def6541adb6cefb9e04151, type: 3}
+    - target: {fileID: 4374602516664229760, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: baifoPos
+      value: 
+      objectReference: {fileID: 5791089}
     - target: {fileID: 7309692476549889380, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]
       value: 
