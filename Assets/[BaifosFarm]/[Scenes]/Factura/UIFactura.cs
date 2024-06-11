@@ -31,6 +31,8 @@ public class UIFactura : MonoBehaviour
 
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
+
+    ContadorCabras contadorCabras;
     
     private void Awake()
     {
@@ -41,6 +43,7 @@ public class UIFactura : MonoBehaviour
 
     private void Start()
     {
+        contadorCabras = FindObjectOfType<ContadorCabras>();
         contadorDinero.text = PlayerPrefs.GetInt("DineroTotal", 0).ToString();
         ActualizarUI();
     }
@@ -61,14 +64,14 @@ public class UIFactura : MonoBehaviour
 
         if (!dineroSumadoFlag)
         {
-            sistemaMonetario.AgregarDinero(leches * manejoCompras.GANANCIA_LECHE);
+            sistemaMonetario.AgregarDinero(leches * manejoCompras.gananciaLeche);
             dinero = PlayerPrefs.GetInt("DineroTotal", 0);
             dineroSumadoFlag = true;
         }
         
         if (leches > 0)
         {
-            dineroLeche = leches * manejoCompras.GANANCIA_LECHE;
+            dineroLeche = leches * manejoCompras.gananciaLeche;
             gananciaLeche.text = "+" + dineroLeche;
             gananciaLeche.color = customGreen;
         }
@@ -82,11 +85,11 @@ public class UIFactura : MonoBehaviour
 
     private void ActualizarCostoHeno()
     {
-        numCabras = manejoCompras.numCabrasBlancas + manejoCompras.numCabrasNegras;
+        numCabras = contadorCabras.NumCabrasBlancas + contadorCabras.NumCabrasNegras;
 
         if (numCabras > 0)
         {
-            dineroHeno = numCabras * manejoCompras.COSTO_ALIMENTAR_CABRA;
+            dineroHeno = numCabras * manejoCompras.costoAlimentacion;
             costoHeno.text = "-" + dineroHeno;
         }
         else
@@ -98,7 +101,7 @@ public class UIFactura : MonoBehaviour
 
     private void ActualizarCabrasCompradas()
     {
-        dineroCabras = cabrasNuevas * manejoCompras.COSTO_CABRA;
+        dineroCabras = cabrasNuevas * manejoCompras.costoCabra;
 
         if (cabrasNuevas >= 1)
         {
@@ -125,7 +128,7 @@ public class UIFactura : MonoBehaviour
         }
         else
         {
-            dineroHenoEspecial = manejoCompras.COSTO_HENO_ESPECIAL;
+            dineroHenoEspecial = manejoCompras.costoHenoEspecial;
             henoEspecial.SetActive(true);
 
             if (cabrasNuevas > 0)
