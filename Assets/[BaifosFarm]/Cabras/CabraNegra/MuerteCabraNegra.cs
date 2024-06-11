@@ -8,9 +8,11 @@ public class MuerteCabraNegra : MonoBehaviour
     BarraAlimento barraAlimento;
     public LayerMask nuevaLayerMask;
     CabraNegra cabraNegra;
+    ContadorCabras contadorCabras;
 
     private void Start()
     {
+        contadorCabras = FindObjectOfType<ContadorCabras>();
         barraAlimento = GetComponentInChildren<BarraAlimento>();
         cabraNegra = GetComponent<CabraNegra>();
     }
@@ -31,8 +33,7 @@ public class MuerteCabraNegra : MonoBehaviour
     {
         gameObject.layer = nuevaLayerMask;
         barraAlimento.enabled = false;
-        int negrasAntesDeMorir = PlayerPrefs.GetInt("cabrasNegras", 0);
-        PlayerPrefs.SetInt("cabrasNegras", negrasAntesDeMorir - 1);
+        contadorCabras.MuerteCabraNegra();
         cabraNegra.cabraNegraMuerta = true;
     }
 

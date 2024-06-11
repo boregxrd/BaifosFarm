@@ -15,18 +15,21 @@ public class BarraAlimento : MonoBehaviour
 
     private Cabra cabra; // Referencia a la cabra
 
+    ContadorCabras contadorCabras;
+
     void Start()
     {
+        contadorCabras = FindAnyObjectByType<ContadorCabras>();
         barraAlimento = GetComponent<Image>();
         barraAlimento.fillAmount = valorActual / valorMaximo;
         cabra = GetComponentInParent<Cabra>(); // Obtener la referencia a la cabra
 
-        if (PlayerPrefs.GetInt("cabrasBlancas", 0) != 0){
-            velocidadReduccion = velocidadReduccionInicial / PlayerPrefs.GetInt("cabrasBlancas", 0) ;
+        if (contadorCabras.NumCabrasBlancas != 0){
+            velocidadReduccion = velocidadReduccionInicial / contadorCabras.NumCabrasBlancas;
         }
         else{
             velocidadReduccion = velocidadReduccionInicial;
-        };
+        }
     }
 
     void Update()

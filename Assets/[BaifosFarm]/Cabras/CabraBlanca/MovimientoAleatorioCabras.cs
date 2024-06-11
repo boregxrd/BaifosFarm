@@ -21,26 +21,14 @@ public class MovimientoAleatorioCabras : MonoBehaviour
 
     private void Awake()
     {
-        // Encuentra el NavMeshAgent en el GameObject Cabra
         agente = GetComponent<NavMeshAgent>();
-        if (agente == null)
-        {
-            Debug.LogError("No se encontró NavMeshAgent en el GameObject Cabra.");
-        }
+        if (agente == null) Debug.LogError("NavMeshAgent null");
 
-        // Encuentra el Animator en el hijo Modelo
         animator = GetComponentInChildren<Animator>();
-        if (animator == null)
-        {
-            Debug.LogError("No se encontró Animator en el hijo Modelo.");
-        }
+        if (animator == null) Debug.LogError("Animator null");
 
-        // Encuentra el AudioSource en el hijo Modelo
         audioSource = GetComponentInChildren<AudioSource>();
-        if (audioSource == null)
-        {
-            Debug.LogError("No se encontró AudioSource en el hijo Modelo.");
-        }
+        if (audioSource == null) Debug.LogError("AudioSource null");
     }
 
     IEnumerator Start()
@@ -109,17 +97,6 @@ public class MovimientoAleatorioCabras : MonoBehaviour
             finalPosition = hit.position;
         }
         return finalPosition;
-    }
-
-    void nuevaPosicionAleatoria()
-    {
-        posicionMin = new Vector3(9, 0, 9);
-        posicionMax = new Vector3(9, 0, 9);
-
-        float randomX = Random.Range(posicionMin.x, posicionMax.x);
-        float randomZ = Random.Range(posicionMin.z, posicionMax.z);
-
-        destino = new Vector3(randomX, 0, randomZ);
     }
 
     public void pararCabra(GameObject cabra)
