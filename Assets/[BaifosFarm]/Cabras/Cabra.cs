@@ -34,7 +34,7 @@ public class Cabra : MonoBehaviour
         }
         else
         {
-            return 0f;
+            return -1f;
         }
     }
 

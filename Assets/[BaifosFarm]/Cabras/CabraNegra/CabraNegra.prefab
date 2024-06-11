@@ -390,6 +390,7 @@ GameObject:
   - component: {fileID: 8671757947354089879}
   - component: {fileID: 1290812866300521174}
   - component: {fileID: 1839023476782865911}
+  - component: {fileID: -3004807189931626023}
   m_Layer: 8
   m_Name: CabraNegra
   m_TagString: cabraNegra
@@ -517,11 +518,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e935d17735670c74992dcbe8b3701df0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  barraAlimento: {fileID: 0}
   nuevaLayerMask:
     serializedVersion: 2
     m_Bits: 1
-  cabraNegra: {fileID: 0}
 --- !u!114 &1839023476782865911
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -540,6 +539,22 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4e4c5e5714e66b249b87a24d1360b9e6, type: 3}
   - {fileID: 8300000, guid: 533ed979bd491b24a9ba14b28697e113, type: 3}
   - {fileID: 8300000, guid: da17ac898de7d5e42b80819c128cf922, type: 3}
+--- !u!114 &-3004807189931626023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7693945115360077490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d22a268559a4ed419f1a114eb7929d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  necesidad:
+  - {fileID: 8300000, guid: 4c4d68ac51e677142a524ca7fcba1fd6, type: 3}
+  - {fileID: 8300000, guid: 55d7067e31389e7418eb1568f49e0122, type: 3}
+  - {fileID: 8300000, guid: cdfe834f1b59d7b45b2811fdd92046d1, type: 3}
 --- !u!1001 &3544188005661839734
 PrefabInstance:
   m_ObjectHideFlags: 0
