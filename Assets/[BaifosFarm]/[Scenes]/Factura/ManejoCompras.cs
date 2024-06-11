@@ -58,8 +58,8 @@ public class ManejoCompras : MonoBehaviour
     public void ComprarHenoEspecial()
     {
         int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado");
-        int dineroTotal = PlayerPrefs.GetInt("DineroTotal", 0);
-        if (PuedeComprarHenoEspecial(dineroTotal, valorHenoMejorado))
+        
+        if (PuedeComprarHenoEspecial(contadorDinero.Dinero, valorHenoMejorado))
         {
             contadorDinero.RestarDinero(costoHenoEspecial);
             PlayerPrefs.SetInt("HenoMejorado", 1);

@@ -32,6 +32,7 @@ public class UIFactura : MonoBehaviour
 
     ContadorCabras contadorCabras;
     ContadorDinero contadorDinero;
+    ContadorLeche contadorLeche;
     
     private void Awake()
     {
@@ -42,6 +43,7 @@ public class UIFactura : MonoBehaviour
 
     private void Start()
     {
+        contadorLeche = FindObjectOfType<ContadorLeche>();
         contadorCabras = FindObjectOfType<ContadorCabras>();
         contadorDinero = FindObjectOfType<ContadorDinero>();
         txtDinero.text = contadorDinero.Dinero.ToString();
@@ -59,7 +61,7 @@ public class UIFactura : MonoBehaviour
 
     private void ActualizarCantidadLeche()
     {
-        int leches = PlayerPrefs.GetInt("LechesGuardadas", 0);
+        int leches = contadorLeche.Contador;
         cantidadLeche.text = "X" + leches.ToString();
 
         if (!dineroSumadoFlag)

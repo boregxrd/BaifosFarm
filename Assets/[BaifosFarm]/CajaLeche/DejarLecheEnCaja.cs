@@ -17,10 +17,11 @@ public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
 
     private AudioSource audioSource;
 
-    
+    ContadorLeche contadorLeche;
 
     private void Start()
     {
+        contadorLeche = FindObjectOfType<ContadorLeche>();
         audioSource = GetComponent<AudioSource>();
         controladorTextoCaja = GetComponent<ControladorTextoCaja>();
         animatorDejarLeche = GetComponent<Animator>();
@@ -34,7 +35,8 @@ public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
         {
             manejarLeche = jugador.GetComponent<ManejarLeche>();
             manejarLeche.DejarLeche();
-            controladorTextoCaja.GuardarLeche();
+            contadorLeche.SumarLeche();
+            controladorTextoCaja.ActualizarTextoCaja(contadorLeche.Contador);
             animatorDejarLeche.SetTrigger("DejarLeche");
             
             StartCoroutine(PlayParticlesAfterDelay(1.05f)); // Iniciar la corutina

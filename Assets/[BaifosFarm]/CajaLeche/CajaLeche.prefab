@@ -221,7 +221,6 @@ GameObject:
   - component: {fileID: 4334919850071293380}
   - component: {fileID: 7922216726301757842}
   - component: {fileID: 8863405259529769093}
-  - component: {fileID: 7925921599769774303}
   - component: {fileID: 7893797392046464555}
   - component: {fileID: 3463083111287728147}
   - component: {fileID: 165775897575741652}
@@ -317,21 +316,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lecheGuardada: 0
---- !u!114 &7925921599769774303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2949518663174923328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3e757dda8fe00f498b635d2e743c0ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sistemaMonetario: {fileID: 0}
-  PRECIO_POR_BOTELLA: 10
-  controladorTextoCaja: {fileID: 0}
 --- !u!198 &7893797392046464555
 ParticleSystem:
   m_ObjectHideFlags: 0

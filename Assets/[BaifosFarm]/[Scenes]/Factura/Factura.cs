@@ -13,6 +13,7 @@ public class Factura : MonoBehaviour
     UIFactura uIFactura;
     ContadorDinero contadorDinero;
     ContadorCabras contadorCabras;
+    ContadorLeche contadorLeche;
 
     private void Awake()
     {
@@ -25,6 +26,7 @@ public class Factura : MonoBehaviour
 
     private void Start()
     {
+        contadorLeche = FindObjectOfType<ContadorLeche>();
         contadorDinero = FindObjectOfType<ContadorDinero>();
         contadorCabras = FindObjectOfType<ContadorCabras>();
         if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
@@ -73,7 +75,7 @@ public class Factura : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         SceneManager.LoadScene("Juego");
-        PlayerPrefs.SetInt("LechesGuardadas", 0);
+        contadorLeche.Resetear();
         manejoCompras.RestarDinero();
     }
 

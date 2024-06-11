@@ -10,19 +10,18 @@ public class AccionesAtardecer : MonoBehaviour
     private DeteccionCabrasNegras deteccionCabrasNegras;
     private BarrasHandler barrasHandler;
     private InteraccionesJugador interaccionesJugador;
-    private ControlPrecioLeche controlPrecioLeche;
     private ControlAvisos controlAvisos;
     [SerializeField] PlayableDirector animaticaCamion;
     [SerializeField] CinemachineVirtualCamera camaraJuego;
     //private CantidadCabrasAtardecer cantidadCabrasAtardecer;
     [SerializeField] private ContadorDias contadorDias;
-
+    ContadorLeche contadorLeche;
 
     private void Awake()
     {
         barrasHandler = gameObject.AddComponent<BarrasHandler>();
         interaccionesJugador = FindObjectOfType<InteraccionesJugador>();
-        controlPrecioLeche = FindObjectOfType<ControlPrecioLeche>();
+        contadorLeche = FindObjectOfType<ContadorLeche>();
         controlAvisos = FindObjectOfType<ControlAvisos>();
         deteccionCabrasNegras = GetComponent<DeteccionCabrasNegras>();
         contadorDias = FindObjectOfType<ContadorDias>();
@@ -51,12 +50,10 @@ public class AccionesAtardecer : MonoBehaviour
 
     private void EjecutarAccionesRestantes()
     {
-        controlPrecioLeche.SumarDineroPorBotella();
+        contadorLeche.Resetear();
         deteccionCabrasNegras.InvocarVictoria();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         contadorDias.SumarUnDiaAlContador();
     }
 }
-
-
