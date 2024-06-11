@@ -82,6 +82,7 @@ public class TutorialManager : MonoBehaviour
 
             // Mostrar el pop-up
             popUps[popUpIndex].SetActive(true);
+            audioSource.Play(); // Reproducir el sonido del pop-up
             Debug.Log($"Mostrando pop-up {popUpIndex + 1}"); // Mensaje de depuración
         }
         else
