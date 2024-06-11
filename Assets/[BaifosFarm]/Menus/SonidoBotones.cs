@@ -17,25 +17,11 @@ public class SonidoBotones : MonoBehaviour
     public void ReproducirSonidoBotonNormal()
     {
         audiosource.PlayOneShot(sonidoBotonNormal);
-        Debug.Log("Sonido botones");
     }
 
     public void ReproducirSonidoBotonCerrar()
     {
-        
         audiosource.PlayOneShot(sonidoBotonCerrar);
-        Debug.Log("Sonido botones");
     }
 
-    public void ReproducirSonidoBotonNormalEnPausa()
-    {
-        audiosource.PlayOneShot(sonidoBotonNormal);
-        Debug.Log("Sonido botones");
-    }
-
-    public void ReproducirSonidoBotonCerrarEnPausa()
-    {
-        audiosource.PlayOneShot(sonidoBotonCerrar);
-        Debug.Log("Sonido botones");
-    }
 }

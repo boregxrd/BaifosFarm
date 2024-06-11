@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class MenuPausa : MonoBehaviour
 {
-    [SerializeField] PausaController pausaController;
-    [SerializeField] MenuAjustes menuAjustes;
+    PausaController pausaController;
+    MenuAjustes menuAjustes;
 
     public bool pausa = false;
     public bool ajustesAbierto = false;
@@ -16,8 +16,6 @@ public class MenuPausa : MonoBehaviour
 
     void Start()
     {
-        //if(gameObject.activeSelf) gameObject.SetActive(false);
-        //Time.timeScale = 1; //el juego se reanuda
         pausaController = FindObjectOfType<PausaController>();
 
         Cursor.visible = true;
@@ -26,21 +24,8 @@ public class MenuPausa : MonoBehaviour
         
     }
 
-    /*
-    public void Pausar()
-    {
-        gameObject.SetActive(true);
-        pausa = true;
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        Time.timeScale = 0; //el juego se pausa
-    }
-    */
-
     public void Reanudar()
     {
-        //gameObject.SetActive(false);
-        //pausa = false;
         pausaController.juegoPausado = false;
 
         if(PlayerPrefs.GetInt("TutorialCompleto") == 1){

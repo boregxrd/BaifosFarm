@@ -5,32 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class PausaController : MonoBehaviour
 {
-    [SerializeField] MenuPausa menuPausa;
+    private MenuPausa menuPausa;
 
     public bool juegoPausado = false;
 
     
     void Update()
     {
-        /*
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            if (menuPausa.pausa == false)
-            {
-                menuPausa.Pausar();
-            }
-            else if (menuPausa.ComprobarAjustes())
-            {
-                menuPausa.CerrarMenuAjustes();
-                menuPausa.Reanudar();
-            }
-            else
-            {
-                menuPausa.Reanudar();
-            }
-        }
-        */
-
         if (Input.GetKeyDown(KeyCode.P))
         {
             if(!juegoPausado) //Pausar

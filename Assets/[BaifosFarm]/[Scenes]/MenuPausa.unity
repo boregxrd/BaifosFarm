@@ -229,6 +229,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasPausa
       objectReference: {fileID: 0}
+    - target: {fileID: 2884779879183133324, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReproducirSonidoBotonCerrar
+      objectReference: {fileID: 0}
+    - target: {fileID: 3819551312409219256, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReproducirSonidoBotonNormal
+      objectReference: {fileID: 0}
+    - target: {fileID: 5829361794436219465, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReproducirSonidoBotonNormal
+      objectReference: {fileID: 0}
     - target: {fileID: 7902452620180797636, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
       propertyPath: m_Pivot.x
       value: 0

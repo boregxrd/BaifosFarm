@@ -9,7 +9,7 @@ public class MenuAjustes : MonoBehaviour
     public Slider sliderVolumen; // Slider para ajustar el volumen
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
-    [SerializeField] private MenuPausa menuPausa;
+    private MenuPausa menuPausa;
 
 
     void Start()
