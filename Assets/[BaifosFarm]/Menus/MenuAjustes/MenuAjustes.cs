@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuAjustes : MonoBehaviour
@@ -8,14 +9,13 @@ public class MenuAjustes : MonoBehaviour
     public Slider sliderVolumen; // Slider para ajustar el volumen
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
-    [SerializeField] private GameObject menuPausa;
+    private MenuPausa menuPausa;
 
 
     void Start()
     {
-        // Desactivar el GameObject del menu de ajustes al iniciar el juego
-        gameObject.SetActive(false);
-        // Obtener el valor actual del volumen y actualizar el slider
+        menuPausa = FindObjectOfType<MenuPausa>();
+
         float volumenActual;
         bool resultado = audioMixer.GetFloat("Volumen", out volumenActual);
 
@@ -35,8 +35,12 @@ public class MenuAjustes : MonoBehaviour
     // Metodo para cerrar el menu de ajustes
     public void CerrarMenuAjustes()
     {
-        gameObject.SetActive(false); // Desactivar el Canvas del menu de ajustes
-        if(menuPausa != null) menuPausa.SetActive(true);
+        if(menuPausa != null)
+        {
+            menuPausa.ajustesAbierto = false;
+        }
+        
+        SceneManager.UnloadSceneAsync("MenuAjustes");
     }
 
     public void OnButtonCursorEnter()
