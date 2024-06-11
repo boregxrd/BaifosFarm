@@ -1082,6 +1082,9 @@ MonoBehaviour:
   sonidosIdle:
   - {fileID: 8300000, guid: 86e4aa656c9ffe440a1552222aa9ff7e, type: 3}
   - {fileID: 8300000, guid: d4d1a80e1a89214409fe5b3ca1b8e361, type: 3}
+  sonidosMuerte:
+  - {fileID: 8300000, guid: 26b6fc95812f040489a53a5732be6319, type: 3}
+  - {fileID: 8300000, guid: c31485c6c4d629442b1a93a2edf36b74, type: 3}
 --- !u!1001 &6428484672322407859
 PrefabInstance:
   m_ObjectHideFlags: 0
