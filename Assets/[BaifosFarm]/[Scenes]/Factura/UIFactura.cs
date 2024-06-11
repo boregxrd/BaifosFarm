@@ -4,7 +4,6 @@ using UnityEngine.UI;
 public class UIFactura : MonoBehaviour
 {
     ManejoCompras manejoCompras;
-    public SistemaMonetario sistemaMonetario;
 
     [SerializeField] Text cantidadLeche;
     [SerializeField] Text cantidadCabras;
@@ -14,7 +13,7 @@ public class UIFactura : MonoBehaviour
     [SerializeField] GameObject henoEspecial;
     [SerializeField] GameObject objCabras;
     [SerializeField] Text dineroTotal;
-    [SerializeField] Text contadorDinero;
+    [SerializeField] Text txtDinero;
 
     Color customGreen = new Color(92f / 255f, 167f / 255f, 81f / 255f);
 
@@ -33,9 +32,11 @@ public class UIFactura : MonoBehaviour
     public Texture2D cursorNormal; // Textura del cursor normal
 
     ContadorCabras contadorCabras;
+    ContadorDinero contadorDinero;
     
     private void Awake()
     {
+        contadorDinero = FindObjectOfType<ContadorDinero>();
         manejoCompras = GetComponent<ManejoCompras>();
         objHenoEspecialRect = henoEspecial.GetComponent<RectTransform>();
         PlayerPrefs.SetInt("HenoMejorado", 0);
@@ -44,7 +45,7 @@ public class UIFactura : MonoBehaviour
     private void Start()
     {
         contadorCabras = FindObjectOfType<ContadorCabras>();
-        contadorDinero.text = PlayerPrefs.GetInt("DineroTotal", 0).ToString();
+        txtDinero.text = contadorDinero.Dinero.ToString();
         ActualizarUI();
     }
 
@@ -64,8 +65,7 @@ public class UIFactura : MonoBehaviour
 
         if (!dineroSumadoFlag)
         {
-            sistemaMonetario.AgregarDinero(leches * manejoCompras.gananciaLeche);
-            dinero = PlayerPrefs.GetInt("DineroTotal", 0);
+            contadorDinero.SumarDinero(leches * manejoCompras.gananciaLeche);
             dineroSumadoFlag = true;
         }
         
