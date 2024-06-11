@@ -21,7 +21,7 @@ public class BarraAlimento : MonoBehaviour
         barraAlimento.fillAmount = valorActual / valorMaximo;
         cabra = GetComponentInParent<Cabra>(); // Obtener la referencia a la cabra
 
-        velocidadReduccion = velocidadReduccionInicial / (PlayerPrefs.GetInt("cabrasBlancas", 0) + PlayerPrefs.GetInt("cabrasNegras", 0));
+        velocidadReduccion = velocidadReduccionInicial / PlayerPrefs.GetInt("cabrasBlancas", 0);
     }
 
     void Update()
