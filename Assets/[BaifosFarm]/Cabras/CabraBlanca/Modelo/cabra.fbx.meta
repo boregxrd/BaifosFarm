@@ -137,8 +137,8 @@ ModelImporter:
       name: Comiendo
       takeName: Take 001
       internalID: 6641085478485924818
-      firstFrame: 40
-      lastFrame: 104
+      firstFrame: 340
+      lastFrame: 380
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -166,8 +166,8 @@ ModelImporter:
       name: Comiendo Caminando
       takeName: Take 001
       internalID: -5059006814000262888
-      firstFrame: 340
-      lastFrame: 380
+      firstFrame: 40
+      lastFrame: 104
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
