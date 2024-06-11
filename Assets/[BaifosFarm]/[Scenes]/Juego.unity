@@ -2303,7 +2303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 819134997}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.03938691, y: 0.61767095, z: -0.030997675, w: 0.7848379}
+  m_LocalRotation: {x: 0.039386902, y: 0.6176709, z: -0.030997664, w: 0.7848379}
   m_LocalPosition: {x: -7, y: 7, z: 3.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3027,7 +3027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 937098142103243611, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: sonidosEsfuerzoBaifo.Array.size
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 937098142103243611, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: sonidosPasosBaifo.Array.data[0]
@@ -3077,6 +3077,14 @@ PrefabInstance:
       propertyPath: sonidosEsfuerzoBaifo.Array.data[6]
       value: 
       objectReference: {fileID: 8300000, guid: e6f9d1de91f85b1479a705c0a2f7927f, type: 3}
+    - target: {fileID: 937098142103243611, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: sonidosEsfuerzoBaifo.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: e6f9d1de91f85b1479a705c0a2f7927f, type: 3}
+    - target: {fileID: 937098142103243611, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: sonidosEsfuerzoBaifo.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: e6f9d1de91f85b1479a705c0a2f7927f, type: 3}
     - target: {fileID: 1393686520797697360, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: m_Name
       value: Personaje
@@ -3084,11 +3092,11 @@ PrefabInstance:
     - target: {fileID: 1584819286800175148, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: sonidoLeche1
       value: 
-      objectReference: {fileID: 8300000, guid: 2405dcfe65f64cd4cb479517dbd9aa86, type: 3}
+      objectReference: {fileID: 8300000, guid: de2bb8b86facea8458bd63cc3cb32bc5, type: 3}
     - target: {fileID: 1584819286800175148, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: sonidoLeche2
       value: 
-      objectReference: {fileID: 8300000, guid: a347ce05a5def6541adb6cefb9e04151, type: 3}
+      objectReference: {fileID: 8300000, guid: 6334dd643827ad84baaba7b3c3d7eced, type: 3}
     - target: {fileID: 4374602516664229760, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: baifoPos
       value: 
