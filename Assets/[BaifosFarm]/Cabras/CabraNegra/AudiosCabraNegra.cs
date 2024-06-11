@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioSaltitos : MonoBehaviour
+public class AudiosCabraNegra : MonoBehaviour
 {
     Animator animator;
-    [SerializeField] AudioClip[] sonidoSaltitos; 
     private AudioSource audioSource;
+
+    [SerializeField] AudioClip[] sonidoSaltitos; 
+    [SerializeField] AudioClip[] sonidosIdle; 
+
 
     void Start()
     {
@@ -19,5 +22,8 @@ public class AudioSaltitos : MonoBehaviour
         audioSource.PlayOneShot(sonidoRandom);
     }
 
-    
+    private void PlayIdle() {
+        AudioClip sonidoRandom = sonidosIdle[Random.Range(0, sonidosIdle.Length)];
+        audioSource.PlayOneShot(sonidoRandom);
+    }
 }
