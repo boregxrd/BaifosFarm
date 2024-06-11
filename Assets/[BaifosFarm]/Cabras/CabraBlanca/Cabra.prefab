@@ -592,6 +592,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   necesidad:
+  - {fileID: 8300000, guid: 91a3837618750544b8a41612f6967500, type: 3}
+  - {fileID: 8300000, guid: 58aa1daa353e1a549b18e6b370c9f487, type: 3}
   - {fileID: 8300000, guid: 5e292c5eafd702747a09a95433ba5325, type: 3}
   - {fileID: 8300000, guid: 06a3e95aca572be49a56959ad4a7b08e, type: 3}
 --- !u!1 &6650065937915407930
