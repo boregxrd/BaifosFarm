@@ -11,6 +11,7 @@ public class Factura : MonoBehaviour
     PopUpsFacturaTutorial popUpsFacturaTutorial;
     ManejoCompras manejoCompras;
     UIFactura uIFactura;
+    ContadorCabras contadorCabras;
 
     private void Awake()
     {
@@ -23,6 +24,7 @@ public class Factura : MonoBehaviour
 
     private void Start()
     {
+        contadorCabras = FindObjectOfType<ContadorCabras>();
         if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
         {
             
@@ -53,7 +55,7 @@ public class Factura : MonoBehaviour
 
     private bool IsGameOver()
     {
-        if (manejoCompras.numCabrasBlancas == 0 && uIFactura.dinero < manejoCompras.COSTO_CABRA + manejoCompras.COSTO_ALIMENTAR_CABRA)
+        if (contadorCabras.NumCabrasGrises == 0 && uIFactura.dinero < manejoCompras.costoCabra + manejoCompras.costoAlimentacion)
         {
             return true;
         }

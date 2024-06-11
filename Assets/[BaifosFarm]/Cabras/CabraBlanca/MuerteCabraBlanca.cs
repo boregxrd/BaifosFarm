@@ -6,16 +6,18 @@ public class MuerteCabraBlanca : MonoBehaviour
 {
     BarraAlimento barraAlimento;
     private Animator animator;
-    private bool isDead = false;
+    // private bool isDead = false;
 
     AudioSource audioSource;
     [SerializeField] AudioClip[] gritos;
     [SerializeField] GameObject explosion;
     MovimientoAleatorioCabras mov;
+    ContadorCabras contadorCabras;
 
 
     private void Start()
     {
+        contadorCabras = FindObjectOfType<ContadorCabras>();
         barraAlimento = transform.GetComponentInChildren<BarraAlimento>();
         animator = GetComponentInChildren<Animator>();
         audioSource = GetComponentInChildren<AudioSource>();
@@ -25,7 +27,7 @@ public class MuerteCabraBlanca : MonoBehaviour
 
     private void Update()
     {
-        if (barraAlimento.ValorActual == 0 && !isDead)
+        if (barraAlimento.ValorActual == 0)
         {
             StartCoroutine(Morir());
         }
@@ -33,8 +35,6 @@ public class MuerteCabraBlanca : MonoBehaviour
 
     private IEnumerator Morir()
     {
-        isDead = true;
-
         // random delay para evitar muerte simultanea y asi evitar audio petado
         yield return new WaitForSeconds(Random.Range(0, 0.6f));
         animator.SetTrigger("Muerte");
@@ -51,24 +51,7 @@ public class MuerteCabraBlanca : MonoBehaviour
     {
         Instantiate(explosion, transform.position, transform.rotation);
 
-        int blancasAntesDeMorir = PlayerPrefs.GetInt("cabrasBlancas", 0);
-        PlayerPrefs.SetInt("cabrasBlancas", blancasAntesDeMorir - 1);
+        contadorCabras.MuerteCabraGris();
         Destroy(gameObject);
     }
 }
-
-
-// private void InstanciarFX()
-// {
-//     GameObject muerteCabra = Instantiate(muerteCabraPrefab, transform.position, Quaternion.identity);
-
-//     // ajustes de tamaño y posicion
-//     muerteCabra.transform.localScale *= 0.5f;
-//     muerteCabra.transform.position += Vector3.up * 2f;
-
-
-//     // Rotar el objeto de muerte de la cabra para que mire hacia la c�mara
-//     Vector3 dirToCamera = Camera.main.transform.position - muerteCabra.transform.position;
-//     dirToCamera.y = 0f;
-//     muerteCabra.transform.rotation = Quaternion.LookRotation(dirToCamera);
-// }
