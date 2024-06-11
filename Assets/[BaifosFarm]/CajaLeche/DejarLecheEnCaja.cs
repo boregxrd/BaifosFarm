@@ -13,7 +13,7 @@ public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
 
     private Animator animatorDejarLeche;
     private ParticleSystem particulasDejarLeche;
-    private ParticleSystem childGameObjectParticle;
+    [SerializeField] ParticleSystem particulasTutorial;
 
     private AudioSource audioSource;
 
@@ -26,7 +26,6 @@ public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
         controladorTextoCaja = GetComponent<ControladorTextoCaja>();
         animatorDejarLeche = GetComponent<Animator>();
         particulasDejarLeche = GetComponent<ParticleSystem>();
-        childGameObjectParticle = GameObject.Find("ParticulasTutorialCajaLeche").GetComponent<ParticleSystem>();
     }
 
     public void Interactuar(Jugador jugador)
@@ -41,7 +40,7 @@ public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
             
             StartCoroutine(PlayParticlesAfterDelay(1.05f)); // Iniciar la corutina
 
-            childGameObjectParticle.Stop();
+            particulasTutorial.Stop();
             //para el tutorial
             lecheGuardada = true;
         }

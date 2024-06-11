@@ -92,20 +92,15 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    private void CheckCompletion()
+    private IEnumerator CheckCompletion()
     {
-        StartCoroutine(DelayBeforeCheck());
-    }
-
-    private IEnumerator DelayBeforeCheck()
-    {
-        // Esperar 2 segundos
+        // Esperar 3 segundos
         yield return new WaitForSeconds(3f);
 
         // Verificar si el tutorial ha sido completado antes de continuar
         if (PlayerPrefs.GetInt("TutorialCompleto") == 1)
         {
-            yield break; // Salir de la corrutina si el tutorial está completado
+            yield break;
         }
 
         switch (popUpIndex)
