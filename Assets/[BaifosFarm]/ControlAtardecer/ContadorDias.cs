@@ -9,14 +9,14 @@ public class ContadorDias : MonoBehaviour
     private static ContadorDias instance;
     public static ContadorDias Instance { get { return instance; } }
 
-    
-    private int contador;
-    public int Contador { get => contador;}
 
-    
+    private int contador;
+    public int Contador { get => contador; }
+
+
     private void Awake()
     {
-        if(instance == null)
+        if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
@@ -37,5 +37,14 @@ public class ContadorDias : MonoBehaviour
     public void ResetearContadorDias()
     {
         contador = 1;
+    }
+
+    public void Destruir()
+    {
+        if (instance == this)
+        {
+            instance = null;
+            Destroy(gameObject);
+        }
     }
 }
