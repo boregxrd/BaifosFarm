@@ -899,7 +899,6 @@ GameObject:
   - component: {fileID: 4364963938558819304}
   - component: {fileID: 884892565658151959}
   - component: {fileID: 7850997803217300950}
-  - component: {fileID: 3489010452331361020}
   m_Layer: 5
   m_Name: CanvasInicio
   m_TagString: Untagged
@@ -1009,19 +1008,6 @@ MonoBehaviour:
   canvasMenuAjustes: {fileID: 0}
   cursorMano: {fileID: 2800000, guid: 045fbab49145d184d906da82dee49db0, type: 3}
   cursorNormal: {fileID: 2800000, guid: 6ec4d07ab26436d47a662515951f2215, type: 3}
---- !u!114 &3489010452331361020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3781176442212706543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 334c4999528e7214fa02f754150aff76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  contadorDias: {fileID: 0}
 --- !u!1 &5271451095855172939
 GameObject:
   m_ObjectHideFlags: 0
