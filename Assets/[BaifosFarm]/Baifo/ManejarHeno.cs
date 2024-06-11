@@ -16,6 +16,7 @@ public class ManejarHeno : MonoBehaviour
     [SerializeField] GameObject montonHenoEspecial;
 
     [SerializeField] ParticleSystem particulasHeno;
+    [SerializeField] AudioSource audioSource;
 
 
     private void Start()
@@ -30,6 +31,7 @@ public class ManejarHeno : MonoBehaviour
         }
         jugador = GetComponent<Jugador>();
         animator = transform.GetChild(0).GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
 
     }
 
