@@ -8,25 +8,38 @@ public class ControladorNecesidad : MonoBehaviour
     AudioSource audioSource;
     [SerializeField] AudioClip[] necesidad;
 
-    bool necesitada = false;
+    bool hambrienta = false;
+    bool lecheLista = false;
+
+    Cabra cabra;
 
     void Start()
     {
-        barraAlimento = GetComponentInChildren<BarraAlimento>();
+        cabra = GetComponent<Cabra>();
         audioSource = GetComponentInChildren<AudioSource>();
     }
 
     void Update()
     {
-        if (!necesitada)
+        if (!hambrienta)
         {
-            if (barraAlimento.ValorActual <= 50f)
+            if (cabra.nivelDeAlimentacion() <= 40f)
             {
-                necesitada = true;
+                hambrienta = true;
                 AudioClip sonidoRandom = necesidad[Random.Range(0, necesidad.Length)];
                 audioSource.PlayOneShot(sonidoRandom);
             } else {
-                necesitada = false;
+                hambrienta = false;
+            }
+        }
+
+        if(!lecheLista) {
+            if(cabra.nivelDeLeche() == 100f) {
+                lecheLista = true;
+                AudioClip sonidoRandom = necesidad[Random.Range(0, necesidad.Length)];
+                audioSource.PlayOneShot(sonidoRandom);
+            } else {
+                lecheLista = false;
             }
         }
     }
