@@ -536,6 +536,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barraAlimento: {fileID: 1249791375483036549}
   estaComiendo: 0
+  sonidosComer:
+  - {fileID: 8300000, guid: 4e4c5e5714e66b249b87a24d1360b9e6, type: 3}
+  - {fileID: 8300000, guid: 533ed979bd491b24a9ba14b28697e113, type: 3}
+  - {fileID: 8300000, guid: da17ac898de7d5e42b80819c128cf922, type: 3}
 --- !u!1001 &3544188005661839734
 PrefabInstance:
   m_ObjectHideFlags: 0

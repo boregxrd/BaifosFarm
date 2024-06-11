@@ -8,11 +8,15 @@ public class CabraNegraInteracciones : MonoBehaviour, IInteractuable
     private TipoDeHeno tipoDeHeno;
     Animator animator;
     public bool estaComiendo = false;
+    
+    AudioSource audioSource;
+    [SerializeField] AudioClip[] sonidosComer;
 
     private void Start()
     {
         tipoDeHeno = FindObjectOfType<TipoDeHeno>();
         animator = GetComponentInChildren<Animator>();
+        audioSource = GetComponentInChildren<AudioSource>();
     }
 
     public void Interactuar(Jugador jugador)
@@ -30,6 +34,8 @@ public class CabraNegraInteracciones : MonoBehaviour, IInteractuable
 
     private IEnumerator ComerAnimacion()
     {
+        AudioClip sonidoRandom = sonidosComer[Random.Range(0, sonidosComer.Length)];
+        audioSource.PlayOneShot(sonidoRandom);
         for (int i = 0; i < 2; i++)
         {
             animator.SetBool("RecibeComida", true);
