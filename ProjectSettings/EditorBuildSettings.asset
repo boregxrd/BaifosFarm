@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/[BaifosFarm]/[Scenes]/Comic_Introduccion.unity
     guid: 95a6f5ddfeffeba4088522f028325e3e
+  - enabled: 1
+    path: Assets/[BaifosFarm]/[Scenes]/MenuAjustes.unity
+    guid: 626f7e0484287e34bada5dd4ee8ca46e
+  - enabled: 1
+    path: Assets/[BaifosFarm]/[Scenes]/MenuPausa.unity
+    guid: bf299e7136f789349848f29afa32c49f
   m_configObjects: {}

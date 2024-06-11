@@ -954,7 +954,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8018820582176265539}
         m_TargetAssemblyTypeName: SonidoBotones, Assembly-CSharp
-        m_MethodName: ReproducirSonidoBotonCerrarEnPausa
+        m_MethodName: ReproducirSonidoBotonCerrar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1335,7 +1335,6 @@ MonoBehaviour:
   sliderVolumen: {fileID: 8421771814819835057}
   cursorMano: {fileID: 2800000, guid: 045fbab49145d184d906da82dee49db0, type: 3}
   cursorNormal: {fileID: 2800000, guid: 6ec4d07ab26436d47a662515951f2215, type: 3}
-  menuPausa: {fileID: 0}
 --- !u!114 &7088054849379263474
 MonoBehaviour:
   m_ObjectHideFlags: 0
