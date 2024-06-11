@@ -10,6 +10,7 @@ public class MenuInicio : MonoBehaviour
     public GameObject canvasMenuAjustes; // Referencia al Canvas del men� de ajustes
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
+    ContadorDias contadorDias;
 
     void Awake()
     {
@@ -20,6 +21,9 @@ public class MenuInicio : MonoBehaviour
     {
         // Desactivar menu de ajustes al iniciar
         if(canvasMenuAjustes.activeSelf == true) canvasMenuAjustes.SetActive(false); 
+        
+        contadorDias = FindAnyObjectByType<ContadorDias>();
+        if(contadorDias != null) contadorDias.Destruir();
     }
 
     public void Jugar()

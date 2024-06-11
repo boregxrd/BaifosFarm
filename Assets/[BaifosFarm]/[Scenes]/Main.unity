@@ -226,6 +226,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3489010452331361020, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3781176442212706543, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_Name
       value: CanvasInicio
@@ -274,6 +278,8 @@ PrefabInstance:
       propertyPath: canvasMenuAjustes
       value: 
       objectReference: {fileID: 1084522920}
+    m_RemovedComponents:
+    - {fileID: 3489010452331361020, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
     - target: {fileID: 8435434677054422858, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_Volume
       value: 0.5
