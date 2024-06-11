@@ -3469,7 +3469,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -6984,7 +6984,7 @@ ParticleSystem:
   CollisionModule:
     enabled: 1
     serializedVersion: 4
-    type: 0
+    type: 1
     collisionMode: 0
     colliderForce: 0
     multiplyColliderForceByParticleSize: 0
@@ -9911,6 +9911,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8863405259529769093, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
+      propertyPath: particulasTutorial
+      value: 
+      objectReference: {fileID: 1087017430}
     - target: {fileID: 8863405259529769093, guid: 2506a284d5f81fc48a38ddd3a26b5283, type: 3}
       propertyPath: particulasDejarLeche
       value: 
