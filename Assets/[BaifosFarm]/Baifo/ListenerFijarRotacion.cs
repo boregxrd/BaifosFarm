@@ -10,6 +10,7 @@ public class ListenerFijarRotacion : MonoBehaviour
         Vector3 posicionCamara = Camera.main.transform.position;
         Vector3 direccionCamara = posicionCamara - transform.position;
         direccionCamara.y = 0;
+        direccionCamara = -direccionCamara;
         transform.rotation = Quaternion.LookRotation(direccionCamara);
         transform.position = baifoPos.position;
     }
