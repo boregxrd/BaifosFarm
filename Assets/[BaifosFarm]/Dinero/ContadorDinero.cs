@@ -15,6 +15,7 @@ public class ContadorDinero : MonoBehaviour
         if(instance == null) {
             instance = this;
             DontDestroyOnLoad(gameObject);
+            dinero = 100;
         } else {
             DestroyImmediate(gameObject);
         }

@@ -23,7 +23,6 @@ public class UIFactura : MonoBehaviour
     int dineroHeno;
     int dineroHenoEspecial;
     int numCabras;
-    public int dinero;
     public int cabrasNuevas = 0;
     RectTransform objHenoEspecialRect;
     bool dineroSumadoFlag = false;
@@ -36,7 +35,6 @@ public class UIFactura : MonoBehaviour
     
     private void Awake()
     {
-        contadorDinero = FindObjectOfType<ContadorDinero>();
         manejoCompras = GetComponent<ManejoCompras>();
         objHenoEspecialRect = henoEspecial.GetComponent<RectTransform>();
         PlayerPrefs.SetInt("HenoMejorado", 0);
@@ -45,6 +43,7 @@ public class UIFactura : MonoBehaviour
     private void Start()
     {
         contadorCabras = FindObjectOfType<ContadorCabras>();
+        contadorDinero = FindObjectOfType<ContadorDinero>();
         txtDinero.text = contadorDinero.Dinero.ToString();
         ActualizarUI();
     }
