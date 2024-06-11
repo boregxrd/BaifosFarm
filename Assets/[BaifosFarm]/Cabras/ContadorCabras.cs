@@ -8,8 +8,8 @@ public class ContadorCabras : MonoBehaviour
     private static ContadorCabras instance;
     public static ContadorCabras Instance{ get { return instance; } }
 
-    private int numCabrasGrises;
-    public int NumCabrasGrises { get => numCabrasGrises; }
+    private int numCabrasBlancas;
+    public int NumCabrasBlancas { get => numCabrasBlancas; }
     private int numCabrasNegras;
     public int NumCabrasNegras { get => numCabrasNegras; }
 
@@ -18,7 +18,7 @@ public class ContadorCabras : MonoBehaviour
         if(Instance == null) {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            numCabrasGrises = 2;
+            numCabrasBlancas = 2;
             numCabrasNegras = 0;
         } else {
             DestroyImmediate(gameObject);
@@ -26,11 +26,11 @@ public class ContadorCabras : MonoBehaviour
     }
 
     private void Start() {
-        Debug.Log(numCabrasGrises + ", " + numCabrasNegras);
+        Debug.Log(numCabrasBlancas + ", " + numCabrasNegras);
     }
 
     public void MuerteCabraGris() {
-        numCabrasGrises--;
+        numCabrasBlancas--;
     }
 
     public void MuerteCabraNegra() {
@@ -38,7 +38,7 @@ public class ContadorCabras : MonoBehaviour
     }
 
     public void NuevaCabraGris() {
-        numCabrasGrises++;   
+        numCabrasBlancas++;   
     }
 
     public void NuevaCabraNegra() {

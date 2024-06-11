@@ -18,7 +18,7 @@ public class ControladorCabras : MonoBehaviour
 
     void SpawnCabras()
     {
-        for (int i = 0; i < contadorCabras.NumCabrasGrises; i++)
+        for (int i = 0; i < contadorCabras.NumCabrasBlancas; i++)
         {
             Vector3 spawnPosition = posicionAleatoria();
             Instantiate(cabraBlanca, spawnPosition, Quaternion.identity);

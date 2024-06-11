@@ -85,7 +85,7 @@ public class UIFactura : MonoBehaviour
 
     private void ActualizarCostoHeno()
     {
-        numCabras = contadorCabras.NumCabrasGrises + contadorCabras.NumCabrasNegras;
+        numCabras = contadorCabras.NumCabrasBlancas + contadorCabras.NumCabrasNegras;
 
         if (numCabras > 0)
         {

@@ -55,7 +55,7 @@ public class Factura : MonoBehaviour
 
     private bool IsGameOver()
     {
-        if (contadorCabras.NumCabrasGrises == 0 && uIFactura.dinero < manejoCompras.costoCabra + manejoCompras.costoAlimentacion)
+        if (contadorCabras.NumCabrasBlancas == 0 && uIFactura.dinero < manejoCompras.costoCabra + manejoCompras.costoAlimentacion)
         {
             return true;
         }

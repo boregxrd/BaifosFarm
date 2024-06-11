@@ -36,7 +36,7 @@ public class ManejoCompras : MonoBehaviour
     private bool PuedeComprarCabra(int dinero)
     {
         return dinero >= costoCabra &&
-               contadorCabras.NumCabrasGrises + contadorCabras.NumCabrasNegras < cabrasMaximas &&
+               contadorCabras.NumCabrasBlancas + contadorCabras.NumCabrasNegras < cabrasMaximas &&
                dinero - costoCabra >= (sistemaMonetario.CalcularGastoHeno() + SistemaMonetario.PRECIO_HENO_POR_CABRA);
     }
 
