@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &5791089 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 65601336814837570, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
-  m_PrefabInstance: {fileID: 1018782739}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &68059323
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,7 +2930,35 @@ PrefabInstance:
     - target: {fileID: 4374602516664229760, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: baifoPos
       value: 
-      objectReference: {fileID: 5791089}
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704465743007625533, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704465743007625533, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.0001732707
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704465743007625533, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: -0.08581138
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704465743007625533, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.67972815
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704465743007625533, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 1.0559685
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704465743007625533, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 1.0387375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4704465743007625533, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.79653955
+      objectReference: {fileID: 0}
     - target: {fileID: 7309692476549889380, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: CollisionModule.m_Planes.Array.data[0]
       value: 
