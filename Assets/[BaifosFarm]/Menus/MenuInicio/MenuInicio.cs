@@ -10,6 +10,9 @@ public class MenuInicio : MonoBehaviour
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
     ContadorDias contadorDias;
+    ContadorLeche contadorLeche;
+    ContadorDinero contadorDinero;
+    ContadorCabras contadorCabras;
 
     void Awake()
     {
@@ -20,6 +23,16 @@ public class MenuInicio : MonoBehaviour
     {
         contadorDias = FindAnyObjectByType<ContadorDias>();
         if(contadorDias != null) contadorDias.Destruir();
+        
+        contadorLeche = FindAnyObjectByType<ContadorLeche>();
+        if(contadorLeche != null) contadorLeche.Destruir();
+        
+        contadorCabras = FindAnyObjectByType<ContadorCabras>();
+        if(contadorCabras != null) contadorCabras.Destruir();
+
+        contadorDinero = FindAnyObjectByType<ContadorDinero>();
+        if(contadorDinero != null) contadorDinero.Destruir();
+
     }
 
     public void Jugar()

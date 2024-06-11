@@ -44,4 +44,13 @@ public class ContadorCabras : MonoBehaviour
     public void NuevaCabraNegra() {
         numCabrasNegras++;   
     }
+
+    public void Destruir()
+    {
+        if (instance == this)
+        {
+            instance = null;
+            Destroy(gameObject);
+        }
+    }
 }

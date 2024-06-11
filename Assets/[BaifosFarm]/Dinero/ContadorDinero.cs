@@ -28,4 +28,13 @@ public class ContadorDinero : MonoBehaviour
     public void RestarDinero(int d) {
         dinero -= d;
     }
+
+    public void Destruir()
+    {
+        if (instance == this)
+        {
+            instance = null;
+            Destroy(gameObject);
+        }
+    }
 }
