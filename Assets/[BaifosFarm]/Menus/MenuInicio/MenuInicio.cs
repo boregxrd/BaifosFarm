@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class MenuInicio : MonoBehaviour
 {
-    public GameObject canvasMenuAjustes; // Referencia al Canvas del men� de ajustes
+    //public GameObject canvasMenuAjustes; // Referencia al Canvas del men� de ajustes
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
     ContadorDias contadorDias;
@@ -19,9 +19,6 @@ public class MenuInicio : MonoBehaviour
 
     public void Start()
     {
-        // Desactivar menu de ajustes al iniciar
-        if(canvasMenuAjustes.activeSelf == true) canvasMenuAjustes.SetActive(false); 
-        
         contadorDias = FindAnyObjectByType<ContadorDias>();
         if(contadorDias != null) contadorDias.Destruir();
     }
@@ -41,7 +38,7 @@ public class MenuInicio : MonoBehaviour
 
     public void Ajustes()
     {
-        if(canvasMenuAjustes.activeSelf == false) canvasMenuAjustes.SetActive(true); 
+        SceneManager.LoadScene("MenuAjustes", LoadSceneMode.Additive);
     }
 
     public void Salir()
