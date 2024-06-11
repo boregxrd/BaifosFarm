@@ -24,7 +24,6 @@ public class MenuInicio : MonoBehaviour
 
     public void Jugar()
     {
-        PlayerPrefs.SetInt("DineroTotal", 100);
         PlayerPrefs.SetInt("HenoMejorado", 0);
         PlayerPrefs.SetInt("LechesGuardadas", 0);
         PlayerPrefs.SetInt("TutorialCompleto", 0); // Marcar el tutorial como no completado
@@ -43,7 +42,6 @@ public class MenuInicio : MonoBehaviour
 
     public void EscenaTresCabrasNegras()
     {
-        PlayerPrefs.SetInt("DineroTotal", 100);
         PlayerPrefs.SetInt("HenoMejorado", 0);
         PlayerPrefs.SetInt("LechesGuardadas", 0);
         PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado

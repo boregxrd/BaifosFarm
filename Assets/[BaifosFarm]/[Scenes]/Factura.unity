@@ -921,7 +921,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c07479d2c2110458f5ae31e13bf1da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sistemaMonetario: {fileID: 3475534142714195904, guid: 028c076fe30a75d4193234342f4c1483, type: 3}
   cantidadLeche: {fileID: 1952543985}
   cantidadCabras: {fileID: 1731277767}
   gananciaLeche: {fileID: 651095369}
@@ -930,7 +929,7 @@ MonoBehaviour:
   henoEspecial: {fileID: 969918430}
   objCabras: {fileID: 1092371738}
   dineroTotal: {fileID: 405902147}
-  contadorDinero: {fileID: 1582581177}
+  txtDinero: {fileID: 1582581177}
   dinero: 0
   cabrasNuevas: 0
   cursorMano: {fileID: 2800000, guid: 045fbab49145d184d906da82dee49db0, type: 3}
@@ -947,14 +946,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c19edc9be0acd9940b227cecb9d7fdde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sistemaMonetario: {fileID: 3475534142714195904, guid: 028c076fe30a75d4193234342f4c1483, type: 3}
-  numCabrasBlancas: 0
-  numCabrasNegras: 0
-  COSTO_CABRA: 20
-  COSTO_ALIMENTAR_CABRA: 5
-  COSTO_HENO_ESPECIAL: 20
-  GANANCIA_LECHE: 10
-  MAX_CABRAS: 20
+  costoCabra: 20
+  costoAlimentacion: 5
+  costoHenoEspecial: 20
+  gananciaLeche: 10
+  cabrasMaximas: 20
+  precioHenoPorCabra: 5
 --- !u!1 &182221016
 GameObject:
   m_ObjectHideFlags: 0
@@ -4169,7 +4166,7 @@ GameObject:
   - component: {fileID: 1582581178}
   - component: {fileID: 1582581177}
   m_Layer: 5
-  m_Name: Text (Legacy)
+  m_Name: txtDinero
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
