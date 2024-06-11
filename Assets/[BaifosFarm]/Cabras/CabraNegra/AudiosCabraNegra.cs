@@ -8,7 +8,8 @@ public class AudiosCabraNegra : MonoBehaviour
     private AudioSource audioSource;
 
     [SerializeField] AudioClip[] sonidoSaltitos; 
-    [SerializeField] AudioClip[] sonidosIdle; 
+    [SerializeField] AudioClip[] sonidosIdle;
+    [SerializeField] AudioClip[] sonidosMuerte; 
 
 
     void Start()
@@ -25,5 +26,10 @@ public class AudiosCabraNegra : MonoBehaviour
     private void PlayIdle() {
         AudioClip sonidoRandom = sonidosIdle[Random.Range(0, sonidosIdle.Length)];
         audioSource.PlayOneShot(sonidoRandom);
+    }
+
+    private void PlayMuerte() {
+        AudioClip sonidoRandom = sonidosMuerte[Random.Range(0, sonidosMuerte.Length)];
+        audioSource.PlayOneShot(sonidoRandom);        
     }
 }
