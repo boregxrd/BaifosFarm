@@ -21,8 +21,11 @@ public class TutorialManager : MonoBehaviour
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
 
+    AudioSource audioSource;
+
     private void Awake()
     {
+        audioSource = GetComponentInChildren<AudioSource>();
         temporizador = FindObjectOfType<Temporizador>(); // Obtener referencia a ControlTiempo en la escena
     }
 
