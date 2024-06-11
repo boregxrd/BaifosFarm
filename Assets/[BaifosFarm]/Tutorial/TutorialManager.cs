@@ -179,6 +179,26 @@ public class TutorialManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
         Debug.Log("Tutorial completado");
+
+        StartCoroutine(DesactivarElTutorial());
+    }
+
+    public void OnButtonCursorEnter()
+    {
+        // Cambiar el cursor a mano
+        Cursor.SetCursor(cursorMano, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void OnButtonCursorExit()
+    {
+        // Cambiar el cursor a normal
+        Cursor.SetCursor(cursorNormal, Vector2.zero, CursorMode.Auto);
+    }
+
+    IEnumerator DesactivarElTutorial()
+    {
+        yield return new WaitForSeconds(0.1f);
+
         CanvasSkipTutorial.SetActive(false);
         botonSkip.interactable = false;
         // Ocultar todos los pop-ups
@@ -193,16 +213,5 @@ public class TutorialManager : MonoBehaviour
         }
         Debug.Log("Tutorial completado, pop-ups ocultos");
     }
-
-    public void OnButtonCursorEnter()
-    {
-        // Cambiar el cursor a mano
-        Cursor.SetCursor(cursorMano, Vector2.zero, CursorMode.Auto);
-    }
-
-    public void OnButtonCursorExit()
-    {
-        // Cambiar el cursor a normal
-        Cursor.SetCursor(cursorNormal, Vector2.zero, CursorMode.Auto);
-    }
 }
+

@@ -592,6 +592,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   necesidad:
+  - {fileID: 8300000, guid: 91a3837618750544b8a41612f6967500, type: 3}
+  - {fileID: 8300000, guid: 58aa1daa353e1a549b18e6b370c9f487, type: 3}
   - {fileID: 8300000, guid: 5e292c5eafd702747a09a95433ba5325, type: 3}
   - {fileID: 8300000, guid: 06a3e95aca572be49a56959ad4a7b08e, type: 3}
 --- !u!1 &6650065937915407930
@@ -1283,6 +1285,12 @@ PrefabInstance:
       addedObject: {fileID: 5516064278001435284}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 906e35a8d2e739841aaa64826c0a6e1f, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 3310517193430059682}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 906e35a8d2e739841aaa64826c0a6e1f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4789514439438823132}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 906e35a8d2e739841aaa64826c0a6e1f, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 3360400954015243158}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 906e35a8d2e739841aaa64826c0a6e1f, type: 3}
       insertIndex: -1
@@ -1639,6 +1647,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c320267b6bbac9242aafc3a271d4f646, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &3310517193430059682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9004478402646997421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b18205697910334e9731d71733df46f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  comerSounds:
+  - {fileID: 8300000, guid: 61df8cdfff76dd242b3771a14423a115, type: 3}
+  - {fileID: 8300000, guid: e8cd36bc7e8ee1944872767b827b67ba, type: 3}
+--- !u!114 &4789514439438823132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9004478402646997421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d38edc71b78b2b43b008675e0fb00d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  "orde\xF1arSounds":
+  - {fileID: 8300000, guid: 3edd6f85b29d28642adaff070acaf94f, type: 3}
+  - {fileID: 8300000, guid: 6cb1be58056275342ab5481393fbfaa2, type: 3}
 --- !u!82 &3360400954015243158
 AudioSource:
   m_ObjectHideFlags: 0
