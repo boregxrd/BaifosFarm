@@ -2,8 +2,7 @@ using UnityEngine;
 
 public class ControlPrecioLeche : MonoBehaviour
 {
-    [SerializeField] private SistemaMonetario sistemaMonetario;
-    [SerializeField] int PRECIO_POR_BOTELLA = 10;
+    [SerializeField] int precioPorBotella = 10;
     [SerializeField] ControladorTextoCaja controladorTextoCaja;
 
     private void Start()
@@ -13,7 +12,7 @@ public class ControlPrecioLeche : MonoBehaviour
 
     public void SumarDineroPorBotella()
     {
-        int dineroGanado = controladorTextoCaja.LechesEnCaja * PRECIO_POR_BOTELLA;
+        int dineroGanado = controladorTextoCaja.LechesEnCaja * precioPorBotella;
         controladorTextoCaja.ResetearContador();
     }
 }
