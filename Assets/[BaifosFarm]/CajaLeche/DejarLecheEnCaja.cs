@@ -15,10 +15,13 @@ public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
     private ParticleSystem particulasDejarLeche;
     private ParticleSystem childGameObjectParticle;
 
+    private AudioSource audioSource;
+
     
 
     private void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         controladorTextoCaja = GetComponent<ControladorTextoCaja>();
         animatorDejarLeche = GetComponent<Animator>();
         particulasDejarLeche = GetComponent<ParticleSystem>();
@@ -47,5 +50,6 @@ public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
     {
         yield return new WaitForSeconds(delay); // Esperar el tiempo especificado
         particulasDejarLeche.Play(); // Reproducir las partículas
+        audioSource.Play();
     }
 }
