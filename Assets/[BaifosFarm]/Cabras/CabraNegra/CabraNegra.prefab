@@ -536,6 +536,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barraAlimento: {fileID: 1249791375483036549}
   estaComiendo: 0
+  sonidosComer:
+  - {fileID: 8300000, guid: 4e4c5e5714e66b249b87a24d1360b9e6, type: 3}
+  - {fileID: 8300000, guid: 533ed979bd491b24a9ba14b28697e113, type: 3}
+  - {fileID: 8300000, guid: da17ac898de7d5e42b80819c128cf922, type: 3}
 --- !u!1001 &3544188005661839734
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1078,6 +1082,9 @@ MonoBehaviour:
   sonidosIdle:
   - {fileID: 8300000, guid: 86e4aa656c9ffe440a1552222aa9ff7e, type: 3}
   - {fileID: 8300000, guid: d4d1a80e1a89214409fe5b3ca1b8e361, type: 3}
+  sonidosMuerte:
+  - {fileID: 8300000, guid: 26b6fc95812f040489a53a5732be6319, type: 3}
+  - {fileID: 8300000, guid: c31485c6c4d629442b1a93a2edf36b74, type: 3}
 --- !u!1001 &6428484672322407859
 PrefabInstance:
   m_ObjectHideFlags: 0
