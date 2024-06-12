@@ -38,7 +38,7 @@ public class MuerteCabraBlanca : MonoBehaviour
         isDead = true;
 
         // random delay para evitar muerte simultanea y asi evitar audio petado
-        yield return new WaitForSeconds(Random.Range(0, 0.6f));
+        yield return new WaitForSeconds(Random.Range(0.1f, 0.6f));
         animator.SetTrigger("Muerte");
     }
 
