@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class ContadorLeche : MonoBehaviour
 {
-    private ContadorLeche instance;
-    public ContadorLeche Instance { get { return instance; } }
+    private static ContadorLeche instance;
+    public static ContadorLeche Instance { get { return instance; } }
 
     private int contador;
     public int Contador { get => contador; }
 
     private void Awake() {
-        if(instance == null) {
+        if(Instance == null) {
             instance = this;
             DontDestroyOnLoad(gameObject);
             contador = 0;
+        } else {
+            DestroyImmediate(gameObject);
         }
     }
 
