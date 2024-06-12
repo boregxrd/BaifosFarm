@@ -5,14 +5,14 @@ using UnityEngine;
 public class ContadorDinero : MonoBehaviour
 {
     // Singleton
-    private ContadorDinero instance;
-    public ContadorDinero Instance { get { return instance; } }
+    private static ContadorDinero instance;
+    public static ContadorDinero Instance { get { return instance; } }
 
     private int dinero;
     public int Dinero { get => dinero; }
 
     private void Awake() {
-        if(instance == null) {
+        if(Instance == null) {
             instance = this;
             DontDestroyOnLoad(gameObject);
             dinero = 100;

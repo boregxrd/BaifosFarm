@@ -54,7 +54,6 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
         {
             miniJuegoOrdenyar.IniciarOrdenyado(gameObject);
             movimientoAleatorioCabras.pararCabra(gameObject);
-            jugador.GetComponent<Character>().PararMovimiento();
         }
     }
 
@@ -62,7 +61,6 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
     {
         barraLeche.resetearLeche();
         movimientoAleatorioCabras.continuarMov(gameObject);
-        jugador.GetComponent<Character>().ContinuarMovimiento();
         animator.SetTrigger("Ordenyada");
     }
 }
