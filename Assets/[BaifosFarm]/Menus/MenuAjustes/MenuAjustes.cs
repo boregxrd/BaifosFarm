@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
@@ -9,7 +8,8 @@ using UnityEngine.UI;
 public class MenuAjustes : MonoBehaviour
 {
     public AudioMixer audioMixer; // AudioMixer para controlar el volumen
-    public Slider sliderVolumen; // Slider para ajustar el volumen
+    public Slider sliderMusica; // Slider para ajustar el volumen de la música
+    public Slider sliderSFX; // Slider para ajustar el volumen de los efectos de sonido
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
     public Toggle toggle; // Toggle Pantalla Completa
@@ -23,17 +23,21 @@ public class MenuAjustes : MonoBehaviour
     {
         menuPausa = FindObjectOfType<MenuPausa>();
 
-        // Cargar el valor de volumen guardado desde PlayerPrefs
-        float volumenGuardado = PlayerPrefs.GetFloat("Volumen", 1f); // Valor por defecto 1 (máximo volumen) si no hay valor guardado
-        AudioListener.volume = volumenGuardado;
+        // Cargar el valor de volumen guardado desde PlayerPrefs para la música
+        float volumenMusicaGuardado = PlayerPrefs.GetFloat("VolumenMusica", 1f); // Valor por defecto 1 (máximo volumen) si no hay valor guardado
+        audioMixer.SetFloat("VolumenMusica", Mathf.Log10(volumenMusicaGuardado) * 20);
+        sliderMusica.value = volumenMusicaGuardado * 100; // Convertir a un rango de 0 a 100
 
-        // Actualizar el valor del slider al valor guardado
-        sliderVolumen.value = volumenGuardado * 100; // Convertir a un rango de 0 a 100
+        // Cargar el valor de volumen guardado desde PlayerPrefs para SFX
+        float volumenSFXGuardado = PlayerPrefs.GetFloat("VolumenSFX", 1f); // Valor por defecto 1 (máximo volumen) si no hay valor guardado
+        audioMixer.SetFloat("VolumenSFX", Mathf.Log10(volumenSFXGuardado) * 20);
+        sliderSFX.value = volumenSFXGuardado * 100; // Convertir a un rango de 0 a 100
 
         if (Screen.fullScreen)
         {
             toggle.isOn = true;
-        } else
+        }
+        else
         {
             toggle.isOn = false;
         }
@@ -44,19 +48,20 @@ public class MenuAjustes : MonoBehaviour
         RevisarResoluciones();
     }
 
-    // Metodo para ajustar el volumen
-    public void AjustarVolumen(float volumen)
+    // Metodo para ajustar el volumen de la música
+    public void AjustarVolumenMusica(float volumen)
     {
-        Debug.Log(volumen);
-
-        // Convertir el valor del slider (0 a 100) a un rango de 0 a 1
         float volumenNormalizado = volumen / 100f;
+        audioMixer.SetFloat("VolumenMusica", Mathf.Log10(volumenNormalizado) * 20);
+        PlayerPrefs.SetFloat("VolumenMusica", volumenNormalizado);
+    }
 
-        // Establecer el volumen en el AudioListener
-        AudioListener.volume = volumenNormalizado;
-
-        // Guardar el valor del volumen
-        PlayerPrefs.SetFloat("Volumen", volumenNormalizado);
+    // Metodo para ajustar el volumen de los efectos de sonido (SFX)
+    public void AjustarVolumenSFX(float volumen)
+    {
+        float volumenNormalizado = volumen / 100f;
+        audioMixer.SetFloat("VolumenSFX", Mathf.Log10(volumenNormalizado) * 20);
+        PlayerPrefs.SetFloat("VolumenSFX", volumenNormalizado);
     }
 
     public void ActivarPantallaCompleta(bool pantallaCompleta)
@@ -83,8 +88,9 @@ public class MenuAjustes : MonoBehaviour
             string opcion = resoluciones[i].width + " x " + resoluciones[i].height;
             opciones.Add(opcion);
 
-            if(Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height) {
-                
+            if (Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
+            {
+
                 resolucionActual = i;
 
             }
@@ -93,9 +99,7 @@ public class MenuAjustes : MonoBehaviour
         resolucionesDropdown.AddOptions(opciones);
         resolucionesDropdown.value = resolucionActual;
         resolucionesDropdown.RefreshShownValue();
-
     }
-
 
     public void CambiarResolucion(int indiceResolucion)
     {
