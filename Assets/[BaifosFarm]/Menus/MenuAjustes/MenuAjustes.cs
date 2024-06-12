@@ -18,6 +18,7 @@ public class MenuAjustes : MonoBehaviour
     Resolution[] resoluciones;
     private MenuPausa menuPausa;
 
+    [System.Obsolete]
     void Start()
     {
         menuPausa = FindObjectOfType<MenuPausa>();
@@ -75,34 +76,42 @@ public class MenuAjustes : MonoBehaviour
         calidad = dropdown.value;
     }
 
+    [System.Obsolete]
     public void RevisarResoluciones()
     {
         resoluciones = Screen.resolutions;
         resolucionesDropdown.ClearOptions();
         List<string> opciones = new List<string>();
-        int resolucionActual = 0;
+        HashSet<string> opcionesUnicas = new HashSet<string>();
+
+        int indiceResolucionActual = 0;
 
         for (int i = 0; i < resoluciones.Length; i++)
         {
-            string opcion = resoluciones[i].width + " x " + resoluciones[i].height;
-            opciones.Add(opcion);
+            string opcion = resoluciones[i].width + " x " + resoluciones[i].height + " @ " + resoluciones[i].refreshRate + "Hz";
 
-            if (Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
+            // Agregar la opción solo si es única
+            if (opcionesUnicas.Add(opcion))
             {
+                opciones.Add(opcion);
 
-                resolucionActual = i;
+                if (Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
+                {
+                    indiceResolucionActual = opciones.Count - 1;
+                }
             }
         }
 
         resolucionesDropdown.AddOptions(opciones);
-        resolucionesDropdown.value = resolucionActual;
+        resolucionesDropdown.value = indiceResolucionActual;
         resolucionesDropdown.RefreshShownValue();
     }
 
+    [System.Obsolete]
     public void CambiarResolucion(int indiceResolucion)
     {
         Resolution resolucion = resoluciones[indiceResolucion];
-        Screen.SetResolution(resolucion.width, resolucion.height, Screen.fullScreen);
+        Screen.SetResolution(resolucion.width, resolucion.height, Screen.fullScreen, resolucion.refreshRate);
     }
 
     // Metodo para cerrar el menu de ajustes
