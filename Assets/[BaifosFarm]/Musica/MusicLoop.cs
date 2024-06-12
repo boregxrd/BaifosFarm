@@ -2,19 +2,22 @@ using UnityEngine;
 using System.Collections;
 
 public static class MusicLoop
-{public static IEnumerator HandleMusicLoop(AudioSource audioSource, float loopStartTime, float loopEndTime)
 {
-    while (true)
+    public static IEnumerator HandleMusicLoop(AudioSource audioSource, float loopStartTime, float loopEndTime)
     {
-        if (audioSource.time >= loopEndTime)
+        while (true)
         {
-            Debug.Log("Looping music...");
-            audioSource.Play();
-            audioSource.time = loopStartTime;
-            
+            if (audioSource.time >= loopEndTime)
+            {
+                //Debug.Log("Looping music on" + loopEndTime + " ...");
+                audioSource.Play();
+                audioSource.time = loopStartTime;
+                
+            }
+            yield return null;
         }
-        yield return null;
     }
-}
 
 }
+
+

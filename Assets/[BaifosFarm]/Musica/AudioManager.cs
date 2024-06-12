@@ -1,17 +1,18 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using System.Security.Cryptography;
 public class AudioManager : MonoBehaviour
 {
     static AudioManager instance;
-
     public static AudioManager Instance { get { return instance; } }
 
     public AudioSource musica;
-
     private ITransicionMusica transicionMusica;
-
     private float fadeOutDuration = 1f;
+    private Coroutine musicLoopCoroutine;
+    public float loopStart;
+    public float loopEnd;
 
     private void Awake()
     {
@@ -32,7 +33,18 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMusica(AudioClip clip, float loopStartTime, float loopEndTime, ITransicionMusica transicion = null)
     {
-        Debug.Log("PlayMusica called with clip: " + clip.name + " loopStartTime: " + loopStartTime + " loopEndTime: " + loopEndTime);
+        //Debug.Log("PlayMusica called with clip: " + clip.name + " loopStartTime: " + loopStartTime + " loopEndTime: " + loopEndTime);
+
+        // Actualizar la información del bucle
+        loopStart = loopStartTime;
+        loopEnd = loopEndTime;
+
+        // Detener cualquier corrutina de bucle de música en curso
+        if (musicLoopCoroutine != null)
+        {
+            StopCoroutine(musicLoopCoroutine);
+        }
+
         if (transicion != null)
         {
             transicion.AudioManager = this;
@@ -43,7 +55,9 @@ public class AudioManager : MonoBehaviour
             musica.clip = clip;
             musica.Play();
         }
-        StartCoroutine(MusicLoop.HandleMusicLoop(musica, loopStartTime, loopEndTime));
+
+        // Iniciar la corrutina de bucle de música con los valores actualizados
+        musicLoopCoroutine = StartCoroutine(MusicLoop.HandleMusicLoop(musica, loopStart, loopEnd));
         transicionMusica = transicion;
     }
 
