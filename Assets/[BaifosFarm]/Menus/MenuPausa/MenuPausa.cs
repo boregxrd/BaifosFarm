@@ -20,7 +20,6 @@ public class MenuPausa : MonoBehaviour
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        Time.timeScale = 0; //el juego se pausa
         
     }
 
@@ -33,7 +32,6 @@ public class MenuPausa : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        Time.timeScale = 1; //el juego se reanuda
        
         SceneManager.UnloadSceneAsync("MenuPausa");
 
