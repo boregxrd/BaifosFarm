@@ -26,7 +26,7 @@ public class AudiosCabraNegra : MonoBehaviour
 
     private void PlayIdle()
     {
-        if (Random.Range(0, 1) > .5f)
+        if (Random.Range(0f, 1f) > .5f)
         {
             AudioClip sonidoRandom = sonidosIdle[Random.Range(0, sonidosIdle.Length)];
             audioSource.PlayOneShot(sonidoRandom);
