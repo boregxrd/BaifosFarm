@@ -1,13 +1,15 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
-using System.Security.Cryptography;
+using UnityEngine.Audio;
+
 public class AudioManager : MonoBehaviour
 {
     static AudioManager instance;
     public static AudioManager Instance { get { return instance; } }
 
     public AudioSource musica;
+    public AudioMixer audioMixer; // Referencia al AudioMixer
     private ITransicionMusica transicionMusica;
     private float fadeOutDuration = 1f;
     private Coroutine musicLoopCoroutine;
@@ -24,6 +26,7 @@ public class AudioManager : MonoBehaviour
             musica = gameObject.AddComponent<AudioSource>();
             musica.playOnAwake = false;
             musica.loop = false; // Ensure it's false for manual looping
+            musica.outputAudioMixerGroup = audioMixer.FindMatchingGroups("Musica")[0]; // Asignar el grupo de mezcla
         }
         else
         {
@@ -33,8 +36,6 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMusica(AudioClip clip, float loopStartTime, float loopEndTime, ITransicionMusica transicion = null)
     {
-        //Debug.Log("PlayMusica called with clip: " + clip.name + " loopStartTime: " + loopStartTime + " loopEndTime: " + loopEndTime);
-
         // Actualizar la información del bucle
         loopStart = loopStartTime;
         loopEnd = loopEndTime;
@@ -96,5 +97,26 @@ public class AudioManager : MonoBehaviour
         {
             yield return null;
         }
+    }
+
+    // Métodos para ajustar los volúmenes de música y SFX
+    public void SetVolumenMusica(float volumen)
+    {
+        audioMixer.SetFloat("VolumenMusica", ConvertToDecibels(volumen));
+    }
+
+    public void SetVolumenSFX(float volumen)
+    {
+        audioMixer.SetFloat("VolumenSFX", ConvertToDecibels(volumen));
+    }
+
+    // Método de utilidad para convertir de volumen lineal (0 a 1) a decibelios (-80 a 0)
+    private float ConvertToDecibels(float volumen)
+    {
+        if (volumen <= 0)
+        {
+            return -80f; // Valor mínimo para evitar log(0)
+        }
+        return Mathf.Log10(volumen) * 20;
     }
 }

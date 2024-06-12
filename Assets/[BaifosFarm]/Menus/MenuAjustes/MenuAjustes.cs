@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class MenuAjustes : MonoBehaviour
 {
-    public AudioMixer audioMixer; // AudioMixer para controlar el volumen
     public Slider sliderMusica; // Slider para ajustar el volumen de la música
     public Slider sliderSFX; // Slider para ajustar el volumen de los efectos de sonido
     public Texture2D cursorMano; // Textura del cursor de mano
@@ -25,12 +24,12 @@ public class MenuAjustes : MonoBehaviour
 
         // Cargar el valor de volumen guardado desde PlayerPrefs para la música
         float volumenMusicaGuardado = PlayerPrefs.GetFloat("VolumenMusica", 1f); // Valor por defecto 1 (máximo volumen) si no hay valor guardado
-        audioMixer.SetFloat("VolumenMusica", Mathf.Log10(volumenMusicaGuardado) * 20);
+        AudioManager.Instance.SetVolumenMusica(volumenMusicaGuardado);
         sliderMusica.value = volumenMusicaGuardado * 100; // Convertir a un rango de 0 a 100
 
         // Cargar el valor de volumen guardado desde PlayerPrefs para SFX
         float volumenSFXGuardado = PlayerPrefs.GetFloat("VolumenSFX", 1f); // Valor por defecto 1 (máximo volumen) si no hay valor guardado
-        audioMixer.SetFloat("VolumenSFX", Mathf.Log10(volumenSFXGuardado) * 20);
+        AudioManager.Instance.SetVolumenSFX(volumenSFXGuardado);
         sliderSFX.value = volumenSFXGuardado * 100; // Convertir a un rango de 0 a 100
 
         if (Screen.fullScreen)
@@ -52,7 +51,7 @@ public class MenuAjustes : MonoBehaviour
     public void AjustarVolumenMusica(float volumen)
     {
         float volumenNormalizado = volumen / 100f;
-        audioMixer.SetFloat("VolumenMusica", Mathf.Log10(volumenNormalizado) * 20);
+        AudioManager.Instance.SetVolumenMusica(volumenNormalizado);
         PlayerPrefs.SetFloat("VolumenMusica", volumenNormalizado);
     }
 
@@ -60,7 +59,7 @@ public class MenuAjustes : MonoBehaviour
     public void AjustarVolumenSFX(float volumen)
     {
         float volumenNormalizado = volumen / 100f;
-        audioMixer.SetFloat("VolumenSFX", Mathf.Log10(volumenNormalizado) * 20);
+        AudioManager.Instance.SetVolumenSFX(volumenNormalizado);
         PlayerPrefs.SetFloat("VolumenSFX", volumenNormalizado);
     }
 
@@ -92,7 +91,6 @@ public class MenuAjustes : MonoBehaviour
             {
 
                 resolucionActual = i;
-
             }
         }
 

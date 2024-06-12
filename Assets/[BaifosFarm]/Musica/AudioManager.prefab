@@ -45,3 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   musica: {fileID: 0}
+  audioMixer: {fileID: 24100000, guid: c3f53f72c72ca444a9263de069a00778, type: 2}
+  loopStart: 0
+  loopEnd: 0
