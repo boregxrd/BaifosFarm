@@ -32,8 +32,11 @@ public class MiniJuegoOrdenyar : MonoBehaviour
 
     [SerializeField] private CabraBlancaInteracciones instanciaCabra;
 
+    Character jugador;
+
     private void Awake()
     {
+        jugador = FindObjectOfType<Character>();
         enabled = false;
         manejarLeche = FindObjectOfType<ManejarLeche>();
         audioSource = GetComponent<AudioSource>();
@@ -59,6 +62,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     {
         if (ordenyoIniciado)
         {
+            jugador.PararMovimiento();
             VaciarConElTiempo();
 
             if (Input.GetKeyUp(KeyCode.Q))
@@ -78,6 +82,10 @@ public class MiniJuegoOrdenyar : MonoBehaviour
                 porcentaje.text = valorActual.ToString();
                 generarLeche();
             }
+
+            if (instanciaCabra.IsDestroyed()) {
+                resetearMiniJuego();
+            } 
 
             float barraWidth = barraOrdenyar.rectTransform.rect.width;
             float iconoPosX = barraOrdenyar.rectTransform.position.x + barraWidth * barraOrdenyar.fillAmount - barraWidth / 2f;
@@ -122,8 +130,8 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         enabled = false;
         miniJuegoReseteado = true;
         ordenyoIniciado = false;
-        instanciaCabra.ResetearLeche();
-        
+        if(instanciaCabra != null) instanciaCabra.ResetearLeche();
+        jugador.ContinuarMovimiento();
     }
 
     private void mostrarPorcentaje()
