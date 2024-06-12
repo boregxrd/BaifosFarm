@@ -9993,6 +9993,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasDinero
       objectReference: {fileID: 0}
+    - target: {fileID: 3794835248783068331, guid: 028c076fe30a75d4193234342f4c1483, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6723178614923317054, guid: 028c076fe30a75d4193234342f4c1483, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
