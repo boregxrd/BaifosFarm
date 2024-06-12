@@ -16,14 +16,13 @@ public class PausaController : MonoBehaviour
         {
             if (!juegoPausado) //Pausar
             {
-                Time.timeScale = 0;
+                
                 SceneManager.LoadScene("MenuPausa", LoadSceneMode.Additive);
                 juegoPausado = true;
             }
 
             else if (juegoPausado) //Reanudar
             {
-                Time.timeScale = 1; //el juego se reanuda
 
                 menuPausa = FindObjectOfType<MenuPausa>();
 

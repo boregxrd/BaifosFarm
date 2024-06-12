@@ -16,28 +16,32 @@ public class MenuPausa : MonoBehaviour
 
     void Start()
     {
+        Time.timeScale = 0;
         pausaController = FindObjectOfType<PausaController>();
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
-        
+
     }
 
     public void Reanudar()
     {
         pausaController.juegoPausado = false;
 
-        if(PlayerPrefs.GetInt("TutorialCompleto") == 1){
+        if (PlayerPrefs.GetInt("TutorialCompleto") == 1)
+        {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-       
+        Time.timeScale = 1; //el juego se reanuda
+
         SceneManager.UnloadSceneAsync("MenuPausa");
 
     }
 
-    public bool ComprobarAjustes() {
+    public bool ComprobarAjustes()
+    {
         if (ajustesAbierto) return true;
         else return false;
     }
@@ -46,7 +50,7 @@ public class MenuPausa : MonoBehaviour
     {
         SceneManager.LoadScene("MenuAjustes", LoadSceneMode.Additive);
         ajustesAbierto = true;
-       
+
     }
 
 
@@ -75,5 +79,5 @@ public class MenuPausa : MonoBehaviour
         Cursor.SetCursor(cursorNormal, Vector2.zero, CursorMode.Auto);
     }
 
-    
+
 }
