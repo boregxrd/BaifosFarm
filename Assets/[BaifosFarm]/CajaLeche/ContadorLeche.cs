@@ -23,7 +23,7 @@ public class ContadorLeche : MonoBehaviour
     }
 
     public void Resetear() {
-        contador--;
+        contador = 0;
     }
 
     public void Destruir()
