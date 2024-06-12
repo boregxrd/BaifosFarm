@@ -195,6 +195,10 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2041955718853641490, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2965598649290572794, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -283,13 +287,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasInicio
       objectReference: {fileID: 0}
+    - target: {fileID: 4642334363745319732, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5872296379014553567, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7119213687741225733, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_Volume
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7681399488458401619, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_Navigation.m_Mode
-      value: 3
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7681399488458401619, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
