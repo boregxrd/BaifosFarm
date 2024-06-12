@@ -156,7 +156,7 @@ MonoBehaviour:
   loopStartTime: 38.4
   loopEndTime: 57.6
   useFadeIn: 0
-  useFadeOut: 1
+  useFadeOut: 0
 --- !u!4 &52562996
 Transform:
   m_ObjectHideFlags: 0
