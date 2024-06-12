@@ -39,7 +39,7 @@ public class MenuInicio : MonoBehaviour
     {
         PlayerPrefs.SetInt("HenoMejorado", 0);
         PlayerPrefs.SetInt("TutorialCompleto", 0); // Marcar el tutorial como no completado
-        SceneManager.LoadScene("Comic_Introduccion");
+        AudioManager.Instance.ChangeScene("Comic_Introduccion");
     }
 
     public void Ajustes()

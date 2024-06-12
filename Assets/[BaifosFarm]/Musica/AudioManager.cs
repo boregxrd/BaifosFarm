@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-
+using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour
 {
     static AudioManager instance;
@@ -10,6 +10,8 @@ public class AudioManager : MonoBehaviour
     public AudioSource musica;
 
     private ITransicionMusica transicionMusica;
+
+    private float fadeOutDuration = 1f;
 
     private void Awake()
     {
@@ -51,6 +53,34 @@ public class AudioManager : MonoBehaviour
         {
             transicionMusica.Update();
             if (transicionMusica.End()) transicionMusica = null;
+        }
+    }
+
+    public void ChangeScene(string sceneName)
+    {
+        StartCoroutine(FadeOutAndLoadScene(sceneName));
+    }
+
+    private IEnumerator FadeOutAndLoadScene(string sceneName)
+    {
+        // Inicia el fade out
+        float startVolume = musica.volume;
+        float timer = 0f;
+
+        while (timer < fadeOutDuration)
+        {
+            musica.volume = Mathf.Lerp(startVolume, 0f, timer / fadeOutDuration);
+            timer += Time.deltaTime;
+            yield return null;
+        }
+
+        // Carga la nueva escena de forma asincrónica
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+
+        // Espera a que la nueva escena se cargue completamente
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
         }
     }
 }

@@ -63,7 +63,7 @@ public class ComicIntroController : MonoBehaviour
     public void OnContinueButtonClicked()
     {
         isRunning = false; // Detener la corutina
-        SceneManager.LoadScene("Juego");
+        AudioManager.Instance.ChangeScene("Juego");
     }
 
     public void OnButtonCursorEnter()
