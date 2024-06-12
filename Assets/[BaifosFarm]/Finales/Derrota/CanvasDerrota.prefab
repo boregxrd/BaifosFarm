@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4964768087468278390}
   - component: {fileID: 4731989708964077037}
   - component: {fileID: 4915698326281656022}
-  - component: {fileID: 5444118060452998369}
+  - component: {fileID: 3472048996211211724}
   m_Layer: 5
   m_Name: CanvasDerrota
   m_TagString: Untagged
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5444118060452998369
+--- !u!114 &3472048996211211724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,10 +112,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 2262152005694047674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf4bbc81a3ed2ba44ba27271105c441f, type: 3}
+  m_Script: {fileID: 11500000, guid: 75edd6873837b4840a540a1a56739f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuObject: {fileID: 2316791256421888299}
   cursorMano: {fileID: 2800000, guid: 045fbab49145d184d906da82dee49db0, type: 3}
   cursorNormal: {fileID: 2800000, guid: 6ec4d07ab26436d47a662515951f2215, type: 3}
 --- !u!1 &2316791256421888299
@@ -329,8 +328,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5444118060452998369}
-        m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
+      - m_Target: {fileID: 3472048996211211724}
+        m_TargetAssemblyTypeName: CanvasFinales, Assembly-CSharp
         m_MethodName: ReturnToMenu
         m_Mode: 1
         m_Arguments:
@@ -341,9 +340,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5444118060452998369}
-        m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
-        m_MethodName: OnButtonCursorExit
+      - m_Target: {fileID: 3472048996211211724}
+        m_TargetAssemblyTypeName: CanvasFinales, Assembly-CSharp
+        m_MethodName: OnButtonCursorEnter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -370,8 +369,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5444118060452998369}
-          m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
+        - m_Target: {fileID: 3472048996211211724}
+          m_TargetAssemblyTypeName: CanvasFinales, Assembly-CSharp
           m_MethodName: OnButtonCursorEnter
           m_Mode: 1
           m_Arguments:
@@ -386,8 +385,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5444118060452998369}
-          m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
+        - m_Target: {fileID: 3472048996211211724}
+          m_TargetAssemblyTypeName: CanvasFinales, Assembly-CSharp
           m_MethodName: OnButtonCursorExit
           m_Mode: 1
           m_Arguments:

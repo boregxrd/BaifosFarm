@@ -224,7 +224,7 @@ GameObject:
   - component: {fileID: 8883039251918643172}
   - component: {fileID: 3800202161223279514}
   - component: {fileID: 8809392171155899986}
-  - component: {fileID: 1574231783442205000}
+  - component: {fileID: 4098708376722582620}
   m_Layer: 5
   m_Name: CanvasVictoriaDinero
   m_TagString: Untagged
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1574231783442205000
+--- !u!114 &4098708376722582620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -324,10 +324,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4719820939345059568}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32dc71254e2b29b44b68006813fb63be, type: 3}
+  m_Script: {fileID: 11500000, guid: 75edd6873837b4840a540a1a56739f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuObject: {fileID: 0}
   cursorMano: {fileID: 2800000, guid: 045fbab49145d184d906da82dee49db0, type: 3}
   cursorNormal: {fileID: 2800000, guid: 6ec4d07ab26436d47a662515951f2215, type: 3}
 --- !u!1 &6841348421143570907
@@ -599,9 +598,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1574231783442205000}
+      - m_Target: {fileID: 4719820939345059568}
         m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
-        m_MethodName: ReturnToMenu
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -611,9 +610,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1574231783442205000}
+      - m_Target: {fileID: 4719820939345059568}
         m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
-        m_MethodName: OnButtonCursorExit
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -640,9 +639,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1574231783442205000}
+        - m_Target: {fileID: 4719820939345059568}
           m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
-          m_MethodName: OnButtonCursorEnter
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -656,9 +655,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1574231783442205000}
+        - m_Target: {fileID: 4719820939345059568}
           m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
-          m_MethodName: OnButtonCursorExit
+          m_MethodName: 
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}

@@ -3,17 +3,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MenuVictoriaTresCabras : MenuBase
+public class MenuVictoriaTresCabras : MonoBehaviour
 {
-    protected override void Start()
+    [SerializeField] private string victoriaTresCabrasSceneName; 
+    private void Start()
     {
-        base.Start();
-        DeteccionCabrasNegras.OnThreeBlackGoatsVictory += ShowMenu;
+        DeteccionCabrasNegras.OnThreeBlackGoatsVictory += LoadVictoriaTresCabrasScene;
     }
 
-    protected override void OnDestroy()
+    private void OnDestroy()
     {
-        base.OnDestroy();
-        DeteccionCabrasNegras.OnThreeBlackGoatsVictory -= ShowMenu;
+        DeteccionCabrasNegras.OnThreeBlackGoatsVictory -= LoadVictoriaTresCabrasScene;
     }
+
+    private void LoadVictoriaTresCabrasScene() 
+    {
+        if (!string.IsNullOrEmpty(victoriaTresCabrasSceneName))
+        {
+            SceneManager.LoadScene(victoriaTresCabrasSceneName);
+        }
+        else
+        {
+            Debug.LogError("El nombre de la escena de victoriaTresCabras no está asignado.");
+        }
+    }
+    
 }
