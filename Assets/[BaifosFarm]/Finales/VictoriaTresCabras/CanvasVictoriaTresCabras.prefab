@@ -404,8 +404,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7385793737722797177}
-        m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
+      - m_Target: {fileID: 8247482865062942593}
+        m_TargetAssemblyTypeName: CanvasFinales, Assembly-CSharp
         m_MethodName: ReturnToMenu
         m_Mode: 1
         m_Arguments:
@@ -416,9 +416,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 7385793737722797177}
-        m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
-        m_MethodName: OnButtonCursorExit
+      - m_Target: {fileID: 8247482865062942593}
+        m_TargetAssemblyTypeName: CanvasFinales, Assembly-CSharp
+        m_MethodName: OnButtonCursorEnter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -445,8 +445,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7385793737722797177}
-          m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
+        - m_Target: {fileID: 8247482865062942593}
+          m_TargetAssemblyTypeName: CanvasFinales, Assembly-CSharp
           m_MethodName: OnButtonCursorEnter
           m_Mode: 1
           m_Arguments:
@@ -461,8 +461,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 7385793737722797177}
-          m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
+        - m_Target: {fileID: 8247482865062942593}
+          m_TargetAssemblyTypeName: CanvasFinales, Assembly-CSharp
           m_MethodName: OnButtonCursorExit
           m_Mode: 1
           m_Arguments:
@@ -600,7 +600,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4424635410448992700
 RectTransform:
   m_ObjectHideFlags: 0
@@ -673,7 +673,7 @@ GameObject:
   - component: {fileID: 5887462506693496685}
   - component: {fileID: 2424819118753622499}
   - component: {fileID: 6564965109930791445}
-  - component: {fileID: 7385793737722797177}
+  - component: {fileID: 8247482865062942593}
   m_Layer: 5
   m_Name: CanvasVictoriaTresCabras
   m_TagString: Untagged
@@ -764,7 +764,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &7385793737722797177
+--- !u!114 &8247482865062942593
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -773,9 +773,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 4945762243706268086}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 988af8dc012f1c2478951788a3cd0236, type: 3}
+  m_Script: {fileID: 11500000, guid: 75edd6873837b4840a540a1a56739f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  menuObject: {fileID: 3782092972823338917}
   cursorMano: {fileID: 2800000, guid: 045fbab49145d184d906da82dee49db0, type: 3}
   cursorNormal: {fileID: 2800000, guid: 6ec4d07ab26436d47a662515951f2215, type: 3}
