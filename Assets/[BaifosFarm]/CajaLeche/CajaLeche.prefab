@@ -316,6 +316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lecheGuardada: 0
+  particulasTutorial: {fileID: 0}
 --- !u!198 &7893797392046464555
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5180,7 +5181,7 @@ AudioSource:
   m_GameObject: {fileID: 2949518663174923328}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 1651021829528546191, guid: c3f53f72c72ca444a9263de069a00778, type: 2}
   m_audioClip: {fileID: 8300000, guid: 6814c8a9c582abe458ec579eeb46ca25, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
