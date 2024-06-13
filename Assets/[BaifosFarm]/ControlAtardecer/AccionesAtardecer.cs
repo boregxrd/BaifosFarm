@@ -50,7 +50,6 @@ public class AccionesAtardecer : MonoBehaviour
 
     private void EjecutarAccionesRestantes()
     {
-        contadorLeche.Resetear();
         deteccionCabrasNegras.InvocarVictoria();
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

@@ -57,10 +57,8 @@ public class BarraLeche : MonoBehaviour
 
     public void resetearLeche()
     {
-        Debug.Log("ResetearLeche called");
         valorActual = 0f;
         produccionDetenida = false;
         lechePreparada = false;
-        Debug.Log(valorActual + " Valor Actual after reset");
     }
 }

@@ -82,6 +82,8 @@ public class UIFactura : MonoBehaviour
             gananciaLeche.text = "0";
             gananciaLeche.color = Color.black;
         }
+
+        contadorLeche.Resetear();
     }
 
     private void ActualizarCostoHeno()
