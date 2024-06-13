@@ -29,7 +29,7 @@ public class CanvasFinales : MonoBehaviour
         }
     }
 
-    public virtual void ReturnToMenu()
+    public void ReturnToMenu()
     {
         Debug.Log("Attempting to load scene: " + mainMenuSceneName);
         SceneManager.LoadScene(mainMenuSceneName);
