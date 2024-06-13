@@ -140,7 +140,16 @@ public class Temporizador : MonoBehaviour
 
     }
 
+    public void AcabarDia() {
+        StopCoroutine(CuentaRegresiva());
 
+        StartCoroutine(DelayAntesFin());
+    }
 
+    IEnumerator DelayAntesFin() {
+        yield return new WaitForSeconds(3f);
+
+        EjecutarAccionesAtardecer();
+    }
 }
 
