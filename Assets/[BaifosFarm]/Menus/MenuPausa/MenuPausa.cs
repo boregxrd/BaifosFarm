@@ -29,7 +29,7 @@ public class MenuPausa : MonoBehaviour
     public void Reanudar()
     {
         pausaController.juegoPausado = false;
-
+        AudioManager.Instance.ResumeMusic();
         if (PlayerPrefs.GetInt("TutorialCompleto") == 1)
         {
             Cursor.visible = false;
