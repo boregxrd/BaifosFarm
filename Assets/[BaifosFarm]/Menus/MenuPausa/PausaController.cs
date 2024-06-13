@@ -19,6 +19,7 @@ public class PausaController : MonoBehaviour
                 
                 SceneManager.LoadScene("MenuPausa", LoadSceneMode.Additive);
                 juegoPausado = true;
+                AudioManager.Instance.PauseMusic();
             }
 
             else if (juegoPausado) //Reanudar
@@ -29,6 +30,7 @@ public class PausaController : MonoBehaviour
                 if (menuPausa.ComprobarAjustes()) menuPausa.CerrarMenuAjustes();
 
                 menuPausa.Reanudar();
+                AudioManager.Instance.ResumeMusic();
                 juegoPausado = false;
             }
         }
