@@ -25,10 +25,6 @@ public class ContadorCabras : MonoBehaviour
         }
     }
 
-    private void Start() {
-        Debug.Log(numCabrasBlancas + ", " + numCabrasNegras);
-    }
-
     public void MuerteCabraGris() {
         numCabrasBlancas--;
     }
