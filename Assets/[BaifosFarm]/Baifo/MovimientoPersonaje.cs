@@ -80,7 +80,8 @@ public class Character : MonoBehaviour
 
     public bool HasMoved()
     {
-        return transform.position != posicionSpawn;
+        // Debug.Log("Se llama a HasMoved()");
+        return transform.position.x != 10f || transform.position.z != 10f; // Asumiendo que la posición inicial es (10, 0, 10)
     }
 
     public void PararMovimiento()

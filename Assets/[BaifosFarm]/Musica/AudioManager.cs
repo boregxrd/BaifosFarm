@@ -11,7 +11,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource musica;
     public AudioMixer audioMixer; // Referencia al AudioMixer
     private ITransicionMusica transicionMusica;
-    private float fadeOutDuration = 1f;
+    private float fadeDuration = 1f;
     private Coroutine musicLoopCoroutine;
     public float loopStart;
     public float loopEnd;
@@ -80,9 +80,9 @@ public class AudioManager : MonoBehaviour
         float startVolume = musica.volume;
         float timer = 0f;
 
-        while (timer < fadeOutDuration)
+        while (timer < fadeDuration)
         {
-            musica.volume = Mathf.Lerp(startVolume, 0f, timer / fadeOutDuration);
+            musica.volume = Mathf.Lerp(startVolume, 0f, timer / fadeDuration);
             timer += Time.deltaTime;
             yield return null;
         }
@@ -119,5 +119,15 @@ public class AudioManager : MonoBehaviour
     {
         Debug.Log("Setting music speed to: " + speed);
         audioMixer.SetFloat("PitchMusic", speed);
+    }
+
+    public void PauseMusic()
+    {
+        musica.Pause();
+    }
+
+    public void ResumeMusic()
+    {
+        musica.UnPause();
     }
 }
