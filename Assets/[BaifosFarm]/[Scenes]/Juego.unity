@@ -9874,7 +9874,7 @@ AudioSource:
   m_GameObject: {fileID: 1677581183}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 5987636568402144763, guid: c3f53f72c72ca444a9263de069a00778, type: 2}
   m_audioClip: {fileID: 8300000, guid: cf1748efdf5a9ab45b1dabd57c04f9a2, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -9961,6 +9961,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &1677581193
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1677581183}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3637b7e82cc867c47aeca4d72263e64c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1711137561
 GameObject:
   m_ObjectHideFlags: 0
@@ -10152,6 +10173,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3474911100210850366, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4720857595408577858, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
       propertyPath: m_Name
       value: CanvasMiniJuegoOrdenyar
@@ -10163,6 +10188,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4720857595408577858, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1677581188}
+    - targetCorrespondingSourceObject: {fileID: 4720857595408577858, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1677581193}
   m_SourcePrefab: {fileID: 100100000, guid: e603b5eafd02d8b45a4f5ef8396e1f63, type: 3}
 --- !u!1 &1786100946
 GameObject:

@@ -14,7 +14,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     [SerializeField] private Text porcentaje;
 
     private AudioSource audioSource;
-
+    private Animator animator;
 
     [SerializeField] private float valorMaximo = 100f;
     [SerializeField] private float valorActual = 15f;
@@ -40,6 +40,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         enabled = false;
         manejarLeche = FindObjectOfType<ManejarLeche>();
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
 
 
@@ -53,6 +54,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
 
     private void OnEnable()
     {
+        animator.SetTrigger("Abrir");
         objetoMiniJuegoOrdenyar.SetActive(true);
         ordenyoIniciado = true;
         barraOrdenyar.fillAmount = valorActual / valorMaximo;
@@ -67,7 +69,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
 
             if (Input.GetKeyUp(KeyCode.Q))
             {
-                resetearMiniJuego();
+                cerrarMiniJuego();
             }
 
             if (Input.GetKeyDown(KeyCode.Space))
@@ -84,7 +86,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
             }
 
             if (instanciaCabra.IsDestroyed()) {
-                resetearMiniJuego();
+                cerrarMiniJuego();
             } 
 
             float barraWidth = barraOrdenyar.rectTransform.rect.width;
@@ -113,15 +115,20 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         {
             valorActual = 0;
             mostrarPorcentaje();
-            resetearMiniJuego();
-            
+            cerrarMiniJuego();
+
         }
     }
 
     private void generarLeche()
     {
         manejarLeche.CogerLeche(prefabLeche);
-        resetearMiniJuego();
+        cerrarMiniJuego();
+    }
+
+    public void cerrarMiniJuego()
+    {
+        animator.SetTrigger("Cerrar");
     }
 
     public void resetearMiniJuego()
