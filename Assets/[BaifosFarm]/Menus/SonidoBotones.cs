@@ -4,24 +4,24 @@ using UnityEngine;
 
 public class SonidoBotones : MonoBehaviour
 {
-    AudioSource audiosource;
+    private AudioManagerBotones audioManagerBotones;
 
-    [SerializeField] private AudioClip sonidoBotonNormal;
-    [SerializeField] private AudioClip sonidoBotonCerrar;
-
+    /*
     private void Start()
     {
-        audiosource = GetComponent<AudioSource>();
+        audioManagerBotones = FindObjectOfType<AudioManagerBotones>();
     }
+    */
 
     public void ReproducirSonidoBotonNormal()
     {
-        audiosource.PlayOneShot(sonidoBotonNormal);
+        audioManagerBotones = FindObjectOfType<AudioManagerBotones>();
+        audioManagerBotones.ReproducirSonidoBotonNormal();
     }
 
     public void ReproducirSonidoBotonCerrar()
     {
-        audiosource.PlayOneShot(sonidoBotonCerrar);
+        audioManagerBotones = FindObjectOfType<AudioManagerBotones>();
+        audioManagerBotones.ReproducirSonidoBotonCerrar();
     }
-
 }
