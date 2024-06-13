@@ -1,16 +1,14 @@
-using System.IO;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public abstract class MenuBase : MonoBehaviour, IMenu
+public class CanvasFinales : MonoBehaviour
 {
     [SerializeField] protected GameObject menuObject;
     protected string mainMenuSceneName = "Main";
-
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
 
-    public virtual void ShowMenu()
+    private void Start() 
     {
         if (menuObject != null)
         {
@@ -18,8 +16,8 @@ public abstract class MenuBase : MonoBehaviour, IMenu
             if (canvasGroup != null)
             {
                 canvasGroup.alpha = 1;  // Hacer visible
-                canvasGroup.interactable = true;  // Permitir interacci�n
-                canvasGroup.blocksRaycasts = true;  // Permitir detecci�n de rayos
+                canvasGroup.interactable = true;  // Permitir interaccion
+                canvasGroup.blocksRaycasts = true;  // Permitir deteccion de rayos
             }
             menuObject.SetActive(true);
             Cursor.visible = true;
@@ -31,28 +29,10 @@ public abstract class MenuBase : MonoBehaviour, IMenu
         }
     }
 
-    public virtual void HideMenu()
+    public void ReturnToMenu()
     {
-        if (menuObject != null)
-        {
-            menuObject.SetActive(false);
-            enabled = false;
-        }
-    }
-
-    public virtual void ReturnToMenu()
-    {
+        Debug.Log("Attempting to load scene: " + mainMenuSceneName);
         SceneManager.LoadScene(mainMenuSceneName);
-    }
-
-    protected virtual void Start()
-    {
-        HideMenu();
-    }
-
-    protected virtual void OnDestroy()
-    {
-        HideMenu();
     }
 
     public void OnButtonCursorEnter()

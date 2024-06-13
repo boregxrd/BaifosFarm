@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 public class DeteccionCabrasNegras : MonoBehaviour
 {
     public CabraNegra[] cabrasNegras;
-    private int cabrasNegrasAlFinal = 0;
 
+    private int cabrasNegrasAlFinal = 0;
+    
     public static Action OnThreeBlackGoatsVictory;
 
     public bool CuidasteLasCabrasNegrasAlFinal()
