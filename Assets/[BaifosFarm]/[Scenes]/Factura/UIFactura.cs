@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class UIFactura : MonoBehaviour
 {
     ManejoCompras manejoCompras;
@@ -35,6 +34,9 @@ public class UIFactura : MonoBehaviour
     ContadorDinero contadorDinero;
     ContadorLeche contadorLeche;
 
+    AnimacionSumarDinero animacionSumarDinero;
+    float numeroOrigen;
+
     private void Awake()
     {
         manejoCompras = GetComponent<ManejoCompras>();
@@ -47,7 +49,10 @@ public class UIFactura : MonoBehaviour
         contadorLeche = FindObjectOfType<ContadorLeche>();
         contadorCabras = FindObjectOfType<ContadorCabras>();
         contadorDinero = FindObjectOfType<ContadorDinero>();
+        animacionSumarDinero = GetComponent<AnimacionSumarDinero>();
+
         txtDinero.text = contadorDinero.Dinero.ToString();
+        numeroOrigen = contadorDinero.Dinero;
         ActualizarCantidadLeche();
         ActualizarUI();
     }
@@ -60,11 +65,10 @@ public class UIFactura : MonoBehaviour
         ActualizarTotalFactura();
     }
 
-    IEnumerator SumarAContador()
+    IEnumerator SumarAContador(float numeroASumar)
     {
         yield return new WaitForSeconds(3f);
-        // ELENA ANIMACION AQUIII
-        txtDinero.text = contadorDinero.Dinero.ToString();
+        animacionSumarDinero.AddToNumber(numeroASumar, numeroOrigen);
     }
 
     private void ActualizarCantidadLeche()
@@ -75,7 +79,7 @@ public class UIFactura : MonoBehaviour
         if (!dineroSumadoFlag)
         {
             contadorDinero.SumarDinero(leches * manejoCompras.gananciaLeche);
-            StartCoroutine(SumarAContador());
+            StartCoroutine(SumarAContador(leches * manejoCompras.gananciaLeche));
             dineroSumadoFlag = true;
         }
 
@@ -156,7 +160,7 @@ public class UIFactura : MonoBehaviour
 
     private void ActualizarTotalFactura()
     {
-        sumaDinero = - dineroCabras - dineroHeno - dineroHenoEspecial;
+        sumaDinero = -dineroCabras - dineroHeno - dineroHenoEspecial;
 
         if (sumaDinero > 0)
         {
@@ -186,4 +190,5 @@ public class UIFactura : MonoBehaviour
         // Cambiar el cursor a normal
         Cursor.SetCursor(cursorNormal, Vector2.zero, CursorMode.Auto);
     }
+
 }
