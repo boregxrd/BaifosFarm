@@ -83,9 +83,11 @@ public class MiniJuegoOrdenyar : MonoBehaviour
                 resetearMiniJuego();
             }
 
+            // Para la posicion del icono de la barra:
             float barraWidth = barraOrdenyar.rectTransform.rect.width;
-            float iconoPosX = barraOrdenyar.rectTransform.position.x + barraWidth * barraOrdenyar.fillAmount - barraWidth / 2f;
-            iconoProgreso.rectTransform.position = new Vector3(iconoPosX, iconoProgreso.rectTransform.position.y, iconoProgreso.rectTransform.position.z);
+            float iconoLocalPosX = barraWidth * barraOrdenyar.fillAmount - barraWidth / 2f;
+            Vector3 iconoPos = barraOrdenyar.rectTransform.TransformPoint(new Vector3(iconoLocalPosX, 0, 0));
+            iconoProgreso.rectTransform.position = new Vector3(iconoPos.x, iconoProgreso.rectTransform.position.y, iconoProgreso.rectTransform.position.z);
         }
 
     }
