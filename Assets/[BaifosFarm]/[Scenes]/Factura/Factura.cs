@@ -63,10 +63,10 @@ public class Factura : MonoBehaviour
         {
             return true;
         }
-        else if (manejoCompras.EsGastoMayorQue(contadorDinero.Dinero))
-        {
-            return true;
-        }
+        // else if (manejoCompras.EsGastoMayorQue(contadorDinero.Dinero))
+        // {
+        //     return true;
+        // }
         return false;
     }
 

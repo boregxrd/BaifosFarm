@@ -19,7 +19,7 @@ public class MenuPausa : MonoBehaviour
     {
         Time.timeScale = 0;
         pausaController = FindObjectOfType<PausaController>();
-        animator = GetComponentInParent<Animator>();
+        animator = GetComponent<Animator>();
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;

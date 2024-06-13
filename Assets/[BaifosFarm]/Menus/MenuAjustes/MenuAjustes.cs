@@ -17,11 +17,13 @@ public class MenuAjustes : MonoBehaviour
     public TMP_Dropdown resolucionesDropdown;
     Resolution[] resoluciones;
     private MenuPausa menuPausa;
+    private Animator animator;
 
     [System.Obsolete]
     void Start()
     {
         menuPausa = FindObjectOfType<MenuPausa>();
+        animator = GetComponent<Animator>();
 
         // Cargar el valor de volumen guardado desde PlayerPrefs para la música
         float volumenMusicaGuardado = PlayerPrefs.GetFloat("VolumenMusica", 1f); // Valor por defecto 1 (máximo volumen) si no hay valor guardado
@@ -122,6 +124,11 @@ public class MenuAjustes : MonoBehaviour
             menuPausa.ajustesAbierto = false;
         }
 
+        animator.SetTrigger("Cerrar");
+    }
+
+    public void AcabaAnimacionCerrarAjustes()
+    {
         SceneManager.UnloadSceneAsync("MenuAjustes");
     }
 

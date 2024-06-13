@@ -9,6 +9,8 @@ public class AtardecerSiCabrasMuertas : MonoBehaviour
     private List<Cabra> cabrasEscena;
     private DeteccionCabrasNegras deteccionCabras;
 
+    bool diaAcabando = false;
+
     /*
     [SerializeField] private List<Cabra> cabrasEscena;
     CantidadCabrasAtardecer cantidadCabrasAtardecer;
@@ -24,14 +26,17 @@ public class AtardecerSiCabrasMuertas : MonoBehaviour
 
     private void Update()
     {
-        cabrasEscena = condicionesAvisos.ObtenerCabrasDeEscena();
-        if((cabrasEscena.Count - deteccionCabras.CabrasNegrasMuertas()) == 0 ) 
+        if (!diaAcabando)
         {
-            if(temporizador.tiempoRestante > 5f)
+            cabrasEscena = condicionesAvisos.ObtenerCabrasDeEscena();
+            if ((cabrasEscena.Count - deteccionCabras.CabrasNegrasMuertas()) == 0)
             {
-                temporizador.AcabarDia();
+                if (temporizador.tiempoRestante > 3f)
+                {
+                    diaAcabando = true;
+                    temporizador.AcabarDia();
+                }
             }
-            
         }
     }
 }
