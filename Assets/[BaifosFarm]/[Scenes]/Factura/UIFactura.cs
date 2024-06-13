@@ -68,7 +68,6 @@ public class UIFactura : MonoBehaviour
     IEnumerator SumarAContador(float numeroASumar)
     {
         yield return new WaitForSeconds(1f);
-        // animacionSumarDinero.AddToNumber(numeroASumar, numeroOrigen);
         animacionSumarDinero.Inicio(numeroOrigen, numeroASumar);
     }
 

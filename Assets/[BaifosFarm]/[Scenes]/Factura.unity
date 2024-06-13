@@ -818,6 +818,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duracionAnimacion: 1.5
   textoDinero: {fileID: 1582581177}
+  sonidoMonedas: {fileID: 8300000, guid: 6fa9a09c648b9414bb14dbec22f11e14, type: 3}
 --- !u!1 &222728045
 GameObject:
   m_ObjectHideFlags: 0
