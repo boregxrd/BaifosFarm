@@ -172,6 +172,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &60229693 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7889929826248001011, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+  m_PrefabInstance: {fileID: 667066697}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf563c338dae1c94090e8ab60fbb561f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &348741651 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7850997803217300950, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
@@ -294,14 +305,14 @@ PrefabInstance:
     - target: {fileID: 4642334363745319732, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1408156738}
+      objectReference: {fileID: 60229693}
     - target: {fileID: 4642334363745319732, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReproducirSonidoBotonNormal
       objectReference: {fileID: 0}
     - target: {fileID: 4642334363745319732, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AudioManagerBotones, Assembly-CSharp
+      value: SonidoBotones, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5872296379014553567, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_Navigation.m_Mode
@@ -310,14 +321,14 @@ PrefabInstance:
     - target: {fileID: 5872296379014553567, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1408156738}
+      objectReference: {fileID: 2079931300}
     - target: {fileID: 5872296379014553567, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ReproducirSonidoBotonCerrar
       objectReference: {fileID: 0}
     - target: {fileID: 5872296379014553567, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AudioManagerBotones, Assembly-CSharp
+      value: SonidoBotones, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7119213687741225733, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_Volume
@@ -338,7 +349,7 @@ PrefabInstance:
     - target: {fileID: 7681399488458401619, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1408156738}
+      objectReference: {fileID: 1074392206}
     - target: {fileID: 7681399488458401619, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
@@ -361,7 +372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7681399488458401619, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: AudioManagerBotones, Assembly-CSharp
+      value: SonidoBotones, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7681399488458401619, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[3].m_TargetAssemblyTypeName
@@ -569,15 +580,15 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1408156738 stripped
+--- !u!114 &1074392206 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 45424051564683186, guid: 93c05d4492bd7ea48be9619daf7b7b3c, type: 3}
-  m_PrefabInstance: {fileID: 2543081938979596475}
+  m_CorrespondingSourceObject: {fileID: 8685190805406969052, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+  m_PrefabInstance: {fileID: 667066697}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 769334f1ff7ea024da60f15f9b447f80, type: 3}
+  m_Script: {fileID: 11500000, guid: bf563c338dae1c94090e8ab60fbb561f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1870252113
@@ -648,6 +659,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2079931300 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 198863870149426464, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+  m_PrefabInstance: {fileID: 667066697}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf563c338dae1c94090e8ab60fbb561f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2543081938979596475
 PrefabInstance:
   m_ObjectHideFlags: 0
