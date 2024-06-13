@@ -36,11 +36,11 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMusica(AudioClip clip, float loopStartTime, float loopEndTime, ITransicionMusica transicion = null)
     {
-        // Actualizar la información del bucle
+        Debug.Log("PlayMusica called with clip: " + clip.name + " loopStartTime: " + loopStartTime + " loopEndTime: " + loopEndTime);
+
         loopStart = loopStartTime;
         loopEnd = loopEndTime;
 
-        // Detener cualquier corrutina de bucle de música en curso
         if (musicLoopCoroutine != null)
         {
             StopCoroutine(musicLoopCoroutine);
@@ -57,7 +57,6 @@ public class AudioManager : MonoBehaviour
             musica.Play();
         }
 
-        // Iniciar la corrutina de bucle de música con los valores actualizados
         musicLoopCoroutine = StartCoroutine(MusicLoop.HandleMusicLoop(musica, loopStart, loopEnd));
         transicionMusica = transicion;
     }
@@ -78,7 +77,6 @@ public class AudioManager : MonoBehaviour
 
     private IEnumerator FadeOutAndLoadScene(string sceneName)
     {
-        // Inicia el fade out
         float startVolume = musica.volume;
         float timer = 0f;
 
@@ -89,17 +87,14 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
 
-        // Carga la nueva escena de forma asincrónica
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
 
-        // Espera a que la nueva escena se cargue completamente
         while (!asyncLoad.isDone)
         {
             yield return null;
         }
     }
 
-    // Métodos para ajustar los volúmenes de música y SFX
     public void SetVolumenMusica(float volumen)
     {
         audioMixer.SetFloat("VolumenMusica", ConvertToDecibels(volumen));
@@ -110,13 +105,19 @@ public class AudioManager : MonoBehaviour
         audioMixer.SetFloat("VolumenSFX", ConvertToDecibels(volumen));
     }
 
-    // Método de utilidad para convertir de volumen lineal (0 a 1) a decibelios (-80 a 0)
     private float ConvertToDecibels(float volumen)
     {
         if (volumen <= 0)
         {
-            return -80f; // Valor mínimo para evitar log(0)
+            return -80f;
         }
         return Mathf.Log10(volumen) * 20;
+    }
+
+    // Método para ajustar la velocidad de la música
+    public void SetMusicSpeed(float speed)
+    {
+        Debug.Log("Setting music speed to: " + speed);
+        audioMixer.SetFloat("PitchMusic", speed);
     }
 }

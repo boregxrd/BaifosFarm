@@ -9012,8 +9012,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneMusic: {fileID: 8300000, guid: 7e1c84def5640ae4b9b4424459f80ca1, type: 3}
-  loopStartTime: 45.4
-  loopEndTime: 66.7
+  loopStartTime: 104.5
+  loopEndTime: 104.6
   useFadeIn: 1
   useFadeOut: 1
 --- !u!4 &1398157858
