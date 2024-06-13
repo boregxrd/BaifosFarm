@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ public class BarraAlimento : MonoBehaviour
     private Cabra cabra; // Referencia a la cabra
 
     ContadorCabras contadorCabras;
+    bool alimentacionParadaFlag = false;
 
     void Start()
     {
@@ -24,24 +26,29 @@ public class BarraAlimento : MonoBehaviour
         barraAlimento.fillAmount = valorActual / valorMaximo;
         cabra = GetComponentInParent<Cabra>(); // Obtener la referencia a la cabra
 
-        if (contadorCabras.NumCabrasBlancas != 0){
+        if (contadorCabras.NumCabrasBlancas != 0)
+        {
             velocidadReduccion = velocidadReduccionInicial / contadorCabras.NumCabrasBlancas;
         }
-        else{
+        else
+        {
             velocidadReduccion = velocidadReduccionInicial;
         }
     }
 
     void Update()
     {
-        if (valorActual > 0)
+        if (!alimentacionParadaFlag)
         {
-            valorActual -= velocidadReduccion * Time.deltaTime;
-            barraAlimento.fillAmount = valorActual / valorMaximo;
-        }
-        else
-        {
-            valorActual = 0;
+            if (valorActual > 0)
+            {
+                valorActual -= velocidadReduccion * Time.deltaTime;
+                barraAlimento.fillAmount = valorActual / valorMaximo;
+            }
+            else
+            {
+                valorActual = 0;
+            }
         }
     }
 
@@ -60,5 +67,10 @@ public class BarraAlimento : MonoBehaviour
         {
             cabra.MostrarParticulasHeno();
         }
+    }
+
+    public void Pausar()
+    {
+        alimentacionParadaFlag = true;
     }
 }
