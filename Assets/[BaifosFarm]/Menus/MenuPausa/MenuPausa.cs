@@ -7,6 +7,7 @@ public class MenuPausa : MonoBehaviour
 {
     PausaController pausaController;
     MenuAjustes menuAjustes;
+    Animator animator;
 
     public bool pausa = false;
     public bool ajustesAbierto = false;
@@ -18,6 +19,7 @@ public class MenuPausa : MonoBehaviour
     {
         Time.timeScale = 0;
         pausaController = FindObjectOfType<PausaController>();
+        animator = GetComponentInParent<Animator>();
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -34,10 +36,13 @@ public class MenuPausa : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        Time.timeScale = 1; //el juego se reanuda
+        animator.SetTrigger("Cerrar");
+    }
 
+    public void AcabaAnimacionCerrarMenuPausa()
+    {
+        Time.timeScale = 1; 
         SceneManager.UnloadSceneAsync("MenuPausa");
-
     }
 
     public bool ComprobarAjustes()
@@ -50,9 +55,7 @@ public class MenuPausa : MonoBehaviour
     {
         SceneManager.LoadScene("MenuAjustes", LoadSceneMode.Additive);
         ajustesAbierto = true;
-
     }
-
 
     public void CerrarMenuAjustes()
     {
