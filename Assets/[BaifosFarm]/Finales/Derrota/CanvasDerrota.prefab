@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75edd6873837b4840a540a1a56739f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuObject: {fileID: 2316791256421888299}
   cursorMano: {fileID: 2800000, guid: 045fbab49145d184d906da82dee49db0, type: 3}
   cursorNormal: {fileID: 2800000, guid: 6ec4d07ab26436d47a662515951f2215, type: 3}
 --- !u!1 &2316791256421888299

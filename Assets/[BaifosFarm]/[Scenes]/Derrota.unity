@@ -215,6 +215,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3472048996211211724, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: menuObject
+      value: 
+      objectReference: {fileID: 170383395}
+    - target: {fileID: 3663790738963875024, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: ReturnToMenu
+      objectReference: {fileID: 0}
     - target: {fileID: 3663790738963875024, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: OnButtonCursorExit
@@ -224,6 +232,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+--- !u!1 &170383395 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2316791256421888299, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+  m_PrefabInstance: {fileID: 170383394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1128813494
 GameObject:
   m_ObjectHideFlags: 0
