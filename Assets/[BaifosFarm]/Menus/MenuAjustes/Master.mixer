@@ -29,9 +29,9 @@ AudioMixerGroupController:
   - {fileID: 9213960509920699954}
   - {fileID: 1651021829528546191}
   - {fileID: 5987636568402144763}
+  - {fileID: -6321006581691130808}
   - {fileID: -6475673320473522080}
   - {fileID: -3578460194385687520}
-  - {fileID: -6321006581691130808}
   m_Volume: 91eab9ca110bcb34799d2c55f04f8bcf
   m_Pitch: b8ed719add9492648804bb08faa156c2
   m_Send: 00000000000000000000000000000000
@@ -160,7 +160,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Escenario
+  m_Name: Escenario (no se usa)
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 45e98bd2a5ba9e14485289d9cd0266b1
   m_Children: []
@@ -405,7 +405,7 @@ AudioMixerGroupController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Cabras Negras (racistada)
+  m_Name: Cabras Negras
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 94e703a3e4e03a842b1e82813e356061
   m_Children: []
