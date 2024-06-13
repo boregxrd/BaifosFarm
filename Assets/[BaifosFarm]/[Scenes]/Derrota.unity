@@ -215,6 +215,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3663790738963875024, guid: d01af9647d9865145bbb6ba177aa7770, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: OnButtonCursorExit
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -344,7 +348,7 @@ MonoBehaviour:
   sceneMusic: {fileID: 8300000, guid: 189b35d840bea33478902e970634dd01, type: 3}
   loopStartTime: 20.2
   loopEndTime: 30.3
-  useFadeIn: 0
+  useFadeIn: 1
   useFadeOut: 0
 --- !u!4 &1156675244
 Transform:

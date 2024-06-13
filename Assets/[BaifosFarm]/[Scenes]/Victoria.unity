@@ -167,10 +167,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67313707bd6ae20408b223f9e9529207, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneMusic: {fileID: 0}
+  sceneMusic: {fileID: 8300000, guid: 36a325e51b9e7844b9648ab442c70716, type: 3}
   loopStartTime: 0
   loopEndTime: 0
-  useFadeIn: 0
+  useFadeIn: 1
   useFadeOut: 0
 --- !u!1 &800617726
 GameObject:

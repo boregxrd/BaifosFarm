@@ -26,4 +26,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/[BaifosFarm]/[Scenes]/MenuPausa.unity
     guid: bf299e7136f789349848f29afa32c49f
+  - enabled: 1
+    path: Assets/[BaifosFarm]/[Scenes]/Derrota.unity
+    guid: 4af234161d7a0044ba22e372935c2aab
+  - enabled: 1
+    path: Assets/[BaifosFarm]/[Scenes]/Victoria.unity
+    guid: 78ca6c72661a154449201c8867bf155c
+  - enabled: 1
+    path: Assets/[BaifosFarm]/[Scenes]/VictoriaSecreta.unity
+    guid: d4041584a6f60934fba5eec3fe3a6874
   m_configObjects: {}
