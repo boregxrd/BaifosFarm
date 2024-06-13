@@ -1,12 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.UI;
-
-//Este script ha de estar en CanvasMiniJuegoOrdenyar
 
 public class MiniJuegoOrdenyar : MonoBehaviour
 {
@@ -14,7 +9,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     [SerializeField] private Text porcentaje;
 
     private AudioSource audioSource;
-    private Animator animator;
+
 
     [SerializeField] private float valorMaximo = 100f;
     [SerializeField] private float valorActual = 15f;
@@ -40,7 +35,6 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         enabled = false;
         manejarLeche = FindObjectOfType<ManejarLeche>();
         audioSource = GetComponent<AudioSource>();
-        animator = GetComponent<Animator>();
     }
 
 
@@ -49,12 +43,11 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         enabled = true;
         // Debug.Log("IniciarOrdenyado");
         instanciaCabra = cabra.GetComponent<CabraBlancaInteracciones>();
-        
+
     }
 
     private void OnEnable()
     {
-        animator.SetTrigger("Abrir");
         objetoMiniJuegoOrdenyar.SetActive(true);
         ordenyoIniciado = true;
         barraOrdenyar.fillAmount = valorActual / valorMaximo;
@@ -69,7 +62,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
 
             if (Input.GetKeyUp(KeyCode.Q))
             {
-                cerrarMiniJuego();
+                resetearMiniJuego();
             }
 
             if (Input.GetKeyDown(KeyCode.Space))
@@ -85,9 +78,10 @@ public class MiniJuegoOrdenyar : MonoBehaviour
                 generarLeche();
             }
 
-            if (instanciaCabra.IsDestroyed()) {
-                cerrarMiniJuego();
-            } 
+            if (instanciaCabra.IsDestroyed())
+            {
+                resetearMiniJuego();
+            }
 
             float barraWidth = barraOrdenyar.rectTransform.rect.width;
             float iconoPosX = barraOrdenyar.rectTransform.position.x + barraWidth * barraOrdenyar.fillAmount - barraWidth / 2f;
@@ -95,7 +89,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         }
 
     }
-   
+
     private void incrementar()
     {
         valorActual += incremento;
@@ -108,14 +102,14 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         if (valorActual > 0)
         {
             valorActual -= velocidadVaciado * Time.deltaTime;
-            barraOrdenyar.fillAmount = valorActual / valorMaximo; 
+            barraOrdenyar.fillAmount = valorActual / valorMaximo;
             mostrarPorcentaje();
         }
         else //si la barra llega a 0
         {
             valorActual = 0;
             mostrarPorcentaje();
-            cerrarMiniJuego();
+            resetearMiniJuego();
 
         }
     }
@@ -123,12 +117,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     private void generarLeche()
     {
         manejarLeche.CogerLeche(prefabLeche);
-        cerrarMiniJuego();
-    }
-
-    public void cerrarMiniJuego()
-    {
-        animator.SetTrigger("Cerrar");
+        resetearMiniJuego();
     }
 
     public void resetearMiniJuego()
@@ -137,7 +126,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         enabled = false;
         miniJuegoReseteado = true;
         ordenyoIniciado = false;
-        if(instanciaCabra != null) instanciaCabra.ResetearLeche();
+        if (instanciaCabra != null) instanciaCabra.ResetearLeche();
         jugador.ContinuarMovimiento();
     }
 
