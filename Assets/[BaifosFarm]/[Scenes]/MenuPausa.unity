@@ -169,6 +169,10 @@ PrefabInstance:
       propertyPath: m_UpdateMode
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2257079738197608417, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
+      propertyPath: sonido
+      value: 
+      objectReference: {fileID: 8300000, guid: 2caec11197b40be46bf8aca227a94107, type: 3}
     - target: {fileID: 2884779879183133324, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
       propertyPath: m_Transition
       value: 3
@@ -179,7 +183,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2884779879183133324, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReproducirSonidoBotonCerrar
+      value: ReproducirSonidoBoton
       objectReference: {fileID: 0}
     - target: {fileID: 3819551312409219256, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
       propertyPath: m_Transition
@@ -191,7 +195,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3819551312409219256, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReproducirSonidoBotonNormal
+      value: ReproducirSonidoBoton
       objectReference: {fileID: 0}
     - target: {fileID: 5393894081312959476, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
       propertyPath: m_UpdateMode
@@ -201,6 +205,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5825844186225691393, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
+      propertyPath: sonido
+      value: 
+      objectReference: {fileID: 8300000, guid: d3a5788bc8291584688d1df42dcc165d, type: 3}
     - target: {fileID: 5829361794436219465, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
       propertyPath: m_Transition
       value: 3
@@ -211,8 +219,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5829361794436219465, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ReproducirSonidoBotonNormal
+      value: ReproducirSonidoBoton
       objectReference: {fileID: 0}
+    - target: {fileID: 7674677107473060490, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
+      propertyPath: sonido
+      value: 
+      objectReference: {fileID: 8300000, guid: 2caec11197b40be46bf8aca227a94107, type: 3}
     - target: {fileID: 7902452620180797636, guid: da135bd82e6634d42a3cc4a0ad577371, type: 3}
       propertyPath: m_Pivot.x
       value: 0

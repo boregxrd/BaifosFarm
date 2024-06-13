@@ -273,6 +273,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1035993807829190295, guid: 3b19798bab88fae4886905867a7b0ce2, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReproducirSonidoBoton
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035993807829190295, guid: 3b19798bab88fae4886905867a7b0ce2, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
       value: OnButtonCursorExit
       objectReference: {fileID: 0}
@@ -360,6 +364,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasVictoriaDinero
       objectReference: {fileID: 0}
+    - target: {fileID: 8184731811412601340, guid: 3b19798bab88fae4886905867a7b0ce2, type: 3}
+      propertyPath: sonido
+      value: 
+      objectReference: {fileID: 8300000, guid: d3a5788bc8291584688d1df42dcc165d, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

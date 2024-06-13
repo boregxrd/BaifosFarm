@@ -9,9 +9,6 @@ public class AudioManagerBotones : MonoBehaviour
     public static AudioManagerBotones Instance { get { return instance; } }
 
     private AudioSource audioSource;
-    [SerializeField] private AudioClip sonidoBotonNormal;
-    [SerializeField] private AudioClip sonidoBotonCerrar;
-
 
     private void Awake()
     {
@@ -28,15 +25,9 @@ public class AudioManagerBotones : MonoBehaviour
         }
     }
 
-    public void ReproducirSonidoBotonNormal()
+    public void ReproducirSonidoBoton(AudioClip sonido)
     {
-        audioSource.PlayOneShot(sonidoBotonNormal);
+        audioSource.PlayOneShot(sonido);
     }
-
-    public void ReproducirSonidoBotonCerrar()
-    {
-        audioSource.PlayOneShot(sonidoBotonCerrar);
-    }
-
 
 }

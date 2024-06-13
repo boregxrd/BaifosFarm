@@ -139,6 +139,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2339756389496316487, guid: 26fa61b9ebd4de84abfa3838f05f4514, type: 3}
+      propertyPath: sonido
+      value: 
+      objectReference: {fileID: 8300000, guid: 2caec11197b40be46bf8aca227a94107, type: 3}
     - target: {fileID: 2571881742372809138, guid: 26fa61b9ebd4de84abfa3838f05f4514, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -230,6 +234,10 @@ PrefabInstance:
     - target: {fileID: 4023678007172317042, guid: 26fa61b9ebd4de84abfa3838f05f4514, type: 3}
       propertyPath: m_Name
       value: CanvasAjustes
+      objectReference: {fileID: 0}
+    - target: {fileID: 4874440303964544478, guid: 26fa61b9ebd4de84abfa3838f05f4514, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReproducirSonidoBoton
       objectReference: {fileID: 0}
     - target: {fileID: 6678981247575904468, guid: 26fa61b9ebd4de84abfa3838f05f4514, type: 3}
       propertyPath: m_fontColor32.rgba

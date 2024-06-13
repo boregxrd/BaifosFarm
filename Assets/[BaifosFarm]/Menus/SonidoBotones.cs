@@ -5,16 +5,12 @@ using UnityEngine;
 public class SonidoBotones : MonoBehaviour
 {
     private AudioManagerBotones audioManagerBotones;
+    [SerializeField] AudioClip sonido;
 
-    public void ReproducirSonidoBotonNormal()
+    public void ReproducirSonidoBoton()
     {
         audioManagerBotones = FindObjectOfType<AudioManagerBotones>();
-        audioManagerBotones.ReproducirSonidoBotonNormal();
+        audioManagerBotones.ReproducirSonidoBoton(sonido);
     }
 
-    public void ReproducirSonidoBotonCerrar()
-    {
-        audioManagerBotones = FindObjectOfType<AudioManagerBotones>();
-        audioManagerBotones.ReproducirSonidoBotonCerrar();
-    }
 }
