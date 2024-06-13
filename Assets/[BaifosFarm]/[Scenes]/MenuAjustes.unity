@@ -231,19 +231,60 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasAjustes
       objectReference: {fileID: 0}
+    - target: {fileID: 6678981247575904468, guid: 26fa61b9ebd4de84abfa3838f05f4514, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 3019898879
+      objectReference: {fileID: 0}
     - target: {fileID: 7149334762921960346, guid: 26fa61b9ebd4de84abfa3838f05f4514, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: AjustarVolumenMusica
       objectReference: {fileID: 0}
     - target: {fileID: 8003016585393370845, guid: 26fa61b9ebd4de84abfa3838f05f4514, type: 3}
+      propertyPath: m_Colors.m_NormalColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8003016585393370845, guid: 26fa61b9ebd4de84abfa3838f05f4514, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: AjustarVolumenSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 8662292268650199981, guid: 26fa61b9ebd4de84abfa3838f05f4514, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 3019898879
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4023678007172317042, guid: 26fa61b9ebd4de84abfa3838f05f4514, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6352309567115576475}
   m_SourcePrefab: {fileID: 100100000, guid: 26fa61b9ebd4de84abfa3838f05f4514, type: 3}
+--- !u!1 &6352309567115576474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4023678007172317042, guid: 26fa61b9ebd4de84abfa3838f05f4514, type: 3}
+  m_PrefabInstance: {fileID: 6352309567115576473}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &6352309567115576475
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6352309567115576474}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a1cd071853a95a840987124ebf57ef39, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
