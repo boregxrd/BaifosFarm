@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.SceneManagement;
 
 public class DeteccionCabrasNegras : MonoBehaviour
 {
@@ -51,7 +48,7 @@ public class DeteccionCabrasNegras : MonoBehaviour
         else
         {
             DestruirCabrasCadaUna();
-            SceneManager.LoadScene("Factura");
+            AudioManager.Instance.ChangeScene("Factura");
         }
     }
 
