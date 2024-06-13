@@ -26,13 +26,16 @@ public class AtardecerSiCabrasMuertas : MonoBehaviour
 
     private void Update()
     {
-        cabrasEscena = condicionesAvisos.ObtenerCabrasDeEscena();
-        if((cabrasEscena.Count - deteccionCabras.CabrasNegrasMuertas()) == 0 ) 
+        if (!diaAcabando)
         {
-            if(temporizador.tiempoRestante > 5f && !diaAcabando)
+            cabrasEscena = condicionesAvisos.ObtenerCabrasDeEscena();
+            if ((cabrasEscena.Count - deteccionCabras.CabrasNegrasMuertas()) == 0)
             {
-                diaAcabando = true;
-                temporizador.AcabarDia();
+                if (temporizador.tiempoRestante > 3f)
+                {
+                    diaAcabando = true;
+                    temporizador.AcabarDia();
+                }
             }
         }
     }
