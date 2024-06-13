@@ -5,12 +5,14 @@ using UnityEngine.UI;
 public class BarraLeche : MonoBehaviour
 {
     [SerializeField] private float valorMaximo = 100f;
-    public float ValorMaximo {
+    public float ValorMaximo
+    {
         get { return valorMaximo; }
     }
 
     public float valorActual = 0f;
-    public float ValorActual {
+    public float ValorActual
+    {
         get { return valorActual; }
     }
 
@@ -31,28 +33,29 @@ public class BarraLeche : MonoBehaviour
 
     void Update()
     {
-        if (barraAlimento == null)
-        {
-            Debug.LogError("BarraAlimento reference not set.");
-            return;
-        }
-
-        produccionDetenida = barraAlimento.ValorActual < valorAlerta;
-
-        if (!produccionDetenida)
-        {
-            if (valorActual < valorMaximo)
+            if (barraAlimento == null)
             {
-                valorActual += velocidadAumento * Time.deltaTime;
-                lechePreparada = false;
+                Debug.LogError("BarraAlimento reference not set.");
+                return;
             }
-            else
+
+            produccionDetenida = barraAlimento.ValorActual < valorAlerta;
+
+            if (!produccionDetenida)
             {
-                valorActual = valorMaximo;
-                lechePreparada = true;
+                if (valorActual < valorMaximo)
+                {
+                    valorActual += velocidadAumento * Time.deltaTime;
+                    lechePreparada = false;
+                }
+                else
+                {
+                    valorActual = valorMaximo;
+                    lechePreparada = true;
+                }
             }
-        }
-        barraLeche.fillAmount = valorActual / valorMaximo;
+            barraLeche.fillAmount = valorActual / valorMaximo;
+        
     }
 
     public void resetearLeche()
@@ -60,5 +63,10 @@ public class BarraLeche : MonoBehaviour
         valorActual = 0f;
         produccionDetenida = false;
         lechePreparada = false;
+    }
+
+    public void Pausar()
+    {
+        produccionDetenida = true;
     }
 }

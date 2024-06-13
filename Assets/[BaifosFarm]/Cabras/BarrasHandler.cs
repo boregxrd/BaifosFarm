@@ -13,11 +13,14 @@ public class BarrasHandler: MonoBehaviour
     }
     public void CongelarBarrasCabras()
     {
+        Debug.Log("accionada");
         foreach (BarraAlimento barraAlimento in barrasAlimento)
         {
             if(barraAlimento!=null)
             {
-                barraAlimento.enabled = false;
+                barraAlimento.Pausar();
+            } else {
+                Debug.LogError("NULLLL");
             }
         }
 
@@ -25,7 +28,7 @@ public class BarrasHandler: MonoBehaviour
         {
             if (barraLeche != null)
             {
-                barraLeche.enabled = false;
+                barraLeche.Pausar();
             }
         }
     }
