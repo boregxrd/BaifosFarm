@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,7 +34,7 @@ public class UIFactura : MonoBehaviour
     ContadorCabras contadorCabras;
     ContadorDinero contadorDinero;
     ContadorLeche contadorLeche;
-    
+
     private void Awake()
     {
         manejoCompras = GetComponent<ManejoCompras>();
@@ -59,6 +60,13 @@ public class UIFactura : MonoBehaviour
         ActualizarTotalFactura();
     }
 
+    IEnumerator SumarAContador()
+    {
+        yield return new WaitForSeconds(3f);
+        // ELENA ANIMACION AQUIII
+        txtDinero.text = contadorDinero.Dinero.ToString();
+    }
+
     private void ActualizarCantidadLeche()
     {
         int leches = contadorLeche.Contador;
@@ -67,9 +75,10 @@ public class UIFactura : MonoBehaviour
         if (!dineroSumadoFlag)
         {
             contadorDinero.SumarDinero(leches * manejoCompras.gananciaLeche);
+            StartCoroutine(SumarAContador());
             dineroSumadoFlag = true;
         }
-        
+
         if (leches > 0)
         {
             dineroLeche = leches * manejoCompras.gananciaLeche;
@@ -146,8 +155,8 @@ public class UIFactura : MonoBehaviour
     }
 
     private void ActualizarTotalFactura()
-    {    
-        sumaDinero = dineroLeche - dineroCabras - dineroHeno - dineroHenoEspecial;
+    {
+        sumaDinero = dineroCabras - dineroHeno - dineroHenoEspecial;
 
         if (sumaDinero > 0)
         {
