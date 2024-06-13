@@ -33,12 +33,14 @@ public class TutorialManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
         {
+            Debug.Log("Iniciando tutorial");
             ShowNextPopUp();
             CanvasSkipTutorial.SetActive(true);
             botonSkip.interactable = true;
         }
         else if (PlayerPrefs.GetInt("TutorialCompleto") == 1)
         {
+            Debug.Log("Tutorial ya completado");
             CanvasSkipTutorial.SetActive(false);
             botonSkip.interactable = false;
             // Ocultar todos los pop-ups
@@ -58,7 +60,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
         {
-            CheckCompletion();
+            StartCoroutine(CheckCompletion());
         }
     }
 
@@ -84,6 +86,7 @@ public class TutorialManager : MonoBehaviour
             popUps[popUpIndex].SetActive(true);
             audioSource.Play(); // Reproducir el sonido del pop-up
             Debug.Log($"Mostrando pop-up {popUpIndex + 1}"); // Mensaje de depuración
+            
         }
         else
         {
@@ -94,8 +97,10 @@ public class TutorialManager : MonoBehaviour
 
     private IEnumerator CheckCompletion()
     {
-        // Esperar 3 segundos
-        yield return new WaitForSeconds(3f);
+        yield return null; // Permitir que la corrutina continúe en el siguiente frame
+
+        // Debug.Log("Empieza CheckCompletion()");
+
 
         // Verificar si el tutorial ha sido completado antes de continuar
         if (PlayerPrefs.GetInt("TutorialCompleto") == 1)
@@ -106,6 +111,7 @@ public class TutorialManager : MonoBehaviour
         switch (popUpIndex)
         {
             case 0: // Movimiento
+                // Debug.Log("Verificando movimiento");
                 if (movimientoPersonaje.HasMoved())
                 {
                     CompleteStep();
@@ -114,6 +120,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 1: // Recoger Heno
+                // Debug.Log("Verificando recoger heno");
                 if (jugador.HenoRecogido)
                 {
                     CompleteStep();
@@ -122,6 +129,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 2: // Alimentar
+                // Debug.Log("Verificando alimentar cabras");
                 if (manejarHeno.alimentacionRealizada)
                 {
                     CompleteStep();
@@ -130,6 +138,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 3: // Recoger Leche
+                // Debug.Log("Verificando ordeñar");
                 if (manejarLeche.ordenyoRealizado)
                 {
                     CompleteStep();
@@ -138,6 +147,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 4: // Guardar Leche
+                // Debug.Log("Verificando guardar leche");
                 if (dejarLecheEnCaja.lecheGuardada)
                 {
                     CompleteStep();
@@ -152,6 +162,7 @@ public class TutorialManager : MonoBehaviour
 
     private void CompleteStep()
     {
+        Debug.Log($"Paso {popUpIndex} completado");
         // Detener el efecto de partículas actual
         particleEffects[popUpIndex].Stop();
 
