@@ -29,8 +29,8 @@ public class AccionesAtardecer : MonoBehaviour
 
     public IEnumerator EjecutarAccionesAtardecer()
     {
-        interaccionesJugador.DesabilitarInteraccionesJugador();
         barrasHandler.CongelarBarrasCabras();
+        interaccionesJugador.DesabilitarInteraccionesJugador();
         controlAvisos.EsconderTodosLosAvisos();
         
         yield return StartCoroutine(AnimaticaCamion());

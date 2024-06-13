@@ -13,7 +13,6 @@ public class BarrasHandler: MonoBehaviour
     }
     public void CongelarBarrasCabras()
     {
-        Debug.Log("accionada");
         foreach (BarraAlimento barraAlimento in barrasAlimento)
         {
             if(barraAlimento!=null)
