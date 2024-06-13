@@ -40,6 +40,7 @@ public class AccionesAtardecer : MonoBehaviour
 
     private IEnumerator AnimaticaCamion()
     {
+        Debug.Log("camion");
         animaticaCamion.Play();
         camaraJuego.enabled = false;
         while (animaticaCamion.state == PlayState.Playing) {
