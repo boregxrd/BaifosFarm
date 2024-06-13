@@ -25,7 +25,7 @@ public class TutorialManager : MonoBehaviour
 
     private void Awake()
     {
-        audioSource = GetComponentInChildren<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
         temporizador = FindObjectOfType<Temporizador>(); // Obtener referencia a ControlTiempo en la escena
     }
 
