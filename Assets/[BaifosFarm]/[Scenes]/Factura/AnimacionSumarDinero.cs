@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,29 +10,27 @@ public class AnimacionSumarDinero : MonoBehaviour
     private float numeroOrigen, numeroDestino, numeroActual;
     [SerializeField] Text textoDinero;
 
-   
+    float dineroActual, dineroNuevo;
 
-    public void AddToNumber(float numero, float numeroOrigen)
+    public void Inicio(float d, float suma)
     {
-        this.numeroOrigen = numeroOrigen;
-        numeroActual = numeroOrigen;
-        numeroDestino = numeroActual + numero;
+        dineroActual = d;
+        dineroNuevo = suma;
+        float intervalo = duracionAnimacion / suma;
+
+        StartCoroutine(SumarDinero(intervalo));
     }
 
-    private void Update()
+    private IEnumerator SumarDinero(float intervalo)
     {
-        if (numeroActual != numeroDestino)
+        Debug.Log(dineroActual + " " + dineroNuevo);
+        for (int i = 0; i < dineroNuevo; i++)
         {
-            if (numeroOrigen < numeroDestino)
-            {
-                numeroActual += (duracionAnimacion * Time.deltaTime) * (numeroDestino - numeroOrigen);
+            textoDinero.text = (dineroActual + i).ToString();
 
-                if (numeroActual >= numeroDestino)
-                {
-                    numeroActual = numeroDestino;
-                }
-            }
-            textoDinero.text = numeroActual.ToString("0"); // sin decimales
+            yield return new WaitForSeconds(intervalo);
         }
+ 
+        textoDinero.text = (dineroActual + dineroNuevo).ToString();
     }
 }
