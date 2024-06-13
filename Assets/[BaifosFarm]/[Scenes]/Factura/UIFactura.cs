@@ -48,12 +48,12 @@ public class UIFactura : MonoBehaviour
         contadorCabras = FindObjectOfType<ContadorCabras>();
         contadorDinero = FindObjectOfType<ContadorDinero>();
         txtDinero.text = contadorDinero.Dinero.ToString();
+        ActualizarCantidadLeche();
         ActualizarUI();
     }
 
     public void ActualizarUI()
     {
-        ActualizarCantidadLeche();
         ActualizarCostoHeno();
         ActualizarCabrasCompradas();
         ActualizarHenoEspecial();
@@ -156,7 +156,7 @@ public class UIFactura : MonoBehaviour
 
     private void ActualizarTotalFactura()
     {
-        sumaDinero = dineroCabras - dineroHeno - dineroHenoEspecial;
+        sumaDinero = - dineroCabras - dineroHeno - dineroHenoEspecial;
 
         if (sumaDinero > 0)
         {
