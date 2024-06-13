@@ -43,6 +43,7 @@ public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
             particulasTutorial.Stop();
             //para el tutorial
             lecheGuardada = true;
+            audioSource.Play();
         }
     }
 
@@ -51,6 +52,6 @@ public class DejarLecheEnCaja : MonoBehaviour, IInteractuable
     {
         yield return new WaitForSeconds(delay); // Esperar el tiempo especificado
         particulasDejarLeche.Play(); // Reproducir las partículas
-        audioSource.Play();
+        
     }
 }
