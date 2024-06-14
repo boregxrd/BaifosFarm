@@ -14,6 +14,8 @@ public class MenuInicio : MonoBehaviour
     ContadorDinero contadorDinero;
     ContadorCabras contadorCabras;
 
+    [SerializeField] Transicion transicion;
+
     void Awake()
     {
         Application.targetFrameRate = 60;
@@ -37,6 +39,7 @@ public class MenuInicio : MonoBehaviour
 
     public void Jugar()
     {
+        transicion.FadeOut();
         PlayerPrefs.SetInt("HenoMejorado", 0);
         PlayerPrefs.SetInt("TutorialCompleto", 0); // Marcar el tutorial como no completado
         AudioManager.Instance.ChangeScene("Comic_Introduccion");
