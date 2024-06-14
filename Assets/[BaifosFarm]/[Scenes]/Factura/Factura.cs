@@ -51,7 +51,7 @@ public class Factura : MonoBehaviour
         {
             OnGameOver?.Invoke();
         }
-        else if (contadorDinero.Dinero >= 110)
+        else if (contadorDinero.Dinero >= 350)
         {
             OnMoneyVictory?.Invoke();
         }
