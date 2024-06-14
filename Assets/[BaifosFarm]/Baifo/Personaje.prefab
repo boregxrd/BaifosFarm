@@ -4857,6 +4857,8 @@ GameObject:
   - component: {fileID: 2364680883733909671}
   - component: {fileID: 8305099644719831740}
   - component: {fileID: 1584819286800175148}
+  - component: {fileID: 6599672008499885921}
+  - component: {fileID: 9146284114556259853}
   m_Layer: 0
   m_Name: Personaje
   m_TagString: Untagged
@@ -4988,6 +4990,8 @@ MonoBehaviour:
   montonHeno: {fileID: 0}
   montonHenoEspecial: {fileID: 0}
   particulasHeno: {fileID: 0}
+  audioSource: {fileID: 0}
+  sonidosCogerHeno: []
 --- !u!114 &1584819286800175148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5003,6 +5007,115 @@ MonoBehaviour:
   ordenyoRealizado: 0
   sonidoLeche1: {fileID: 0}
   sonidoLeche2: {fileID: 0}
+--- !u!114 &6599672008499885921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393686520797697360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4b4a137f0d0d254595b9ef9a7332b73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  juegoPausado: 0
+--- !u!82 &9146284114556259853
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393686520797697360}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: -601665319511092843, guid: c3f53f72c72ca444a9263de069a00778, type: 2}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &4206943660840412181
 GameObject:
   m_ObjectHideFlags: 0
@@ -5327,6 +5440,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   particulasPieDcho: {fileID: 7042772047281450550}
   particulasPieIzqdo: {fileID: 6646368197250475526}
+  sonidosPasosBaifo: []
+  sonidosEsfuerzoBaifo: []
 --- !u!95 &7569540642563929777
 Animator:
   serializedVersion: 5
