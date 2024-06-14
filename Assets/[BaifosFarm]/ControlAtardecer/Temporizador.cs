@@ -15,6 +15,9 @@ public class Temporizador : MonoBehaviour
     [SerializeField] private Image cuatro;
     [SerializeField] private Image seisTarde;
 
+    [SerializeField] private GameObject audio;
+    AudioSource audioSource;
+
 
     private AccionesAtardecer accionesAtardecer;
     private DeteccionCabrasNegras deteccionCabrasNegras;
@@ -34,6 +37,7 @@ public class Temporizador : MonoBehaviour
     {
         StartCoroutine(ProcesoInicio());
         deteccionCabrasNegras = gameObject.AddComponent<DeteccionCabrasNegras>();
+        audioSource = audio.GetComponent<AudioSource>();
     }
 
     private IEnumerator ProcesoInicio() {
@@ -105,39 +109,43 @@ public class Temporizador : MonoBehaviour
         {
             seisManyana.gameObject.SetActive(false);
             ocho.gameObject.SetActive(true);
+            audioSource.Play();
         }
 
         else if (hora == "10:00")
         {
             ocho.gameObject.SetActive(false);
             diez.gameObject.SetActive(true);
+            audioSource.Play();
         }
 
         else if (hora == "12:00")
         {
             diez.gameObject.SetActive(false);
             doce.gameObject.SetActive(true);
+            audioSource.Play();
         }
 
         else if (hora == "14:00")
         {
             doce.gameObject.SetActive(false);
             dos.gameObject.SetActive(true);
+            audioSource.Play();
         }
 
         else if (hora == "16:00")
         {
             dos.gameObject.SetActive(false);
             cuatro.gameObject.SetActive(true);
+            audioSource.Play();
         }
 
         else if (hora == "18:00")
         {
             cuatro.gameObject.SetActive(false);
             seisTarde.gameObject.SetActive(true);
+            audioSource.Play();
         }
-
-
     }
 
     public void AcabarDia() {
