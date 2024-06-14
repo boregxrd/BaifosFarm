@@ -36,7 +36,7 @@ public class BarraAlimento : MonoBehaviour
         }
         else
         {
-            velocidadReduccion = 3;
+            velocidadReduccion = 2;
         }
     }
 
