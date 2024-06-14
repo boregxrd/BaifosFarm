@@ -375,7 +375,7 @@ PrefabInstance:
     - target: {fileID: 8184731811412601340, guid: 3b19798bab88fae4886905867a7b0ce2, type: 3}
       propertyPath: sonido
       value: 
-      objectReference: {fileID: 8300000, guid: d3a5788bc8291584688d1df42dcc165d, type: 3}
+      objectReference: {fileID: 8300000, guid: 2caec11197b40be46bf8aca227a94107, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
