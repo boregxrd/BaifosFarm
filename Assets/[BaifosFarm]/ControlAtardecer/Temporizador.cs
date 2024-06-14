@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class Temporizador : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class Temporizador : MonoBehaviour
     [SerializeField] private Image cuatro;
     [SerializeField] private Image seisTarde;
 
-    [SerializeField] private GameObject audio;
+    [SerializeField] private new GameObject audio;
     AudioSource audioSource;
 
 
@@ -32,6 +33,8 @@ public class Temporizador : MonoBehaviour
     [SerializeField] PlayableDirector animaticaGallo;
 
     [SerializeField] TutorialManager tutorial;
+
+    private Dictionary<string, bool> horasReproducidas = new Dictionary<string, bool>();
 
     private void Awake()
     {
@@ -105,47 +108,53 @@ public class Temporizador : MonoBehaviour
 
     private void MostrarFasesReloj(String hora)
     {
+        if (horasReproducidas.ContainsKey(hora) && horasReproducidas[hora])
+        {
+            return;
+        }
+
         if (hora == "08:00")
         {
             seisManyana.gameObject.SetActive(false);
             ocho.gameObject.SetActive(true);
-            audioSource.Play();
+            PlayAudio(hora);
         }
-
         else if (hora == "10:00")
         {
             ocho.gameObject.SetActive(false);
             diez.gameObject.SetActive(true);
-            audioSource.Play();
+            PlayAudio(hora);
         }
-
         else if (hora == "12:00")
         {
             diez.gameObject.SetActive(false);
             doce.gameObject.SetActive(true);
-            audioSource.Play();
+            PlayAudio(hora);
         }
-
         else if (hora == "14:00")
         {
             doce.gameObject.SetActive(false);
             dos.gameObject.SetActive(true);
-            audioSource.Play();
+            PlayAudio(hora);
         }
-
         else if (hora == "16:00")
         {
             dos.gameObject.SetActive(false);
             cuatro.gameObject.SetActive(true);
-            audioSource.Play();
+            PlayAudio(hora);
         }
-
         else if (hora == "18:00")
         {
             cuatro.gameObject.SetActive(false);
             seisTarde.gameObject.SetActive(true);
-            audioSource.Play();
+            PlayAudio(hora);
         }
+    }
+
+    private void PlayAudio(string hora)
+    {
+        audioSource.Play();
+        horasReproducidas[hora] = true;
     }
 
     public void AcabarDia() {
