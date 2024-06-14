@@ -424,6 +424,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 447
       objectReference: {fileID: 0}
+    - target: {fileID: 6498747647381033033, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c58cb58ab8255dc4ca6ba24a708fd3c8, type: 3}
     - target: {fileID: 6830521593444174625, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -440,6 +444,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8790640663397455076, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 10439ec22944239418c631328582f118, type: 3}
     - target: {fileID: 9117601055839251704, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
       propertyPath: m_ScreenMatchMode
       value: 2
