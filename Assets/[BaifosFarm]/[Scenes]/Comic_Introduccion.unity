@@ -272,9 +272,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1034981095867951904, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1037378366179753376, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2073744408120169775, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3434457532372469196, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
       propertyPath: m_Name
       value: CanvasComic
+      objectReference: {fileID: 0}
+    - target: {fileID: 4635259818834685643, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5330678671013331760, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
       propertyPath: m_Pivot.x
@@ -354,6 +370,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5330678671013331760, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830521593444174625, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7213602648558677652, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7306823406207369824, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784862445031068234, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
