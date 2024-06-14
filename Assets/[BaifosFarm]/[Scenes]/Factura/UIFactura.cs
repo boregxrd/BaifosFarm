@@ -81,7 +81,8 @@ public class UIFactura : MonoBehaviour
         int leches = contadorLeche.Contador;
         cantidadLeche.text = "X" + leches.ToString();
         float dineroASumar = leches * manejoCompras.gananciaLeche;
-        dineroNuevo.text = "+" + dineroASumar.ToString();
+        if(dineroASumar > 0) dineroNuevo.text = "+" + dineroASumar.ToString();
+        else dineroNuevo.enabled = false;
 
         if (!dineroSumadoFlag)
         {
