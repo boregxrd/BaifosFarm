@@ -14,6 +14,7 @@ public class UIFactura : MonoBehaviour
     [SerializeField] GameObject objCabras;
     [SerializeField] Text dineroTotal;
     [SerializeField] Text txtDinero;
+    [SerializeField] Text dineroNuevo;
 
     Color customGreen = new Color(92f / 255f, 167f / 255f, 81f / 255f);
 
@@ -35,6 +36,7 @@ public class UIFactura : MonoBehaviour
     ContadorLeche contadorLeche;
 
     AnimacionSumarDinero animacionSumarDinero;
+    Animator animatorDineroNuevo;
     float numeroOrigen;
 
     private void Awake()
@@ -46,10 +48,12 @@ public class UIFactura : MonoBehaviour
 
     private void Start()
     {
+        
         contadorLeche = FindObjectOfType<ContadorLeche>();
         contadorCabras = FindObjectOfType<ContadorCabras>();
         contadorDinero = FindObjectOfType<ContadorDinero>();
         animacionSumarDinero = GetComponent<AnimacionSumarDinero>();
+        animatorDineroNuevo = dineroNuevo.GetComponent<Animator>();
 
         txtDinero.text = contadorDinero.Dinero.ToString();
         numeroOrigen = contadorDinero.Dinero;
@@ -69,17 +73,20 @@ public class UIFactura : MonoBehaviour
     {
         yield return new WaitForSeconds(1f);
         animacionSumarDinero.Inicio(numeroOrigen, numeroASumar);
+        animatorDineroNuevo.enabled = true;
     }
 
     private void ActualizarCantidadLeche()
     {
         int leches = contadorLeche.Contador;
         cantidadLeche.text = "X" + leches.ToString();
+        float dineroASumar = leches * manejoCompras.gananciaLeche;
+        dineroNuevo.text = "+" + dineroASumar.ToString();
 
         if (!dineroSumadoFlag)
         {
             contadorDinero.SumarDinero(leches * manejoCompras.gananciaLeche);
-            StartCoroutine(SumarAContador(leches * manejoCompras.gananciaLeche));
+            StartCoroutine(SumarAContador(dineroASumar));
             dineroSumadoFlag = true;
         }
 
