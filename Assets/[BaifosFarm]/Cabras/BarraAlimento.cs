@@ -54,10 +54,6 @@ public class BarraAlimento : MonoBehaviour
                 valorActual = 0;
             }
         }
-        else
-        {
-            Debug.Log("pausada");
-        }
     }
 
     public void incrementarNivelAlimentacion(float incremento)
