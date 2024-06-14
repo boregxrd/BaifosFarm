@@ -272,6 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valorMaximo: 100
+  canvasBarraAlimento: {fileID: 7169530531729945697}
 --- !u!1 &7169530531729945697
 GameObject:
   m_ObjectHideFlags: 0

@@ -182,6 +182,11 @@ PlayableDirector:
     m_References:
     - 1b8880c2149b93f4992e068d25d9936a: {fileID: 819134999}
     - c5ef007963a98f24a8792a7368716844: {fileID: 819134999}
+--- !u!1 &70494958 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7169530531729945697, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+  m_PrefabInstance: {fileID: 779712242}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &128988484 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7690306886468379914, guid: f684553e213e425489996f4c5d7e1892, type: 3}
@@ -2596,6 +2601,79 @@ Transform:
   - {fileID: 158033336}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &779712242
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1249791375483036549, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+      propertyPath: canvasBarraAlimento
+      value: 
+      objectReference: {fileID: 70494958}
+    - target: {fileID: 1290812866300521174, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+      propertyPath: canvasBarraAlimento
+      value: 
+      objectReference: {fileID: 70494958}
+    - target: {fileID: 6341218581839721571, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.359379
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341218581839721571, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341218581839721571, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.4633274
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341218581839721571, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341218581839721571, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341218581839721571, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341218581839721571, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341218581839721571, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341218581839721571, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6341218581839721571, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6455195624992159222, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7169530531729945697, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7693945115360077490, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
+      propertyPath: m_Name
+      value: CabraNegra
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 23154c8fe93f0f54a8296970bfa16c0b, type: 3}
 --- !u!1 &810340920
 GameObject:
   m_ObjectHideFlags: 0
@@ -16423,3 +16501,4 @@ SceneRoots:
   - {fileID: 1478633064}
   - {fileID: 1398157858}
   - {fileID: 409224626}
+  - {fileID: 779712242}
