@@ -30,8 +30,14 @@ public class ManejarLeche : MonoBehaviour
         // para el tutorial
         ordenyoRealizado = true;
 
+        
         jugador.LecheRecogida = true;
+        float rotationY = GetComponentInParent<Transform>().rotation.eulerAngles.y;
         leche = Instantiate(prefabLeche);
+
+        // Ajustar la rotación de leche para que esté correctamente orientada en función de la rotación del personaje
+        leche.transform.rotation = Quaternion.Euler(leche.transform.rotation.eulerAngles.x, rotationY-90f, leche.transform.rotation.eulerAngles.z);
+    
 
         animator.SetTrigger("leche");
 
@@ -54,7 +60,7 @@ public class ManejarLeche : MonoBehaviour
 
     private void ReproducirSonidoAleatorio()
     {
-        int indice = Random.Range(0, 2); // Genera un n�mero aleatorio 0 o 1
+        int indice = Random.Range(0, 2); // Genera un n�mero aleatorio 0 o 1
         AudioClip clip = indice == 0 ? sonidoLeche1 : sonidoLeche2;
         audioSource.PlayOneShot(clip);
     }

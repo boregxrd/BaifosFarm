@@ -13,6 +13,7 @@ public class MuerteCabraBlanca : MonoBehaviour
     [SerializeField] GameObject explosion;
     MovimientoAleatorioCabras mov;
     ContadorCabras contadorCabras;
+    CabraBlancaInteracciones interacciones;
 
 
     private void Start()
@@ -20,6 +21,7 @@ public class MuerteCabraBlanca : MonoBehaviour
         contadorCabras = FindObjectOfType<ContadorCabras>();
         barraAlimento = transform.GetComponentInChildren<BarraAlimento>();
         animator = GetComponentInChildren<Animator>();
+        interacciones = GetComponent<CabraBlancaInteracciones>();
         audioSource = GetComponentInChildren<AudioSource>();
         if (audioSource == null) Debug.LogError("audioSource null");
         mov = GetComponent<MovimientoAleatorioCabras>();
@@ -33,11 +35,12 @@ public class MuerteCabraBlanca : MonoBehaviour
         }
     }
 
-    private IEnumerator Morir()
+    private IEnumerator  Morir()
     {
         isDead = true;
 
         // random delay para evitar muerte simultanea y asi evitar audio petado
+        interacciones.enabled = false; // evitar interacciones mientras delay
         yield return new WaitForSeconds(Random.Range(0.1f, 0.6f));
         animator.SetTrigger("Muerte");
     }

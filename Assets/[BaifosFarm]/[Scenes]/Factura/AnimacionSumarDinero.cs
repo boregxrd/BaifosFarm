@@ -8,6 +8,7 @@ public class AnimacionSumarDinero : MonoBehaviour
 {
     [SerializeField] float duracionAnimacion = 1.5f; // en segundos
     [SerializeField] Text textoDinero;
+    [SerializeField] Text txtDineroNuevo;
     private AudioManagerBotones audioManagerBotones;
     [SerializeField] private AudioClip sonidoMonedas;
 
@@ -32,6 +33,7 @@ public class AnimacionSumarDinero : MonoBehaviour
         for (int i = 0; i < dineroNuevo; i++)
         {
             textoDinero.text = (dineroActual + i).ToString();
+            txtDineroNuevo.text = (dineroNuevo - i).ToString();
             audioManagerBotones.ReproducirSonidoBoton(sonidoMonedas);
 
             yield return new WaitForSeconds(intervalo);

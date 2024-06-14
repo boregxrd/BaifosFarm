@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using Unity.VisualScripting;
 
 public class Factura : MonoBehaviour
 {    
@@ -15,6 +16,8 @@ public class Factura : MonoBehaviour
     ContadorCabras contadorCabras;
     ContadorLeche contadorLeche;
 
+    [SerializeField] Transicion transicion;
+
     private void Awake()
     {
         //cantidadCabrasAtardecer = CantidadCabrasAtardecer.ObtenerInstancia();
@@ -26,6 +29,7 @@ public class Factura : MonoBehaviour
 
     private void Start()
     {
+        transicion.FadeIn();
         contadorLeche = FindObjectOfType<ContadorLeche>();
         contadorDinero = FindObjectOfType<ContadorDinero>();
         contadorCabras = FindObjectOfType<ContadorCabras>();
@@ -72,6 +76,7 @@ public class Factura : MonoBehaviour
 
     public void Continuar()
     {
+        transicion.FadeOut();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         SceneManager.LoadScene("Juego");

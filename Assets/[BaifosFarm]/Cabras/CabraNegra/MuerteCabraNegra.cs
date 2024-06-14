@@ -9,6 +9,7 @@ public class MuerteCabraNegra : MonoBehaviour
     public LayerMask nuevaLayerMask;
     CabraNegra cabraNegra;
     ContadorCabras contadorCabras;
+    [SerializeField] GameObject canvasBarraAlimento;
 
     private void Start()
     {
@@ -33,6 +34,7 @@ public class MuerteCabraNegra : MonoBehaviour
     {
         gameObject.layer = nuevaLayerMask;
         barraAlimento.enabled = false;
+        canvasBarraAlimento.SetActive(false);
         contadorCabras.MuerteCabraNegra();
         cabraNegra.cabraNegraMuerta = true;
     }

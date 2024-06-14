@@ -142,7 +142,7 @@ PrefabInstance:
     - target: {fileID: 2339756389496316487, guid: 26fa61b9ebd4de84abfa3838f05f4514, type: 3}
       propertyPath: sonido
       value: 
-      objectReference: {fileID: 8300000, guid: 2caec11197b40be46bf8aca227a94107, type: 3}
+      objectReference: {fileID: 8300000, guid: d3a5788bc8291584688d1df42dcc165d, type: 3}
     - target: {fileID: 2571881742372809138, guid: 26fa61b9ebd4de84abfa3838f05f4514, type: 3}
       propertyPath: m_Pivot.x
       value: 0

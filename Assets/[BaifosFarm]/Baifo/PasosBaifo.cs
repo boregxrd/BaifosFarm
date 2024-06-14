@@ -8,6 +8,7 @@ public class PasosBaifo : MonoBehaviour
 
     [SerializeField] ParticleSystem particulasPieIzqdo;
 
+    private AudioSource audioSourcePadre;
     private AudioSource audioSource;
     [SerializeField] AudioClip[] sonidosPasosBaifo;
     [SerializeField] AudioClip[] sonidosEsfuerzoBaifo;
@@ -15,6 +16,7 @@ public class PasosBaifo : MonoBehaviour
 
     private void Start()
     {
+        audioSourcePadre = GetComponentInParent<AudioSource>();
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -32,6 +34,6 @@ public class PasosBaifo : MonoBehaviour
 
     public void ReproducirSonidoEsfuerzo()
     {
-        audioSource.PlayOneShot(sonidosEsfuerzoBaifo[Random.Range(0, sonidosEsfuerzoBaifo.Length)]);
+        audioSourcePadre.PlayOneShot(sonidosEsfuerzoBaifo[Random.Range(0, sonidosEsfuerzoBaifo.Length)]);
     }
 }

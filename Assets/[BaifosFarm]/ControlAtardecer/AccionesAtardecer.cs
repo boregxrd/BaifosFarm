@@ -17,6 +17,8 @@ public class AccionesAtardecer : MonoBehaviour
     [SerializeField] private ContadorDias contadorDias;
     ContadorLeche contadorLeche;
 
+    [SerializeField] Transicion transicion;
+
     private void Awake()
     {
         barrasHandler = gameObject.AddComponent<BarrasHandler>();
@@ -35,7 +37,10 @@ public class AccionesAtardecer : MonoBehaviour
         
         yield return StartCoroutine(AnimaticaCamion());
 
-        EjecutarAccionesRestantes();
+        deteccionCabrasNegras.InvocarVictoria();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        contadorDias.SumarUnDiaAlContador();
     }
 
     private IEnumerator AnimaticaCamion()
@@ -47,13 +52,6 @@ public class AccionesAtardecer : MonoBehaviour
             yield return null;
         }
 
-    }
-
-    private void EjecutarAccionesRestantes()
-    {
-        deteccionCabrasNegras.InvocarVictoria();
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
-        contadorDias.SumarUnDiaAlContador();
+        transicion.FadeOut();
     }
 }

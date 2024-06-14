@@ -18,8 +18,6 @@ public class BarrasHandler: MonoBehaviour
             if(barraAlimento!=null)
             {
                 barraAlimento.Pausar();
-            } else {
-                Debug.LogError("NULLLL");
             }
         }
 

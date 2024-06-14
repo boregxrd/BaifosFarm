@@ -86,7 +86,7 @@ public class TutorialManager : MonoBehaviour
             popUps[popUpIndex].SetActive(true);
             audioSource.Play(); // Reproducir el sonido del pop-up
             Debug.Log($"Mostrando pop-up {popUpIndex + 1}"); // Mensaje de depuración
-            
+
         }
         else
         {
@@ -100,7 +100,6 @@ public class TutorialManager : MonoBehaviour
         yield return null; // Permitir que la corrutina continúe en el siguiente frame
 
         // Debug.Log("Empieza CheckCompletion()");
-
 
         // Verificar si el tutorial ha sido completado antes de continuar
         if (PlayerPrefs.GetInt("TutorialCompleto") == 1)
@@ -180,6 +179,14 @@ public class TutorialManager : MonoBehaviour
 
         // Mostrar el siguiente pop-up
         ShowNextPopUp();
+
+        if(popUpIndex == popUps.Length - 1) StartCoroutine(OcultarUltimoPopUp());
+    }
+
+    IEnumerator OcultarUltimoPopUp() {
+        yield return new WaitForSeconds(5f);
+        popUps[popUpIndex].SetActive(false);
+        CanvasSkipTutorial.SetActive(false);
     }
 
     public void SkipTutorial()
@@ -221,4 +228,3 @@ public class TutorialManager : MonoBehaviour
         Debug.Log("Tutorial completado, pop-ups ocultos");
     }
 }
-

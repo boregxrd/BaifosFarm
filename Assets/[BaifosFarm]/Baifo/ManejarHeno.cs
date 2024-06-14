@@ -42,17 +42,25 @@ public class ManejarHeno : MonoBehaviour
         alimentacionRealizada = false;
 
         jugador.HenoRecogido = true;
+
+
+        float rotationY = GetComponentInParent<Transform>().rotation.eulerAngles.y;
         heno = Instantiate(prefabheno);
-        
+
+        if (rotationY != 0f && rotationY != 90f && rotationY != 180)
+        {
+            heno.transform.rotation = Quaternion.Euler(heno.transform.rotation.eulerAngles.x, rotationY - 90, heno.transform.rotation.eulerAngles.z);
+        }
+
         animator.SetTrigger("heno");
         fxMontonHeno();
-        
+
         audioSource.PlayOneShot(sonidosCogerHeno[Random.Range(0, sonidosCogerHeno.Length)]);
 
         heno.transform.position = mano.position;
         heno.transform.SetParent(mano);
 
-        
+
     }
 
     public void DejarHeno()
