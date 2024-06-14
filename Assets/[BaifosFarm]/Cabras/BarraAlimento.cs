@@ -26,9 +26,13 @@ public class BarraAlimento : MonoBehaviour
         barraAlimento.fillAmount = valorActual / valorMaximo;
         cabra = GetComponentInParent<Cabra>(); // Obtener la referencia a la cabra
 
-        if (contadorCabras.NumCabrasBlancas != 0)
+        if (contadorCabras.NumCabrasBlancas > 2 && contadorCabras.NumCabrasBlancas < 5)
         {
             velocidadReduccion = velocidadReduccionInicial / contadorCabras.NumCabrasBlancas;
+        }
+        else if (contadorCabras.NumCabrasBlancas >= 5)
+        {
+            velocidadReduccion = velocidadReduccionInicial / 4f;
         }
         else
         {
@@ -49,6 +53,10 @@ public class BarraAlimento : MonoBehaviour
             {
                 valorActual = 0;
             }
+        }
+        else
+        {
+            Debug.Log("pausada");
         }
     }
 
