@@ -392,6 +392,38 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6422563543922587575, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422563543922587575, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422563543922587575, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422563543922587575, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422563543922587575, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422563543922587575, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422563543922587575, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 797
+      objectReference: {fileID: 0}
+    - target: {fileID: 6422563543922587575, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 447
+      objectReference: {fileID: 0}
     - target: {fileID: 6830521593444174625, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -406,7 +438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7784862445031068234, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9117601055839251704, guid: 0a96ad988fd43044c9a7f4eeb536ac88, type: 3}
       propertyPath: m_ScreenMatchMode
