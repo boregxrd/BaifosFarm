@@ -205,7 +205,7 @@ PrefabInstance:
     - target: {fileID: 198863870149426464, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: sonido
       value: 
-      objectReference: {fileID: 8300000, guid: 2caec11197b40be46bf8aca227a94107, type: 3}
+      objectReference: {fileID: 8300000, guid: d3a5788bc8291584688d1df42dcc165d, type: 3}
     - target: {fileID: 1698398963000184416, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_Volume
       value: 0.5
