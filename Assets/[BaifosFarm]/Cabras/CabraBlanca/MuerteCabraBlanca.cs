@@ -29,23 +29,23 @@ public class MuerteCabraBlanca : MonoBehaviour
     {
         if (barraAlimento.ValorActual == 0 && !isDead)
         {
-            StartCoroutine(Morir());
+            Morir();
         }
     }
 
-    private IEnumerator Morir()
+    private void Morir()
     {
         isDead = true;
 
         // random delay para evitar muerte simultanea y asi evitar audio petado
-        yield return new WaitForSeconds(Random.Range(0.1f, 0.6f));
         animator.SetTrigger("Muerte");
     }
 
-    public void PlayGrito()
+    public IEnumerator PlayGrito()
     {
         contadorCabras.MuerteCabraGris();
         mov.pararCabra(gameObject);
+        yield return new WaitForSeconds(Random.Range(0.1f, 0.6f));
         AudioClip sonidoRandom = gritos[Random.Range(0, gritos.Length)];
         audioSource.PlayOneShot(sonidoRandom);
     }
