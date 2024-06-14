@@ -8,8 +8,11 @@ public class TextoDinero : MonoBehaviour
 
     ContadorDinero contadorDinero;
 
+    [SerializeField] Transicion transicion;
+
     private void Start()
     {
+        transicion.FadeIn();
         contadorDinero = FindObjectOfType<ContadorDinero>();
         dineroTexto.text = contadorDinero.Dinero.ToString();
     }

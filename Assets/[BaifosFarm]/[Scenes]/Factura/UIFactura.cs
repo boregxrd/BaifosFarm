@@ -39,6 +39,7 @@ public class UIFactura : MonoBehaviour
     Animator animatorDineroNuevo;
     float numeroOrigen;
 
+
     private void Awake()
     {
         manejoCompras = GetComponent<ManejoCompras>();
@@ -48,7 +49,6 @@ public class UIFactura : MonoBehaviour
 
     private void Start()
     {
-        
         contadorLeche = FindObjectOfType<ContadorLeche>();
         contadorCabras = FindObjectOfType<ContadorCabras>();
         contadorDinero = FindObjectOfType<ContadorDinero>();

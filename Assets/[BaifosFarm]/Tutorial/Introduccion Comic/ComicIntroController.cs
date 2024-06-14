@@ -14,8 +14,11 @@ public class ComicIntroController : MonoBehaviour
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
 
+    [SerializeField] Transicion transicion;
+
     void Awake()
     {
+        transicion.FadeIn();
         Application.targetFrameRate = 60;
     }
 
@@ -62,6 +65,7 @@ public class ComicIntroController : MonoBehaviour
     // Método llamado por el botón de continuar
     public void OnContinueButtonClicked()
     {
+        transicion.FadeOut();
         isRunning = false; // Detener la corutina
         AudioManager.Instance.ChangeScene("Juego");
     }
