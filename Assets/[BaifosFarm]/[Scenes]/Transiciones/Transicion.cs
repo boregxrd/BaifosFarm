@@ -14,6 +14,11 @@ public class Transicion : MonoBehaviour
     }
 
     public void FadeIn() {
+        panel.SetActive(true);
         animator.SetTrigger("fadeIn");
+    }
+
+    public void DesactivarPanel() {
+        panel.SetActive(false);
     }
 }
