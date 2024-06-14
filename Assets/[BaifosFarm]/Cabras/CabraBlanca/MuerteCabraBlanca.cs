@@ -1,44 +1,62 @@
 using System.Collections;
+using UnityEditor;
 using UnityEngine;
 
 public class MuerteCabraBlanca : MonoBehaviour
 {
-    [SerializeField] private BarraAlimento barraAlimento;
-    [SerializeField] private GameObject muerteCabraPrefab; // Prefab que contiene la animaci�n de muerte
+    BarraAlimento barraAlimento;
+    private Animator animator;
     private bool isDead = false;
+
+    AudioSource audioSource;
+    [SerializeField] AudioClip[] gritos;
+    [SerializeField] GameObject explosion;
+    MovimientoAleatorioCabras mov;
+    ContadorCabras contadorCabras;
+    CabraBlancaInteracciones interacciones;
+
 
     private void Start()
     {
+        contadorCabras = FindObjectOfType<ContadorCabras>();
         barraAlimento = transform.GetComponentInChildren<BarraAlimento>();
+        animator = GetComponentInChildren<Animator>();
+        interacciones = GetComponent<CabraBlancaInteracciones>();
+        audioSource = GetComponentInChildren<AudioSource>();
+        if (audioSource == null) Debug.LogError("audioSource null");
+        mov = GetComponent<MovimientoAleatorioCabras>();
     }
 
     private void Update()
     {
         if (barraAlimento.ValorActual == 0 && !isDead)
         {
-            Morir();
+            StartCoroutine(Morir());
         }
     }
 
-    private void Morir()
+    private IEnumerator  Morir()
     {
         isDead = true;
-        // Crear el objeto de muerte de la cabra en la misma posici�n
-        GameObject muerteCabra = Instantiate(muerteCabraPrefab, transform.position, Quaternion.identity);
-        // Reducir la escala de la animaci�n
-        muerteCabra.transform.localScale *= 0.5f;
-        // Elevar un poco la animaci�n
-        muerteCabra.transform.position += Vector3.up * 2f;
-        // Calcular la direcci�n hacia la c�mara del jugador
-        Vector3 dirToCamera = Camera.main.transform.position - muerteCabra.transform.position;
-        dirToCamera.y = 0f; // Asegurar que la rotaci�n sea plana en el eje Y
-        // Rotar el objeto de muerte de la cabra para que mire hacia la c�mara
-        muerteCabra.transform.rotation = Quaternion.LookRotation(dirToCamera);
-        // Iniciar la animaci�n de muerte
-        muerteCabra.GetComponent<Animator>().SetTrigger("Death");
-        // Destruir la cabra blanca despu�s de la animaci�n
+
+        // random delay para evitar muerte simultanea y asi evitar audio petado
+        interacciones.enabled = false; // evitar interacciones mientras delay
+        yield return new WaitForSeconds(Random.Range(0.1f, 0.6f));
+        animator.SetTrigger("Muerte");
+    }
+
+    public void PlayGrito()
+    {
+        contadorCabras.MuerteCabraGris();
+        mov.pararCabra(gameObject);
+        AudioClip sonidoRandom = gritos[Random.Range(0, gritos.Length)];
+        audioSource.PlayOneShot(sonidoRandom);
+    }
+
+    public void PlayExplosion()
+    {
+        Instantiate(explosion, transform.position, transform.rotation);
+
         Destroy(gameObject);
-        int blancasAntesDeMorir = PlayerPrefs.GetInt("cabrasBlancas", 0);
-        PlayerPrefs.SetInt("cabrasBlancas", blancasAntesDeMorir - 1);
     }
 }

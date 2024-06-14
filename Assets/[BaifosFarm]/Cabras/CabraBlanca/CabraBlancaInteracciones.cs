@@ -13,6 +13,7 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
     private MiniJuegoOrdenyar miniJuegoOrdenyar;
     private MovimientoAleatorioCabras movimientoAleatorioCabras;
     private Jugador jugador;
+    bool flag = true;
 
     Animator animator;
 
@@ -33,7 +34,7 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
 
     public void Interactuar(Jugador jugador)
     {
-        if (jugador.HenoRecogido)
+        if (jugador.HenoRecogido && flag)
         {
             manejadorHeno = jugador.transform.GetComponent<ManejarHeno>();
             manejadorHeno.DejarHeno();
@@ -50,11 +51,10 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
     {
         this.jugador = jugador;
 
-        if (!jugador.HenoRecogido && !jugador.LecheRecogida && nivelDeLeche() == barraLeche.ValorMaximo)
+        if (!jugador.HenoRecogido && !jugador.LecheRecogida && nivelDeLeche() == barraLeche.ValorMaximo && flag)
         {
             miniJuegoOrdenyar.IniciarOrdenyado(gameObject);
             movimientoAleatorioCabras.pararCabra(gameObject);
-            jugador.GetComponent<Character>().PararMovimiento();
         }
     }
 
@@ -62,7 +62,10 @@ public class CabraBlancaInteracciones : MonoBehaviour, IInteractuable
     {
         barraLeche.resetearLeche();
         movimientoAleatorioCabras.continuarMov(gameObject);
-        jugador.GetComponent<Character>().ContinuarMovimiento();
         animator.SetTrigger("Ordenyada");
+    }
+
+    private void OnDisable() {
+        flag = false;
     }
 }

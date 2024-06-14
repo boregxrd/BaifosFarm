@@ -17,7 +17,14 @@ public class Cabra : MonoBehaviour
 
     private void Awake()
     {
-        bocaCabra = transform.GetChild(0).GetChild(0).GetChild(2);
+        if (gameObject.CompareTag("cabraNegra"))
+        {
+            bocaCabra = transform.GetChild(0).GetChild(0).GetChild(3);
+        }
+        else if (gameObject.CompareTag("cabraBlanca"))
+        {
+            bocaCabra = transform.GetChild(0).GetChild(0).GetChild(2);
+        }
         posicionCabra = transform.position;
     }
 
@@ -34,7 +41,7 @@ public class Cabra : MonoBehaviour
         }
         else
         {
-            return 0f;
+            return -1f;
         }
     }
 

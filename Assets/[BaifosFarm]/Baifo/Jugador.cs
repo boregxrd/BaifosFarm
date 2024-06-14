@@ -14,6 +14,11 @@ public class Jugador : MonoBehaviour
     public bool LecheRecogida { get => lecheRecogida; set => lecheRecogida = value; }
     public GameObject HenoParticlesPrefab { get => henoParticlesPrefab; }
 
+    void Awake()
+    {
+        Application.targetFrameRate = 60;        
+    }
+
     private void Start()
     {
         mano = gameObject.transform.GetChild(1).GetChild(0);

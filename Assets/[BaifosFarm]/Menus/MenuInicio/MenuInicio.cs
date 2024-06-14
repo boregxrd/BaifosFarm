@@ -1,34 +1,53 @@
 // MenuInicio.cs
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MenuInicio : MonoBehaviour
 {
-    public GameObject canvasMenuAjustes; // Referencia al Canvas del men� de ajustes
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
+    ContadorDias contadorDias;
+    ContadorLeche contadorLeche;
+    ContadorDinero contadorDinero;
+    ContadorCabras contadorCabras;
+
+    [SerializeField] Transicion transicion;
+
+    void Awake()
+    {
+        Application.targetFrameRate = 60;
+    }
+
     public void Start()
     {
-        canvasMenuAjustes.SetActive(false); // Desactivar el Canvas del men� de ajustes al iniciar
+        contadorDias = FindAnyObjectByType<ContadorDias>();
+        if(contadorDias != null) contadorDias.Destruir();
+        
+        contadorLeche = FindAnyObjectByType<ContadorLeche>();
+        if(contadorLeche != null) contadorLeche.Destruir();
+        
+        contadorCabras = FindAnyObjectByType<ContadorCabras>();
+        if(contadorCabras != null) contadorCabras.Destruir();
+
+        contadorDinero = FindAnyObjectByType<ContadorDinero>();
+        if(contadorDinero != null) contadorDinero.Destruir();
+
     }
 
     public void Jugar()
     {
-        // Reset valores de cabras para nueva partida
-        PlayerPrefs.SetInt("cabrasBlancas", 2);
-        PlayerPrefs.SetInt("cabrasNegras", 0);
-        PlayerPrefs.SetInt("DineroTotal", 100);
+        transicion.FadeOut();
         PlayerPrefs.SetInt("HenoMejorado", 0);
-        PlayerPrefs.SetInt("LechesGuardadas", 0);
         PlayerPrefs.SetInt("TutorialCompleto", 0); // Marcar el tutorial como no completado
-        SceneManager.LoadScene("Juego");
+        AudioManager.Instance.ChangeScene("Comic_Introduccion");
     }
 
     public void Ajustes()
     {
-        canvasMenuAjustes.SetActive(true); // Activar el Canvas del men� de ajustes
+        SceneManager.LoadScene("MenuAjustes", LoadSceneMode.Additive);
     }
 
     public void Salir()
@@ -38,11 +57,7 @@ public class MenuInicio : MonoBehaviour
 
     public void EscenaTresCabrasNegras()
     {
-        PlayerPrefs.SetInt("cabrasBlancas", 0);
-        PlayerPrefs.SetInt("cabrasNegras", 3);
-        PlayerPrefs.SetInt("DineroTotal", 100);
         PlayerPrefs.SetInt("HenoMejorado", 0);
-        PlayerPrefs.SetInt("LechesGuardadas", 0);
         PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
         SceneManager.LoadScene("Juego");
     }

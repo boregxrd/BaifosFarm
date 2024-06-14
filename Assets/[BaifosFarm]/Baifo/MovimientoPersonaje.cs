@@ -17,6 +17,11 @@ public class Character : MonoBehaviour
 
     public Vector3 posicionSpawn = new Vector3(10f, 0f, 10f);
 
+    private bool wPressed = false;
+    private bool aPressed = false;
+    private bool sPressed = false;
+    private bool dPressed = false;
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -55,7 +60,7 @@ public class Character : MonoBehaviour
         {
             animator.SetBool("moviendose", moveDirection != Vector3.zero);
         }
-        else if(jugador.LecheRecogida || jugador.HenoRecogido)
+        else if (jugador.LecheRecogida || jugador.HenoRecogido)
         {
             animator.SetBool("moviendoseConObjeto", moveDirection != Vector3.zero);
         }
@@ -69,6 +74,12 @@ public class Character : MonoBehaviour
             Quaternion q = Quaternion.LookRotation(positionDelta);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, q, velocidadGiro * Time.deltaTime);
         }
+
+        // Actualizar el estado de las teclas
+        if (Input.GetKeyDown(KeyCode.W)) wPressed = true;
+        if (Input.GetKeyDown(KeyCode.A)) aPressed = true;
+        if (Input.GetKeyDown(KeyCode.S)) sPressed = true;
+        if (Input.GetKeyDown(KeyCode.D)) dPressed = true;
     }
 
     public enum TiposMovimientosPlatformer
@@ -80,7 +91,8 @@ public class Character : MonoBehaviour
 
     public bool HasMoved()
     {
-        return transform.position != posicionSpawn;
+        // Verificar si todas las teclas W, A, S y D han sido presionadas
+        return wPressed && aPressed && sPressed && dPressed;
     }
 
     public void PararMovimiento()

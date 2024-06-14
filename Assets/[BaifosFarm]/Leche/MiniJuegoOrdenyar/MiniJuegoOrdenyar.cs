@@ -1,17 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
 using UnityEngine.UI;
-
-//Este script ha de estar en CanvasMiniJuegoOrdenyar
 
 public class MiniJuegoOrdenyar : MonoBehaviour
 {
     [SerializeField] private GameObject objetoMiniJuegoOrdenyar;
     [SerializeField] private Text porcentaje;
+
+    private AudioSource audioSource;
 
 
     [SerializeField] private float valorMaximo = 100f;
@@ -30,19 +27,23 @@ public class MiniJuegoOrdenyar : MonoBehaviour
 
     [SerializeField] private CabraBlancaInteracciones instanciaCabra;
 
+    Character jugador;
+
     private void Awake()
     {
+        jugador = FindObjectOfType<Character>();
         enabled = false;
         manejarLeche = FindObjectOfType<ManejarLeche>();
+        audioSource = GetComponent<AudioSource>();
     }
 
 
     public void IniciarOrdenyado(GameObject cabra)
     {
         enabled = true;
-        Debug.Log("IniciarOrdenyado");
+        // Debug.Log("IniciarOrdenyado");
         instanciaCabra = cabra.GetComponent<CabraBlancaInteracciones>();
-        
+
     }
 
     private void OnEnable()
@@ -56,6 +57,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
     {
         if (ordenyoIniciado)
         {
+            jugador.PararMovimiento();
             VaciarConElTiempo();
 
             if (Input.GetKeyUp(KeyCode.Q))
@@ -66,6 +68,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 incrementar();
+                audioSource.Play();
             }
 
             if (valorActual >= valorMaximo)
@@ -75,16 +78,20 @@ public class MiniJuegoOrdenyar : MonoBehaviour
                 generarLeche();
             }
 
+            if (instanciaCabra.IsDestroyed())
+            {
+                resetearMiniJuego();
+            }
+
+            // Para la posicion del icono de la barra:
             float barraWidth = barraOrdenyar.rectTransform.rect.width;
-            float iconoPosX = barraOrdenyar.rectTransform.position.x + barraWidth * barraOrdenyar.fillAmount - barraWidth / 2f;
-            iconoProgreso.rectTransform.position = new Vector3(iconoPosX, iconoProgreso.rectTransform.position.y, iconoProgreso.rectTransform.position.z);
+            float iconoLocalPosX = barraWidth * barraOrdenyar.fillAmount - barraWidth / 2f;
+            Vector3 iconoPos = barraOrdenyar.rectTransform.TransformPoint(new Vector3(iconoLocalPosX, 0, 0));
+            iconoProgreso.rectTransform.position = new Vector3(iconoPos.x, iconoProgreso.rectTransform.position.y, iconoProgreso.rectTransform.position.z);
         }
 
     }
 
-    
-
-   
     private void incrementar()
     {
         valorActual += incremento;
@@ -97,7 +104,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         if (valorActual > 0)
         {
             valorActual -= velocidadVaciado * Time.deltaTime;
-            barraOrdenyar.fillAmount = valorActual / valorMaximo; 
+            barraOrdenyar.fillAmount = valorActual / valorMaximo;
             mostrarPorcentaje();
         }
         else //si la barra llega a 0
@@ -105,7 +112,7 @@ public class MiniJuegoOrdenyar : MonoBehaviour
             valorActual = 0;
             mostrarPorcentaje();
             resetearMiniJuego();
-            
+
         }
     }
 
@@ -121,8 +128,8 @@ public class MiniJuegoOrdenyar : MonoBehaviour
         enabled = false;
         miniJuegoReseteado = true;
         ordenyoIniciado = false;
-        instanciaCabra.ResetearLeche();
-        
+        if (instanciaCabra != null) instanciaCabra.ResetearLeche();
+        jugador.ContinuarMovimiento();
     }
 
     private void mostrarPorcentaje()

@@ -5,17 +5,16 @@ using UnityEngine.AI;
 
 public class MuerteCabraNegra : MonoBehaviour
 {
-    [SerializeField] BarraAlimento barraAlimento;
-    //[SerializeField] GameObject cabraNormal;
-    //[SerializeField] GameObject cabraMuerta;
+    BarraAlimento barraAlimento;
     public LayerMask nuevaLayerMask;
-    public CabraNegra cabraNegra;
+    CabraNegra cabraNegra;
+    ContadorCabras contadorCabras;
+    [SerializeField] GameObject canvasBarraAlimento;
 
     private void Start()
     {
-        barraAlimento = transform.GetChild(2).GetChild(0).GetChild(0).GetComponent<BarraAlimento>();
-        //cabraNormal.SetActive(true);
-        //cabraMuerta.SetActive(false);
+        contadorCabras = FindObjectOfType<ContadorCabras>();
+        barraAlimento = GetComponentInChildren<BarraAlimento>();
         cabraNegra = GetComponent<CabraNegra>();
     }
 
@@ -34,11 +33,9 @@ public class MuerteCabraNegra : MonoBehaviour
     public void Morir()
     {
         gameObject.layer = nuevaLayerMask;
-        //cabraNormal.SetActive(false);
-        //cabraMuerta.SetActive(true);
-        transform.GetChild(2).gameObject.SetActive(false);
-        int negrasAntesDeMorir = PlayerPrefs.GetInt("cabrasNegras", 0);
-        PlayerPrefs.SetInt("cabrasNegras", negrasAntesDeMorir - 1);
+        barraAlimento.enabled = false;
+        canvasBarraAlimento.SetActive(false);
+        contadorCabras.MuerteCabraNegra();
         cabraNegra.cabraNegraMuerta = true;
     }
 

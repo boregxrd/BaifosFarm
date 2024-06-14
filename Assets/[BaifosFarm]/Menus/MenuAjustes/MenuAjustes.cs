@@ -1,43 +1,135 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MenuAjustes : MonoBehaviour
 {
-    public AudioMixer audioMixer; // AudioMixer para controlar el volumen
-    public Slider sliderVolumen; // Slider para ajustar el volumen
+    public Slider sliderMusica; // Slider para ajustar el volumen de la música
+    public Slider sliderSFX; // Slider para ajustar el volumen de los efectos de sonido
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
-    [SerializeField] private GameObject GrupoMenuAjustes; // Referencia al Canvas del menu de ajustes
-    [SerializeField] private GameObject objetoMenuPausa;
+    public Toggle toggle; // Toggle Pantalla Completa
+    public int calidad;
+    public TMP_Dropdown dropdown;
+    public TMP_Dropdown resolucionesDropdown;
+    Resolution[] resoluciones;
+    private MenuPausa menuPausa;
+    private Animator animator;
 
-
+    [System.Obsolete]
     void Start()
     {
-        // Desactivar el GameObject del menu de ajustes al iniciar el juego
-        GrupoMenuAjustes.SetActive(false);
-        // Obtener el valor actual del volumen y actualizar el slider
-        float volumenActual;
-        bool resultado = audioMixer.GetFloat("Volumen", out volumenActual);
+        menuPausa = FindObjectOfType<MenuPausa>();
+        animator = GetComponent<Animator>();
 
-        if (resultado)
+        // Cargar el valor de volumen guardado desde PlayerPrefs para la música
+        float volumenMusicaGuardado = PlayerPrefs.GetFloat("VolumenMusica", 1f); // Valor por defecto 1 (máximo volumen) si no hay valor guardado
+        AudioManager.Instance.SetVolumenMusica(volumenMusicaGuardado);
+        sliderMusica.value = volumenMusicaGuardado * 100; // Convertir a un rango de 0 a 100
+
+        // Cargar el valor de volumen guardado desde PlayerPrefs para SFX
+        float volumenSFXGuardado = PlayerPrefs.GetFloat("VolumenSFX", 1f); // Valor por defecto 1 (máximo volumen) si no hay valor guardado
+        AudioManager.Instance.SetVolumenSFX(volumenSFXGuardado);
+        sliderSFX.value = volumenSFXGuardado * 100; // Convertir a un rango de 0 a 100
+
+        if (Screen.fullScreen)
         {
-            sliderVolumen.value = volumenActual;
+            toggle.isOn = true;
         }
+        else
+        {
+            toggle.isOn = false;
+        }
+
+        calidad = PlayerPrefs.GetInt("CalidadGuardada", 6);
+        dropdown.value = calidad;
+
+        RevisarResoluciones();
     }
 
-    // Metodo para ajustar el volumen
-    public void AjustarVolumen(float volumen)
+    // Metodo para ajustar el volumen de la música
+    public void AjustarVolumenMusica(float volumen)
     {
-        Debug.Log(volumen);
-        audioMixer.SetFloat("Volumen", volumen); // Establecer el volumen en el AudioMixer
+        float volumenNormalizado = volumen / 100f;
+        AudioManager.Instance.SetVolumenMusica(volumenNormalizado);
+        PlayerPrefs.SetFloat("VolumenMusica", volumenNormalizado);
+    }
+
+    // Metodo para ajustar el volumen de los efectos de sonido (SFX)
+    public void AjustarVolumenSFX(float volumen)
+    {
+        float volumenNormalizado = volumen / 100f;
+        AudioManager.Instance.SetVolumenSFX(volumenNormalizado);
+        PlayerPrefs.SetFloat("VolumenSFX", volumenNormalizado);
+    }
+
+    public void ActivarPantallaCompleta(bool pantallaCompleta)
+    {
+        Screen.fullScreen = pantallaCompleta;
+    }
+
+    public void AjustarCalidad()
+    {
+        QualitySettings.SetQualityLevel(dropdown.value);
+        PlayerPrefs.SetInt("CalidadGuardada", dropdown.value);
+        calidad = dropdown.value;
+    }
+
+    [System.Obsolete]
+    public void RevisarResoluciones()
+    {
+        resoluciones = Screen.resolutions;
+        resolucionesDropdown.ClearOptions();
+        List<string> opciones = new List<string>();
+        HashSet<string> opcionesUnicas = new HashSet<string>();
+
+        int indiceResolucionActual = 0;
+
+        for (int i = 0; i < resoluciones.Length; i++)
+        {
+            string opcion = resoluciones[i].width + " x " + resoluciones[i].height + " @ " + resoluciones[i].refreshRate + "Hz";
+
+            // Agregar la opción solo si es única
+            if (opcionesUnicas.Add(opcion))
+            {
+                opciones.Add(opcion);
+
+                if (Screen.fullScreen && resoluciones[i].width == Screen.currentResolution.width && resoluciones[i].height == Screen.currentResolution.height)
+                {
+                    indiceResolucionActual = opciones.Count - 1;
+                }
+            }
+        }
+
+        resolucionesDropdown.AddOptions(opciones);
+        resolucionesDropdown.value = indiceResolucionActual;
+        resolucionesDropdown.RefreshShownValue();
+    }
+
+    [System.Obsolete]
+    public void CambiarResolucion(int indiceResolucion)
+    {
+        Resolution resolucion = resoluciones[indiceResolucion];
+        Screen.SetResolution(resolucion.width, resolucion.height, Screen.fullScreen, resolucion.refreshRate);
     }
 
     // Metodo para cerrar el menu de ajustes
     public void CerrarMenuAjustes()
     {
-        GrupoMenuAjustes.SetActive(false); // Desactivar el Canvas del menu de ajustes
-        if(objetoMenuPausa != null) objetoMenuPausa.SetActive(true);
+        if (menuPausa != null)
+        {
+            menuPausa.ajustesAbierto = false;
+        }
+
+        animator.SetTrigger("Cerrar");
+    }
+
+    public void AcabaAnimacionCerrarAjustes()
+    {
+        SceneManager.UnloadSceneAsync("MenuAjustes");
     }
 
     public void OnButtonCursorEnter()

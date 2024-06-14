@@ -1,10 +1,9 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-
 public class UIFactura : MonoBehaviour
 {
     ManejoCompras manejoCompras;
-    public SistemaMonetario sistemaMonetario;
 
     [SerializeField] Text cantidadLeche;
     [SerializeField] Text cantidadCabras;
@@ -14,7 +13,8 @@ public class UIFactura : MonoBehaviour
     [SerializeField] GameObject henoEspecial;
     [SerializeField] GameObject objCabras;
     [SerializeField] Text dineroTotal;
-    [SerializeField] Text contadorDinero;
+    [SerializeField] Text txtDinero;
+    [SerializeField] Text dineroNuevo;
 
     Color customGreen = new Color(92f / 255f, 167f / 255f, 81f / 255f);
 
@@ -24,14 +24,22 @@ public class UIFactura : MonoBehaviour
     int dineroHeno;
     int dineroHenoEspecial;
     int numCabras;
-    public int dinero;
     public int cabrasNuevas = 0;
     RectTransform objHenoEspecialRect;
     bool dineroSumadoFlag = false;
 
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
-    
+
+    ContadorCabras contadorCabras;
+    ContadorDinero contadorDinero;
+    ContadorLeche contadorLeche;
+
+    AnimacionSumarDinero animacionSumarDinero;
+    Animator animatorDineroNuevo;
+    float numeroOrigen;
+
+
     private void Awake()
     {
         manejoCompras = GetComponent<ManejoCompras>();
@@ -41,34 +49,51 @@ public class UIFactura : MonoBehaviour
 
     private void Start()
     {
-        contadorDinero.text = PlayerPrefs.GetInt("DineroTotal", 0).ToString();
+        contadorLeche = FindObjectOfType<ContadorLeche>();
+        contadorCabras = FindObjectOfType<ContadorCabras>();
+        contadorDinero = FindObjectOfType<ContadorDinero>();
+        animacionSumarDinero = GetComponent<AnimacionSumarDinero>();
+        animatorDineroNuevo = dineroNuevo.GetComponent<Animator>();
+
+        txtDinero.text = contadorDinero.Dinero.ToString();
+        numeroOrigen = contadorDinero.Dinero;
+        ActualizarCantidadLeche();
         ActualizarUI();
     }
 
     public void ActualizarUI()
     {
-        ActualizarCantidadLeche();
         ActualizarCostoHeno();
         ActualizarCabrasCompradas();
         ActualizarHenoEspecial();
         ActualizarTotalFactura();
     }
 
+    IEnumerator SumarAContador(float numeroASumar)
+    {
+        yield return new WaitForSeconds(1f);
+        animacionSumarDinero.Inicio(numeroOrigen, numeroASumar);
+        animatorDineroNuevo.enabled = true;
+    }
+
     private void ActualizarCantidadLeche()
     {
-        int leches = PlayerPrefs.GetInt("LechesGuardadas", 0);
+        int leches = contadorLeche.Contador;
         cantidadLeche.text = "X" + leches.ToString();
+        float dineroASumar = leches * manejoCompras.gananciaLeche;
+        if(dineroASumar > 0) dineroNuevo.text = "+" + dineroASumar.ToString();
+        else dineroNuevo.enabled = false;
 
         if (!dineroSumadoFlag)
         {
-            sistemaMonetario.AgregarDinero(leches * manejoCompras.GANANCIA_LECHE);
-            dinero = PlayerPrefs.GetInt("DineroTotal", 0);
+            contadorDinero.SumarDinero(leches * manejoCompras.gananciaLeche);
+            StartCoroutine(SumarAContador(dineroASumar));
             dineroSumadoFlag = true;
         }
-        
+
         if (leches > 0)
         {
-            dineroLeche = leches * manejoCompras.GANANCIA_LECHE;
+            dineroLeche = leches * manejoCompras.gananciaLeche;
             gananciaLeche.text = "+" + dineroLeche;
             gananciaLeche.color = customGreen;
         }
@@ -78,15 +103,17 @@ public class UIFactura : MonoBehaviour
             gananciaLeche.text = "0";
             gananciaLeche.color = Color.black;
         }
+
+        contadorLeche.Resetear();
     }
 
     private void ActualizarCostoHeno()
     {
-        numCabras = manejoCompras.numCabrasBlancas + manejoCompras.numCabrasNegras;
+        numCabras = contadorCabras.NumCabrasBlancas + contadorCabras.NumCabrasNegras;
 
         if (numCabras > 0)
         {
-            dineroHeno = numCabras * manejoCompras.COSTO_ALIMENTAR_CABRA;
+            dineroHeno = numCabras * manejoCompras.costoAlimentacion;
             costoHeno.text = "-" + dineroHeno;
         }
         else
@@ -98,7 +125,7 @@ public class UIFactura : MonoBehaviour
 
     private void ActualizarCabrasCompradas()
     {
-        dineroCabras = cabrasNuevas * manejoCompras.COSTO_CABRA;
+        dineroCabras = cabrasNuevas * manejoCompras.costoCabra;
 
         if (cabrasNuevas >= 1)
         {
@@ -125,7 +152,7 @@ public class UIFactura : MonoBehaviour
         }
         else
         {
-            dineroHenoEspecial = manejoCompras.COSTO_HENO_ESPECIAL;
+            dineroHenoEspecial = manejoCompras.costoHenoEspecial;
             henoEspecial.SetActive(true);
 
             if (cabrasNuevas > 0)
@@ -140,8 +167,8 @@ public class UIFactura : MonoBehaviour
     }
 
     private void ActualizarTotalFactura()
-    {    
-        sumaDinero = dineroLeche - dineroCabras - dineroHeno - dineroHenoEspecial;
+    {
+        sumaDinero = -dineroCabras - dineroHeno - dineroHenoEspecial;
 
         if (sumaDinero > 0)
         {
@@ -171,4 +198,5 @@ public class UIFactura : MonoBehaviour
         // Cambiar el cursor a normal
         Cursor.SetCursor(cursorNormal, Vector2.zero, CursorMode.Auto);
     }
+
 }

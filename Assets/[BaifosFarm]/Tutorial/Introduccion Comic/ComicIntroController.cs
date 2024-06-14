@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class ComicIntroController : MonoBehaviour
 {
@@ -12,6 +13,15 @@ public class ComicIntroController : MonoBehaviour
 
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
+
+    [SerializeField] Transicion transicion;
+
+    void Awake()
+    {
+        transicion.FadeIn();
+        Application.targetFrameRate = 60;
+    }
+
     private void Start()
     {
         // Desactivar el bot�n de continuar al inicio
@@ -20,17 +30,20 @@ public class ComicIntroController : MonoBehaviour
         // Mostrar el puntero del rat�n al inicio
         //Cursor.visible = true;
 
-        if (PlayerPrefs.GetInt("TutorialCompleto") == 0) 
-        { 
+        if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
+        {
             // Iniciar la secuencia de mostrar im�genes del c�mic
             StartCoroutine(ShowComicSequence());
+        }
+        else
+        {
+            SceneManager.LoadScene("Juego");
         }
     }
 
     // M�todo para mostrar la secuencia de im�genes del c�mic
     private IEnumerator ShowComicSequence()
     {
-        Time.timeScale = 0f; // Pausar el tiempo del juego
         continueButton.gameObject.SetActive(true);
         foreach (Image image in comicImages)
         {
@@ -52,18 +65,9 @@ public class ComicIntroController : MonoBehaviour
     // Método llamado por el botón de continuar
     public void OnContinueButtonClicked()
     {
-        Debug.Log("Botón de continuar pulsado");
-
+        transicion.FadeOut();
         isRunning = false; // Detener la corutina
-
-        // Ocultar todas las imágenes y el botón de continuar
-        foreach (Image image in comicImages)
-        {
-            image.gameObject.SetActive(false);
-        }
-        continueButton.gameObject.SetActive(false);
-
-        Time.timeScale = 1f; // Reanudar el tiempo del juego
+        AudioManager.Instance.ChangeScene("Juego");
     }
 
     public void OnButtonCursorEnter()

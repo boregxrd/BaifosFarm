@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using Unity.VisualScripting;
 
 public class Factura : MonoBehaviour
 {    
@@ -11,10 +12,16 @@ public class Factura : MonoBehaviour
     PopUpsFacturaTutorial popUpsFacturaTutorial;
     ManejoCompras manejoCompras;
     UIFactura uIFactura;
+    ContadorDinero contadorDinero;
+    ContadorCabras contadorCabras;
+    ContadorLeche contadorLeche;
+
+    [SerializeField] Transicion transicion;
 
     private void Awake()
     {
         //cantidadCabrasAtardecer = CantidadCabrasAtardecer.ObtenerInstancia();
+        Application.targetFrameRate = 60;
         popUpsFacturaTutorial = GetComponent<PopUpsFacturaTutorial>();
         manejoCompras = GetComponent<ManejoCompras>();
         uIFactura = GetComponent<UIFactura>();
@@ -22,6 +29,10 @@ public class Factura : MonoBehaviour
 
     private void Start()
     {
+        transicion.FadeIn();
+        contadorLeche = FindObjectOfType<ContadorLeche>();
+        contadorDinero = FindObjectOfType<ContadorDinero>();
+        contadorCabras = FindObjectOfType<ContadorCabras>();
         if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
         {
             
@@ -44,7 +55,7 @@ public class Factura : MonoBehaviour
         {
             OnGameOver?.Invoke();
         }
-        else if (uIFactura.dinero >= 350)
+        else if (contadorDinero.Dinero >= 350)
         {
             OnMoneyVictory?.Invoke();
         }
@@ -52,23 +63,24 @@ public class Factura : MonoBehaviour
 
     private bool IsGameOver()
     {
-        if (manejoCompras.numCabrasBlancas == 0 && uIFactura.dinero < manejoCompras.COSTO_CABRA + manejoCompras.COSTO_ALIMENTAR_CABRA)
+        if (contadorCabras.NumCabrasBlancas == 0 && contadorDinero.Dinero < manejoCompras.costoCabra + manejoCompras.costoAlimentacion)
         {
             return true;
         }
-        else if (manejoCompras.EsGastoMayorQue(uIFactura.dinero))
-        {
-            return true;
-        }
+        // else if (manejoCompras.EsGastoMayorQue(contadorDinero.Dinero))
+        // {
+        //     return true;
+        // }
         return false;
     }
 
     public void Continuar()
     {
+        transicion.FadeOut();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         SceneManager.LoadScene("Juego");
-        PlayerPrefs.SetInt("LechesGuardadas", 0);
+        contadorLeche.Resetear();
         manejoCompras.RestarDinero();
     }
 

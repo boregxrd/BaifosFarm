@@ -10,50 +10,48 @@ public class AccionesAtardecer : MonoBehaviour
     private DeteccionCabrasNegras deteccionCabrasNegras;
     private BarrasHandler barrasHandler;
     private InteraccionesJugador interaccionesJugador;
-    private ControlPrecioLeche controlPrecioLeche;
     private ControlAvisos controlAvisos;
     [SerializeField] PlayableDirector animaticaCamion;
     [SerializeField] CinemachineVirtualCamera camaraJuego;
     //private CantidadCabrasAtardecer cantidadCabrasAtardecer;
+    [SerializeField] private ContadorDias contadorDias;
+    ContadorLeche contadorLeche;
 
+    [SerializeField] Transicion transicion;
 
     private void Awake()
     {
         barrasHandler = gameObject.AddComponent<BarrasHandler>();
         interaccionesJugador = FindObjectOfType<InteraccionesJugador>();
-        controlPrecioLeche = FindObjectOfType<ControlPrecioLeche>();
+        contadorLeche = FindObjectOfType<ContadorLeche>();
         controlAvisos = FindObjectOfType<ControlAvisos>();
         deteccionCabrasNegras = GetComponent<DeteccionCabrasNegras>();
+        contadorDias = FindObjectOfType<ContadorDias>();
     }
 
     public IEnumerator EjecutarAccionesAtardecer()
     {
-        interaccionesJugador.DesabilitarInteraccionesJugador();
         barrasHandler.CongelarBarrasCabras();
+        interaccionesJugador.DesabilitarInteraccionesJugador();
         controlAvisos.EsconderTodosLosAvisos();
         
         yield return StartCoroutine(AnimaticaCamion());
 
-        EjecutarAccionesRestantes();
+        deteccionCabrasNegras.InvocarVictoria();
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        contadorDias.SumarUnDiaAlContador();
     }
 
     private IEnumerator AnimaticaCamion()
     {
+        Debug.Log("camion");
         animaticaCamion.Play();
         camaraJuego.enabled = false;
         while (animaticaCamion.state == PlayState.Playing) {
             yield return null;
         }
 
-    }
-
-    private void EjecutarAccionesRestantes()
-    {
-        controlPrecioLeche.SumarDineroPorBotella();
-        deteccionCabrasNegras.InvocarVictoria();
-        Cursor.visible = true;
-        Cursor.lockState = CursorLockMode.None;
+        transicion.FadeOut();
     }
 }
-
-

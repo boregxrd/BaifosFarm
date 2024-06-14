@@ -23,7 +23,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 1827226128182048838, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
+  m_Motion: {fileID: 1827226128182048838, guid: 9ff0ec1a38946cd48a3bbe77556fa479, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -176,7 +176,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -5059006814000262888, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
+  m_Motion: {fileID: -5059006814000262888, guid: 9ff0ec1a38946cd48a3bbe77556fa479, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -249,7 +249,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.07124677
   m_TransitionOffset: 0
   m_ExitTime: 0.745547
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -312,7 +312,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CaminarSinObjeto
-  m_Speed: 1
+  m_Speed: 1.4
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8254191654646020284}
@@ -327,7 +327,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -998496362607748373, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
+  m_Motion: {fileID: -998496362607748373, guid: 9ff0ec1a38946cd48a3bbe77556fa479, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -380,7 +380,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 6234510843852800090, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
+  m_Motion: {fileID: 6234510843852800090, guid: 9ff0ec1a38946cd48a3bbe77556fa479, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -407,7 +407,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 3060872287085348379, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
+  m_Motion: {fileID: 3060872287085348379, guid: 9ff0ec1a38946cd48a3bbe77556fa479, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -434,7 +434,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -6788666626592393668, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
+  m_Motion: {fileID: -6788666626592393668, guid: 9ff0ec1a38946cd48a3bbe77556fa479, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -525,7 +525,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: CaminarConObjeto
-  m_Speed: 1
+  m_Speed: 1.4
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 8578029331617292987}
@@ -539,7 +539,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 6641085478485924818, guid: 2afca9a75185bcb409d6a2ba1be19df7, type: 3}
+  m_Motion: {fileID: 6641085478485924818, guid: 9ff0ec1a38946cd48a3bbe77556fa479, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

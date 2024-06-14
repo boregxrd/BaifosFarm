@@ -1,13 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class MovimientoAleatorioCabras : MonoBehaviour
 {
     [SerializeField] public float velocidad = 3f;
-
     private Vector3 destino;
     private Vector3 posicionMin;
     private Vector3 posicionMax;
@@ -16,23 +14,33 @@ public class MovimientoAleatorioCabras : MonoBehaviour
     [SerializeField] private float delayMax = 6.0f;
 
     public bool enMovimiento = false;
-
     private NavMeshAgent agente;
+    private Animator animator;
+    [SerializeField] private AudioClip[] footstepSounds; // Array de sonidos de pisadas
+    private AudioSource audioSource; // AudioSource
 
-    Animator animator;
+    private void Awake()
+    {
+        agente = GetComponent<NavMeshAgent>();
+        if (agente == null) Debug.LogError("NavMeshAgent null");
+
+        animator = GetComponentInChildren<Animator>();
+        if (animator == null) Debug.LogError("Animator null");
+
+        audioSource = GetComponentInChildren<AudioSource>();
+        if (audioSource == null) Debug.LogError("AudioSource null");
+    }
 
     IEnumerator Start()
     {
-        animator = GetComponentInChildren<Animator>();
-        agente = GetComponent<NavMeshAgent>();
         animator.SetBool("enMovimiento", true);
         while (true)
         {
-            if (agente.isActiveAndEnabled) // Check if the agent is active and enabled
+            if (agente.isActiveAndEnabled)
             {
                 agente.SetDestination(RandomNavmeshLocation(7f));
                 animator.SetBool("enMovimiento", true);
-                
+
                 float elapsedTime = 0f;
                 while (agente.isActiveAndEnabled && (agente.pathPending || agente.remainingDistance > agente.stoppingDistance))
                 {
@@ -62,18 +70,20 @@ public class MovimientoAleatorioCabras : MonoBehaviour
         }
     }
 
-
-    void nuevaPosicionAleatoria()
+    public void PlayFootstepSound()
     {
-        //Debug.Log("Nueva pos aleatoria");
+        StartCoroutine(PlayFootstepSoundCoroutine());
+    }
 
-        posicionMin = new Vector3(9, 0, 9);
-        posicionMax = new Vector3(9, 0, 9);
+    private IEnumerator PlayFootstepSoundCoroutine()
+    {
+        yield return new WaitForSeconds(0.01f);
 
-        float randomX = Random.Range(posicionMin.x, posicionMax.x);
-        float randomZ = Random.Range(posicionMin.z, posicionMax.z);
-
-        destino = new Vector3(randomX, 0, randomZ);
+        if (footstepSounds.Length > 0 && audioSource != null)
+        {
+            AudioClip sonidoRandom = footstepSounds[Random.Range(0, footstepSounds.Length)];
+            audioSource.PlayOneShot(sonidoRandom);
+        }
     }
 
     public Vector3 RandomNavmeshLocation(float radius)
@@ -92,23 +102,15 @@ public class MovimientoAleatorioCabras : MonoBehaviour
     public void pararCabra(GameObject cabra)
     {
         animator.SetBool("enMovimiento", false);
-
         NavMeshAgent agente = cabra.transform.GetComponent<NavMeshAgent>();
-
         agente.enabled = false;
         enabled = false;
-
-        Debug.Log("parado movimiento");
     }
 
     public void continuarMov(GameObject cabra)
     {
         NavMeshAgent agente = cabra.transform.GetComponent<NavMeshAgent>();
-
         agente.enabled = true;
         enabled = true;
-
-        Debug.Log("movimiento continuado");
     }
-
 }

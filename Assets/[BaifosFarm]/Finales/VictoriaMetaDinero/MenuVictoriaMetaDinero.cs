@@ -1,17 +1,29 @@
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class MenuVictoriaMetaDinero : MenuBase
+public class MenuVictoriaMetaDinero : MonoBehaviour
 {
-    protected override void Start()
+    [SerializeField] private string victoriaSceneName; 
+    private void Start()
     {
-        base.Start();
-        Factura.OnMoneyVictory += ShowMenu;
+        Factura.OnMoneyVictory += LoadVictoriaTresCabrasScene;
     }
 
-    protected override void OnDestroy()
+    private void OnDestroy()
     {
-        base.OnDestroy();
-        Factura.OnMoneyVictory -= ShowMenu;
-        
+        Factura.OnMoneyVictory -= LoadVictoriaTresCabrasScene;
+    }
+
+    private void LoadVictoriaTresCabrasScene() 
+    {
+        if (!string.IsNullOrEmpty(victoriaSceneName))
+        {
+            SceneManager.LoadScene(victoriaSceneName);
+        }
+        else
+        {
+            Debug.LogError("El nombre de la escena de victoria no está asignado.");
+        }
     }
 }
 

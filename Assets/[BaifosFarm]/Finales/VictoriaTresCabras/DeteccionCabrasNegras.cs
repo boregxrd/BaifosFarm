@@ -1,14 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System;
-using UnityEngine.SceneManagement;
 
 public class DeteccionCabrasNegras : MonoBehaviour
 {
     public CabraNegra[] cabrasNegras;
-    private int cabrasNegrasAlFinal = 0;
 
+    private int cabrasNegrasAlFinal = 0;
+    
     public static Action OnThreeBlackGoatsVictory;
 
     public bool CuidasteLasCabrasNegrasAlFinal()
@@ -50,7 +48,7 @@ public class DeteccionCabrasNegras : MonoBehaviour
         else
         {
             DestruirCabrasCadaUna();
-            SceneManager.LoadScene("Factura");
+            AudioManager.Instance.ChangeScene("Factura");
         }
     }
 

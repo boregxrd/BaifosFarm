@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4964768087468278390}
   - component: {fileID: 4731989708964077037}
   - component: {fileID: 4915698326281656022}
-  - component: {fileID: 5444118060452998369}
+  - component: {fileID: 3472048996211211724}
   m_Layer: 5
   m_Name: CanvasDerrota
   m_TagString: Untagged
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &5444118060452998369
+--- !u!114 &3472048996211211724
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,7 +112,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2262152005694047674}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf4bbc81a3ed2ba44ba27271105c441f, type: 3}
+  m_Script: {fileID: 11500000, guid: 75edd6873837b4840a540a1a56739f16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   menuObject: {fileID: 2316791256421888299}
@@ -207,6 +207,7 @@ GameObject:
   - component: {fileID: 2853291918542101046}
   - component: {fileID: 3663790738963875024}
   - component: {fileID: 3155995912477899746}
+  - component: {fileID: 8315211130570903263}
   m_Layer: 5
   m_Name: BotonContinuar
   m_TagString: Untagged
@@ -315,8 +316,20 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5444118060452998369}
-        m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
+      - m_Target: {fileID: 8315211130570903263}
+        m_TargetAssemblyTypeName: SonidoBotones, Assembly-CSharp
+        m_MethodName: ReproducirSonidoBoton
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3472048996211211724}
+        m_TargetAssemblyTypeName: CanvasFinales, Assembly-CSharp
         m_MethodName: ReturnToMenu
         m_Mode: 1
         m_Arguments:
@@ -327,9 +340,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 5444118060452998369}
-        m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
-        m_MethodName: OnButtonCursorExit
+      - m_Target: {fileID: 3472048996211211724}
+        m_TargetAssemblyTypeName: CanvasFinales, Assembly-CSharp
+        m_MethodName: OnButtonCursorEnter
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -356,8 +369,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5444118060452998369}
-          m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
+        - m_Target: {fileID: 3472048996211211724}
+          m_TargetAssemblyTypeName: CanvasFinales, Assembly-CSharp
           m_MethodName: OnButtonCursorEnter
           m_Mode: 1
           m_Arguments:
@@ -372,8 +385,8 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 5444118060452998369}
-          m_TargetAssemblyTypeName: MenuBase, Assembly-CSharp
+        - m_Target: {fileID: 3472048996211211724}
+          m_TargetAssemblyTypeName: CanvasFinales, Assembly-CSharp
           m_MethodName: OnButtonCursorExit
           m_Mode: 1
           m_Arguments:
@@ -384,3 +397,16 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &8315211130570903263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8526631214536803980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf563c338dae1c94090e8ab60fbb561f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sonido: {fileID: 8300000, guid: 2caec11197b40be46bf8aca227a94107, type: 3}

@@ -17,7 +17,7 @@ public class BarrasHandler: MonoBehaviour
         {
             if(barraAlimento!=null)
             {
-                barraAlimento.enabled = false;
+                barraAlimento.Pausar();
             }
         }
 
@@ -25,7 +25,7 @@ public class BarrasHandler: MonoBehaviour
         {
             if (barraLeche != null)
             {
-                barraLeche.enabled = false;
+                barraLeche.Pausar();
             }
         }
     }

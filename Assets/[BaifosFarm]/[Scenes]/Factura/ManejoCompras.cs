@@ -1,93 +1,112 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ManejoCompras : MonoBehaviour 
+public class ManejoCompras : MonoBehaviour
 {
-    public SistemaMonetario sistemaMonetario;
     UIFactura uIFactura;
-    public int numCabrasBlancas;
-    public int numCabrasNegras;
-    public int COSTO_CABRA = 20;
-    public int COSTO_ALIMENTAR_CABRA = 5;
-    public int COSTO_HENO_ESPECIAL = 20;
-    public int GANANCIA_LECHE = 10;
-    public int MAX_CABRAS = 20;
+    ContadorCabras contadorCabras;
+    ContadorDinero contadorDinero;
+
+    public int costoCabra = 20;
+    public int costoAlimentacion = 5;
+    public int costoHenoEspecial = 20;
+    public int gananciaLeche = 10;
+    public int cabrasMaximas = 20;
+    public int precioHenoPorCabra = 5;
+
+    [SerializeField] Button btCabras;
+    [SerializeField] Button btHenoEspecial;
 
     private void Awake()
     {
+        contadorCabras = FindObjectOfType<ContadorCabras>();
+        contadorDinero = FindObjectOfType<ContadorDinero>();
         uIFactura = GetComponent<UIFactura>();
-        numCabrasBlancas = PlayerPrefs.GetInt("cabrasBlancas", 0);
-        numCabrasNegras = PlayerPrefs.GetInt("cabrasNegras", 0);
+    }
+
+    private void Update() {
+        int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado");
+        if(!PuedeComprarCabra(contadorDinero.Dinero)) btCabras.interactable = false;
+        if(!PuedeComprarHenoEspecial(contadorDinero.Dinero, valorHenoMejorado)) btHenoEspecial.interactable = false;
     }
 
     public void ComprarCabra()
     {
-        int dinero = PlayerPrefs.GetInt("DineroTotal", 0);
-        if (PuedeComprarCabra(dinero))
+        if (PuedeComprarCabra(contadorDinero.Dinero))
         {
-            sistemaMonetario.RestarDinero(COSTO_CABRA);
+            contadorDinero.RestarDinero(costoCabra);
             AsignarCabra();
             uIFactura.cabrasNuevas++;
             uIFactura.ActualizarUI();
-        }
-        else
-        {
-            Debug.Log("¡No tienes suficiente dinero para comprar una cabra!");
+
+            if (PuedeComprarCabra(contadorDinero.Dinero) == false) btCabras.interactable = false;
         }
     }
 
     private bool PuedeComprarCabra(int dinero)
     {
-        return dinero >= COSTO_CABRA &&
-               numCabrasBlancas + numCabrasNegras < MAX_CABRAS &&
-               dinero - COSTO_CABRA >= (sistemaMonetario.CalcularGastoHeno() + SistemaMonetario.PRECIO_HENO_POR_CABRA);
+        if (dinero >= costoCabra &&
+               contadorCabras.NumCabrasBlancas + contadorCabras.NumCabrasNegras < cabrasMaximas &&
+               dinero - costoCabra >= (CalcularGastoHeno() + precioHenoPorCabra)) return true;
+        else return false;
     }
 
     private void AsignarCabra()
     {
-        if (numCabrasNegras < 3 && UnityEngine.Random.value <= 0.3f)
+        if (contadorCabras.NumCabrasNegras < 3 && UnityEngine.Random.value <= 0.3f)
         {
-            numCabrasNegras++;
-            PlayerPrefs.SetInt("cabrasNegras", numCabrasNegras);
+            contadorCabras.NuevaCabraNegra();
         }
         else
         {
-            numCabrasBlancas++;
-            PlayerPrefs.SetInt("cabrasBlancas", numCabrasBlancas);
+            contadorCabras.NuevaCabraGris();
         }
     }
 
     public void ComprarHenoEspecial()
     {
         int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado");
-        int dineroTotal = PlayerPrefs.GetInt("DineroTotal", 0);
-        if (PuedeComprarHenoEspecial(dineroTotal, valorHenoMejorado))
+
+        if (PuedeComprarHenoEspecial(contadorDinero.Dinero, valorHenoMejorado))
         {
-            sistemaMonetario.RestarDinero(COSTO_HENO_ESPECIAL);
+            contadorDinero.RestarDinero(costoHenoEspecial);
             PlayerPrefs.SetInt("HenoMejorado", 1);
             uIFactura.ActualizarUI();
-        }
-        else
-        {
-            Debug.Log("¡No tienes suficiente dinero para comprar heno especial, o ya lo has comprado!");
+
+            if (!PuedeComprarHenoEspecial(contadorDinero.Dinero, valorHenoMejorado)) btHenoEspecial.interactable = false;
         }
     }
 
     private bool PuedeComprarHenoEspecial(int dinero, int valorHenoMejorado)
     {
-        return dinero >= COSTO_HENO_ESPECIAL && valorHenoMejorado == 0 && dinero - COSTO_HENO_ESPECIAL >= sistemaMonetario.CalcularGastoHeno();
+        if (dinero >= costoHenoEspecial && valorHenoMejorado == 0 && dinero - costoHenoEspecial >= CalcularGastoHeno()) return true;
+        else return false;
     }
 
     public void RestarDinero()
     {
-        sistemaMonetario.RestarDinero(sistemaMonetario.CalcularGastoHeno());
+        contadorDinero.RestarDinero(CalcularGastoHeno());
     }
 
     public bool EsGastoMayorQue(int dineroEnMano)
     {
-        if (sistemaMonetario.CalcularGastoHeno() > dineroEnMano)
+        if (CalcularGastoHeno() > dineroEnMano)
         {
             return true;
         }
         return false;
+    }
+
+
+    public int CalcularGastoHeno()
+    {
+        if (contadorCabras.NumCabrasBlancas + contadorCabras.NumCabrasNegras == 0)
+        {
+            return 0;
+        }
+        else
+        {
+            return (contadorCabras.NumCabrasBlancas + contadorCabras.NumCabrasNegras) * precioHenoPorCabra;
+        }
     }
 }

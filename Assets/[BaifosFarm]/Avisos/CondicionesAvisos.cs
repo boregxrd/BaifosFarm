@@ -16,9 +16,9 @@ public class CondicionesAvisos : MonoBehaviour
     [SerializeField] private GameObject prefabAvisoMuerte;
     
 
-    private float valorAlertaHambre = 50f;
-    private float valorAlertaMuerte = 30f;
-    private float valorLecheCompleta = 100f;
+    public static float valorAlertaHambre = 50f;
+    public static float valorAlertaMuerte = 30f;
+    public static float valorLecheCompleta = 100f;
 
     private void Awake()
     {

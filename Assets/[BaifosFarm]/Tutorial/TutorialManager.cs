@@ -21,8 +21,11 @@ public class TutorialManager : MonoBehaviour
     public Texture2D cursorMano; // Textura del cursor de mano
     public Texture2D cursorNormal; // Textura del cursor normal
 
+    AudioSource audioSource;
+
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         temporizador = FindObjectOfType<Temporizador>(); // Obtener referencia a ControlTiempo en la escena
     }
 
@@ -30,12 +33,14 @@ public class TutorialManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
         {
+            Debug.Log("Iniciando tutorial");
             ShowNextPopUp();
             CanvasSkipTutorial.SetActive(true);
             botonSkip.interactable = true;
         }
         else if (PlayerPrefs.GetInt("TutorialCompleto") == 1)
         {
+            Debug.Log("Tutorial ya completado");
             CanvasSkipTutorial.SetActive(false);
             botonSkip.interactable = false;
             // Ocultar todos los pop-ups
@@ -55,7 +60,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
         {
-            CheckCompletion();
+            StartCoroutine(CheckCompletion());
         }
     }
 
@@ -79,7 +84,9 @@ public class TutorialManager : MonoBehaviour
 
             // Mostrar el pop-up
             popUps[popUpIndex].SetActive(true);
+            audioSource.Play(); // Reproducir el sonido del pop-up
             Debug.Log($"Mostrando pop-up {popUpIndex + 1}"); // Mensaje de depuración
+
         }
         else
         {
@@ -88,25 +95,22 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    private void CheckCompletion()
+    private IEnumerator CheckCompletion()
     {
-        StartCoroutine(DelayBeforeCheck());
-    }
+        yield return null; // Permitir que la corrutina continúe en el siguiente frame
 
-    private IEnumerator DelayBeforeCheck()
-    {
-        // Esperar 2 segundos
-        yield return new WaitForSeconds(3f);
+        // Debug.Log("Empieza CheckCompletion()");
 
         // Verificar si el tutorial ha sido completado antes de continuar
         if (PlayerPrefs.GetInt("TutorialCompleto") == 1)
         {
-            yield break; // Salir de la corrutina si el tutorial está completado
+            yield break;
         }
 
         switch (popUpIndex)
         {
             case 0: // Movimiento
+                // Debug.Log("Verificando movimiento");
                 if (movimientoPersonaje.HasMoved())
                 {
                     CompleteStep();
@@ -115,6 +119,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 1: // Recoger Heno
+                // Debug.Log("Verificando recoger heno");
                 if (jugador.HenoRecogido)
                 {
                     CompleteStep();
@@ -123,6 +128,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 2: // Alimentar
+                // Debug.Log("Verificando alimentar cabras");
                 if (manejarHeno.alimentacionRealizada)
                 {
                     CompleteStep();
@@ -131,6 +137,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 3: // Recoger Leche
+                // Debug.Log("Verificando ordeñar");
                 if (manejarLeche.ordenyoRealizado)
                 {
                     CompleteStep();
@@ -139,6 +146,7 @@ public class TutorialManager : MonoBehaviour
                 break;
 
             case 4: // Guardar Leche
+                // Debug.Log("Verificando guardar leche");
                 if (dejarLecheEnCaja.lecheGuardada)
                 {
                     CompleteStep();
@@ -153,6 +161,7 @@ public class TutorialManager : MonoBehaviour
 
     private void CompleteStep()
     {
+        Debug.Log($"Paso {popUpIndex} completado");
         // Detener el efecto de partículas actual
         particleEffects[popUpIndex].Stop();
 
@@ -170,12 +179,40 @@ public class TutorialManager : MonoBehaviour
 
         // Mostrar el siguiente pop-up
         ShowNextPopUp();
+
+        if(popUpIndex == popUps.Length - 1) StartCoroutine(OcultarUltimoPopUp());
+    }
+
+    IEnumerator OcultarUltimoPopUp() {
+        yield return new WaitForSeconds(5f);
+        popUps[popUpIndex].SetActive(false);
+        CanvasSkipTutorial.SetActive(false);
     }
 
     public void SkipTutorial()
     {
         PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
         Debug.Log("Tutorial completado");
+
+        StartCoroutine(DesactivarElTutorial());
+    }
+
+    public void OnButtonCursorEnter()
+    {
+        // Cambiar el cursor a mano
+        Cursor.SetCursor(cursorMano, Vector2.zero, CursorMode.Auto);
+    }
+
+    public void OnButtonCursorExit()
+    {
+        // Cambiar el cursor a normal
+        Cursor.SetCursor(cursorNormal, Vector2.zero, CursorMode.Auto);
+    }
+
+    IEnumerator DesactivarElTutorial()
+    {
+        yield return new WaitForSeconds(0.1f);
+
         CanvasSkipTutorial.SetActive(false);
         botonSkip.interactable = false;
         // Ocultar todos los pop-ups
@@ -189,17 +226,5 @@ public class TutorialManager : MonoBehaviour
             particles.Stop(); // Detiene la emisión de partículas
         }
         Debug.Log("Tutorial completado, pop-ups ocultos");
-    }
-
-    public void OnButtonCursorEnter()
-    {
-        // Cambiar el cursor a mano
-        Cursor.SetCursor(cursorMano, Vector2.zero, CursorMode.Auto);
-    }
-
-    public void OnButtonCursorExit()
-    {
-        // Cambiar el cursor a normal
-        Cursor.SetCursor(cursorNormal, Vector2.zero, CursorMode.Auto);
     }
 }

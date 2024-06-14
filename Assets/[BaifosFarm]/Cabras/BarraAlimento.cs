@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,28 +10,49 @@ public class BarraAlimento : MonoBehaviour
     private float valorActual = 100f;
     public float ValorActual { get { return valorActual; } }
 
-    private float velocidadReduccion = 1.6f;
+    private float velocidadReduccion;
+    private float velocidadReduccionInicial = 5f;
     private Image barraAlimento;
 
     private Cabra cabra; // Referencia a la cabra
 
+    ContadorCabras contadorCabras;
+    bool alimentacionParadaFlag = false;
+
     void Start()
     {
+        contadorCabras = FindAnyObjectByType<ContadorCabras>();
         barraAlimento = GetComponent<Image>();
         barraAlimento.fillAmount = valorActual / valorMaximo;
         cabra = GetComponentInParent<Cabra>(); // Obtener la referencia a la cabra
+
+        if (contadorCabras.NumCabrasBlancas > 2 && contadorCabras.NumCabrasBlancas < 5)
+        {
+            velocidadReduccion = velocidadReduccionInicial / contadorCabras.NumCabrasBlancas;
+        }
+        else if (contadorCabras.NumCabrasBlancas >= 5)
+        {
+            velocidadReduccion = velocidadReduccionInicial / 4f;
+        }
+        else
+        {
+            velocidadReduccion = 2;
+        }
     }
 
     void Update()
     {
-        if (valorActual > 0)
+        if (!alimentacionParadaFlag)
         {
-            valorActual -= velocidadReduccion * Time.deltaTime;
-            barraAlimento.fillAmount = valorActual / valorMaximo;
-        }
-        else
-        {
-            valorActual = 0;
+            if (valorActual > 0)
+            {
+                valorActual -= velocidadReduccion * Time.deltaTime;
+                barraAlimento.fillAmount = valorActual / valorMaximo;
+            }
+            else
+            {
+                valorActual = 0;
+            }
         }
     }
 
@@ -49,5 +71,10 @@ public class BarraAlimento : MonoBehaviour
         {
             cabra.MostrarParticulasHeno();
         }
+    }
+
+    public void Pausar()
+    {
+        alimentacionParadaFlag = true;
     }
 }
