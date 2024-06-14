@@ -179,6 +179,14 @@ public class TutorialManager : MonoBehaviour
 
         // Mostrar el siguiente pop-up
         ShowNextPopUp();
+
+        if(popUpIndex == popUps.Length - 1) StartCoroutine(OcultarUltimoPopUp());
+    }
+
+    IEnumerator OcultarUltimoPopUp() {
+        yield return new WaitForSeconds(5f);
+        popUps[popUpIndex].SetActive(false);
+        CanvasSkipTutorial.SetActive(false);
     }
 
     public void SkipTutorial()
