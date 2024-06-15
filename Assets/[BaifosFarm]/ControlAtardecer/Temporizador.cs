@@ -16,7 +16,6 @@ public class Temporizador : MonoBehaviour
     [SerializeField] private Image cuatro;
     [SerializeField] private Image seisTarde;
 
-    [SerializeField] private new GameObject audio;
     AudioSource audioSource;
 
 
@@ -40,7 +39,7 @@ public class Temporizador : MonoBehaviour
     {
         StartCoroutine(ProcesoInicio());
         deteccionCabrasNegras = gameObject.AddComponent<DeteccionCabrasNegras>();
-        audioSource = audio.GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private IEnumerator ProcesoInicio() {
