@@ -179,17 +179,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 702611742340082452, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 3.2600098
+    - target: {fileID: 1618686710576441291, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_SortingLayer
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 810685655540816052, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -6.048218
-      objectReference: {fileID: 0}
-    - target: {fileID: 810685655540816052, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 13.804077
+    - target: {fileID: 1618686710576441291, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_SortingLayerID
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2965598649290572794, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_Pivot.x
@@ -275,13 +271,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasInicio
       objectReference: {fileID: 0}
+    - target: {fileID: 3922447330174899816, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4364963938558819304, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
-      propertyPath: m_ScreenMatchMode
+      propertyPath: m_ReferenceResolution.x
+      value: 800
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364963938558819304, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678798073676118857, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_LocalScale.x
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 4364963938558819304, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
-      propertyPath: m_MatchWidthOrHeight
-      value: 0
+    - target: {fileID: 4678798073676118857, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678798073676118857, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4678798073676118857, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -50.5
       objectReference: {fileID: 0}
     - target: {fileID: 6177179932487929951, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_AnchorMax.y
@@ -355,8 +371,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedComponents:
+    - {fileID: 1618686710576441291, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+    m_RemovedGameObjects:
+    - {fileID: 5272366586866359268, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
@@ -741,6 +759,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 500033746018533998, guid: fec3ddb26470c244b86c5ea34adb674a, type: 3}
+      propertyPath: loadingCanvas
+      value: 
+      objectReference: {fileID: 1649532374953430071, guid: 11cd85ffa4594a947b23a651da1dc88a, type: 3}
     - target: {fileID: 2231552540478422399, guid: fec3ddb26470c244b86c5ea34adb674a, type: 3}
       propertyPath: m_Name
       value: AudioManager

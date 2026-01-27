@@ -5,8 +5,13 @@ using UnityEngine.UI;
 
 public class Transicion : MonoBehaviour
 {
-    [SerializeField] Animator animator;
     [SerializeField] GameObject panel;
+    Animator animator;
+
+    void Awake()
+    {
+        animator = panel.GetComponent<Animator>();
+    }
 
     public void FadeOut() {
         panel.SetActive(true);

@@ -48,3 +48,4 @@ MonoBehaviour:
   audioMixer: {fileID: 24100000, guid: c3f53f72c72ca444a9263de069a00778, type: 2}
   loopStart: 0
   loopEnd: 0
+  loadingCanvas: {fileID: 1649532374953430071, guid: 11cd85ffa4594a947b23a651da1dc88a, type: 3}

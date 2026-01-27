@@ -15,6 +15,8 @@ public class AudioManager : MonoBehaviour
     private Coroutine musicLoopCoroutine;
     public float loopStart;
     public float loopEnd;
+    public GameObject loadingCanvas;
+    private GameObject loadingInstance;
 
     private void Awake()
     {
@@ -22,6 +24,10 @@ public class AudioManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
+
+            loadingInstance = Instantiate(loadingCanvas);
+            DontDestroyOnLoad(loadingInstance);
+            loadingInstance.SetActive(false);
 
             musica = gameObject.AddComponent<AudioSource>();
             musica.playOnAwake = false;
@@ -88,6 +94,22 @@ public class AudioManager : MonoBehaviour
         }
 
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(sceneName);
+
+        asyncLoad.allowSceneActivation = false;
+        loadingInstance.SetActive(true);
+
+        while (asyncLoad.progress < .9f)
+        {
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(2f);
+
+        asyncLoad.allowSceneActivation = true;
+
+        yield return null;
+
+        loadingInstance.SetActive(false);
 
         while (!asyncLoad.isDone)
         {
