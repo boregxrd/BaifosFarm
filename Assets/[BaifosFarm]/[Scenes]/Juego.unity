@@ -3743,12 +3743,20 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8300000, guid: 6334dd643827ad84baaba7b3c3d7eced, type: 3}
     - target: {fileID: 1963645008009052577, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1963645008009052577, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1963645008009052577, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2362205511153037576, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
+      propertyPath: posicionSpawn.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4374602516664229760, guid: b4c9747fecfcac74189a5a11350b2c30, type: 3}
       propertyPath: baifoPos

@@ -23,6 +23,8 @@ public class TutorialManager : MonoBehaviour
 
     AudioSource audioSource;
 
+    public static bool TutorialActivo { get; private set; }
+
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
@@ -33,6 +35,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("TutorialCompleto") == 0)
         {
+            TutorialActivo = true;
             Debug.Log("Iniciando tutorial");
             ShowNextPopUp();
             CanvasSkipTutorial.SetActive(true);
@@ -40,6 +43,8 @@ public class TutorialManager : MonoBehaviour
         }
         else if (PlayerPrefs.GetInt("TutorialCompleto") == 1)
         {
+            TutorialActivo = false;
+            ReactivarHambreCabras();
             Debug.Log("Tutorial ya completado");
             CanvasSkipTutorial.SetActive(false);
             botonSkip.interactable = false;
@@ -91,6 +96,8 @@ public class TutorialManager : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
+            TutorialActivo = false;
+            ReactivarHambreCabras();
             Debug.Log("Tutorial completado");
         }
     }
@@ -180,10 +187,11 @@ public class TutorialManager : MonoBehaviour
         // Mostrar el siguiente pop-up
         ShowNextPopUp();
 
-        if(popUpIndex == popUps.Length - 1) StartCoroutine(OcultarUltimoPopUp());
+        if (popUpIndex == popUps.Length - 1) StartCoroutine(OcultarUltimoPopUp());
     }
 
-    IEnumerator OcultarUltimoPopUp() {
+    IEnumerator OcultarUltimoPopUp()
+    {
         yield return new WaitForSeconds(5f);
         popUps[popUpIndex].SetActive(false);
         CanvasSkipTutorial.SetActive(false);
@@ -192,6 +200,8 @@ public class TutorialManager : MonoBehaviour
     public void SkipTutorial()
     {
         PlayerPrefs.SetInt("TutorialCompleto", 1); // Marcar el tutorial como completado
+        TutorialActivo = false;
+        ReactivarHambreCabras();
         Debug.Log("Tutorial completado");
 
         StartCoroutine(DesactivarElTutorial());
@@ -226,5 +236,16 @@ public class TutorialManager : MonoBehaviour
             particles.Stop(); // Detiene la emisión de partículas
         }
         Debug.Log("Tutorial completado, pop-ups ocultos");
+    }
+
+    private void ReactivarHambreCabras()
+    {
+        BarraAlimento[] barras = FindObjectsOfType<BarraAlimento>();
+
+        foreach (var barra in barras)
+        {
+            Debug.Log("BarraAlimento reanudado por tutorial");
+            barra.Reanudar();
+        }
     }
 }

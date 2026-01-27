@@ -10,6 +10,9 @@ public class BarraAlimento : MonoBehaviour
     private float valorActual = 100f;
     public float ValorActual { get { return valorActual; } }
 
+    [SerializeField, Range(0f, 1f)]
+    private float porcentajeMinimoTutorial = 0.6f; // 60%
+
     private float velocidadReduccion;
     private float velocidadReduccionInicial = 5f;
     private Image barraAlimento;
@@ -42,17 +45,31 @@ public class BarraAlimento : MonoBehaviour
 
     void Update()
     {
-        if (!alimentacionParadaFlag)
+        if (alimentacionParadaFlag)
+            return;
+
+        if (valorActual > 0)
         {
-            if (valorActual > 0)
+            valorActual -= velocidadReduccion * Time.deltaTime;
+
+            // Tutorial protection
+            if (TutorialManager.TutorialActivo)
             {
-                valorActual -= velocidadReduccion * Time.deltaTime;
-                barraAlimento.fillAmount = valorActual / valorMaximo;
+                float minimoTutorial = valorMaximo * porcentajeMinimoTutorial;
+
+                if (valorActual <= minimoTutorial)
+                {
+                    valorActual = minimoTutorial;
+                    Debug.Log("BarraAlimento pausado por tutorial");
+                    Pausar();
+                }
             }
-            else
-            {
-                valorActual = 0;
-            }
+
+            barraAlimento.fillAmount = valorActual / valorMaximo;
+        }
+        else
+        {
+            valorActual = 0;
         }
     }
 
@@ -66,7 +83,7 @@ public class BarraAlimento : MonoBehaviour
         valorActual += incremento;
         barraAlimento.fillAmount = valorActual / valorMaximo;
 
-        // Activar part�culas de heno si se incrementa la alimentaci�n
+        // Activar particulas de heno si se incrementa la alimentacion
         if (incremento > 0)
         {
             cabra.MostrarParticulasHeno();
@@ -76,5 +93,10 @@ public class BarraAlimento : MonoBehaviour
     public void Pausar()
     {
         alimentacionParadaFlag = true;
+    }
+
+    public void Reanudar()
+    {
+        alimentacionParadaFlag = false;
     }
 }
