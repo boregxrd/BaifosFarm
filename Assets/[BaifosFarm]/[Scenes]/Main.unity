@@ -275,6 +275,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CanvasInicio
       objectReference: {fileID: 0}
+    - target: {fileID: 4364963938558819304, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4364963938558819304, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6177179932487929951, guid: 6c03527f5cb72f840b2db96e17da3ec7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
