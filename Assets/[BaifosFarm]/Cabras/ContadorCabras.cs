@@ -7,6 +7,9 @@ public class ContadorCabras : MonoBehaviour
     // Singleton
     private static ContadorCabras instance;
     public static ContadorCabras Instance{ get { return instance; } }
+    
+    public int initNumCabrasBlancas = 2; 
+    public int initNumCabrasNegras = 0; 
 
     private int numCabrasBlancas;
     public int NumCabrasBlancas { get => numCabrasBlancas; }
@@ -18,8 +21,8 @@ public class ContadorCabras : MonoBehaviour
         if(Instance == null) {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            numCabrasBlancas = 2;
-            numCabrasNegras = 0;
+            numCabrasBlancas = initNumCabrasBlancas;
+            numCabrasNegras = initNumCabrasNegras;
         } else {
             DestroyImmediate(gameObject);
         }

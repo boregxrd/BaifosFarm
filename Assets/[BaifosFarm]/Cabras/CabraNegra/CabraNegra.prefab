@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   valorMaximo: 100
-  canvasBarraAlimento: {fileID: 7169530531729945697}
+  porcentajeMinimoTutorial: 0.6
 --- !u!1 &7169530531729945697
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,6 +522,7 @@ MonoBehaviour:
   nuevaLayerMask:
     serializedVersion: 2
     m_Bits: 1
+  canvasBarraAlimento: {fileID: 7169530531729945697}
 --- !u!114 &1839023476782865911
 MonoBehaviour:
   m_ObjectHideFlags: 0
