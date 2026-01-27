@@ -862,6 +862,7 @@ MonoBehaviour:
   precioHenoPorCabra: 5
   btCabras: {fileID: 2063607935}
   btHenoEspecial: {fileID: 1370560587}
+  btContinuar: {fileID: 164475967}
 --- !u!95 &177771686
 Animator:
   serializedVersion: 5

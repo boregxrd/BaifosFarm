@@ -16,6 +16,7 @@ public class ManejoCompras : MonoBehaviour
 
     [SerializeField] Button btCabras;
     [SerializeField] Button btHenoEspecial;
+    [SerializeField] Button btContinuar;
 
     private void Awake()
     {
@@ -24,10 +25,13 @@ public class ManejoCompras : MonoBehaviour
         uIFactura = GetComponent<UIFactura>();
     }
 
-    private void Update() {
+    private void Update()
+    {
         int valorHenoMejorado = PlayerPrefs.GetInt("HenoMejorado");
-        if(!PuedeComprarCabra(contadorDinero.Dinero)) btCabras.interactable = false;
-        if(!PuedeComprarHenoEspecial(contadorDinero.Dinero, valorHenoMejorado)) btHenoEspecial.interactable = false;
+        if (!PuedeComprarCabra(contadorDinero.Dinero)) btCabras.interactable = false;
+        if (!PuedeComprarHenoEspecial(contadorDinero.Dinero, valorHenoMejorado)) btHenoEspecial.interactable = false;
+        if (PuedeComprarCabraPeroNoTiene()) { DesactivarAvance(); }
+        else { ReactivarAvance(); }
     }
 
     public void ComprarCabra()
@@ -108,5 +112,23 @@ public class ManejoCompras : MonoBehaviour
         {
             return (contadorCabras.NumCabrasBlancas + contadorCabras.NumCabrasNegras) * precioHenoPorCabra;
         }
+    }
+
+    private bool PuedeComprarCabraPeroNoTiene()
+    {
+        int dinero = contadorDinero.Dinero;
+        int totalCabras = contadorCabras.NumCabrasBlancas + contadorCabras.NumCabrasNegras;
+
+        return totalCabras == 0 && dinero >= costoCabra;
+    }
+
+    private void DesactivarAvance()
+    {
+        btContinuar.interactable = false;
+    }
+
+    private void ReactivarAvance()
+    {
+        btContinuar.interactable = true;
     }
 }
