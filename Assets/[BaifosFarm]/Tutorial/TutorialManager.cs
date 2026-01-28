@@ -195,6 +195,8 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForSeconds(5f);
         popUps[popUpIndex].SetActive(false);
         CanvasSkipTutorial.SetActive(false);
+        TutorialActivo = false;
+        ReactivarHambreCabras();
     }
 
     public void SkipTutorial()

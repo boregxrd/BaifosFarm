@@ -131,7 +131,7 @@ public class UIFactura : MonoBehaviour
         {
             objCabras.SetActive(true);
             RectTransform objCabrasRect = objCabras.GetComponent<RectTransform>();
-            objCabrasRect.anchoredPosition = new Vector3(-155, -36, 0);
+            objCabrasRect.anchoredPosition = new Vector3(213, -38, 0);
             cantidadCabras.text = "X" + cabrasNuevas.ToString();
             costoCabras.text = "-" + dineroCabras.ToString();
         }
@@ -157,11 +157,11 @@ public class UIFactura : MonoBehaviour
 
             if (cabrasNuevas > 0)
             {
-                objHenoEspecialRect.anchoredPosition = new Vector3(-147, -85, 226);
+                objHenoEspecialRect.anchoredPosition = new Vector3(234, -87, 0);
             }
             else
             {
-                objHenoEspecialRect.anchoredPosition = new Vector3(-155, -36, 0);
+                objHenoEspecialRect.anchoredPosition = new Vector3(223, -31, 0);
             }
         }
     }
